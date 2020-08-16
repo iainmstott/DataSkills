@@ -1,5 +1,6 @@
-book_filename: "bookdown-demo"
+book_filename: "DSftLS_book"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Part "
 delete_merged_file: true
+output_dir: "docs"
