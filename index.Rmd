@@ -4,6 +4,7 @@ author: "Yihui Xie"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+theme: cosmo
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
