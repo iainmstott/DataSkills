@@ -438,11 +438,11 @@ behaviour is sometimes unpredictable so be careful!</p>
 <p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
 <span id="cb28-2"><a href="r-basics.html#cb28-2"></a>num</span></code></pre></div>
-<pre><code>##  [1] 0.14783111 0.04391851 0.05032148 0.06818911 0.75517594 0.13382973
-##  [7] 0.66211245 0.63042906 0.60861224 0.02231926 0.86026889 0.33594330
-## [13] 0.30006846 0.53405720 0.39196256 0.69032508 0.27084675 0.61129153
-## [19] 0.48691005 0.36352503 0.93283653 0.33023823 0.66630099 0.33009026
-## [25] 0.94121594</code></pre>
+<pre><code>##  [1] 0.986756568 0.118325839 0.474284355 0.187646083 0.202940050 0.115035634
+##  [7] 0.190393350 0.046613479 0.176433083 0.553403386 0.238613395 0.714843684
+## [13] 0.009670781 0.942018615 0.331674106 0.377775813 0.898381485 0.603285422
+## [19] 0.973374727 0.201896050 0.579384237 0.693192272 0.196086812 0.736640012
+## [25] 0.081168174</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
 <span id="cb30-2"><a href="r-basics.html#cb30-2"></a>char</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
@@ -456,24 +456,25 @@ contains the alphabet.<br />
 <p>It’s important to understand how different vectors ‘work’, but most of this
 experience comes with time. Here’s an example:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
-<pre><code>##  [1] 1.4783111 0.4391851 0.5032148 0.6818911 7.5517594 1.3382973 6.6211245
-##  [8] 6.3042906 6.0861224 0.2231926 8.6026889 3.3594330 3.0006846 5.3405720
-## [15] 3.9196256 6.9032508 2.7084675 6.1129153 4.8691005 3.6352503 9.3283653
-## [22] 3.3023823 6.6630099 3.3009026 9.4121594</code></pre>
+<pre><code>##  [1] 9.86756568 1.18325839 4.74284355 1.87646083 2.02940050 1.15035634
+##  [7] 1.90393350 0.46613479 1.76433083 5.53403386 2.38613395 7.14843684
+## [13] 0.09670781 9.42018615 3.31674106 3.77775813 8.98381485 6.03285422
+## [19] 9.73374727 2.01896050 5.79384237 6.93192272 1.96086812 7.36640012
+## [25] 0.81168174</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##  [1]  -0.8521689  -1.9560815  -2.9496785  -3.9318109  -4.2448241  -5.8661703
-##  [7]  -6.3378875  -7.3695709  -8.3913878  -9.9776807 -10.1397311 -11.6640567
-## [13] -12.6999315 -13.4659428 -14.6080374 -15.3096749 -16.7291533 -17.3887085
-## [19] -18.5130900 -19.6364750 -20.0671635 -21.6697618 -22.3336990 -23.6699097
-## [25] -24.0587841</code></pre>
+<pre><code>##  [1]  -0.01324343  -1.88167416  -2.52571564  -3.81235392  -4.79705995
+##  [6]  -5.88496437  -6.80960665  -7.95338652  -8.82356692  -9.44659661
+## [11] -10.76138661 -11.28515632 -12.99032922 -13.05798138 -14.66832589
+## [16] -15.62222419 -16.10161852 -17.39671458 -18.02662527 -19.79810395
+## [21] -20.42061576 -21.30680773 -22.80391319 -23.26335999 -24.91883183</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
 <pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
 ## object length</code></pre>
-<pre><code>##  [1]  1.4783111 -0.4391851  0.5032148 -0.6818911  7.5517594 -1.3382973
-##  [7]  6.6211245 -6.3042906  6.0861224 -0.2231926  8.6026889 -3.3594330
-## [13]  3.0006846 -5.3405720  3.9196256 -6.9032508  2.7084675 -6.1129153
-## [19]  4.8691005 -3.6352503  9.3283653 -3.3023823  6.6630099 -3.3009026
-## [25]  9.4121594</code></pre>
+<pre><code>##  [1]  9.86756568 -1.18325839  4.74284355 -1.87646083  2.02940050 -1.15035634
+##  [7]  1.90393350 -0.46613479  1.76433083 -5.53403386  2.38613395 -7.14843684
+## [13]  0.09670781 -9.42018615  3.31674106 -3.77775813  8.98381485 -6.03285422
+## [19]  9.73374727 -2.01896050  5.79384237 -6.93192272  1.96086812 -7.36640012
+## [25]  0.81168174</code></pre>
 <p><br />
 </p>
 <p><em>Question: what’s happened for each of those lines of code? What does the Warning
@@ -508,9 +509,9 @@ really. They basically indicate whether something is <code>TRUE</code> or <code>
 usually relate to a question we ask of our data:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb42-2"><a href="r-basics.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
-## [13] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE
-## [25]  TRUE</code></pre>
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE
+## [13] FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE
+## [25] FALSE</code></pre>
 <p><br />
 </p>
 <p>The result is information on which of your random data are higher than 0.5.<br />
