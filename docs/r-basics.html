@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Part 2 R BASICS | A Minimal Book Example</title>
+  <title>2 R BASICS | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Part 2 R BASICS | A Minimal Book Example" />
+  <meta property="og:title" content="2 R BASICS | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Part 2 R BASICS | A Minimal Book Example" />
+  <meta name="twitter:title" content="2 R BASICS | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="r-basics" class="section level1">
-<h1><span class="header-section-number">Part 2</span> R BASICS</h1>
+<h1><span class="header-section-number">2</span> R BASICS</h1>
 <p>Create a .R file in the folder you wish to use as your working directory. Type
 in the commands* in this worksheet and check your outputs against the outputs
 below. This worksheet contains <em>Questions</em> and <em>Tasks</em> in <em>italics</em>: note
@@ -438,11 +438,11 @@ behaviour is sometimes unpredictable so be careful!</p>
 <p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
 <span id="cb28-2"><a href="r-basics.html#cb28-2"></a>num</span></code></pre></div>
-<pre><code>##  [1] 0.35786178 0.92329480 0.83872322 0.46536702 0.18508464 0.74173550
-##  [7] 0.74510225 0.42587301 0.03456826 0.28526793 0.52656453 0.54268415
-## [13] 0.62325910 0.71300384 0.41627191 0.87969159 0.28496875 0.14487283
-## [19] 0.51032579 0.34365211 0.30823906 0.70039480 0.43131296 0.12545268
-## [25] 0.72574833</code></pre>
+<pre><code>##  [1] 0.666385460 0.750079513 0.816030944 0.942662307 0.900756669 0.118647617
+##  [7] 0.750598834 0.413827460 0.789819109 0.432293958 0.262145096 0.303070942
+## [13] 0.175323602 0.475428509 0.660650936 0.450160021 0.697648395 0.292233701
+## [19] 0.761295688 0.804791049 0.098740166 0.027949612 0.162633783 0.002578994
+## [25] 0.766271172</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
 <span id="cb30-2"><a href="r-basics.html#cb30-2"></a>char</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
@@ -456,24 +456,25 @@ contains the alphabet.<br />
 <p>It’s important to understand how different vectors ‘work’, but most of this
 experience comes with time. Here’s an example:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
-<pre><code>##  [1] 3.5786178 9.2329480 8.3872322 4.6536702 1.8508464 7.4173550 7.4510225
-##  [8] 4.2587301 0.3456826 2.8526793 5.2656453 5.4268415 6.2325910 7.1300384
-## [15] 4.1627191 8.7969159 2.8496875 1.4487283 5.1032579 3.4365211 3.0823906
-## [22] 7.0039480 4.3131296 1.2545268 7.2574833</code></pre>
+<pre><code>##  [1] 6.66385460 7.50079513 8.16030944 9.42662307 9.00756669 1.18647617
+##  [7] 7.50598834 4.13827460 7.89819109 4.32293958 2.62145096 3.03070942
+## [13] 1.75323602 4.75428509 6.60650936 4.50160021 6.97648395 2.92233701
+## [19] 7.61295688 8.04791049 0.98740166 0.27949612 1.62633783 0.02578994
+## [25] 7.66271172</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##  [1]  -0.6421382  -1.0767052  -2.1612768  -3.5346330  -4.8149154  -5.2582645
-##  [7]  -6.2548978  -7.5741270  -8.9654317  -9.7147321 -10.4734355 -11.4573159
-## [13] -12.3767409 -13.2869962 -14.5837281 -15.1203084 -16.7150313 -17.8551272
-## [19] -18.4896742 -19.6563479 -20.6917609 -21.2996052 -22.5686870 -23.8745473
-## [25] -24.2742517</code></pre>
+<pre><code>##  [1]  -0.3336145  -1.2499205  -2.1839691  -3.0573377  -4.0992433  -5.8813524
+##  [7]  -6.2494012  -7.5861725  -8.2101809  -9.5677060 -10.7378549 -11.6969291
+## [13] -12.8246764 -13.5245715 -14.3393491 -15.5498400 -16.3023516 -17.7077663
+## [19] -18.2387043 -19.1952090 -20.9012598 -21.9720504 -22.8373662 -23.9974210
+## [25] -24.2337288</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
 <pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
 ## object length</code></pre>
-<pre><code>##  [1]  3.5786178 -9.2329480  8.3872322 -4.6536702  1.8508464 -7.4173550
-##  [7]  7.4510225 -4.2587301  0.3456826 -2.8526793  5.2656453 -5.4268415
-## [13]  6.2325910 -7.1300384  4.1627191 -8.7969159  2.8496875 -1.4487283
-## [19]  5.1032579 -3.4365211  3.0823906 -7.0039480  4.3131296 -1.2545268
-## [25]  7.2574833</code></pre>
+<pre><code>##  [1]  6.66385460 -7.50079513  8.16030944 -9.42662307  9.00756669 -1.18647617
+##  [7]  7.50598834 -4.13827460  7.89819109 -4.32293958  2.62145096 -3.03070942
+## [13]  1.75323602 -4.75428509  6.60650936 -4.50160021  6.97648395 -2.92233701
+## [19]  7.61295688 -8.04791049  0.98740166 -0.27949612  1.62633783 -0.02578994
+## [25]  7.66271172</code></pre>
 <p><br />
 </p>
 <p><em>Question: what’s happened for each of those lines of code? What does the Warning
@@ -508,8 +509,8 @@ really. They basically indicate whether something is <code>TRUE</code> or <code>
 usually relate to a question we ask of our data:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb42-2"><a href="r-basics.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE
-## [13]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE
+## [13] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
 ## [25]  TRUE</code></pre>
 <p><br />
 </p>

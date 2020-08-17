@@ -1,6 +1,7 @@
 book_filename: "DSftLS_book"
 language:
   ui:
-    chapter_name: "Part "
+    chapter_name: ""
 delete_merged_file: true
 output_dir: "docs"
+
