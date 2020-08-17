@@ -1,5 +1,8 @@
 
 <!-- spiel -->
+# SINGLE VARIABLE PLOTS
+
+
 For this worksheet, it may be useful to continue your "Data Handling" .R file,
 as we will be using some of the data subsetting techniques that we learned 
 last week. As you complete this worksheet, copy the code that the ShinyGLiM 
@@ -114,7 +117,7 @@ which previously were tricky in R. We'll be learning:
 
 ***
 ***
-# PART 1
+## PART 1
 
  \
 
@@ -282,7 +285,7 @@ Getting Started with R book)._
 ***
 ***
 
-# PART 2
+## PART 2
 
 In this part, we'll start looking at real data sets. There are several
 to choose from, each with a suggested hypothesis, and you can find them in the 

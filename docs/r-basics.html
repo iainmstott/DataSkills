@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 2 R BASICS | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 2 R BASICS | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 2 R BASICS | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-08-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="single-variable-plots.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Before we start…</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessments"><i class="fa fa-check"></i><b>1.2</b> Assessments</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#installing-r-packages"><i class="fa fa-check"></i><b>1.4</b> Installing R packages</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#iains-notes"><i class="fa fa-check"></i><b>1.5</b> iain’s notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R BASICS</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>2.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#r-basics-1"><i class="fa fa-check"></i><b>2.2</b> R BASICS</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#objects"><i class="fa fa-check"></i><b>2.3</b> OBJECTS</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#classes"><i class="fa fa-check"></i><b>2.4</b> CLASSES</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#class-types"><i class="fa fa-check"></i><b>2.5</b> CLASS TYPES</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="r-basics.html"><a href="r-basics.html#numeric-and-character"><i class="fa fa-check"></i><b>2.5.1</b> numeric and character</a></li>
+<li class="chapter" data-level="2.5.2" data-path="r-basics.html"><a href="r-basics.html#factor"><i class="fa fa-check"></i><b>2.5.2</b> factor</a></li>
+<li class="chapter" data-level="2.5.3" data-path="r-basics.html"><a href="r-basics.html#logical"><i class="fa fa-check"></i><b>2.5.3</b> logical</a></li>
+<li class="chapter" data-level="2.5.4" data-path="r-basics.html"><a href="r-basics.html#data.frame"><i class="fa fa-check"></i><b>2.5.4</b> data.frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r-basics.html"><a href="r-basics.html#final-tips"><i class="fa fa-check"></i><b>2.6</b> FINAL TIPS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="single-variable-plots.html"><a href="single-variable-plots.html"><i class="fa fa-check"></i><b>3</b> SINGLE VARIABLE PLOTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>3.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="3.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>3.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="3.3" data-path="single-variable-plots.html"><a href="single-variable-plots.html#plotting-single-variables"><i class="fa fa-check"></i><b>3.3</b> PLOTTING SINGLE VARIABLES</a></li>
+<li class="chapter" data-level="3.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>3.4</b> PART 1</a></li>
+<li class="chapter" data-level="3.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>3.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="3.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>3.6</b> SUBSETTING DATA</a></li>
+<li class="chapter" data-level="3.7" data-path="single-variable-plots.html"><a href="single-variable-plots.html#data-visualisation-one-variable"><i class="fa fa-check"></i><b>3.7</b> DATA VISUALISATION (ONE VARIABLE)</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="single-variable-plots.html"><a href="single-variable-plots.html#forward-fold"><i class="fa fa-check"></i><b>3.7.1</b> FORWARD FOLD</a></li>
+<li class="chapter" data-level="3.7.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#ruler-reaction"><i class="fa fa-check"></i><b>3.7.2</b> RULER REACTION</a></li>
+<li class="chapter" data-level="3.7.3" data-path="single-variable-plots.html"><a href="single-variable-plots.html#paper-balls"><i class="fa fa-check"></i><b>3.7.3</b> PAPER BALLS</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>3.8</b> PART 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html"><i class="fa fa-check"></i><b>4</b> DATA HANDLING AND MANAGEMENT</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>4.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="4.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>4.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="4.3" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#data-handling"><i class="fa fa-check"></i><b>4.3</b> DATA HANDLING</a></li>
+<li class="chapter" data-level="4.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>4.4</b> PART 1</a></li>
+<li class="chapter" data-level="4.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>4.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="4.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>4.6</b> SUBSETTING DATA</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#slice"><i class="fa fa-check"></i><b>4.6.1</b> <code>slice()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#select"><i class="fa fa-check"></i><b>4.6.2</b> <code>select()</code></a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#filter"><i class="fa fa-check"></i><b>4.6.3</b> <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#adding-variables"><i class="fa fa-check"></i><b>4.7</b> ADDING VARIABLES</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#mutate"><i class="fa fa-check"></i><b>4.7.1</b> <code>mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>4.8</b> PART 2</a></li>
+<li class="chapter" data-level="4.9" data-path="r-basics.html"><a href="r-basics.html#final-tips"><i class="fa fa-check"></i><b>4.9</b> FINAL TIPS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="two-variable-plots.html"><a href="two-variable-plots.html"><i class="fa fa-check"></i><b>5</b> TWO-VARIABLE PLOTS</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>5.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="5.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>5.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="5.3" data-path="two-variable-plots.html"><a href="two-variable-plots.html#plotting-multiple-variables"><i class="fa fa-check"></i><b>5.3</b> PLOTTING MULTIPLE VARIABLES</a></li>
+<li class="chapter" data-level="5.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>5.4</b> PART 1</a></li>
+<li class="chapter" data-level="5.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>5.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="5.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>5.6</b> SUBSETTING DATA</a></li>
+<li class="chapter" data-level="5.7" data-path="two-variable-plots.html"><a href="two-variable-plots.html#data-visualisation-two-variables"><i class="fa fa-check"></i><b>5.7</b> DATA VISUALISATION (TWO VARIABLES)</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="two-variable-plots.html"><a href="two-variable-plots.html#scatter-points-plots"><i class="fa fa-check"></i><b>5.7.1</b> SCATTER (POINTS) PLOTS</a></li>
+<li class="chapter" data-level="5.7.2" data-path="two-variable-plots.html"><a href="two-variable-plots.html#box-plots"><i class="fa fa-check"></i><b>5.7.2</b> BOX PLOTS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="two-variable-plots.html"><a href="two-variable-plots.html#violin-plots"><i class="fa fa-check"></i><b>5.7.3</b> VIOLIN PLOTS</a></li>
+<li class="chapter" data-level="5.7.4" data-path="two-variable-plots.html"><a href="two-variable-plots.html#bar-plots"><i class="fa fa-check"></i><b>5.7.4</b> BAR PLOTS</a></li>
+<li class="chapter" data-level="5.7.5" data-path="two-variable-plots.html"><a href="two-variable-plots.html#experimental-design-nonindependence-and-bias"><i class="fa fa-check"></i><b>5.7.5</b> EXPERIMENTAL DESIGN, NONINDEPENDENCE AND BIAS</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>5.8</b> PART 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-basics" class="section level1">
+<h1><span class="header-section-number">Part 2</span> R BASICS</h1>
+<p>Create a .R file in the folder you wish to use as your working directory. Type
+in the commands* in this worksheet and check your outputs against the outputs
+below. This worksheet contains <em>Questions</em> and <em>Tasks</em> in <em>italics</em>: note
+down the answers you get, and we’ll go through them at the end of the session.</p>
+<p>*typing really is better than copy-pasting, as it helps the R language stick in your
+brain better. It’s a better approach to learning programming. But then every time I teach R,
+someone copy-pastes… so I guess some of you will too.</p>
+<hr />
+<div id="resources" class="section level2">
+<h2><span class="header-section-number">2.1</span> RESOURCES</h2>
+<p>Books:</p>
+<ul>
+<li>Beckerman, Childs &amp; Petchey (2017) <em>Getting started with R, an
+introduction for Biologists</em>, 2nd ed. pp 1 - 34, Chapter 1, “Getting and
+getting acquainted with R”.
+ </li>
+</ul>
+<p>Cheatsheets:</p>
+<ul>
+<li>RStudio IDE cheatsheet by RStudio - see Resources section on blackboard or
+download <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">here</a></li>
+<li>Week 1: base-R cheatsheet by RStudio - see Resources section on blackboard or
+download <a href="http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf">here</a>
+ </li>
+</ul>
+<p>Web links:</p>
+<ul>
+<li><a href="https://education.rstudio.com/learn/beginner">R for beginners</a> by RStudio<br />
+ </li>
+</ul>
+<hr />
+</div>
+<div id="r-basics-1" class="section level2">
+<h2><span class="header-section-number">2.2</span> R BASICS</h2>
+<p>With this worksheet, we’ll go through some basics of working with R. This will
+include learning components of R code:</p>
+<ul>
+<li>objects
+<ul>
+<li>assignment to objects</li>
+<li>object classes</li>
+</ul></li>
+<li>functions
+<ul>
+<li>function arguments</li>
+</ul></li>
+<li>outputs</li>
+<li>comments<br />
+</li>
+</ul>
+<p>R is used for <em>Object-Oriented Programming (OOP)</em>, which means that in R, you
+create <strong>objects</strong> (packets of data which is saved in the computer’s RAM), which
+can be recalled and used throughout that R session, until they are either
+overwritten or removed. These objects have different <strong>classes</strong>, which define
+what the object is. R will work with objects differently, depending on their
+class: for example, it is possible to calculate the mean of a vector of numbers,
+but not of a vector of words!<br />
+<br />
+</p>
+<p>Think of this like… Minecraft. You create <em>bricks</em> (our <em>objects</em>)
+of different <em>types</em> (our <em>classes</em>) to build a world within your session. You
+can do certain things with some types of brick, but not others. At the
+end of an R session, like in Minecraft, you can delete your world, or you can
+save your session.<br />
+<br />
+</p>
+<p>First of all, create a new .R file in the folder of your choice. You’ll type
+code from this exercise into that file, with comments, and save it so that
+you can use it again in the future, and re-create exactly the same results.
+This is important for scientific TRANSPARENCY and REPRODUCIBILITY: this
+way, others can clearly understand what you’ve done with your data, and
+they can re-create the same results that you have.<br />
+<br />
+</p>
+<hr />
+</div>
+<div id="objects" class="section level2">
+<h2><span class="header-section-number">2.3</span> OBJECTS</h2>
+<p>This section covers how to create objects, what classes mean, what functions
+are and how they work.<br />
+<br />
+</p>
+<p>Objects are created using <strong>functions</strong>. functions take the form
+<code>function(argument1, argument2, ...)</code>. Each function takes unique arguments,
+and a different object is created depending on what these arguments are.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-basics.html#cb1-1"></a>numbers &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="r-basics.html#cb1-2"></a>numbers</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p><br />
+</p>
+<p>The object <code>numbers</code> is a <strong>numeric vector</strong>: this means a sequence of
+numbers. You can see that the class of <code>numbers</code> is numeric:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1"></a><span class="kw">class</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p><br />
+</p>
+<p>We can do certain things with this vector. For example, we might want to see a
+summary about it, find out what its length is, or calculate the mean:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a><span class="kw">summary</span>(numbers)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.50    5.50    7.75   10.00</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a><span class="kw">length</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1"></a><span class="kw">mean</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<p><br />
+</p>
+<p>We can change or add arguments to make a function behave differently. For example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1"></a><span class="kw">summary</span>(numbers, <span class="dt">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       1       3       6       6       8      10</code></pre>
+<p><br />
+<em>Question: How has this changed the output?</em><br />
+<br />
+</p>
+<p>Going back to the original creation of the <code>numbers</code> object, we can change the
+arguments to create a different object.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-basics.html#cb13-1"></a>numbers2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="r-basics.html#cb13-2"></a>numbers2</span></code></pre></div>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+<p><br />
+</p>
+<p><em>Question: What do the three arguments of the <code>seq</code> function mean?</em><br />
+<br />
+</p>
+<p>Maybe now we want to use <code>numbers1</code> instead of <code>numbers</code>. We can create <code>numbers1</code>
+which has the same value as <code>numbers</code>, and remove <code>numbers</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-basics.html#cb15-1"></a>numbers1 &lt;-<span class="st"> </span>numbers</span>
+<span id="cb15-2"><a href="r-basics.html#cb15-2"></a><span class="kw">rm</span>(numbers)</span></code></pre></div>
+<p><br />
+</p>
+<p>As you can see, we can create an object from another object. In fact, you can
+create object using multiple other objects, and objects can be created in
+different ways.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-basics.html#cb16-1"></a>numbers1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>  <span class="co"># this gives the same values as seq(1, 10, 1)</span></span>
+<span id="cb16-2"><a href="r-basics.html#cb16-2"></a>numbers2 &lt;-<span class="st"> </span>numbers1 <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<p><br />
+</p>
+<p>We use the <code>#</code> (hash) symbol to create a comment: nothing after it will be run
+as code. It’s good practise to comment your code as you go, so when you
+go back to it later, it makes sense to you. Trust me, you make life so much
+easier for your future self if you comment well!<br />
+<br />
+</p>
+<p><em>Task: create an object called <code>numbers3</code> which is the three-times-table up to
+30.</em><br />
+<br />
+</p>
+<hr />
+</div>
+<div id="classes" class="section level2">
+<h2><span class="header-section-number">2.4</span> CLASSES</h2>
+<p>We’ll create a new object which looks kinda like our original object, but is
+not actually the same.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-basics.html#cb17-1"></a>characters1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>, <span class="st">&quot;10&quot;</span>)</span>
+<span id="cb17-2"><a href="r-basics.html#cb17-2"></a>characters1</span></code></pre></div>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
+<p><br />
+</p>
+<p>The <code>c</code> function is really important. It means concatenate, and basically
+glues together the arguments you give it. The <code>characters1</code> object
+looks similar to the <code>numbers1</code> object, but it’s not. Note the quote marks
+around each vector element.<br />
+<br />
+</p>
+<p><em>Question: find out the class of <code>characters1</code>.</em><br />
+<br />
+</p>
+<p>What happens if we try to do the same things with this vector?</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1"></a><span class="kw">summary</span>(characters1)</span></code></pre></div>
+<pre><code>##    Length     Class      Mode 
+##        10 character character</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1"></a><span class="kw">length</span>(characters1)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1"></a><span class="kw">mean</span>(characters1)</span></code></pre></div>
+<pre><code>## Warning in mean.default(characters1): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p><br />
+</p>
+<p>One of these functions went kinda wrong. As far as R is concerned, the
+elements of <code>characters1</code> are words, and it can’t calculate the mean of some
+words. It returns <code>NA</code>, meaning Not Applicable: R code for something which
+doesn’t exist or is missing. The Warning message makes sure you’re aware that
+something went wrong. R can also return an Error message, which tells you that
+the function has failed. Pay attention to these messages: usually if you get
+an Error or a Warning, much of your subsequent code will fail as it depends
+on things going right.<br />
+<br />
+</p>
+<p>It’s possible to convert things between different classes, although the
+behaviour is sometimes unpredictable so be careful!</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-basics.html#cb26-1"></a>characters2 &lt;-<span class="st"> </span><span class="kw">as.character</span>(numbers2)</span>
+<span id="cb26-2"><a href="r-basics.html#cb26-2"></a>characters2</span></code></pre></div>
+<pre><code>##  [1] &quot;2&quot;  &quot;4&quot;  &quot;6&quot;  &quot;8&quot;  &quot;10&quot; &quot;12&quot; &quot;14&quot; &quot;16&quot; &quot;18&quot; &quot;20&quot;</code></pre>
+<p><br />
+</p>
+<hr />
+</div>
+<div id="class-types" class="section level2">
+<h2><span class="header-section-number">2.5</span> CLASS TYPES</h2>
+<p>There are 5 different class types that it’s important to know at this point.</p>
+<ul>
+<li><strong>numeric</strong></li>
+<li><strong>character</strong></li>
+<li><strong>factor</strong></li>
+<li><strong>logical</strong></li>
+<li><strong>data.frame</strong></li>
+</ul>
+<div id="numeric-and-character" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> numeric and character</h3>
+<p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
+<span id="cb28-2"><a href="r-basics.html#cb28-2"></a>num</span></code></pre></div>
+<pre><code>##  [1] 0.35786178 0.92329480 0.83872322 0.46536702 0.18508464 0.74173550
+##  [7] 0.74510225 0.42587301 0.03456826 0.28526793 0.52656453 0.54268415
+## [13] 0.62325910 0.71300384 0.41627191 0.87969159 0.28496875 0.14487283
+## [19] 0.51032579 0.34365211 0.30823906 0.70039480 0.43131296 0.12545268
+## [25] 0.72574833</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
+<span id="cb30-2"><a href="r-basics.html#cb30-2"></a>char</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot;</code></pre>
+<p><br />
+</p>
+<p>There are a few new things here. The <code>runif</code> function generates random numbers
+between 0 and 1. The <code>LETTERS</code> object exists already when you load R, and
+contains the alphabet.<br />
+</p>
+<p>It’s important to understand how different vectors ‘work’, but most of this
+experience comes with time. Here’s an example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1] 3.5786178 9.2329480 8.3872322 4.6536702 1.8508464 7.4173550 7.4510225
+##  [8] 4.2587301 0.3456826 2.8526793 5.2656453 5.4268415 6.2325910 7.1300384
+## [15] 4.1627191 8.7969159 2.8496875 1.4487283 5.1032579 3.4365211 3.0823906
+## [22] 7.0039480 4.3131296 1.2545268 7.2574833</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##  [1]  -0.6421382  -1.0767052  -2.1612768  -3.5346330  -4.8149154  -5.2582645
+##  [7]  -6.2548978  -7.5741270  -8.9654317  -9.7147321 -10.4734355 -11.4573159
+## [13] -12.3767409 -13.2869962 -14.5837281 -15.1203084 -16.7150313 -17.8551272
+## [19] -18.4896742 -19.6563479 -20.6917609 -21.2996052 -22.5686870 -23.8745473
+## [25] -24.2742517</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
+<pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>##  [1]  3.5786178 -9.2329480  8.3872322 -4.6536702  1.8508464 -7.4173550
+##  [7]  7.4510225 -4.2587301  0.3456826 -2.8526793  5.2656453 -5.4268415
+## [13]  6.2325910 -7.1300384  4.1627191 -8.7969159  2.8496875 -1.4487283
+## [19]  5.1032579 -3.4365211  3.0823906 -7.0039480  4.3131296 -1.2545268
+## [25]  7.2574833</code></pre>
+<p><br />
+</p>
+<p><em>Question: what’s happened for each of those lines of code? What does the Warning
+message mean after running the final line?</em><br />
+ </p>
+</div>
+<div id="factor" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> factor</h3>
+<p>A <strong>factor</strong> object is like a character object, but recognises groups of elements
+which are the same, called <em>levels</em>. Let’s take a look:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-basics.html#cb39-1"></a>fac &lt;-<span class="st"> </span><span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">5</span>)</span>
+<span id="cb39-2"><a href="r-basics.html#cb39-2"></a>fac &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fac)</span></code></pre></div>
+<p><br />
+</p>
+<p>We use the square brackets to choose which letters we
+want: we choose A, B, C, D and E. The <code>rep</code> function means repeat, so we
+repeat A to E five times, to give a vector that has a length of 25.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-basics.html#cb40-1"></a><span class="kw">summary</span>(fac)</span></code></pre></div>
+<pre><code>## A B C D E 
+## 5 5 5 5 5</code></pre>
+<p><br />
+</p>
+<p>We can see from the summary that R recognises the five different factor levels,
+A through E.<br />
+<br />
+</p>
+</div>
+<div id="logical" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> logical</h3>
+<p>Logical objects are perhaps hard to understand at first, but they’re simple
+really. They basically indicate whether something is <code>TRUE</code> or <code>FALSE</code>. They
+usually relate to a question we ask of our data:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb42-2"><a href="r-basics.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
+<pre><code>##  [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE
+## [13]  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
+## [25]  TRUE</code></pre>
+<p><br />
+</p>
+<p>The result is information on which of your random data are higher than 0.5.<br />
+<br />
+</p>
+<p><em>Question: Do you have the same value for <code>over0.5</code> as your neighbour? Why?</em><br />
+<br />
+</p>
+<p>There are lots of questions you can ask of your data, many functions you’ll
+encounter on your R journey e.g. </p>
+<ul>
+<li><code>&gt;</code> greater than</li>
+<li><code>&gt;=</code> greater than or equal to</li>
+<li><code>&lt;</code> less than</li>
+<li><code>&lt;=</code> less than or equal to</li>
+<li><code>==</code> exactly equal to</li>
+<li><code>%in%</code><br />
+</li>
+</ul>
+<p>Let’s have a look at that last function. It tells us whether a value or values
+(on the left) exist in the data (on the right). For example:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-basics.html#cb44-1"></a>numbers2 <span class="op">%in%</span><span class="st"> </span>numbers1</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p><br />
+</p>
+<p>This tells you which elements of <code>numbers2</code> are numbers in <code>numbers1</code>, i.e. 
+which elements of <code>numbers2</code> are less than or equal to 10.<br />
+<br />
+</p>
+<p><em>Task: show a different way to find out which elements of <code>numbers2</code> are less
+than or equal to 10.</em><br />
+<br />
+</p>
+<p>It’s not necessary when using <code>%in%</code> for the two vectors to have the same length.<br />
+<br />
+</p>
+<p><em>Task: show code to find out which elements of <code>char</code> contain letters found in <code>fac</code>?</em><br />
+<br />
+</p>
+</div>
+<div id="data.frame" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> data.frame</h3>
+<p>Finally, we’ll encounter the <code>data.frame</code>. This is the way most data is
+stored for data analysis. As we learned earlier, there’s one column per variable
+and one row per observation. <code>data.frame</code>s are simply collections of variables:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-basics.html#cb46-1"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(num, char, fac)</span></code></pre></div>
+<p><br />
+</p>
+<p>To access variables in a data.frame, you simply use the <code>$</code> dollar sign.</p>
+<pre><code>data$num</code></pre>
+<p><br />
+</p>
+<p>You can read in <code>data.frame</code>s from your own data: and you’ll learn much more
+about that next time…<br />
+<br />
+</p>
+<hr />
+</div>
+</div>
+<div id="final-tips" class="section level2">
+<h2><span class="header-section-number">2.6</span> FINAL TIPS</h2>
+<p>Use <code>?</code> to get help on a function. These help pages take a while to get used
+to, but they lay out what arguments a function takes, what those arguments
+are, what the output (value) of the function is, and some examples.<br />
+<br />
+</p>
+<p>The internet is really useful. As you get used to R, you’ll be able to find
+blogs and articles and forums that give you answers. There are also R mailing
+lists, but it’s best not to email them until you’re sure you’ve done everything
+you can to solve your problem.<br />
+<br />
+</p>
+<p>If something goes wrong with your R coding (usually Errors), then 99.9% of the
+time it’s because you’ve made a mistake. R is very literal. Be careful!<br />
+<br />
+</p>
+<p>_Task: what are the errors (‘bugs’) in the lines of code below?</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-basics.html#cb48-1"></a>mynums &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">40</span>, <span class="dv">4</span>,)</span>
+<span id="cb48-2"><a href="r-basics.html#cb48-2"></a>mychar &lt;-<span class="st"> </span>LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">21</span><span class="op">:</span><span class="dv">26</span>)]</span>
+<span id="cb48-3"><a href="r-basics.html#cb48-3"></a><span class="kw">length</span>(Mychar)</span></code></pre></div>
+<p><br />
+</p>
+<p>These are really common mistakes to make. Be aware!</p>
+
+<!-- spiel -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="single-variable-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Rbasics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DSftLS_book.pdf", "DSftLS_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

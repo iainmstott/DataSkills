@@ -1,4 +1,6 @@
 
+# TWO-VARIABLE PLOTS
+
 <!-- spiel -->
 As you complete Part 1 of this worksheet, you may find it useful to copy the code that the ShinyGLiM 
 app shows, into the .R file you've been using for the 'games' data. Hopefully
@@ -102,7 +104,7 @@ We'll also learn a little more about customising plots.
 
 ***
 ***
-# PART 1
+## PART 1
 
  \
 
@@ -422,7 +424,7 @@ and biases appear in the data._
 ***
 ***
 
-# PART 2
+## PART 2
 
 We're back to working with your data! Use the same .R file as you used for 
 single variable visualisation, and we will carry on from where we left off. 

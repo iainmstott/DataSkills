@@ -1,4 +1,7 @@
 
+# DATA HANDLING AND MANAGEMENT
+
+
 Create a new .R file in the folder you wish to use as your working directory, to
 use in this session.
 
@@ -102,7 +105,7 @@ plotting and analysis. We'll be learning:
 
 ***
 ***
-# PART 1
+## PART 1
   
  \
 
@@ -246,7 +249,7 @@ we always want to add afterwards, or before, or a mix?_
 
 
 ***
-# PART 2
+## PART 2
 
 We'll now put some of that learning into practise with a few tasks with the 
 data. Try and complete these on your own, without consulting the app, and

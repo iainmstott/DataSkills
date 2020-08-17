@@ -13,6 +13,9 @@ description: "This book accompanies the BGY2011M Data Skills for the Life
 Sciences module at the School of Life Sciences, University of Lincoln"
 ---
 
+# R BASICS
+
+
 Create a .R file in the folder you wish to use as your working directory. Type
 in the commands* in this worksheet and check your outputs against the outputs
 below. This worksheet contains _Questions_ and _Tasks_ in _italics_: note 

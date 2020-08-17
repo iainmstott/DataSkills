@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 5 TWO-VARIABLE PLOTS | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 5 TWO-VARIABLE PLOTS | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 5 TWO-VARIABLE PLOTS | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2020-08-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-handling-and-management.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Before we start…</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>1.1</b> Schedule</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#assessments"><i class="fa fa-check"></i><b>1.2</b> Assessments</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#installing-r-packages"><i class="fa fa-check"></i><b>1.4</b> Installing R packages</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#iains-notes"><i class="fa fa-check"></i><b>1.5</b> iain’s notes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R BASICS</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>2.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#r-basics-1"><i class="fa fa-check"></i><b>2.2</b> R BASICS</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#objects"><i class="fa fa-check"></i><b>2.3</b> OBJECTS</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#classes"><i class="fa fa-check"></i><b>2.4</b> CLASSES</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#class-types"><i class="fa fa-check"></i><b>2.5</b> CLASS TYPES</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="r-basics.html"><a href="r-basics.html#numeric-and-character"><i class="fa fa-check"></i><b>2.5.1</b> numeric and character</a></li>
+<li class="chapter" data-level="2.5.2" data-path="r-basics.html"><a href="r-basics.html#factor"><i class="fa fa-check"></i><b>2.5.2</b> factor</a></li>
+<li class="chapter" data-level="2.5.3" data-path="r-basics.html"><a href="r-basics.html#logical"><i class="fa fa-check"></i><b>2.5.3</b> logical</a></li>
+<li class="chapter" data-level="2.5.4" data-path="r-basics.html"><a href="r-basics.html#data.frame"><i class="fa fa-check"></i><b>2.5.4</b> data.frame</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r-basics.html"><a href="r-basics.html#final-tips"><i class="fa fa-check"></i><b>2.6</b> FINAL TIPS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="single-variable-plots.html"><a href="single-variable-plots.html"><i class="fa fa-check"></i><b>3</b> SINGLE VARIABLE PLOTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>3.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="3.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>3.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="3.3" data-path="single-variable-plots.html"><a href="single-variable-plots.html#plotting-single-variables"><i class="fa fa-check"></i><b>3.3</b> PLOTTING SINGLE VARIABLES</a></li>
+<li class="chapter" data-level="3.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>3.4</b> PART 1</a></li>
+<li class="chapter" data-level="3.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>3.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="3.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>3.6</b> SUBSETTING DATA</a></li>
+<li class="chapter" data-level="3.7" data-path="single-variable-plots.html"><a href="single-variable-plots.html#data-visualisation-one-variable"><i class="fa fa-check"></i><b>3.7</b> DATA VISUALISATION (ONE VARIABLE)</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="single-variable-plots.html"><a href="single-variable-plots.html#forward-fold"><i class="fa fa-check"></i><b>3.7.1</b> FORWARD FOLD</a></li>
+<li class="chapter" data-level="3.7.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#ruler-reaction"><i class="fa fa-check"></i><b>3.7.2</b> RULER REACTION</a></li>
+<li class="chapter" data-level="3.7.3" data-path="single-variable-plots.html"><a href="single-variable-plots.html#paper-balls"><i class="fa fa-check"></i><b>3.7.3</b> PAPER BALLS</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>3.8</b> PART 2</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html"><i class="fa fa-check"></i><b>4</b> DATA HANDLING AND MANAGEMENT</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>4.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="4.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>4.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="4.3" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#data-handling"><i class="fa fa-check"></i><b>4.3</b> DATA HANDLING</a></li>
+<li class="chapter" data-level="4.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>4.4</b> PART 1</a></li>
+<li class="chapter" data-level="4.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>4.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="4.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>4.6</b> SUBSETTING DATA</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#slice"><i class="fa fa-check"></i><b>4.6.1</b> <code>slice()</code></a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#select"><i class="fa fa-check"></i><b>4.6.2</b> <code>select()</code></a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#filter"><i class="fa fa-check"></i><b>4.6.3</b> <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#adding-variables"><i class="fa fa-check"></i><b>4.7</b> ADDING VARIABLES</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#mutate"><i class="fa fa-check"></i><b>4.7.1</b> <code>mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>4.8</b> PART 2</a></li>
+<li class="chapter" data-level="4.9" data-path="r-basics.html"><a href="r-basics.html#final-tips"><i class="fa fa-check"></i><b>4.9</b> FINAL TIPS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="two-variable-plots.html"><a href="two-variable-plots.html"><i class="fa fa-check"></i><b>5</b> TWO-VARIABLE PLOTS</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>5.1</b> RESOURCES</a></li>
+<li class="chapter" data-level="5.2" data-path="single-variable-plots.html"><a href="single-variable-plots.html#packages"><i class="fa fa-check"></i><b>5.2</b> PACKAGES</a></li>
+<li class="chapter" data-level="5.3" data-path="two-variable-plots.html"><a href="two-variable-plots.html#plotting-multiple-variables"><i class="fa fa-check"></i><b>5.3</b> PLOTTING MULTIPLE VARIABLES</a></li>
+<li class="chapter" data-level="5.4" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-1"><i class="fa fa-check"></i><b>5.4</b> PART 1</a></li>
+<li class="chapter" data-level="5.5" data-path="single-variable-plots.html"><a href="single-variable-plots.html#user-guide"><i class="fa fa-check"></i><b>5.5</b> USER GUIDE</a></li>
+<li class="chapter" data-level="5.6" data-path="single-variable-plots.html"><a href="single-variable-plots.html#subsetting-data"><i class="fa fa-check"></i><b>5.6</b> SUBSETTING DATA</a></li>
+<li class="chapter" data-level="5.7" data-path="two-variable-plots.html"><a href="two-variable-plots.html#data-visualisation-two-variables"><i class="fa fa-check"></i><b>5.7</b> DATA VISUALISATION (TWO VARIABLES)</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="two-variable-plots.html"><a href="two-variable-plots.html#scatter-points-plots"><i class="fa fa-check"></i><b>5.7.1</b> SCATTER (POINTS) PLOTS</a></li>
+<li class="chapter" data-level="5.7.2" data-path="two-variable-plots.html"><a href="two-variable-plots.html#box-plots"><i class="fa fa-check"></i><b>5.7.2</b> BOX PLOTS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="two-variable-plots.html"><a href="two-variable-plots.html#violin-plots"><i class="fa fa-check"></i><b>5.7.3</b> VIOLIN PLOTS</a></li>
+<li class="chapter" data-level="5.7.4" data-path="two-variable-plots.html"><a href="two-variable-plots.html#bar-plots"><i class="fa fa-check"></i><b>5.7.4</b> BAR PLOTS</a></li>
+<li class="chapter" data-level="5.7.5" data-path="two-variable-plots.html"><a href="two-variable-plots.html#experimental-design-nonindependence-and-bias"><i class="fa fa-check"></i><b>5.7.5</b> EXPERIMENTAL DESIGN, NONINDEPENDENCE AND BIAS</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="single-variable-plots.html"><a href="single-variable-plots.html#part-2"><i class="fa fa-check"></i><b>5.8</b> PART 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="two-variable-plots" class="section level1">
+<h1><span class="header-section-number">Part 5</span> TWO-VARIABLE PLOTS</h1>
+<!-- spiel -->
+<p>As you complete Part 1 of this worksheet, you may find it useful to copy the code that the ShinyGLiM
+app shows, into the .R file you’ve been using for the ‘games’ data. Hopefully
+you can create the same plots that the ShinyGLiM app shows you :)</p>
+<p>Remember again: typing code really is better than copy-pasting, as it helps the R language stick in your
+brain better.</p>
+<p>The first part of this worksheet contains <em>Questions</em> and <em>Tasks</em> in <em>italics</em>: note
+down the answers you get, and we’ll go through them at the end of the session.</p>
+<p>The second part of this worksheet continues our adventures with our real data sets.
+Having worked out how we need to subset the data, and looked at the distribution(s)
+of the variable(s) we’re working with, we’re now going to see how those variables
+relate to one another.<br />
+</p>
+<!-- Resources -->
+<hr />
+<div id="resources" class="section level2">
+<h2><span class="header-section-number">5.1</span> RESOURCES</h2>
+<p>Books:</p>
+<ul>
+<li>Beckerman, Childs &amp; Petchey (2017) <em>Getting started with R, an
+introduction for Biologists</em>, 2nd ed. pp 79 - 92, Chapter 4, “Visualizing
+your data”. Extra delectable content on pimping your plots on pp 203-218,
+Chapter 8, “Pimping your plots: scales and themes in <code>ggplot2</code>”.
+ </li>
+</ul>
+<p>Cheatsheets:</p>
+<ul>
+<li>ggplot2 cheatsheet - see Resources section on blackboard or
+download <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">here</a>
+ </li>
+</ul>
+<p>Web links:</p>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/">gpglot2</a> by RStudio<br />
+ </p></li>
+<li><p><a href="https://iainmstott.shinyapps.io/ShinyGLiM"><strong>ShinyGLiM</strong></a><br />
+<br />
+</p></li>
+</ul>
+</div>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">5.2</span> PACKAGES</h2>
+<p>You’ll need to load the right packages every time you complete worksheets. In
+this session, we will be working with:</p>
+<ul>
+<li><code>readr</code>, which helps load in data</li>
+<li><code>dplyr</code>, which is our data subsetting and manipulation friend</li>
+<li><code>ggplot2</code>, which makes pretty pretty data visualisations.</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="two-variable-plots.html#cb58-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb58-2"><a href="two-variable-plots.html#cb58-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb58-3"><a href="two-variable-plots.html#cb58-3"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<p><br />
+</p>
+<hr />
+</div>
+<div id="plotting-multiple-variables" class="section level2">
+<h2><span class="header-section-number">5.3</span> PLOTTING MULTIPLE VARIABLES</h2>
+<p>Of course as scientists, what we really want to know is how a variable, let’s
+call it the <em>dependent variable</em>, the <em>response variable</em>, the <em>y variable</em> is
+affected by another variable, which we could call the <em>independent variable</em>, the
+<em>explanatory variable</em>, the <em>x variable</em>.</p>
+<p>In fact, those things are what we do call these variables, and there are more
+terms besides those. Different fields and different people like to use different
+terms. We’re generally going to use the terms <em>dependent</em> and <em>independent</em>,
+which generally refer to the <em>y</em> and <em>x</em> variables respectively. But
+some points to consider are:</p>
+<ul>
+<li>does the dependent variable depend on the independent variable?</li>
+<li>is the independent variable in fact independent?</li>
+<li>does the response variable actually respond to the explanatory variable? If
+it doesn’t, is the explanatory variable really explanatory?</li>
+<li>do we plot the dependent variable on the y axis and the independent
+variable on the x axis?</li>
+</ul>
+<p><em>Question: For each of the above questions, would you answer yes, or no?</em><br />
+<br />
+</p>
+<p>In this session, we’re going to reacquaint ourselves with the
+<a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> package. This time we’ll be seeing
+how variables relate to one another, and whether some variables may perhaps
+be influencing others. We’ll be learning:</p>
+<ul>
+<li>another reinforcement of data-handling skills</li>
+<li>more about the grammar of graphics</li>
+<li>how plot two continuous variables against one another
+<ul>
+<li>scatterplots using <code>geom_point()</code></li>
+</ul></li>
+<li>how to plot a categorical independent variable against a continuous dependent variable
+<ul>
+<li>box plots using <code>geom_boxplot()</code></li>
+<li>violin plots using <code>geom_violin()</code></li>
+<li>bar plots using <code>geom_bar()</code></li>
+</ul></li>
+</ul>
+<p>We’ll also learn a little more about customising plots.<br />
+<br />
+</p>
+<hr />
+<hr />
+</div>
+<div id="part-1" class="section level2">
+<h2><span class="header-section-number">5.4</span> PART 1</h2>
+<p><br />
+</p>
+</div>
+<div id="user-guide" class="section level2">
+<h2><span class="header-section-number">5.5</span> USER GUIDE</h2>
+<p>Reacquaint yourself with the USER GUIDE, as it may be able to answer some of
+your questions!<br />
+<br />
+</p>
+</div>
+<div id="subsetting-data" class="section level2">
+<h2><span class="header-section-number">5.6</span> SUBSETTING DATA</h2>
+<p>For this exercise, our dependent variable is going to be the <code>ffold</code> variable.</p>
+<p><em>Question: what statistical distribution does the <code>ffold</code> variable follow?</em><br />
+<br />
+</p>
+<p>Our independent variables are going to be the <code>pballs</code> variable and the
+<code>ruler</code> variable (but we’ll also see how other categorical variables impact
+a person’s ability to forward fold). Our hypothesis is that people who have
+quick reactions and good aim must be sporty, and therefore be flexible.</p>
+<p>Because we’re working with the <code>ffold</code> variable, we might want to cut out
+one group who didn’t have that measured (group 5). That means we only want the first
+20 rows of data.</p>
+<p><em>Question: pick the correct line of code to subset the data to the first 20 rows.</em></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="two-variable-plots.html#cb59-1"></a><span class="co"># a)</span></span>
+<span id="cb59-2"><a href="two-variable-plots.html#cb59-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rows</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">20</span>))</span>
+<span id="cb59-3"><a href="two-variable-plots.html#cb59-3"></a></span>
+<span id="cb59-4"><a href="two-variable-plots.html#cb59-4"></a><span class="co"># b)</span></span>
+<span id="cb59-5"><a href="two-variable-plots.html#cb59-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">1</span>))</span>
+<span id="cb59-6"><a href="two-variable-plots.html#cb59-6"></a></span>
+<span id="cb59-7"><a href="two-variable-plots.html#cb59-7"></a><span class="co"># c)</span></span>
+<span id="cb59-8"><a href="two-variable-plots.html#cb59-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rows <span class="op">&lt;=</span><span class="st"> </span><span class="dv">20</span>)</span>
+<span id="cb59-9"><a href="two-variable-plots.html#cb59-9"></a></span>
+<span id="cb59-10"><a href="two-variable-plots.html#cb59-10"></a><span class="co"># d)</span></span>
+<span id="cb59-11"><a href="two-variable-plots.html#cb59-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">rows</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>))</span></code></pre></div>
+<p><br />
+</p>
+<p>You can now use the app to check whether you were right by going to the
+DATA page, changing the row numbers slider and checking the CODE tab
+(the code may not be exactly the same as above, but hopefully you can see which
+function to use and that the two different lines of code will have the same result).<br />
+<br />
+</p>
+</div>
+<div id="data-visualisation-two-variables" class="section level2">
+<h2><span class="header-section-number">5.7</span> DATA VISUALISATION (TWO VARIABLES)</h2>
+<p>Now that we’ve subset the data, we can head right on to the DATA VISUALISATION
+(TWO VARIABLES) page. Choose <code>ffold</code> as your “dependent (y) variable”. Note that:</p>
+<ul>
+<li>currently, the x variable is the first variable in the data, which should be
+<code>person</code>.</li>
+<li>the “Plot type” is set to “points” (scatter plot).</li>
+</ul>
+<p><code>person</code> is a categorical variable, but as you can see, it’s still possible to
+plot a scatter plot anyway.</p>
+<p><em>Question: in this plot, what does each point represent?</em><br />
+<br />
+</p>
+<p>We’d normally use something different like a box plot to plot a continuous
+dependent variable against a categorical x variable. Try selecting box plot from
+the “Plot type” list.</p>
+<p><em>Question: the box plot should just have a single horizontal line for each
+person. Why is this?</em><br />
+<br />
+</p>
+<div id="scatter-points-plots" class="section level3">
+<h3><span class="header-section-number">5.7.1</span> SCATTER (POINTS) PLOTS</h3>
+<p>We’re interested, in fact, in the <code>pballs</code> and <code>ffold</code> variables. Choose
+<code>pballs</code> as the independent (x) variable. You should end up with a graph something
+like this:<br />
+<br />
+</p>
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Thinking about our hypothesis that
+better aim will mean better flexibility…</p>
+<p><em>Questions: what can we say about this graph, in terms of…</em></p>
+<ul>
+<li><em>what is the trend?</em></li>
+<li><em>does the trend support our hypothesis?</em></li>
+<li><em>are there any potential outliers or points with high influence over the trend?</em><br />
+<br />
+</li>
+</ul>
+<p>OK, so this is a pretty beautiful graph, I think you’ll agree.</p>
+<p><em>Question: do you agree?</em><br />
+<br />
+</p>
+<p>We can easily make this graph ourselves. Click on the CODE tab and you’ll see a
+short chunk of code that makes this graph. If you’re coding alongside this worksheet,
+copy this over and see if you can recreate the plot.</p>
+<p>There are various bits to this code, and because code is quite literal, you can
+probably guess where to change things to make this plot look a little different.
+Here’s a relatively big task: using your educated intuition…</p>
+<p><em>Task: copy this chunk of code and edit it so that:</em></p>
+<ul>
+<li><em>The y axis has limits of -20 and 30</em></li>
+<li><em>The points are “slategrey” colour</em></li>
+<li><em>The x axis has a label saying “Paper balls”</em></li>
+<li><em>The y axis has a label saying “Forward fold”</em><br />
+<br />
+</li>
+</ul>
+<p>Now change those variables using the controls in the DATA VISUALISATION
+(TWO VARIABLES) page to see whether you got it right.</p>
+<p>Hint: you don’t always have to include everything. We could exclude the
+<code>ylim()</code>, <code>ylab()</code>, <code>xlab()</code> and theme functions, and eliminate the arguments
+from the <code>geom_point()</code> function. We’d still get a graph, just plotted with all the
+default arguments and values.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="two-variable-plots.html#cb60-1"></a><span class="co"># initialise</span></span>
+<span id="cb60-2"><a href="two-variable-plots.html#cb60-2"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> pballs, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
+<span id="cb60-3"><a href="two-variable-plots.html#cb60-3"></a><span class="st">    </span><span class="co"># plot a histogram (geom)</span></span>
+<span id="cb60-4"><a href="two-variable-plots.html#cb60-4"></a><span class="st">    </span><span class="kw">geom_point</span>()</span>
+<span id="cb60-5"><a href="two-variable-plots.html#cb60-5"></a></span>
+<span id="cb60-6"><a href="two-variable-plots.html#cb60-6"></a>plot</span></code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-33-1.png" width="672" /><br />
+</p>
+<p><em>Question: What do you think this warning message could mean? (Hint: look
+at the data and pay attention to the <code>role</code> and any missing data in <code>ffold</code>).</em><br />
+<br />
+</p>
+<p>We’ve made some conclusions about the link between a person’s ability to
+aim paper balls at a wastepaper basket, and their ability to fold themselves in half.
+Now we want to know whether someone’s reaction time influences their ability
+to fold themselves in half. If you change the “independent (x) variable” to
+<code>ruler</code> then you should get a plot something like this:<br />
+<br />
+<img src="DSftLS_book_files/figure-html/unnamed-chunk-34-1.png" width="672" /><br />
+</p>
+<p>I changed the colour of the points, for a bit of a change. If you’re coding
+alongside reading, you don’t have to change the colour
+(or please feel free to pick any colour you like!)</p>
+<p>Same <em>Questions</em> here:</p>
+<ul>
+<li><em>what is the trend?</em></li>
+<li><em>does the trend support our hypothesis?</em></li>
+<li><em>are there any potential outliers or points with high influence over the trend?</em><br />
+<br />
+</li>
+</ul>
+<p>Although these are the variables we’re interested in, there are other things that
+might affect the dependent variable, and they’re worth checking out. Change the
+independent (x) variable to gender.</p>
+<p><em>Question: Which grammar of graphics “layer” will this change in x variable affect?</em></p>
+<ul>
+<li><em>geometries</em></li>
+<li><em>data</em></li>
+<li><em>theme</em></li>
+<li><em>aesthetics</em></li>
+<li><em>facets</em><br />
+</li>
+</ul>
+<p>Your graph should look something like this (but with a different colour):<br />
+<br />
+<img src="DSftLS_book_files/figure-html/unnamed-chunk-35-1.png" width="672" /><br />
+</p>
+<p>Points are not really a helpful way to visualise data in groups, although
+we can sometimes tell something from them.</p>
+<p><em>Question: which gender has the larger variance in <code>ffold</code>?</em></p>
+<ul>
+<li><em>female</em></li>
+<li><em>male</em><br />
+<br />
+</li>
+</ul>
+</div>
+<div id="box-plots" class="section level3">
+<h3><span class="header-section-number">5.7.2</span> BOX PLOTS</h3>
+<p>A more helpful way to look at these two variables is using a box plot:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="two-variable-plots.html#cb62-1"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> gender, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
+<span id="cb62-2"><a href="two-variable-plots.html#cb62-2"></a><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">color =</span> <span class="st">&#39;goldenrod&#39;</span>, <span class="dt">fill =</span> <span class="st">&#39;papayawhip&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb62-3"><a href="two-variable-plots.html#cb62-3"></a><span class="st">        </span><span class="co"># some colour names are ridiculous...</span></span>
+<span id="cb62-4"><a href="two-variable-plots.html#cb62-4"></a><span class="st">    </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">15</span>, <span class="dv">28</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&#39;Forward fold&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&#39;Gender&#39;</span>) <span class="op">+</span></span>
+<span id="cb62-5"><a href="two-variable-plots.html#cb62-5"></a><span class="st">    </span><span class="kw">theme_minimal</span>()</span>
+<span id="cb62-6"><a href="two-variable-plots.html#cb62-6"></a></span>
+<span id="cb62-7"><a href="two-variable-plots.html#cb62-7"></a>plot</span></code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-36-1.png" width="672" /><br />
+</p>
+<p>Our <code>fill</code> argument has actually come into some use now! (There are some
+points that have an outline and a fill: if you want to give it a try then try
+changing the <code>shape</code> argument in one of the earlier plots that use
+<code>geom_point()</code>). Some of the R colours have crazy names. You can also specify
+colours using <a href="https://www.w3schools.com/colors/colors_picker.asp">hex values</a>
+if you like.</p>
+<p>The box plot shows us a little about the distribution of our data. If the
+quartiles are close to the median, then the distribution has a low variance.</p>
+<p><em>Question: can a box plot also tell us something about the skewness? If so, how?</em><br />
+<br />
+</p>
+</div>
+<div id="violin-plots" class="section level3">
+<h3><span class="header-section-number">5.7.3</span> VIOLIN PLOTS</h3>
+<p>Box plots are one of the oldest and most commonly used methods of visualising a
+continuous versus categorical variable, but <code>ggplot2</code> offers up another, newer
+one in the form of a “violin” plot. Choose “violin” as the plot type.</p>
+<p><em>Question: take a guess at what the <code>geom</code> function will be to plot a violin
+plot (i.e. points is <code>geom_point()</code>, boxplot is <code>geom_boxplot()</code>)…</em></p>
+<p><br />
+</p>
+<p>Remembering back to the density plots of last week, a violin plot is essentially
+a density plot for different groups. Just as with other density plots, it has its
+drawbacks: you can see the whole distribution, but it’s not possible
+to discern the moments of the distribution easily.</p>
+<p>It does seem that there are differences between the genders in their forward-folding
+abilities. Perhaps not in the mean value, but in the variance at least. We may
+want to visualise three variables together: <code>pballs</code> or <code>ruler</code> as the independent
+variable, <code>ffold</code> as the depdendent variable, and then an extra grouping of
+<code>gender</code>. Think back to earlier plots with <code>pballs</code> or <code>ruler</code> on the x axis and
+<code>ffold</code> on the y axis.</p>
+<p><em>Question: How could this plot be changed to also show the <code>gender</code> groups?</em><br />
+<br />
+</p>
+</div>
+<div id="bar-plots" class="section level3">
+<h3><span class="header-section-number">5.7.4</span> BAR PLOTS</h3>
+<p>You may be familiar with another means of visualising categorical x continuous
+data, called a “barplot” (the fourth option). Please feel free to use bar plots to
+explore the data, but be aware that there are distinct disadvantages to
+using bar plots, and many researchers are moving away from them nowadays. They
+describe very little in terms of the data variance or skewness, because they are just
+bars showing the mean for each group. Additionally, because they require the y-axis to
+include 0, it can be difficult to see important effects in some data sets
+where values of the y variable are large, but variance, and differences between
+groups, are very small.<br />
+<br />
+</p>
+</div>
+<div id="experimental-design-nonindependence-and-bias" class="section level3">
+<h3><span class="header-section-number">5.7.5</span> EXPERIMENTAL DESIGN, NONINDEPENDENCE AND BIAS</h3>
+<p>An important thing that we should start thinking about now is nonindependence and
+experimental design. In statistical analyses, each observation (data point) is usually
+assumed to be <em><strong>independent</strong></em>. This means that there is no way to predict any one
+data point from any of the other data points. <strong>NOTE</strong>: there is
+the concept of an independent <em>variable</em> (the x variable), which is different
+to the concept of independent <em>data</em> (data points not being dependent on one
+another). I know it’s confusing, I’m sorry, I don’t make the rules…</p>
+<p><em><strong>Nonindependent</strong></em> data is when we <em>can</em> predict any one data point from
+another one. This is usually due to some way in which the data are collected,
+including spatial and temporal replication. In the ‘games’ data, there is
+nonindependence: each <code>group</code> has been tested at a different time, and/or
+working together and not with any of the other groups. <code>G1</code> is the guys; <code>G2</code> is the ladies,
+<code>G3</code> is some of your lecturers with whom I share an office,
+<code>G4</code> is my family, and further groups are incoming. Each group shares
+characteristics, may have taken a different approach to playing the games
+(note that there are lots of things I <em>didn’t</em> tell you about how to play the games),
+have different ages or different variations in ages, and were tested at different
+times of the day. All of these things could affect the data: if tested late
+in the day, reactions could be slower; if tested in the morning when muscles
+are stiffer, people could be worse at the forward
+fold than other groups tested in the evening; different groups may have
+thought of different ways to do each task… What this means is that data
+within each group may be likely to be more similar to one another than to
+other data in other groups.</p>
+<p><em>Task: plot <code>ffold</code> as the dependent variable and <code>group</code> as the independent
+variable. Is there any evidence that data points within groups might
+actually be similar to one another in any way?</em><br />
+<br />
+</p>
+<p>Think also about the “experimental design” in the way the data was collected.
+There may be biases if one data point was collected in a slightly different
+way to another, when they should actually have been collected in exactly the
+same way.</p>
+<p><em>Task: we’ll have a discussion later about nonindependence and biases in the
+‘games’ data. Think and write down possible ideas about where nonindependence
+and biases appear in the data.</em><br />
+<br />
+</p>
+<hr />
+<hr />
+</div>
+</div>
+<div id="part-2" class="section level2">
+<h2><span class="header-section-number">5.8</span> PART 2</h2>
+<p>We’re back to working with your data! Use the same .R file as you used for
+single variable visualisation, and we will carry on from where we left off.
+If you’ve still got some work to do on last week’s tasks, please go for it and let
+me know if you need a hand.</p>
+<p>By the end of last week’s tasks, you should have:</p>
+<ul>
+<li>subset the data to remove any rows you don’t need</li>
+<li>Added any extra variables (e.g. log-transformations), if you need them</li>
+<li>Plot the distributions of numeric variables to assess their bounds,</li>
+<li>symmetry, skewness, and other characteristics (if any).<br />
+</li>
+</ul>
+<p><em>Tasks:</em></p>
+<ul>
+<li><em>according to your hypothesis, identify which variable is your dependent variable.</em></li>
+<li><em>according to your hypothesis, identify which variable is your key independent variable.</em></li>
+<li><em>identify any further grouping (categorical) variables which may influence the dependent variable.</em></li>
+<li><em>in R, using <code>ggplot2</code>, create the most appropriate plots to show:</em>
+<ul>
+<li><em>what relationship (if any) there is between the dependent and independent variable</em></li>
+<li><em>whether and how any other grouping (categorical) variables affect the dependent variable</em></li>
+</ul></li>
+</ul>
+<p>Pay attention to trends in the data, spread of the data, potential outliers,
+differences in the mean values and distributions within and between different groups,
+and come up with a preliminary statement on whether the plots seems to initially
+support the hypothesis, and whether any other variables may need to be taken into account.<br />
+<br />
+</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-handling-and-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05_TwoVariablePlots.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DSftLS_book.pdf", "DSftLS_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
