@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="3.7 DATA VISUALISATION (ONE VARIABLE) | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>3.7 DATA VISUALISATION (ONE VARIABLE) | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,139 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
+<div id="data-visualisation-one-variable" class="section level2">
+<h2><span class="header-section-number">3.7</span> DATA VISUALISATION (ONE VARIABLE)</h2>
+<p>This new page shows how to code single-variable plots (histograms) in R using
+<code>ggplot2</code>.<br />
+</p>
+<div id="forward-fold" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> FORWARD FOLD</h3>
+<p>We’re going to begin by working with the forward fold (<code>ffold</code>) variable. For now,
+we’ll keep all of the data points, so don’t make any changes to the data frame.</p>
+<p>Head on over to the DATA VISUALISATION (ONE VARIABLE) page. Choose to plot the
+forward fold (<code>ffold</code>) variable. Keep all of the other options at their defaults, for now.</p>
+<p><em>Question: how would you describe the distribution of the forward fold variable?
+Think about what the characteristics of a distribution are, and what characteristics
+this distribution has. Think about what characteristics you would expect the
+distribution to have. Do your expectations match the reality?</em><br />
+<br />
+</p>
+<p>Now try adjusting the number of bins that you’re plotting. Try higher numbers, and try lower.
+As you adjust the number of bins, look at the CODE tab to see what changes.</p>
+<p><em>Questions:</em></p>
+<ul>
+<li><em>What happens if you increase the number of bins?</em></li>
+<li><em>What happens if you descrease the number of bins?</em></li>
+<li><em>What do you think is the perfect bin number to use?</em><br />
+</li>
+</ul>
+<p>Now getting back CODE tab, look at how the code changes as you change the number of bins.</p>
+<p><em>Question: when changing the number of bins, which of the following changes in
+the code?</em></p>
+<ul>
+<li>a <strong>function</strong></li>
+<li>an <strong>argument</strong></li>
+<li>an <strong>object</strong></li>
+<li>an <strong>option</strong><br />
+</li>
+</ul>
+<p>You can probably guess by looking at the code how elements of the code match up to the rest of the options in the app.
+As I have said all along so far, R is very literal! Have a guess at what
+will change in the code if you change the x axis limits, the fill colour for
+the bars, and the theme.</p>
+<p><em>Questions:</em></p>
+<p><em><em>Did the code change in the way you expected, and if not, how was it different? </em>
+</em> <em>What’s the best colour to plot the bars with? </em>
+* <em>What’s the nicest theme, and are there any other themes than the ones listed?
+(Hint: Google is your friend when it comes to finding out new things about R).</em><br />
+<br />
+</p>
+<p>Cast your mind back to the <em>BGY2010M W1.2 Data handling</em> worksheet, because
+you’re going to have to remember something you learned! You want to look
+at the ‘games’ data for only people who can’t touch the floor, as you have a theory
+that their tight muscle tension could mean they have quicker reactions
+(the <code>ruler</code> variable).</p>
+<p><em>Task: work out (without looking at the app!) which of these three pieces of code
+give the correct way to subset the data in the way described above.</em></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="3-7-data-visualisation-one-variable.html#cb50-1"></a><span class="co"># a)</span></span>
+<span id="cb50-2"><a href="3-7-data-visualisation-one-variable.html#cb50-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">%over%</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb50-3"><a href="3-7-data-visualisation-one-variable.html#cb50-3"></a></span>
+<span id="cb50-4"><a href="3-7-data-visualisation-one-variable.html#cb50-4"></a><span class="co"># b)</span></span>
+<span id="cb50-5"><a href="3-7-data-visualisation-one-variable.html#cb50-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(ffold <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb50-6"><a href="3-7-data-visualisation-one-variable.html#cb50-6"></a></span>
+<span id="cb50-7"><a href="3-7-data-visualisation-one-variable.html#cb50-7"></a><span class="co"># c)</span></span>
+<span id="cb50-8"><a href="3-7-data-visualisation-one-variable.html#cb50-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb50-9"><a href="3-7-data-visualisation-one-variable.html#cb50-9"></a></span>
+<span id="cb50-10"><a href="3-7-data-visualisation-one-variable.html#cb50-10"></a><span class="co"># d)</span></span>
+<span id="cb50-11"><a href="3-7-data-visualisation-one-variable.html#cb50-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<p><br />
+</p>
+<p>Now, head to the DATA page and subset the data to only people who can’t touch the
+floor. See whether you got the above answer right.<br />
+<br />
+</p>
+<p>Returning to the DATA VISUALISATION (ONE VARIABLE) page, see how subsetting
+the data has changed your plot.</p>
+<p><em>Question: think back to the start of this worksheet and what you thought about
+the characteristics of the distribution of the <code>ffold</code> variable. Now that you’ve subsetted the <code>ffold</code> data, have those thoughts changed?</em><br />
+<br />
+</p>
 </div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="ruler-reaction" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> RULER REACTION</h3>
+<p>Now plot a histogram of the <code>ruler</code> variable, still just for people who can’t
+touch the floor.</p>
+<p><em>Question: what x-axis limits should you probably choose?</em><br />
+<br />
+</p>
+<p>Choose what number bins you think works best, and add a
+density plot on top. Take a mental (or literal) snapshot of what the plot looks
+like. Head back to the DATA page, undo your subset to revert back to the full data set, then see how the plot has changed on the DATA VISUALISATION (ONE VARIABLE) page.</p>
+<p><em>Question: Are the two distributions similar, or different? What might that tell
+us about the hypothesis?</em><br />
+<br />
+</p>
+</div>
+<div id="paper-balls" class="section level3">
+<h3><span class="header-section-number">3.7.3</span> PAPER BALLS</h3>
+<p>Now, with the whole data set, we’ll plot the distribution of the paper balls
+variable. Choose a number of histogram bins that you’re comfortable with, and then add a density plot.</p>
+<p><em>Task: Without looking at the CODE tab, find the mistake(s) in the code below
+and correct them to give you the code needed to produce the plot.</em></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="3-7-data-visualisation-one-variable.html#cb51-1"></a>hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data, <span class="dt">x =</span> pballs)</span>
+<span id="cb51-2"><a href="3-7-data-visualisation-one-variable.html#cb51-2"></a>    <span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), bins<span class="op">:</span><span class="st"> </span><span class="dv">8</span>, fill<span class="op">:</span><span class="st"> </span>steelblue4) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb51-3"><a href="3-7-data-visualisation-one-variable.html#cb51-3"></a><span class="st">    </span><span class="co"># your bin numbers and colour may be different to above!</span></span>
+<span id="cb51-4"><a href="3-7-data-visualisation-one-variable.html#cb51-4"></a><span class="st">    </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb51-5"><a href="3-7-data-visualisation-one-variable.html#cb51-5"></a>    <span class="co"># your xlim may be different to above!</span></span>
+<span id="cb51-6"><a href="3-7-data-visualisation-one-variable.html#cb51-6"></a>    <span class="kw">theme</span>(<span class="st">&quot;minimal&quot;</span>)</span>
+<span id="cb51-7"><a href="3-7-data-visualisation-one-variable.html#cb51-7"></a>    <span class="co"># your theme may be different to above!</span></span>
+<span id="cb51-8"><a href="3-7-data-visualisation-one-variable.html#cb51-8"></a></span>
+<span id="cb51-9"><a href="3-7-data-visualisation-one-variable.html#cb51-9"></a>hist <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bars =</span> <span class="st">&#39;darkgrey&#39;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><br />
+</p>
+<p>Check the code tab to see whether you managed to catch the mistakes properly.</p>
+<p><em>Question: what do you think the <code>alpha</code> value does in the <code>geom_density()</code>
+function?</em><br />
+<br />
+</p>
+<p>Finally, you may notice that in the <em>Getting started with R</em> book, they don’t
+use <code>y = ..density..</code> when plotting histograms. This is included here so that
+it’s possible to see the density plot on top. For a probability density histogram,
+each bar represents the proportion of the data that takes a certain range of
+values. If we use a histogram of counts, it’s the number of data points that
+have a certain value.</p>
+<p><em>Task: a count histogram is probably more relevant for the <code>pballs</code> variable.
+How would we change the code to get counts? (Hint: take a look in the
+Getting Started with R book).</em><br />
+<br />
+</p>
+<hr />
+<hr />
+</div>
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="3-6-subsetting-data.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-8-part-2.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="2.3 OBJECTS | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>2.3 OBJECTS | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,83 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="objects" class="section level2">
+<h2><span class="header-section-number">2.3</span> OBJECTS</h2>
+<p>This section covers how to create objects, what classes mean, what functions
+are and how they work.<br />
+<br />
+</p>
+<p>Objects are created using <strong>functions</strong>. functions take the form
+<code>function(argument1, argument2, ...)</code>. Each function takes unique arguments,
+and a different object is created depending on what these arguments are.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="2-3-objects.html#cb1-1"></a>numbers &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="2-3-objects.html#cb1-2"></a>numbers</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p><br />
+</p>
+<p>The object <code>numbers</code> is a <strong>numeric vector</strong>: this means a sequence of
+numbers. You can see that the class of <code>numbers</code> is numeric:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="2-3-objects.html#cb3-1"></a><span class="kw">class</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p><br />
+</p>
+<p>We can do certain things with this vector. For example, we might want to see a
+summary about it, find out what its length is, or calculate the mean:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="2-3-objects.html#cb5-1"></a><span class="kw">summary</span>(numbers)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.50    5.50    7.75   10.00</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="2-3-objects.html#cb7-1"></a><span class="kw">length</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="2-3-objects.html#cb9-1"></a><span class="kw">mean</span>(numbers)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<p><br />
+</p>
+<p>We can change or add arguments to make a function behave differently. For example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="2-3-objects.html#cb11-1"></a><span class="kw">summary</span>(numbers, <span class="dt">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       1       3       6       6       8      10</code></pre>
+<p><br />
+<em>Question: How has this changed the output?</em><br />
+<br />
+</p>
+<p>Going back to the original creation of the <code>numbers</code> object, we can change the
+arguments to create a different object.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="2-3-objects.html#cb13-1"></a>numbers2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="2-3-objects.html#cb13-2"></a>numbers2</span></code></pre></div>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+<p><br />
+</p>
+<p><em>Question: What do the three arguments of the <code>seq</code> function mean?</em><br />
+<br />
+</p>
+<p>Maybe now we want to use <code>numbers1</code> instead of <code>numbers</code>. We can create <code>numbers1</code>
+which has the same value as <code>numbers</code>, and remove <code>numbers</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="2-3-objects.html#cb15-1"></a>numbers1 &lt;-<span class="st"> </span>numbers</span>
+<span id="cb15-2"><a href="2-3-objects.html#cb15-2"></a><span class="kw">rm</span>(numbers)</span></code></pre></div>
+<p><br />
+</p>
+<p>As you can see, we can create an object from another object. In fact, you can
+create object using multiple other objects, and objects can be created in
+different ways.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="2-3-objects.html#cb16-1"></a>numbers1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>  <span class="co"># this gives the same values as seq(1, 10, 1)</span></span>
+<span id="cb16-2"><a href="2-3-objects.html#cb16-2"></a>numbers2 &lt;-<span class="st"> </span>numbers1 <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<p><br />
+</p>
+<p>We use the <code>#</code> (hash) symbol to create a comment: nothing after it will be run
+as code. It’s good practise to comment your code as you go, so when you
+go back to it later, it makes sense to you. Trust me, you make life so much
+easier for your future self if you comment well!<br />
+<br />
+</p>
+<p><em>Task: create an object called <code>numbers3</code> which is the three-times-table up to
+30.</em><br />
+<br />
+</p>
+<hr />
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="2-2-r-basics-1.html"><button class="btn btn-default">Previous</button></a>
+<a href="2-4-classes.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="5.3 PLOTTING MULTIPLE VARIABLES | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>5.3 PLOTTING MULTIPLE VARIABLES | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,55 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="plotting-multiple-variables" class="section level2">
+<h2><span class="header-section-number">5.3</span> PLOTTING MULTIPLE VARIABLES</h2>
+<p>Of course as scientists, what we really want to know is how a variable, let’s
+call it the <em>dependent variable</em>, the <em>response variable</em>, the <em>y variable</em> is
+affected by another variable, which we could call the <em>independent variable</em>, the
+<em>explanatory variable</em>, the <em>x variable</em>.</p>
+<p>In fact, those things are what we do call these variables, and there are more
+terms besides those. Different fields and different people like to use different
+terms. We’re generally going to use the terms <em>dependent</em> and <em>independent</em>,
+which generally refer to the <em>y</em> and <em>x</em> variables respectively. But
+some points to consider are:</p>
+<ul>
+<li>does the dependent variable depend on the independent variable?</li>
+<li>is the independent variable in fact independent?</li>
+<li>does the response variable actually respond to the explanatory variable? If
+it doesn’t, is the explanatory variable really explanatory?</li>
+<li>do we plot the dependent variable on the y axis and the independent
+variable on the x axis?</li>
+</ul>
+<p><em>Question: For each of the above questions, would you answer yes, or no?</em><br />
+<br />
+</p>
+<p>In this session, we’re going to reacquaint ourselves with the
+<a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> package. This time we’ll be seeing
+how variables relate to one another, and whether some variables may perhaps
+be influencing others. We’ll be learning:</p>
+<ul>
+<li>another reinforcement of data-handling skills</li>
+<li>more about the grammar of graphics</li>
+<li>how plot two continuous variables against one another
+<ul>
+<li>scatterplots using <code>geom_point()</code></li>
+</ul></li>
+<li>how to plot a categorical independent variable against a continuous dependent variable
+<ul>
+<li>box plots using <code>geom_boxplot()</code></li>
+<li>violin plots using <code>geom_violin()</code></li>
+<li>bar plots using <code>geom_bar()</code></li>
+</ul></li>
+</ul>
+<p>We’ll also learn a little more about customising plots.<br />
+<br />
+</p>
+<hr />
+<hr />
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="5-2-packages.html"><button class="btn btn-default">Previous</button></a>
+<a href="5-4-part-1.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

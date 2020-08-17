@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="4.3 DATA HANDLING | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>4.3 DATA HANDLING | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,53 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="data-handling" class="section level2">
+<h2><span class="header-section-number">4.3</span> DATA HANDLING</h2>
+<p>We’ve learned some basic stuff in R: objects, classes, assignments, functions,
+arguments, outputs, comments. Importantly we’ve learned of a few common classes
+of object that we’ll often encounter during our R adventures: numeric,
+character, factor, logical, data.frame. We’ve learned how
+R works, with the base packages providing the basic functionality, which can be
+built upon to get R to work for whatever you might imagine (within reason).
+These add-on thingies are called <strong>packages</strong> and you store them in your R
+<strong>library</strong>. (R aficionados will tell you not to confuse “package” and “library”:
+you load packages, which are stored in youur library, and their brains
+explode if you tell them you’re loading the library).</p>
+<p>We’ve also learned about <strong>Tidy Data</strong>. Tidy data allows you, as analyst padawans,
+to easily subset and manipulate data, so you’re working with the data that you
+need to be working with.</p>
+<p>In this session, we’re going to learn common means of manipulating data. From
+here on, we’ll be using a collection of packages, built by RStudio, called the
+<a href="https://www.tidyverse.org"><strong>tidyverse</strong></a> (although we’ll only be using a
+few of the ones that are on offer). The tidyverse is a new, emerging way of
+programming in R. It’s fast becoming the standard way of coding, athough
+old-schoolers like me have taken a while to get used to it.</p>
+<p>In this particular session, we’re going to acquaint ourselves with the
+<a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> package. <code>dplyr</code> is an expert
+data-wrangler which you can use to organise and manipulate data ready for
+plotting and analysis. We’ll be learning:</p>
+<ul>
+<li>how to read data into R</li>
+<li>how to subset data
+<ul>
+<li><code>slice()</code> and <code>filter()</code> to choose certain rows of the <code>data.frame</code></li>
+<li><code>select()</code> to choose certain columns of the <code>data.frame</code></li>
+</ul></li>
+<li>how to manipulate data
+<ul>
+<li>how to add a variable to the <code>data.frame</code> using <code>mutate()</code></li>
+<li>how to arrange the <code>data.frame</code> by variable values using <code>arrange()</code></li>
+</ul></li>
+<li>how to use <strong>pipes</strong> to make coding neater and cleaner.<br />
+<br />
+</li>
+</ul>
+<hr />
+<hr />
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="4-2-packages.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-4-part-1.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

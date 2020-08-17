@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="4.6 SUBSETTING DATA | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>4.6 SUBSETTING DATA | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,105 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
+<div id="subsetting-data" class="section level2">
+<h2><span class="header-section-number">4.6</span> SUBSETTING DATA</h2>
+<p>On the DATA tab, you can see the games data. There are two panels on the right
+hand side: DATA FRAME and CODE (if your browser window is narrow or you’re
+using a smartphone or a tablet then these might be at the bottom of the
+page). Click on the CODE tab. These two lines of
+code are what you need to read in the games data and get R to show it.</p>
+<p>On the left are some options. You can choose rows by row numbers or variable
+values, and columns by column numbers or column names.<br />
+<br />
+</p>
+<div id="slice" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> <code>slice()</code></h3>
+<p>First we’ll pick some rows by their number using <code>slice</code>. Change the row numbers
+slider to pick a subset of the dataframe rows.</p>
+<ul>
+<li>check that the DATA FRAME displayed has changed like you expect it to</li>
+<li>take a look at the CODE panel to see how it’s changed</li>
+</ul>
+<p><em>Question: which of the above topics (reading data, <code>slice()</code>, <code>filter()</code>,
+<code>select()</code>, <code>mutate()</code>, pipe) are we using in this code?</em><br />
+<br />
+</p>
+<p>Note how we assign <code>&lt;-</code> the smallest and largest row values to
+<code>rows</code> and then use these values later to subset the data with <code>seq()</code> and
+<code>slice()</code>.</p>
+<p><em>Question: Why might we want to take this approach rather than just using
+the values directly?</em></p>
+<p><em>Question: Based on what you learned in the basic R worksheet, how could you
+achieve the same subset of data with a slightly different approach in
+specifying the rows to take out?</em><br />
+<br />
+</p>
+<p>You’ll notice that we use a <strong>pipe</strong> <code>%&gt;%</code> in this code:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="4-6-subsetting-data.html#cb54-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
+<span id="cb54-2"><a href="4-6-subsetting-data.html#cb54-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
+<p>The pipe is a way of taking whatever you have and then passing it to the next
+function. So, here we take <code>data</code>, and then pass it to <code>slice()</code> to chop out
+some rows. We could do this a different way without a pipe:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="4-6-subsetting-data.html#cb55-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
+<p>For something short like we’re doing here, this might make sense. But as you
+need to do more and more things with your data, this gets more complicated as
+you end up with functions inside functions, parentheses within parentheses…<br />
+<br />
+</p>
 </div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="select" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> <code>select()</code></h3>
+<p>As an example of how the pipe is useful, let’s also choose certain columns.
+For now we’ll choose by column number. Pick “Choose by… Column numbers” and
+change the slider to whatever values you want. Check the DATA FRAME to check
+you have the right ones, then check the CODE to see what you have. Notice that
+there’s a further step in the data subsetting.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="4-6-subsetting-data.html#cb56-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
+<span id="cb56-2"><a href="4-6-subsetting-data.html#cb56-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ) <span class="op">%&gt;%</span></span>
+<span id="cb56-3"><a href="4-6-subsetting-data.html#cb56-3"></a><span class="st">        </span><span class="kw">select</span>( <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>) ) </span></code></pre></div>
+<p><em>Question: using information from the R basics worksheet, how would you choose
+columns (or rows) that aren’t in a sequence, for example only columns 2 and 4?</em><br />
+<br />
+</p>
+<p>Let’s imagine what that the above code would look like without pipes…</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="4-6-subsetting-data.html#cb57-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ), <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>))</span></code></pre></div>
+<p>Yeah, not great. Lesson: pipes <em>are</em> great!<br />
+<br />
+</p>
+<p>Most of the time we don’t want to (or more accurately shouldn’t) select a
+column using its number. We have variables, and those variables are named,
+and we’re much less likely to make a mistake if we use those names rather
+than picking the wrong number. Choose the option to choose columns using variable
+names, and take out whichever ones you feel like. Note how the code then changes,
+and you’re selecting variables by name instead of by number. That’s way more trustworthy.</p>
+<p><em>Question: What could you write instead of the code you now see, if you just
+wanted to remove one of the variables? Hint… the answer can be found in the
+section on ´select()´ in Getting Started with R.</em><br />
+<br />
+</p>
+</div>
+<div id="filter" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> <code>filter()</code></h3>
+<p>Selecting rows using numbers is also not the best way to go about things. Choose
+the option to select rows using variable values.</p>
+<p>There’s a bit more thinking with this one. Cast your brain back to the R basics
+worksheet and what a <em>logical</em> is. In the text box you can see there, you can type
+any logical that involves any of the variables, using any of the logical
+operators you encountered in the R basics exercise (or other ones as well if you
+know them!). Think about whether the variable is continuous or categorical, and
+which logical operators work with which variables. Here are some ideas to
+start: <code>pict_cards &gt;= 1</code> gives you every person who got at least 1 picture card;
+<code>role == "student"</code> gives you all the values for students.</p>
+<p><em>Task: subset the data to rows for people with negative forward fold numbers.
+If you think you know how, subset the data to rows for people with negative
+forward fold numbers</em> <strong>&amp;</strong> <em>who are students. Hint: there’s a bold statement
+there indicating how you might do that.</em><br />
+</p>
+</div>
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="4-5-user-guide.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-7-adding-variables.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

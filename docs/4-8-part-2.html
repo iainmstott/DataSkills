@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="4.8 PART 2 | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>4.8 PART 2 | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,50 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="part-2" class="section level2">
+<h2><span class="header-section-number">4.8</span> PART 2</h2>
+<p>We’ll now put some of that learning into practise with a few tasks with the
+data. Try and complete these on your own, without consulting the app, and
+I’m sure you copied the code over from the app as was suggested, so you can
+edit that as you need to. First, pretty simple, but pretty important…<br />
+<br />
+</p>
+<p><em>Task: read in the games data</em><br />
+<br />
+</p>
+<p>You’re interested in whether luck truly is a real thing in life, as you think
+men are unluckier than any other gender. Drawing a picture card is unlucky, as
+picture cards look at you funny and you’re pretty sure they’re up to no good.
+Drawing a black card is luckier than drawing a red card, as red is the colour
+of the devil. There are several steps to preparing your data…</p>
+<p><em>Task: prepare your lucky, lucky data…</em></p>
+<ul>
+<li><em>You don’t want to use any data from people who drew 4 cards, as 4 represents
+the 4 horsemen of the apocalypse. Remove any data where someone chose 4 cards.</em></li>
+<li><em>You don’t care about any variable that isn’t associated with the cards, except
+for the identity of the person: their gender and their group. Get rid of the
+variables you don’t care about.</em></li>
+<li><em>You need to know how many non-picture cards there were for each person, so
+calculate that and add it to your data.</em><br />
+</li>
+</ul>
+<p><em>Questions:</em></p>
+<ul>
+<li><em>How many rows of data do you have left?</em></li>
+<li><em>What function would you use to arrange the rows of the data frame by the number of
+picture cards drawn? (Hint: see the Getting Started with R book)… can you
+write the code that would do that?</em></li>
+<li><em>What’s the mean total number of black cards drawn?</em></li>
+<li><em>What are the mean numbers of picture cards drawn, separately for each gender?
+Hint: you can look at p. 71 of Getting Started With R for this one, and we’ll
+encounter it later in the course as well.</em><br />
+</li>
+</ul>
+<hr />
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="4-7-adding-variables.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-9-final-tips.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

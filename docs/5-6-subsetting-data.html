@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="5.6 SUBSETTING DATA | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>5.6 SUBSETTING DATA | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,43 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="subsetting-data" class="section level2">
+<h2><span class="header-section-number">5.6</span> SUBSETTING DATA</h2>
+<p>For this exercise, our dependent variable is going to be the <code>ffold</code> variable.</p>
+<p><em>Question: what statistical distribution does the <code>ffold</code> variable follow?</em><br />
+<br />
+</p>
+<p>Our independent variables are going to be the <code>pballs</code> variable and the
+<code>ruler</code> variable (but we’ll also see how other categorical variables impact
+a person’s ability to forward fold). Our hypothesis is that people who have
+quick reactions and good aim must be sporty, and therefore be flexible.</p>
+<p>Because we’re working with the <code>ffold</code> variable, we might want to cut out
+one group who didn’t have that measured (group 5). That means we only want the first
+20 rows of data.</p>
+<p><em>Question: pick the correct line of code to subset the data to the first 20 rows.</em></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="5-6-subsetting-data.html#cb59-1"></a><span class="co"># a)</span></span>
+<span id="cb59-2"><a href="5-6-subsetting-data.html#cb59-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rows</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">20</span>))</span>
+<span id="cb59-3"><a href="5-6-subsetting-data.html#cb59-3"></a></span>
+<span id="cb59-4"><a href="5-6-subsetting-data.html#cb59-4"></a><span class="co"># b)</span></span>
+<span id="cb59-5"><a href="5-6-subsetting-data.html#cb59-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">1</span>))</span>
+<span id="cb59-6"><a href="5-6-subsetting-data.html#cb59-6"></a></span>
+<span id="cb59-7"><a href="5-6-subsetting-data.html#cb59-7"></a><span class="co"># c)</span></span>
+<span id="cb59-8"><a href="5-6-subsetting-data.html#cb59-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rows <span class="op">&lt;=</span><span class="st"> </span><span class="dv">20</span>)</span>
+<span id="cb59-9"><a href="5-6-subsetting-data.html#cb59-9"></a></span>
+<span id="cb59-10"><a href="5-6-subsetting-data.html#cb59-10"></a><span class="co"># d)</span></span>
+<span id="cb59-11"><a href="5-6-subsetting-data.html#cb59-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">rows</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>))</span></code></pre></div>
+<p><br />
+</p>
+<p>You can now use the app to check whether you were right by going to the
+DATA page, changing the row numbers slider and checking the CODE tab
+(the code may not be exactly the same as above, but hopefully you can see which
+function to use and that the two different lines of code will have the same result).<br />
+<br />
+</p>
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="5-5-user-guide.html"><button class="btn btn-default">Previous</button></a>
+<a href="5-7-data-visualisation-two-variables.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

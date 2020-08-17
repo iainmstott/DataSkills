@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="3.3 PLOTTING SINGLE VARIABLES | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>3.3 PLOTTING SINGLE VARIABLES | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,62 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
-</div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="plotting-single-variables" class="section level2">
+<h2><span class="header-section-number">3.3</span> PLOTTING SINGLE VARIABLES</h2>
+<p>It’s really important to understand the nature of your data. There are different
+types of data, and here are some of the types we regularly encounter as ecologists:</p>
+<ul>
+<li>numeric
+<ul>
+<li>continuous: Gaussian, beta, exponential</li>
+<li>discrete (counts): Poisson, binomial</li>
+</ul></li>
+<li>non-numeric
+<ul>
+<li>categorical</li>
+<li>ordinal<br />
+</li>
+</ul></li>
+</ul>
+<p>In this course we’ll be primarily focusing on three of the most common types
+of data we deal with as dependent variables in ecology: Gaussian (normal),
+Poisson and binomial (…although the independent variables we work with
+will be of other types too; certainly we’ll work with categorical independent variables).</p>
+<p>The <strong>distributions</strong> of these variables are important factors in how we
+interpret plots and analyses. Distributions are effectively ‘counts’ of the
+number of times certain variable values occur (e.g. for the paper balls game
+the counts of occurrence of 0, 1, 2, 3, 4,…), or the number of times variable
+values occur within certain intervals (e.g. for the forward fold the number of
+values between -3 to -2, -2 to -1, -1 to 0,…). Distributions show us how variables are
+<strong>bounded</strong> (i.e. cannot occur above, below or between certain values),
+how they are <strong>skewed</strong> (e.g. there are lots of small values but not many large ones),
+which <strong>statistical distributions</strong> the data approximate, and what that means
+for their <strong>moments</strong> (mean, variance, skewness). All of these things can have implications
+for how you analyse your data, and how you interpret your results.</p>
+<p>In this particular session, we’re going to acquaint ourselves with the
+<a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> package. <code>ggplot2</code> is a great
+package for data visualisation: it’s easy to make very pretty graphs with
+only a few lines of code, and has simplified many data visualisation problems
+which previously were tricky in R. We’ll be learning:</p>
+<ul>
+<li>a reinforcement of data-handling skills</li>
+<li>an understanding of the grammar of graphics and how ggplot uses it</li>
+<li>how plot histograms
+<ul>
+<li><code>ggplot()</code> and <code>aes()</code> to initialise a plot</li>
+<li>adjustments to coordinates</li>
+<li><code>geom_histogram</code> to map a histogram</li>
+<li>how to change the look of a plot with themes and other options<br />
+<br />
+</li>
+</ul></li>
+</ul>
+<hr />
+<hr />
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="3-2-packages.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-4-part-1.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

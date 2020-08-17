@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="3.8 PART 2 | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>3.8 PART 2 | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,45 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
+<div id="part-2" class="section level2">
+<h2><span class="header-section-number">3.8</span> PART 2</h2>
+<p>In this part, we’ll start looking at real data sets. There are several
+to choose from, each with a suggested hypothesis, and you can find them in the
+DataDescription.html file in the DATA section on Blackboard.<br />
+<br />
+</p>
+<p><em>Tasks: For your chosen data and hypothesis, you need to:</em></p>
+<ul>
+<li><em>Subset the data by removing any rows (and perhaps columns) which are not
+needed.</em></li>
+<li><em>Add to the data frame any extra variables you need for your analysis (if any).</em></li>
+<li><em>Plot the distributions of the numeric variables you’ll include in your
+analysis. At this point, response variables should be variables with Gaussian (normal) distributions (talk to me if you need any clarification on this).</em></li>
+<li><em>Draw some conclusions about the distributions of your variables…</em>
+<ul>
+<li><em>Are the variables continuous (can take any number) or discrete (usually counts)?</em></li>
+<li><em>Are they bounded at all?</em></li>
+<li><em>Are they skewed, and how does that compare to what you would expect?</em></li>
+<li><em>What are their <strong>moments</strong> (mean, variance, median, mode, skewness) likely to be?</em><br />
+<br />
+</li>
+</ul></li>
+</ul>
+<p>On this last point: moments of data are easy to calculate. You can use, e.g.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="3-8-part-2.html#cb52-1"></a><span class="kw">mean</span>(data<span class="op">$</span>pballs) <span class="co"># if there are missing values add na.rm = TRUE</span></span>
+<span id="cb52-2"><a href="3-8-part-2.html#cb52-2"></a><span class="kw">median</span>(data<span class="op">$</span>pballs) </span>
+<span id="cb52-3"><a href="3-8-part-2.html#cb52-3"></a></span>
+<span id="cb52-4"><a href="3-8-part-2.html#cb52-4"></a><span class="co"># calculating other moments requires using a package</span></span>
+<span id="cb52-5"><a href="3-8-part-2.html#cb52-5"></a><span class="kw">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</span>
+<span id="cb52-6"><a href="3-8-part-2.html#cb52-6"></a><span class="kw">skewness</span>(data<span class="op">$</span>pballs)</span></code></pre></div>
+<p> 
+ </p>
+
 </div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
-</div>
+<!-- </div> -->
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="3-7-data-visualisation-one-variable.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-data-handling-and-management.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="A Minimal Book Example" />
+<meta property="og:title" content="2.5 CLASS TYPES | A Minimal Book Example" />
 <meta property="og:type" content="book" />
 
 
@@ -19,7 +19,7 @@
 
 <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
 
-<title>A Minimal Book Example</title>
+<title>2.5 CLASS TYPES | A Minimal Book Example</title>
 
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -205,16 +205,156 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<h4 class="author"><em>Yihui Xie</em></h4>
-<h4 class="date"><em>2020-08-17</em></h4>
+<div id="class-types" class="section level2">
+<h2><span class="header-section-number">2.5</span> CLASS TYPES</h2>
+<p>There are 5 different class types that it’s important to know at this point.</p>
+<ul>
+<li><strong>numeric</strong></li>
+<li><strong>character</strong></li>
+<li><strong>factor</strong></li>
+<li><strong>logical</strong></li>
+<li><strong>data.frame</strong></li>
+</ul>
+<div id="numeric-and-character" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> numeric and character</h3>
+<p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="2-5-class-types.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
+<span id="cb28-2"><a href="2-5-class-types.html#cb28-2"></a>num</span></code></pre></div>
+<pre><code>##  [1] 0.19374012 0.05781608 0.38741619 0.57882475 0.18062790 0.70094984
+##  [7] 0.18672744 0.23719246 0.56809280 0.07050040 0.95081470 0.43100064
+## [13] 0.14980787 0.79616140 0.03059901 0.60852849 0.10650398 0.90881749
+## [19] 0.35330427 0.73128951 0.24692496 0.68734072 0.44946908 0.12759622
+## [25] 0.07543659</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="2-5-class-types.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
+<span id="cb30-2"><a href="2-5-class-types.html#cb30-2"></a>char</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
+## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot;</code></pre>
+<p><br />
+</p>
+<p>There are a few new things here. The <code>runif</code> function generates random numbers
+between 0 and 1. The <code>LETTERS</code> object exists already when you load R, and
+contains the alphabet.<br />
+</p>
+<p>It’s important to understand how different vectors ‘work’, but most of this
+experience comes with time. Here’s an example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="2-5-class-types.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1] 1.9374012 0.5781608 3.8741619 5.7882475 1.8062790 7.0094984 1.8672744
+##  [8] 2.3719246 5.6809280 0.7050040 9.5081470 4.3100064 1.4980787 7.9616140
+## [15] 0.3059901 6.0852849 1.0650398 9.0881749 3.5330427 7.3128951 2.4692496
+## [22] 6.8734072 4.4946908 1.2759622 0.7543659</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="2-5-class-types.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##  [1]  -0.8062599  -1.9421839  -2.6125838  -3.4211753  -4.8193721  -5.2990502
+##  [7]  -6.8132726  -7.7628075  -8.4319072  -9.9294996 -10.0491853 -11.5689994
+## [13] -12.8501921 -13.2038386 -14.9694010 -15.3914715 -16.8934960 -17.0911825
+## [19] -18.6466957 -19.2687105 -20.7530750 -21.3126593 -22.5505309 -23.8724038
+## [25] -24.9245634</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="2-5-class-types.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
+<pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>##  [1]  1.9374012 -0.5781608  3.8741619 -5.7882475  1.8062790 -7.0094984
+##  [7]  1.8672744 -2.3719246  5.6809280 -0.7050040  9.5081470 -4.3100064
+## [13]  1.4980787 -7.9616140  0.3059901 -6.0852849  1.0650398 -9.0881749
+## [19]  3.5330427 -7.3128951  2.4692496 -6.8734072  4.4946908 -1.2759622
+## [25]  0.7543659</code></pre>
+<p><br />
+</p>
+<p><em>Question: what’s happened for each of those lines of code? What does the Warning
+message mean after running the final line?</em><br />
+ </p>
 </div>
-<div id="before-we-start" class="section level1">
-<h1><span class="header-section-number">1</span> Before we start…</h1>
+<div id="factor" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> factor</h3>
+<p>A <strong>factor</strong> object is like a character object, but recognises groups of elements
+which are the same, called <em>levels</em>. Let’s take a look:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="2-5-class-types.html#cb39-1"></a>fac &lt;-<span class="st"> </span><span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">5</span>)</span>
+<span id="cb39-2"><a href="2-5-class-types.html#cb39-2"></a>fac &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fac)</span></code></pre></div>
+<p><br />
+</p>
+<p>We use the square brackets to choose which letters we
+want: we choose A, B, C, D and E. The <code>rep</code> function means repeat, so we
+repeat A to E five times, to give a vector that has a length of 25.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="2-5-class-types.html#cb40-1"></a><span class="kw">summary</span>(fac)</span></code></pre></div>
+<pre><code>## A B C D E 
+## 5 5 5 5 5</code></pre>
+<p><br />
+</p>
+<p>We can see from the summary that R recognises the five different factor levels,
+A through E.<br />
+<br />
+</p>
+</div>
+<div id="logical" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> logical</h3>
+<p>Logical objects are perhaps hard to understand at first, but they’re simple
+really. They basically indicate whether something is <code>TRUE</code> or <code>FALSE</code>. They
+usually relate to a question we ask of our data:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="2-5-class-types.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb42-2"><a href="2-5-class-types.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE
+## [13] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE
+## [25] FALSE</code></pre>
+<p><br />
+</p>
+<p>The result is information on which of your random data are higher than 0.5.<br />
+<br />
+</p>
+<p><em>Question: Do you have the same value for <code>over0.5</code> as your neighbour? Why?</em><br />
+<br />
+</p>
+<p>There are lots of questions you can ask of your data, many functions you’ll
+encounter on your R journey e.g. </p>
+<ul>
+<li><code>&gt;</code> greater than</li>
+<li><code>&gt;=</code> greater than or equal to</li>
+<li><code>&lt;</code> less than</li>
+<li><code>&lt;=</code> less than or equal to</li>
+<li><code>==</code> exactly equal to</li>
+<li><code>%in%</code><br />
+</li>
+</ul>
+<p>Let’s have a look at that last function. It tells us whether a value or values
+(on the left) exist in the data (on the right). For example:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="2-5-class-types.html#cb44-1"></a>numbers2 <span class="op">%in%</span><span class="st"> </span>numbers1</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p><br />
+</p>
+<p>This tells you which elements of <code>numbers2</code> are numbers in <code>numbers1</code>, i.e. 
+which elements of <code>numbers2</code> are less than or equal to 10.<br />
+<br />
+</p>
+<p><em>Task: show a different way to find out which elements of <code>numbers2</code> are less
+than or equal to 10.</em><br />
+<br />
+</p>
+<p>It’s not necessary when using <code>%in%</code> for the two vectors to have the same length.<br />
+<br />
+</p>
+<p><em>Task: show code to find out which elements of <code>char</code> contain letters found in <code>fac</code>?</em><br />
+<br />
+</p>
+</div>
+<div id="data.frame" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> data.frame</h3>
+<p>Finally, we’ll encounter the <code>data.frame</code>. This is the way most data is
+stored for data analysis. As we learned earlier, there’s one column per variable
+and one row per observation. <code>data.frame</code>s are simply collections of variables:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="2-5-class-types.html#cb46-1"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(num, char, fac)</span></code></pre></div>
+<p><br />
+</p>
+<p>To access variables in a data.frame, you simply use the <code>$</code> dollar sign.</p>
+<pre><code>data$num</code></pre>
+<p><br />
+</p>
+<p>You can read in <code>data.frame</code>s from your own data: and you’ll learn much more
+about that next time…<br />
+<br />
+</p>
+<hr />
+</div>
 </div>
 <p style="text-align: center;">
-<a href="1-1-schedule.html"><button class="btn btn-default">Next</button></a>
+<a href="2-4-classes.html"><button class="btn btn-default">Previous</button></a>
+<a href="2-6-final-tips.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
