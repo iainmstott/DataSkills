@@ -75,7 +75,7 @@ mean you need to revise earlier steps.
 
 ![The analytical process and its feedbacks, from start to finish][analytical_process]
 
-[analytical_process]: Process.jpg "The Analytical Process"  
+[analytical_process]: Process.png "The Analytical Process"  
 \ 
 
 
