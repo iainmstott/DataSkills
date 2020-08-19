@@ -83,7 +83,17 @@ mean you need to revise earlier steps.
 
 Install here
 
-![](https://www.youtube.com/watch?v=d7lARa168gk)
+```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
+cat(
+'<iframe width="560" height="315" 
+  src="https://www.youtube.com/watch?v=d7lARa168gk"
+  frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+  gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>'
+)
+```
+
+
 
 ## Installing R packages
 
