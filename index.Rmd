@@ -1,7 +1,7 @@
 --- 
 title: "BGY2011M Data Skills for the Life Sciences"
-author: "Module lead: IAIN STOTT (istott@lincoln.ac.uk)"
-date: "`r Sys.Date()`"
+author: "Module lead: IAIN STOTT  /   email istott@lincoln.ac.uk"
+date: "Last updated `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -13,31 +13,32 @@ github-repo: rstudio/bookdown-demo
 description: "This workbook accompanies the University of Lincoln School of Life Sciences Level 2 Module BGY2011M Data Skills for the Life Sciences."
 ---
 
-# Before we start... 
+***
+# Introduction 
 
-
-## Schedule
-
-Schedule here
-
-
-## Assessments
-
-Assessments here
+Welcome to Data Skills for the Life Sciences! This page contains important 
+information on the module: it's worth reading through carefully, and the 
+information will always be here for you to refer back to. The first few sections
+describe everything you need to know to set yourself up for the course. It's 
+really important you complete these as soon as possible. Information on the 
+timetable and learning schedule, and both formative and summative assessments, 
+are found at the bottom of the page.
 
 
 ***
 ### The analytical process
 
-Any analytical process is really just a means of understanding your data and 
-relationships between variables in that data. That's why I do not consider this
-to be a course in statistics; it is a course in giving you the skills to 
-understand data. Statistics is one part of that.  
+This module is all about analysing data. 
+Any analytical process is really just a means of understanding your data, and 
+relationships between variables in that data. _That's why I do not consider this_
+_to be a course in statistics; it is a course in giving you the skills to_
+_understand data._ Statistics is one part of that.  
 
 It's important not to dive right into statistical analysis without 
 understanding your data, your variables and the relationships between them
 first. For that reason, much of the course will be dedicated to understanding 
-data, and how to plot data. These steps forms the **first half of the course**:
+data, and how to plot data.  
+These steps forms the **FIRST HALF of the course**:
 
 * **Tidy data**
   - data exploration
@@ -53,7 +54,8 @@ whereas statistical analyses are easier to code but harder to interpret.
 
 Equally, you cannot complete a statistical analysis without assessing how well 
 that model fits the data, and whether any 'assumptions' of your statistical 
-model are violated. These steps form the **second half of the course**:
+model are violated.  
+These steps form the **SECOND HALF of the course**:
 
 * **Model**
   - fitting a statistical model
@@ -81,6 +83,7 @@ mean you need to revise earlier steps.
 
 Install here
 
+![](https://www.youtube.com/watch?v=d7lARa168gk)
 
 ## Installing R packages
 
