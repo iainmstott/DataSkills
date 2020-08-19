@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "BGY2011M Data Skills for the Life Sciences"
+author: "Module lead: IAIN STOTT (istott@lincoln.ac.uk)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -10,7 +10,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "This workbook accompanies the University of Lincoln School of Life Sciences Level 2 Module BGY2011M Data Skills for the Life Sciences."
 ---
 
 # Before we start... 
