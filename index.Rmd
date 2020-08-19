@@ -83,7 +83,7 @@ mean you need to revise earlier steps.
 
 Install here
 
-```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
+```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
 '<div style = "overflow: hidden; padding-top: 56.25%; position: relative;">
   <iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
@@ -94,7 +94,21 @@ cat(
 </div>'
 )
 ```
+\  
 
+```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
+cat(
+'Installing R and RStudio video: https://www.youtube.com/embed/d7lARa168gk'
+)
+```
+\  
+
+```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
+cat(
+'Installing R and RStudio video: https://www.youtube.com/embed/d7lARa168gk'
+)
+```
+\  
 
 
 ## Installing R packages

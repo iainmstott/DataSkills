@@ -474,11 +474,11 @@ behaviour is sometimes unpredictable so be careful!</p>
 <p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
 <span id="cb28-2"><a href="r-basics.html#cb28-2"></a>num</span></code></pre></div>
-<pre><code>##  [1] 0.80396403 0.49247012 0.29716173 0.05299980 0.24572222 0.76618385
-##  [7] 0.33939286 0.03395328 0.96929616 0.05053258 0.05605599 0.02279112
-## [13] 0.03833244 0.88745294 0.22943911 0.40166203 0.02220159 0.73977372
-## [19] 0.70268839 0.58904355 0.91698394 0.59887217 0.48202218 0.14948800
-## [25] 0.16068465</code></pre>
+<pre><code>##  [1] 0.29351108 0.31086678 0.56577801 0.31268594 0.52340866 0.20699977
+##  [7] 0.37474822 0.48281918 0.48258650 0.32832495 0.29290762 0.24759973
+## [13] 0.22112802 0.62392842 0.80634297 0.97271322 0.95729473 0.16117188
+## [19] 0.05246986 0.85844902 0.68283319 0.25830185 0.65390775 0.99792238
+## [25] 0.65124022</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
 <span id="cb30-2"><a href="r-basics.html#cb30-2"></a>char</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
@@ -492,24 +492,24 @@ contains the alphabet.<br />
 <p>It’s important to understand how different vectors ‘work’, but most of this
 experience comes with time. Here’s an example:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
-<pre><code>##  [1] 8.0396403 4.9247012 2.9716173 0.5299980 2.4572222 7.6618385 3.3939286
-##  [8] 0.3395328 9.6929616 0.5053258 0.5605599 0.2279112 0.3833244 8.8745294
-## [15] 2.2943911 4.0166203 0.2220159 7.3977372 7.0268839 5.8904355 9.1698394
-## [22] 5.9887217 4.8202218 1.4948800 1.6068465</code></pre>
+<pre><code>##  [1] 2.9351108 3.1086678 5.6577801 3.1268594 5.2340866 2.0699977 3.7474822
+##  [8] 4.8281918 4.8258650 3.2832495 2.9290762 2.4759973 2.2112802 6.2392842
+## [15] 8.0634297 9.7271322 9.5729473 1.6117188 0.5246986 8.5844902 6.8283319
+## [22] 2.5830185 6.5390775 9.9792238 6.5124022</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##  [1]  -0.196036  -1.507530  -2.702838  -3.947000  -4.754278  -5.233816
-##  [7]  -6.660607  -7.966047  -8.030704  -9.949467 -10.943944 -11.977209
-## [13] -12.961668 -13.112547 -14.770561 -15.598338 -16.977798 -17.260226
-## [19] -18.297312 -19.410956 -20.083016 -21.401128 -22.517978 -23.850512
-## [25] -24.839315</code></pre>
+<pre><code>##  [1]  -0.7064889  -1.6891332  -2.4342220  -3.6873141  -4.4765913  -5.7930002
+##  [7]  -6.6252518  -7.5171808  -8.5174135  -9.6716750 -10.7070924 -11.7524003
+## [13] -12.7788720 -13.3760716 -14.1936570 -15.0272868 -16.0427053 -17.8388281
+## [19] -18.9475301 -19.1415510 -20.3171668 -21.7416982 -22.3460923 -23.0020776
+## [25] -24.3487598</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
 <pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
 ## object length</code></pre>
-<pre><code>##  [1]  8.0396403 -4.9247012  2.9716173 -0.5299980  2.4572222 -7.6618385
-##  [7]  3.3939286 -0.3395328  9.6929616 -0.5053258  0.5605599 -0.2279112
-## [13]  0.3833244 -8.8745294  2.2943911 -4.0166203  0.2220159 -7.3977372
-## [19]  7.0268839 -5.8904355  9.1698394 -5.9887217  4.8202218 -1.4948800
-## [25]  1.6068465</code></pre>
+<pre><code>##  [1]  2.9351108 -3.1086678  5.6577801 -3.1268594  5.2340866 -2.0699977
+##  [7]  3.7474822 -4.8281918  4.8258650 -3.2832495  2.9290762 -2.4759973
+## [13]  2.2112802 -6.2392842  8.0634297 -9.7271322  9.5729473 -1.6117188
+## [19]  0.5246986 -8.5844902  6.8283319 -2.5830185  6.5390775 -9.9792238
+## [25]  6.5124022</code></pre>
 <p><br />
 </p>
 <p><em>Question: what’s happened for each of those lines of code? What does the Warning
@@ -544,9 +544,9 @@ really. They basically indicate whether something is <code>TRUE</code> or <code>
 usually relate to a question we ask of our data:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb42-2"><a href="r-basics.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
-<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE
-## [13] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
-## [25] FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
+## [25]  TRUE</code></pre>
 <p><br />
 </p>
 <p>The result is information on which of your random data are higher than 0.5.<br />
