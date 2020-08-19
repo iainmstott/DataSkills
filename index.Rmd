@@ -70,7 +70,7 @@ analyses fit into the glm framework.
 
 ![alt text][analytical_process]
 
-[analytical_process]: images/Process "The Analytical Process"  
+[analytical_process]: Process.jpg "The Analytical Process"  
 \ 
 
 
