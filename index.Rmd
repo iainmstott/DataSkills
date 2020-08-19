@@ -66,9 +66,12 @@ The "statistical model" we will be working with is the
 _general linear model (glm)_. This is a framework which brings together 
 many traditional statistical analyses. You will learn where these traditional 
 analyses fit into the glm framework.  
+
+There is naturally feedbacks between these steps, where new information may 
+mean you need to revise earlier steps.  
 \ 
 
-![alt text][analytical_process]
+![The analytical process and its feedbacks, from start to finish][analytical_process]
 
 [analytical_process]: Process.jpg "The Analytical Process"  
 \ 
