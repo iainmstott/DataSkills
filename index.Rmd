@@ -85,11 +85,10 @@ Install here
 
 ```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
-'<iframe 
+'<iframe style="position: relative; height: 100%; width: 100%;"
   src="https://www.youtube.com/embed/d7lARa168gk"
   frameborder="0" allow="accelerometer; autoplay; encrypted-media;
-  gyroscope; picture-in-picture" allowfullscreen 
-  style="position: relative; height: 100%; width: 100%;">
+  gyroscope; picture-in-picture" allowfullscreen>
   </iframe>'
 )
 ```
