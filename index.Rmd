@@ -98,14 +98,14 @@ cat(
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
 cat(
-'Installing R and RStudio video:\nhttps://www.youtube.com/embed/d7lARa168gk'
+'Installing R and RStudio video: https://youtu.be/d7lARa168gk'
 )
 ```
 \  
 
 ```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
 cat(
-'Installing R and RStudio video:\nhttps://www.youtube.com/embed/d7lARa168gk'
+'Installing R and RStudio video: https://youtu.be/d7lARa168gk'
 )
 ```
 \  
