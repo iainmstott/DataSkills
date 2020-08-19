@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Data Skills</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
@@ -474,11 +474,11 @@ behaviour is sometimes unpredictable so be careful!</p>
 <p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
 <span id="cb28-2"><a href="r-basics.html#cb28-2"></a>num</span></code></pre></div>
-<pre><code>##  [1] 0.96632330 0.53748567 0.86112655 0.54502471 0.85797127 0.38035174
-##  [7] 0.36303637 0.01719612 0.65582982 0.70249845 0.93148869 0.82683206
-## [13] 0.46968335 0.92631650 0.70217463 0.91622681 0.40011095 0.94425039
-## [19] 0.58645208 0.08801919 0.76531901 0.44035912 0.65677486 0.13444951
-## [25] 0.36990409</code></pre>
+<pre><code>##  [1] 0.80396403 0.49247012 0.29716173 0.05299980 0.24572222 0.76618385
+##  [7] 0.33939286 0.03395328 0.96929616 0.05053258 0.05605599 0.02279112
+## [13] 0.03833244 0.88745294 0.22943911 0.40166203 0.02220159 0.73977372
+## [19] 0.70268839 0.58904355 0.91698394 0.59887217 0.48202218 0.14948800
+## [25] 0.16068465</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
 <span id="cb30-2"><a href="r-basics.html#cb30-2"></a>char</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
@@ -492,24 +492,24 @@ contains the alphabet.<br />
 <p>It’s important to understand how different vectors ‘work’, but most of this
 experience comes with time. Here’s an example:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
-<pre><code>##  [1] 9.6632330 5.3748567 8.6112655 5.4502471 8.5797127 3.8035174 3.6303637
-##  [8] 0.1719612 6.5582982 7.0249845 9.3148869 8.2683206 4.6968335 9.2631650
-## [15] 7.0217463 9.1622681 4.0011095 9.4425039 5.8645208 0.8801919 7.6531901
-## [22] 4.4035912 6.5677486 1.3444951 3.6990409</code></pre>
+<pre><code>##  [1] 8.0396403 4.9247012 2.9716173 0.5299980 2.4572222 7.6618385 3.3939286
+##  [8] 0.3395328 9.6929616 0.5053258 0.5605599 0.2279112 0.3833244 8.8745294
+## [15] 2.2943911 4.0166203 0.2220159 7.3977372 7.0268839 5.8904355 9.1698394
+## [22] 5.9887217 4.8202218 1.4948800 1.6068465</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##  [1]  -0.0336767  -1.4625143  -2.1388735  -3.4549753  -4.1420287  -5.6196483
-##  [7]  -6.6369636  -7.9828039  -8.3441702  -9.2975016 -10.0685113 -11.1731679
-## [13] -12.5303166 -13.0736835 -14.2978254 -15.0837732 -16.5998891 -17.0557496
-## [19] -18.4135479 -19.9119808 -20.2346810 -21.5596409 -22.3432251 -23.8655505
-## [25] -24.6300959</code></pre>
+<pre><code>##  [1]  -0.196036  -1.507530  -2.702838  -3.947000  -4.754278  -5.233816
+##  [7]  -6.660607  -7.966047  -8.030704  -9.949467 -10.943944 -11.977209
+## [13] -12.961668 -13.112547 -14.770561 -15.598338 -16.977798 -17.260226
+## [19] -18.297312 -19.410956 -20.083016 -21.401128 -22.517978 -23.850512
+## [25] -24.839315</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
 <pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
 ## object length</code></pre>
-<pre><code>##  [1]  9.6632330 -5.3748567  8.6112655 -5.4502471  8.5797127 -3.8035174
-##  [7]  3.6303637 -0.1719612  6.5582982 -7.0249845  9.3148869 -8.2683206
-## [13]  4.6968335 -9.2631650  7.0217463 -9.1622681  4.0011095 -9.4425039
-## [19]  5.8645208 -0.8801919  7.6531901 -4.4035912  6.5677486 -1.3444951
-## [25]  3.6990409</code></pre>
+<pre><code>##  [1]  8.0396403 -4.9247012  2.9716173 -0.5299980  2.4572222 -7.6618385
+##  [7]  3.3939286 -0.3395328  9.6929616 -0.5053258  0.5605599 -0.2279112
+## [13]  0.3833244 -8.8745294  2.2943911 -4.0166203  0.2220159 -7.3977372
+## [19]  7.0268839 -5.8904355  9.1698394 -5.9887217  4.8202218 -1.4948800
+## [25]  1.6068465</code></pre>
 <p><br />
 </p>
 <p><em>Question: what’s happened for each of those lines of code? What does the Warning
@@ -544,8 +544,8 @@ really. They basically indicate whether something is <code>TRUE</code> or <code>
 usually relate to a question we ask of our data:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb42-2"><a href="r-basics.html#cb42-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
-<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-## [13] FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+<pre><code>##  [1]  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE
+## [13] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
 ## [25] FALSE</code></pre>
 <p><br />
 </p>
