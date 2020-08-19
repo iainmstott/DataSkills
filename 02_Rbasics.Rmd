@@ -15,6 +15,69 @@ Sciences module at the School of Life Sciences, University of Lincoln"
 
 # R BASICS
 
+Welcome to your first R tutorial! In this tutorial we'll be covering the very basics of R, which is a programming language originally developed for 
+understanding data and doing statistics. This tutorial includes: 
+
+* Why programming is important, and why its popularity in both research 
+and industry is increasing
+* What programming languages (and specifically R) are
+  - how programming works
+  - types of programming language (especially R)
+  - the anatomy ("vocabulary" and "grammar") of R code
+* The many benefits of using R
+* What RStudio is, and how RStudio works with R
+* The structure of R
+  - base coding _packages_
+  - add-on packages
+
+With this information, we'll put our newfound knowledge into practice and 
+do some basic coding in R to get used to this new way of working with data.  
+
+For those of you who are familiar with R already, this should still serve as a 
+useful reminder (and won't take very long at all!)  
+\ 
+
+***
+### RESOURCES
+
+These resources will help you get to grips with R and RStudio. It's well worth 
+taking a look: even the most experienced of us make the simplest of mistakes, 
+and having the resources to refer back to is incredibly useful.  
+
+Books:
+ 
+* Beckerman, Childs & Petchey (2017) _Getting started with R, an 
+introduction for Biologists_, 2nd ed. pp 1 - 34, Chapter 1, "Getting and 
+getting acquainted with R".
+\ 
+
+Cheatsheets:
+
+* [RStudio IDE cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) by RStudio
+* [base-R cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf) by RStudio
+\ 
+
+Web links:
+
+* [R for beginners](https://education.rstudio.com/learn/beginner) by RStudio  
+\ 
+
+
+***
+### Create your R Script
+
+!!! video here
+
+R code is saved in a file with the extension `.R`. In the same way as Micosoft 
+Word knows to open files with `.docx` extensions and Adobe Reader knows to
+open files with `.pdf` extensions, RStudio knows to open files with `.R` 
+extensions, and to work with them in certain ways.  
+
+In this course we'll work primarily with two different code documents: one 
+for Part 1 of the worksheets, and one for Part 2. By the end of the course, 
+these two files will each have a complete analysis, including: 
+
+
 
 Create a .R file in the folder you wish to use as your working directory. Type
 in the commands* in this worksheet and check your outputs against the outputs
@@ -26,28 +89,6 @@ brain better. It's a better approach to learning programming. But then every tim
 someone copy-pastes... so I guess some of you will too.
 
 
-***
-## RESOURCES
-
-Books:
- 
-* Beckerman, Childs & Petchey (2017) _Getting started with R, an 
-introduction for Biologists_, 2nd ed. pp 1 - 34, Chapter 1, "Getting and 
-getting acquainted with R".
-\ 
-
-Cheatsheets:
-
-* RStudio IDE cheatsheet by RStudio - see Resources section on blackboard or 
-download [here](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
-* Week 1: base-R cheatsheet by RStudio - see Resources section on blackboard or 
-download [here](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
-\ 
-
-Web links:
-
-* [R for beginners](https://education.rstudio.com/learn/beginner) by RStudio  
-\ 
 
 ***
 ## R BASICS
