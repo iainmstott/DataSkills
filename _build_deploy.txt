@@ -1,0 +1,16 @@
+# run from bash or powershell within the VSCode project environment
+
+powershell
+
+set -ev
+
+Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
+Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
+Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::epub_book')"
+
+
+bash
+
+git add .
+git commit -m "Update the book"
+git push
