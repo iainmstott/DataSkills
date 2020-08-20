@@ -116,7 +116,7 @@ cat(
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
-'<div style = "overflow: hidden; padding-top: 100%; position: relative;">
+'<div style = "overflow: hidden; padding-top: 66.66%; position: relative;">
   <iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
     src="https://ashbaldry.shinyapps.io/Pokemon_20Q/">
   </iframe>
