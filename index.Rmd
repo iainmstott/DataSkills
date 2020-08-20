@@ -90,6 +90,7 @@ cat(
 )
 ```
 \ 
+
 * **Part 3** of each chapter presents some analytical tasks for biological data 
 for you to code in R.  
 \ 
