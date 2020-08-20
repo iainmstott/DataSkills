@@ -72,11 +72,13 @@ Within the text you will find instructional videos,
 quizzes. Each chapter is arranged like this:
 
 * **Part 1** of each chapter uses a web application I wrote to help teach analysis 
-using R. It is available at iainmstott.shinyapps.io/ShinyGLiM. By interacting 
-with the app, you'll learn how to code different tasks, and you'll write that 
-code yourself alongside. 
+using R. It is available at 
+[iainmstott.shinyapps.io/ShinyGLiM](iainmstott.shinyapps.io/ShinyGLiM). 
+By interacting with the app, you'll learn how to code different tasks and 
+write these into a script which ultimately will contain a full analysis of a
+data set. 
 * **Part 2** of each chapter is an interactive quiz which tests your knowledge of the 
-topics and skills in Part 1. Here is an example:  
+topics and skills learned in Part 1. Here is an example:  
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
@@ -92,7 +94,8 @@ cat(
 for you to code in R.  
 \ 
 
-Code is always written using a `fixed width font` like Courier New, Consolas or 
+This book will naturally contain a lot of R code. Code (of any type) 
+is always written using a `fixed width font` like Courier New, Consolas or 
 Lucida Console. My personal favourite at the moment is
 [Space Mono](https://fonts.google.com/specimen/Space+Mono). The reason for this 
 is that all the letters line up vertically, which is far easier to read and crucial
@@ -228,22 +231,29 @@ the video below.
 
 1. It's **_free_**.
 2. It's **_open source_**.
-3. It's **_cross-platform_**
-4. It's **_transparent_** and **_replicable_**
-5. It's **_powerful_** and **_fast_**
-6. It's **_flexible_**  
-\ 
+3. It's **_cross-platform_**.
+4. It's **_transparent_** and **_replicable_**.
+5. It's **_powerful_** and **_fast_**.
+6. It's **_flexible_**.
+7. It makes you **_employable_**.  
 
-Think of R like the language you're writing in, and 
-RStudio like Microsoft Word, i.e. a program that allows you to write stuff, 
-edit documents, save them and generally work with them. Writing R allows you 
-to speak to the computer by "running" your code, and the computer will accordingly 
-do certain tasks like calculate something, create a plot or do a statistical 
-analysis. RStudio enables you to write code, run code and view the outputs of 
-your hard labour! Lots of things can be done with what is called _base R_, 
-which load every time you start R (and therefore every time you start RStudio, as 
-R is run from within RStudio). However some tasks require add-on _packages_ with 
-extra information: think of these like dictionaries of extra vocabulary and grammar 
+Think of R as a language you're writing in, and 
+RStudio like Microsoft Word, i.e. a program that allows you to write, 
+to edit files of different types, to save them and generally to work with them.  
+
+Those files don't do anything by themselves, but "running" R code from within a file allows you 
+to speak to the computer and instruct it to do something. The computer will accordingly 
+complete certain tasks like calculate something, create a plot or do a statistical 
+analysis.  
+
+RStudio enables you to write code, run code and view the outputs of 
+your hard labour!  
+
+Lots of things can be done with what is called _base R_, 
+which is a set of R functions and tools that load every time you start R 
+(and therefore every time you start RStudio, as R is run from within RStudio). 
+However some tasks require add-on _packages_ with 
+extra functions and tools: think of these like dictionaries of extra vocabulary and grammar 
 which allow R to communicate with the computer in more elaborate ways.  
 
 This video explains some of these concepts:  

@@ -285,11 +285,13 @@ some useful information on keyboard shortcuts.</li>
 quizzes. Each chapter is arranged like this:</p>
 <ul>
 <li><strong>Part 1</strong> of each chapter uses a web application I wrote to help teach analysis
-using R. It is available at iainmstott.shinyapps.io/ShinyGLiM. By interacting
-with the app, you’ll learn how to code different tasks, and you’ll write that
-code yourself alongside.</li>
+using R. It is available at
+<a href="iainmstott.shinyapps.io/ShinyGLiM">iainmstott.shinyapps.io/ShinyGLiM</a>.
+By interacting with the app, you’ll learn how to code different tasks and
+write these into a script which ultimately will contain a full analysis of a
+data set.</li>
 <li><strong>Part 2</strong> of each chapter is an interactive quiz which tests your knowledge of the
-topics and skills in Part 1. Here is an example:</li>
+topics and skills learned in Part 1. Here is an example:</li>
 </ul>
 <div style="overflow: hidden; padding-top: 66.66%; position: relative;">
 <p><iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
@@ -301,7 +303,8 @@ topics and skills in Part 1. Here is an example:</li>
 for you to code in R.<br />
  </li>
 </ul>
-<p>Code is always written using a <code>fixed width font</code> like Courier New, Consolas or
+<p>This book will naturally contain a lot of R code. Code (of any type)
+is always written using a <code>fixed width font</code> like Courier New, Consolas or
 Lucida Console. My personal favourite at the moment is
 <a href="https://fonts.google.com/specimen/Space+Mono">Space Mono</a>. The reason for this
 is that all the letters line up vertically, which is far easier to read and crucial
@@ -312,9 +315,9 @@ and standard deviation of 1, then calculate the mean and standard deviation
 (which of course should be approximately zero and one respectively):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a>random &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb1-2"><a href="index.html#cb1-2"></a><span class="kw">mean</span>(random)</span></code></pre></div>
-<pre><code>## [1] -0.0372132</code></pre>
+<pre><code>## [1] 0.00643638</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a><span class="kw">sd</span>(random)</span></code></pre></div>
-<pre><code>## [1] 1.004776</code></pre>
+<pre><code>## [1] 1.031981</code></pre>
 <p> </p>
 <p><em>Scripts</em> are files which contain many chunks of code.</p>
 </div>
@@ -421,22 +424,26 @@ the video below.</p>
 <ol style="list-style-type: decimal">
 <li>It’s <strong><em>free</em></strong>.</li>
 <li>It’s <strong><em>open source</em></strong>.</li>
-<li>It’s <strong><em>cross-platform</em></strong></li>
-<li>It’s <strong><em>transparent</em></strong> and <strong><em>replicable</em></strong></li>
-<li>It’s <strong><em>powerful</em></strong> and <strong><em>fast</em></strong></li>
-<li>It’s <strong><em>flexible</em></strong><br />
- </li>
+<li>It’s <strong><em>cross-platform</em></strong>.</li>
+<li>It’s <strong><em>transparent</em></strong> and <strong><em>replicable</em></strong>.</li>
+<li>It’s <strong><em>powerful</em></strong> and <strong><em>fast</em></strong>.</li>
+<li>It’s <strong><em>flexible</em></strong>.</li>
+<li>It makes you <strong><em>employable</em></strong>.</li>
 </ol>
-<p>Think of R like the language you’re writing in, and
-RStudio like Microsoft Word, i.e. a program that allows you to write stuff,
-edit documents, save them and generally work with them. Writing R allows you
-to speak to the computer by “running” your code, and the computer will accordingly
-do certain tasks like calculate something, create a plot or do a statistical
-analysis. RStudio enables you to write code, run code and view the outputs of
-your hard labour! Lots of things can be done with what is called <em>base R</em>,
-which load every time you start R (and therefore every time you start RStudio, as
-R is run from within RStudio). However some tasks require add-on <em>packages</em> with
-extra information: think of these like dictionaries of extra vocabulary and grammar
+<p>Think of R as a language you’re writing in, and
+RStudio like Microsoft Word, i.e. a program that allows you to write,
+to edit files of different types, to save them and generally to work with them.</p>
+<p>Those files don’t do anything by themselves, but “running” R code from within a file allows you
+to speak to the computer and instruct it to do something. The computer will accordingly
+complete certain tasks like calculate something, create a plot or do a statistical
+analysis.</p>
+<p>RStudio enables you to write code, run code and view the outputs of
+your hard labour!</p>
+<p>Lots of things can be done with what is called <em>base R</em>,
+which is a set of R functions and tools that load every time you start R
+(and therefore every time you start RStudio, as R is run from within RStudio).
+However some tasks require add-on <em>packages</em> with
+extra functions and tools: think of these like dictionaries of extra vocabulary and grammar
 which allow R to communicate with the computer in more elaborate ways.</p>
 <p>This video explains some of these concepts:<br />
  </p>
