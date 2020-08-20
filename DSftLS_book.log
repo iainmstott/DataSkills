@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2020.8.19)  20 AUG 2020 15:15
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2020.8.19)  20 AUG 2020 18:37
 entering extended mode
 **./DSftLS_book.tex
 (DSftLS_book.tex
@@ -1098,855 +1098,786 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 ] (DSftLS_book.toc
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3.
+(Font)              scaled to size 7.0pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 3.
+(Font)              scaled to size 5.0pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 3.
+(Font)              scaled to size 10.00107pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 3.
+(Font)              scaled to size 7.00075pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 3.
+(Font)              scaled to size 5.00053pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 3.
+(Font)              scaled to size 9.99893pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 3.
+(Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 3.
+(Font)              scaled to size 4.99947pt on input line 2.
 [3])
 \tf@toc=\write4
 \openout4 = `DSftLS_book.toc'.
 
 [4]
 Chapter 1.
+File: gitbook_icons.jpg Graphic file (type bmp)
+<gitbook_icons.jpg>
 [5
 
-]
+] [6]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 246.
 File: Process.png Graphic file (type bmp)
 <Process.png>
-[6] [7] [8
+[7] [8] [9] [10
 
 ]
 Chapter 2.
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 420--428
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 420--428
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 429--435
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 429--435
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--443
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--443
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--452
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--452
-
- []
-
-
-Overfull \hbox (18.70003pt too wide) in paragraph at lines 453--456
-[]\TU/lmr/m/n/10 Objects are created using \TU/lmr/bx/n/10 functions\TU/lmr/m/n
-/10 . functions take the form \TU/lmtt/m/n/10 function(argument1,
- []
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 459.
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 528--530
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 528--530
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 569--574
+Underfull \hbox (badness 10000) in paragraph at lines 600--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--574
+Underfull \hbox (badness 10000) in paragraph at lines 600--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--578
+Underfull \hbox (badness 10000) in paragraph at lines 609--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--578
+Underfull \hbox (badness 10000) in paragraph at lines 609--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--603
+Underfull \hbox (badness 10000) in paragraph at lines 616--623
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--603
+Underfull \hbox (badness 10000) in paragraph at lines 616--623
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--606
+Underfull \hbox (badness 10000) in paragraph at lines 629--632
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--606
+Underfull \hbox (badness 10000) in paragraph at lines 629--632
 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 639--639
+Overfull \hbox (18.70003pt too wide) in paragraph at lines 633--636
+[]\TU/lmr/m/n/10 Objects are created using \TU/lmr/bx/n/10 functions\TU/lmr/m/n
+/10 . functions take the form \TU/lmtt/m/n/10 function(argument1,
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 708--710
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--710
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 725--727
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 725--727
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 749--754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--783
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--783
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 784--786
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 784--786
+
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 819--819
 []\TU/lmtt/m/n/10 ## Warning in mean.default(characters1): argument is not nume
 ric or logical:[] 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 645--654
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 825--834
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--654
+Underfull \hbox (badness 10000) in paragraph at lines 825--834
 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 708--708
-[]\TU/lmtt/m/n/10 ##  [1] 0.843039128 0.439652520 0.742692753 0.695618859 0.607
-953966 0.270241955[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 888--888
+[]\TU/lmtt/m/n/10 ##  [1] 0.25762106 0.64534852 0.16293360 0.90189714 0.3335341
+5 0.37477138[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 708--708
-[]\TU/lmtt/m/n/10 ##  [7] 0.802375228 0.716008097 0.119222724 0.471734680 0.461
-503703 0.444240536[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 888--888
+[]\TU/lmtt/m/n/10 ##  [7] 0.27921316 0.31539952 0.61624019 0.34450912 0.9640406
+8 0.38703375[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 708--708
-[]\TU/lmtt/m/n/10 ## [13] 0.757629197 0.194262389 0.246274171 0.609488279 0.548
-424200 0.116117670[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 888--888
+[]\TU/lmtt/m/n/10 ## [13] 0.92580388 0.01614490 0.17433879 0.24426455 0.6771915
+8 0.47297756[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 708--708
-[]\TU/lmtt/m/n/10 ## [19] 0.008143599 0.449877890 0.437442974 0.556879221 0.237
-673983 0.494488886[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 888--888
+[]\TU/lmtt/m/n/10 ## [19] 0.25817466 0.31090434 0.06556366 0.43236615 0.8315677
+7 0.34098518[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 720--720
+Overfull \hbox (90.75pt too wide) in paragraph at lines 900--900
 []\TU/lmtt/m/n/10 ##  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "
 N" "O" "P" "Q" "R" "S"[] 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 722--725
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 902--905
 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 741--741
-[]\TU/lmtt/m/n/10 ##  [1] 8.43039128 4.39652520 7.42692753 6.95618859 6.0795396
-6 2.70241955[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 920--920
+[]\TU/lmtt/m/n/10 ##  [1] 2.5762106 6.4534852 1.6293360 9.0189714 3.3353415 3.7
+477138 2.7921316[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 741--741
-[]\TU/lmtt/m/n/10 ##  [7] 8.02375228 7.16008097 1.19222724 4.71734680 4.6150370
-3 4.44240536[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 920--920
+[]\TU/lmtt/m/n/10 ##  [8] 3.1539952 6.1624019 3.4450912 9.6404068 3.8703375 9.2
+580388 0.1614490[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 741--741
-[]\TU/lmtt/m/n/10 ## [13] 7.57629197 1.94262389 2.46274171 6.09488279 5.4842420
-0 1.16117670[] 
+Overfull \hbox (59.25pt too wide) in paragraph at lines 920--920
+[]\TU/lmtt/m/n/10 ## [15] 1.7433879 2.4426455 6.7719158 4.7297756 2.5817466 3.1
+090434 0.6556366[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 741--741
-[]\TU/lmtt/m/n/10 ## [19] 0.08143599 4.49877890 4.37442974 5.56879221 2.3767398
-3 4.94488886[] 
+Overfull \hbox (69.75pt too wide) in paragraph at lines 934--934
+[]\TU/lmtt/m/n/10 ##  [1]  -0.7423789  -1.3546515  -2.8370664  -3.0981029  -4.6
+664658  -5.6252286[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 755--755
-[]\TU/lmtt/m/n/10 ##  [1]  -0.1569609  -1.5603475  -2.2573072  -3.3043811  -4.3
-920460  -5.7297580[] 
+Overfull \hbox (69.75pt too wide) in paragraph at lines 934--934
+[]\TU/lmtt/m/n/10 ##  [7]  -6.7207868  -7.6846005  -8.3837598  -9.6554909 -10.0
+359593 -11.6129663[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 755--755
-[]\TU/lmtt/m/n/10 ##  [7]  -6.1976248  -7.2839919  -8.8807773  -9.5282653 -10.5
-384963 -11.5557595[] 
+Overfull \hbox (69.75pt too wide) in paragraph at lines 934--934
+[]\TU/lmtt/m/n/10 ## [13] -12.0741961 -13.9838551 -14.8256612 -15.7557355 -16.3
+228084 -17.5270224[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 755--755
-[]\TU/lmtt/m/n/10 ## [13] -12.2423708 -13.8057376 -14.7537258 -15.3905117 -16.4
-515758 -17.8838823[] 
+Overfull \hbox (69.75pt too wide) in paragraph at lines 934--934
+[]\TU/lmtt/m/n/10 ## [19] -18.7418253 -19.6890957 -20.9344363 -21.5676338 -22.1
+684322 -23.6590148[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 755--755
-[]\TU/lmtt/m/n/10 ## [19] -18.9918564 -19.5501221 -20.5625570 -21.4431208 -22.7
-623260 -23.5055111[] 
- []
-
-
-Overfull \hbox (80.25pt too wide) in paragraph at lines 766--766
+Overfull \hbox (80.25pt too wide) in paragraph at lines 945--945
 []\TU/lmtt/m/n/10 ## Warning in num * c(10, -10): longer object length is not a
  multiple of shorter[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 774--774
-[]\TU/lmtt/m/n/10 ##  [1]  8.43039128 -4.39652520  7.42692753 -6.95618859  6.07
-953966 -2.70241955[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 953--953
+[]\TU/lmtt/m/n/10 ##  [1]  2.5762106 -6.4534852  1.6293360 -9.0189714  3.335341
+5 -3.7477138[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 774--774
-[]\TU/lmtt/m/n/10 ##  [7]  8.02375228 -7.16008097  1.19222724 -4.71734680  4.61
-503703 -4.44240536[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 953--953
+[]\TU/lmtt/m/n/10 ##  [7]  2.7921316 -3.1539952  6.1624019 -3.4450912  9.640406
+8 -3.8703375[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 774--774
-[]\TU/lmtt/m/n/10 ## [13]  7.57629197 -1.94262389  2.46274171 -6.09488279  5.48
-424200 -1.16117670[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 953--953
+[]\TU/lmtt/m/n/10 ## [13]  9.2580388 -0.1614490  1.7433879 -2.4426455  6.771915
+8 -4.7297756[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 774--774
-[]\TU/lmtt/m/n/10 ## [19]  0.08143599 -4.49877890  4.37442974 -5.56879221  2.37
-673983 -4.94488886[] 
+Overfull \hbox (38.25pt too wide) in paragraph at lines 953--953
+[]\TU/lmtt/m/n/10 ## [19]  2.5817466 -3.1090434  0.6556366 -4.3236615  8.315677
+7 -3.4098518[] 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 808--811
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 808--811
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 987--990
 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 830--830
-[]\TU/lmtt/m/n/10 ##  [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE
- FALSE FALSE FALSE[] 
- []
-
-
-Overfull \hbox (69.75pt too wide) in paragraph at lines 830--830
-[]\TU/lmtt/m/n/10 ## [13]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
-  TRUE FALSE FALSE[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--834
+Underfull \hbox (badness 10000) in paragraph at lines 987--990
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 832--834
+Overfull \hbox (69.75pt too wide) in paragraph at lines 1009--1009
+[]\TU/lmtt/m/n/10 ##  [1] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
+ FALSE  TRUE FALSE[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 1009--1009
+[]\TU/lmtt/m/n/10 ## [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
+ FALSE  TRUE FALSE[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 835--837
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 835--837
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 868--868
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1034
+
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1047--1047
 []\TU/lmtt/m/n/10 ##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
  FALSE[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 870--873
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1052
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 870--873
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 875--877
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 875--877
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 878--880
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 878--880
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--883
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--883
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 903--906
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 903--906
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 912--916
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 912--916
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 917--922
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 917--922
-
- []
-
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 923--926
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 923--926
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1052
 
  []
 
 [18]
-Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 954--964
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--964
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1059
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1059
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1085
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1085
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1095
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1091--1095
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1101
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1105
+
+ []
+
+[20]
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1143
 
  []
 
 
 Underfull \vbox (badness 4819) has occurred while \output is active []
 
-[19
+[21
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 999--1000
+Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
+Underfull \hbox (badness 10000) in paragraph at lines 1233--1234
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 1099--1101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1099--1101
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1117
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1117
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1124
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1124
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1303
 
  []
 
 
 Underfull \vbox (badness 1939) has occurred while \output is active []
 
-[21]
-Underfull \hbox (badness 5578) in paragraph at lines 1126--1126
+[23]
+Underfull \hbox (badness 5578) in paragraph at lines 1305--1305
 []\TU/lmr/bx/n/14.4 DATA VISUALISATION (ONE VARI-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1128--1130
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1143--1145
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1143--1145
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1158--1159
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1190
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1186--1190
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1216--1219
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1216--1219
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1226
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1226
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 1233--1235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1233--1235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1241--1243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1241--1243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1272
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1272
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1282--1284
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1282--1284
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1292--1296
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1292--1296
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1323
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1398
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1323
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1405
 
  []
 
-[25] [26]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1405
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 1412--1414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1412--1414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1451
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1451
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1463
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1461--1463
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1471--1475
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1471--1475
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1502
+
+ []
+
+[27] [28]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1359--1363
+Underfull \hbox (badness 10000) in paragraph at lines 1538--1542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1359--1363
+Underfull \hbox (badness 10000) in paragraph at lines 1538--1542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1365--1366
+Underfull \hbox (badness 10000) in paragraph at lines 1544--1545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1548
 
  []
 
-[27
+[29
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1405--1407
+Underfull \hbox (badness 10000) in paragraph at lines 1584--1586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1405--1407
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1486--1488
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1486--1488
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1500--1506
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1500--1506
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1519
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1519
-
- []
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1521.
-
-Underfull \vbox (badness 1048) has occurred while \output is active []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1537
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1537
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1547--1549
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1547--1549
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1573
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1573
+Underfull \hbox (badness 10000) in paragraph at lines 1584--1586
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1592--1594
+Underfull \hbox (badness 10000) in paragraph at lines 1665--1667
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1592--1594
+Underfull \hbox (badness 10000) in paragraph at lines 1665--1667
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1603--1605
+Underfull \hbox (badness 10000) in paragraph at lines 1679--1685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1603--1605
+Underfull \hbox (badness 10000) in paragraph at lines 1679--1685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1615--1617
+Underfull \hbox (badness 10000) in paragraph at lines 1695--1698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1615--1617
+Underfull \hbox (badness 10000) in paragraph at lines 1695--1698
 
  []
 
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1700.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1635--1637
-
- []
+Underfull \vbox (badness 1048) has occurred while \output is active []
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1641--1644
+Underfull \hbox (badness 10000) in paragraph at lines 1714--1716
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1641--1644
+Underfull \hbox (badness 10000) in paragraph at lines 1714--1716
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1655--1656
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1728
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1662--1667
+Underfull \hbox (badness 10000) in paragraph at lines 1726--1728
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1662--1667
+Underfull \hbox (badness 10000) in paragraph at lines 1748--1752
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1668--1670
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1668--1670
+Underfull \hbox (badness 10000) in paragraph at lines 1748--1752
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1690--1691
+Underfull \hbox (badness 10000) in paragraph at lines 1771--1773
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1708--1709
+Underfull \hbox (badness 10000) in paragraph at lines 1771--1773
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1716--1724
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1784
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1716--1724
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1784
 
  []
 
-[33] [34
+
+Underfull \hbox (badness 10000) in paragraph at lines 1794--1796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1794--1796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1814--1816
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1820--1823
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1820--1823
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1834--1835
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1841--1846
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1841--1846
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1849
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1849
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1869--1870
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1887--1888
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1903
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1903
+
+ []
+
+[35] [36
 
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1745--1749
-
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 1784--1786
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1784--1786
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1851--1853
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1851--1853
-
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 1887--1889
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1887--1889
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1900--1903
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1900--1903
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1909--1911
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1909--1911
+Underfull \hbox (badness 10000) in paragraph at lines 1924--1928
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1939--1944
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1939--1944
-
- []
-
-
-Underfull \hbox (badness 3590) in paragraph at lines 1946--1946
-[]\TU/lmr/bx/n/14.4 DATA VISUALISATION (TWO VARI-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1963--1965
 
  []
@@ -1957,245 +1888,310 @@ Underfull \hbox (badness 10000) in paragraph at lines 1963--1965
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1971--1973
+Underfull \hbox (badness 10000) in paragraph at lines 2030--2032
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1971--1973
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1977--1981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1977--1981
+Underfull \hbox (badness 10000) in paragraph at lines 2030--2032
 
  []
 
 [38]
-File: DSftLS_book_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type 
-pdf)
-<use DSftLS_book_files/figure-latex/unnamed-chunk-35-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1996--1998
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2068
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1996--1998
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2068
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2002--2004
+Underfull \hbox (badness 10000) in paragraph at lines 2079--2082
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2002--2004
+Underfull \hbox (badness 10000) in paragraph at lines 2079--2082
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2088--2090
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2088--2090
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 2024--2026
+Underfull \hbox (badness 10000) in paragraph at lines 2118--2123
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2024--2026
+Underfull \hbox (badness 10000) in paragraph at lines 2118--2123
 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 2049--2049
+Underfull \hbox (badness 3590) in paragraph at lines 2125--2125
+[]\TU/lmr/bx/n/14.4 DATA VISUALISATION (TWO VARI-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2142--2144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2142--2144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2150--2152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2150--2152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2156--2160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2156--2160
+
+ []
+
+[40]
+File: DSftLS_book_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type 
+pdf)
+<use DSftLS_book_files/figure-latex/unnamed-chunk-41-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2175--2177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2175--2177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2181--2183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2181--2183
+
+ []
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2205
+
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 2228--2228
 []\TU/lmtt/m/n/10 ## Warning: Removed 1 rows containing missing values (geom_po
 int).[] 
  []
 
-File: DSftLS_book_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type 
+File: DSftLS_book_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type 
 pdf)
-<use DSftLS_book_files/figure-latex/unnamed-chunk-37-1.pdf>
+<use DSftLS_book_files/figure-latex/unnamed-chunk-43-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2051--2052
+Underfull \hbox (badness 10000) in paragraph at lines 2230--2231
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 2054--2056
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2054--2056
-
- []
-
-File: DSftLS_book_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type 
-pdf)
-<use DSftLS_book_files/figure-latex/unnamed-chunk-38-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2064
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2064
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 2078--2080
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2078--2080
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2099--2100
-
- []
-
-File: DSftLS_book_files/figure-latex/unnamed-chunk-39-1.pdf Graphic file (type 
-pdf)
-<use DSftLS_book_files/figure-latex/unnamed-chunk-39-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 2102--2105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2102--2105
-
- []
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 2116--2118
+Underfull \hbox (badness 10000) in paragraph at lines 2233--2235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2116--2118
+Underfull \hbox (badness 10000) in paragraph at lines 2233--2235
 
  []
 
-
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2139--2139
-[]\TU/lmtt/m/n/10 ## Warning: Removed 1 rows containing non-finite values (stat
-_boxplot).[] 
- []
-
-File: DSftLS_book_files/figure-latex/unnamed-chunk-40-1.pdf Graphic file (type 
+File: DSftLS_book_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type 
 pdf)
-<use DSftLS_book_files/figure-latex/unnamed-chunk-40-1.pdf>
+<use DSftLS_book_files/figure-latex/unnamed-chunk-44-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2141--2142
+Underfull \hbox (badness 10000) in paragraph at lines 2236--2243
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2236--2243
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 2153--2155
+Underfull \hbox (badness 10000) in paragraph at lines 2257--2259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2153--2155
+Underfull \hbox (badness 10000) in paragraph at lines 2257--2259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2278--2279
+
+ []
+
+File: DSftLS_book_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type 
+pdf)
+<use DSftLS_book_files/figure-latex/unnamed-chunk-45-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2281--2284
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2281--2284
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 2178--2180
+Underfull \hbox (badness 10000) in paragraph at lines 2295--2297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2178--2180
+Underfull \hbox (badness 10000) in paragraph at lines 2295--2297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2184--2194
-
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2318--2318
+[]\TU/lmtt/m/n/10 ## Warning: Removed 1 rows containing non-finite values (stat
+_boxplot).[] 
  []
 
+File: DSftLS_book_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type 
+pdf)
+<use DSftLS_book_files/figure-latex/unnamed-chunk-46-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2184--2194
+Underfull \hbox (badness 10000) in paragraph at lines 2320--2321
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2196--2196
-[]\TU/lmr/bx/n/12 EXPERIMENTAL DESIGN, NONINDEPEN-
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 2226--2228
+Underfull \hbox (badness 10000) in paragraph at lines 2332--2334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2226--2228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2236--2238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2236--2238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2262--2263
+Underfull \hbox (badness 10000) in paragraph at lines 2332--2334
 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 2287--2292
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2287--2292
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2359
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2363--2373
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2363--2373
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2375--2375
+[]\TU/lmr/bx/n/12 EXPERIMENTAL DESIGN, NONINDEPEN-
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 2405--2407
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2405--2407
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2441--2442
+
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 2466--2471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2466--2471
 
  []
 
 No file DSftLS_book.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2295.
-[47]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2295.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2474.
+[49]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2474.
 (DSftLS_book.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2295.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2295.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2474.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2474.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 30885 strings out of 427669
- 557008 string characters out of 3149215
- 773118 words of memory out of 3000000
- 34653 multiletter control sequences out of 15000+200000
+ 30892 strings out of 427669
+ 557121 string characters out of 3149215
+ 775211 words of memory out of 3000000
+ 34658 multiletter control sequences out of 15000+200000
  541514 words of font info for 86 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,7n,118p,812b,2146s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on DSftLS_book.pdf (47 pages).
+Output written on DSftLS_book.pdf (49 pages).
 
 ! xelatex: warning: running with administrator privileges
 ! miktex-dvipdfmx: warning: running with administrator privileges

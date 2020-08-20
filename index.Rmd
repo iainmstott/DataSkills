@@ -89,6 +89,18 @@ cat(
 </div>'
 )
 ```
+
+```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
+cat(
+'Installing R and RStudio video: https://shiny.rstudio.com/gallery/kmeans-example.html'
+)
+```
+
+```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
+cat(
+'Installing R and RStudio video: https://shiny.rstudio.com/gallery/kmeans-example.html'
+)
+```
 \ 
 
 * **Part 3** of each chapter presents some analytical tasks for biological data 

@@ -129,8 +129,6 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
 
@@ -138,25 +136,174 @@ Welcome to Data Skills for the Life Sciences! This page contains important
 information on the module: it's worth reading through carefully, and the
 information will always be here for you to refer back to. The first few sections
 describe everything you need to know to set yourself up for the course. It's
-really important you complete these as soon as possible. Information on the
-timetable and learning schedule, and both formative and summative assessments,
-are found at the bottom of the page.
+really important you complete these as soon as possible.\\
+\hspace*{0.333em}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{this-book}{%
+\section{This book}\label{this-book}}
+
+First, some \textbf{information on this web book}. This book accompanies every student for
+the first 9 weeks of the module, after which the teaching and content start
+to diverge for different programmes. This allows programs to learn different
+analytical techniques which are relevant to their courses: some stay with this
+content, and some do not. The learning and assessment schedule can be found at
+the bottom of the page.
+
+\hypertarget{using-the-web-book}{%
+\subsection{Using the web book}\label{using-the-web-book}}
+
+You will see some icons at the top of the page:
+
+\includegraphics{gitbook_icons.jpg}
+
+From left to right these are:
+
+\begin{itemize}
+\tightlist
+\item
+  the \emph{hamburger} icon on the left shows or hides the page navigation
+  sidebar.
+\item
+  The \emph{magnifying glass} icon allows you to search the book for any
+  term you like.
+\item
+  The \emph{format} (A) icon is designed for accessibility and allows you to:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    increase or decrease font size,
+  \item
+    change the font from sans serif to serif, depending on what you find easiest
+    to read,
+  \item
+    change the colour scheme to black-on-white, toned-down sepia or white-on-
+    black, depending on what you find easiest to read.
+  \end{itemize}
+\item
+  The \emph{edit} icon in the middle is not of interest (it redirects any
+  other web developers to a site where they can copy and edit the book).
+\item
+  The \emph{download}
+  button allows you to download the book as a pdf (e.g.~for printing out), or an epub
+  (for reading on an eReader). Videos and interactive content will NOT work in pdf
+  or epub formats (although these formats will contain relevant URLs). Therefore,
+  this web version should ideally be the one you work from primarily, and it will work
+  on any internet-enabled device with a screen through a web browser (although
+  perhaps smartphone screens are a little small).
+\item
+  The \emph{information} icon gives
+  some useful information on keyboard shortcuts.
+\end{itemize}
+
+\hypertarget{web-book-contents}{%
+\subsection{Web book contents}\label{web-book-contents}}
+
+Within the text you will find instructional videos,
+``chunks'' of R code and R outputs including text and plots, and interactive
+quizzes. Each chapter is arranged like this:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Part 1} of each chapter uses a web application I wrote to help teach analysis
+  using R. It is available at
+  \url{iainmstott.shinyapps.io/ShinyGLiM}.
+  By interacting with the app, you'll learn how to code different tasks and
+  write these into a script which ultimately will contain a full analysis of a
+  data set.
+\item
+  \textbf{Part 2} of each chapter is an interactive quiz which tests your knowledge of the
+  topics and skills learned in Part 1. Here is an example:
+\end{itemize}
+
+Installing R and RStudio video: \url{https://shiny.rstudio.com/gallery/kmeans-example.html}
+~
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Part 3} of each chapter presents some analytical tasks for biological data
+  for you to code in R.\\
+  \hspace*{0.333em}
+\end{itemize}
+
+This book will naturally contain a lot of R code. Code (of any type)
+is always written using a \texttt{fixed\ width\ font} like Courier New, Consolas or
+Lucida Console. My personal favourite at the moment is
+\href{https://fonts.google.com/specimen/Space+Mono}{Space Mono}. The reason for this
+is that all the letters line up vertically, which is far easier to read and crucial
+for coding, where often lines will only be slightly different to one another.
+\emph{Code chunks} are collections of lines of code which do a certain thing. This
+code will draw 1000 random numbers from a normal distribution with a mean of zero
+and standard deviation of 1, then calculate the mean and standard deviation
+(which of course should be approximately zero and one respectively):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{random <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(random)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.001392339
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(random)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9820536
+\end{verbatim}
+
+~
+\emph{Scripts} are files which contain many chunks of code.
+
+\hypertarget{learning-schedule}{%
+\subsection{Learning schedule}\label{learning-schedule}}
+
+Parts 1 and 2 of each chapter are to be completed at home each week, prior to the
+online session. These should take 1-2 hours per chapter, although this will
+definitely vary depending on the topic. Part 3 is to be
+completed during the online sessions, when you will work in your tutor groups.
+You may complete Parts 1 and 2 either individually, or in tutor groups, as you wish.
+
+Information on the timetable, and both the formative and summative assessments,
+are found at the bottom of the page.\\
+\hspace*{0.333em}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{the-analytical-process}{%
-\subsection{The analytical process}\label{the-analytical-process}}
+\section{The analytical process}\label{the-analytical-process}}
 
 This module is all about analysing data.
 Any analytical process is really just a means of understanding your data, and
 relationships between variables in that data. \emph{That's why I do not consider this}
 \emph{to be a course in statistics; it is a course in giving you the skills to}
-\emph{understand data.} Statistics is one part of that.
+\emph{understand data.} Statistics is one part of that.\\
+\hspace*{0.333em}
 
-It's important not to dive right into statistical analysis without
-understanding your data, your variables and the relationships between them
-first. For that reason, much of the course will be dedicated to understanding
-data, and how to plot data.\\
+\begin{figure}
+\centering
+\includegraphics{Process.png}
+\caption{The analytical process and its feedbacks, from start to finish}
+\end{figure}
+
+~
+
+There is a process to analysis, with a few different steps and feedbacks between
+them, as illustrated above. It's important not to dive right into statistical
+analysis without understanding your data, your variables and the relationships
+between them first. For that reason, much of the course will be dedicated to
+understanding data, and how to plot data.
+
 These steps forms the \textbf{FIRST HALF of the course}:
 
 \begin{itemize}
@@ -191,7 +338,8 @@ whereas statistical analyses are easier to code but harder to interpret.
 
 Equally, you cannot complete a statistical analysis without assessing how well
 that model fits the data, and whether any `assumptions' of your statistical
-model are violated.\\
+model are violated.
+
 These steps form the \textbf{SECOND HALF of the course}:
 
 \begin{itemize}
@@ -231,46 +379,78 @@ There are naturally feedbacks between these steps, where new information may
 mean you need to revise earlier steps.\\
 \hspace*{0.333em}
 
-\begin{figure}
-\centering
-\includegraphics{Process.png}
-\caption{The analytical process and its feedbacks, from start to finish}
-\end{figure}
-
-~
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{installing-r-and-rstudio}{%
 \section{Installing R and RStudio}\label{installing-r-and-rstudio}}
 
-Install here
-
-~
-
-~
+We will be using a program called \emph{RStudio} (the technical term for it is an
+``Integrated Development Environment'' or \emph{IDE}), to ``code'' in a programming
+language called \emph{R}. The very first thing you need to do is install both of
+these, and the following video walks you through that:
 
 Installing R and RStudio video: \url{https://youtu.be/d7lARa168gk}
 ~
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{shiny-apps}{%
-\section{Shiny apps}\label{shiny-apps}}
+\hypertarget{why-r}{%
+\section{Why R?}\label{why-r}}
+
+You may have come across other programs that allow you to work with data,
+plot data and run statistical analyses. So why a programming language, and why
+R?
+
+There are a huge number of benefits to using R, listed here and elaborated on in
+the video below.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  It's \textbf{\emph{free}}.
+\item
+  It's \textbf{\emph{open source}}.
+\item
+  It's \textbf{\emph{cross-platform}}.
+\item
+  It's \textbf{\emph{transparent}} and \textbf{\emph{replicable}}.
+\item
+  It's \textbf{\emph{powerful}} and \textbf{\emph{fast}}.
+\item
+  It's \textbf{\emph{flexible}}.
+\item
+  It makes you \textbf{\emph{employable}}.
+\end{enumerate}
+
+Think of R as a language you're writing in, and
+RStudio like Microsoft Word, i.e.~a program that allows you to write,
+to edit files of different types, to save them and generally to work with them.
+
+Those files don't do anything by themselves, but ``running'' R code from within a file allows you
+to speak to the computer and instruct it to do something. The computer will accordingly
+complete certain tasks like calculate something, create a plot or do a statistical
+analysis.
+
+RStudio enables you to write code, run code and view the outputs of
+your hard labour!
+
+Lots of things can be done with what is called \emph{base R},
+which is a set of R functions and tools that load every time you start R
+(and therefore every time you start RStudio, as R is run from within RStudio).
+However some tasks require add-on \emph{packages} with
+extra functions and tools: think of these like dictionaries of extra vocabulary and grammar
+which allow R to communicate with the computer in more elaborate ways.
+
+This video explains some of these concepts:\\
+\hspace*{0.333em}
 
 ~
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+~
 
-\hypertarget{installing-r-packages}{%
-\section{Installing R packages}\label{installing-r-packages}}
-
-PACKAGES
-
-\hypertarget{iains-notes}{%
-\section{iain's notes}\label{iains-notes}}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
+Installing R and RStudio video: \url{https://youtu.be/-BLSElo-ZP4}
+~
 
 \hypertarget{r-basics}{%
 \chapter{R BASICS}\label{r-basics}}
@@ -700,11 +880,11 @@ We've encountered numeric and character. Let's create slightly longer vectors:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.843039128 0.439652520 0.742692753 0.695618859 0.607953966 0.270241955
-##  [7] 0.802375228 0.716008097 0.119222724 0.471734680 0.461503703 0.444240536
-## [13] 0.757629197 0.194262389 0.246274171 0.609488279 0.548424200 0.116117670
-## [19] 0.008143599 0.449877890 0.437442974 0.556879221 0.237673983 0.494488886
-## [25] 0.621920952
+##  [1] 0.25762106 0.64534852 0.16293360 0.90189714 0.33353415 0.37477138
+##  [7] 0.27921316 0.31539952 0.61624019 0.34450912 0.96404068 0.38703375
+## [13] 0.92580388 0.01614490 0.17433879 0.24426455 0.67719158 0.47297756
+## [19] 0.25817466 0.31090434 0.06556366 0.43236615 0.83156777 0.34098518
+## [25] 0.98745771
 \end{verbatim}
 
 \begin{Shaded}
@@ -733,11 +913,10 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 8.43039128 4.39652520 7.42692753 6.95618859 6.07953966 2.70241955
-##  [7] 8.02375228 7.16008097 1.19222724 4.71734680 4.61503703 4.44240536
-## [13] 7.57629197 1.94262389 2.46274171 6.09488279 5.48424200 1.16117670
-## [19] 0.08143599 4.49877890 4.37442974 5.56879221 2.37673983 4.94488886
-## [25] 6.21920952
+##  [1] 2.5762106 6.4534852 1.6293360 9.0189714 3.3353415 3.7477138 2.7921316
+##  [8] 3.1539952 6.1624019 3.4450912 9.6404068 3.8703375 9.2580388 0.1614490
+## [15] 1.7433879 2.4426455 6.7719158 4.7297756 2.5817466 3.1090434 0.6556366
+## [22] 4.3236615 8.3156777 3.4098518 9.8745771
 \end{verbatim}
 
 \begin{Shaded}
@@ -747,11 +926,11 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  -0.1569609  -1.5603475  -2.2573072  -3.3043811  -4.3920460  -5.7297580
-##  [7]  -6.1976248  -7.2839919  -8.8807773  -9.5282653 -10.5384963 -11.5557595
-## [13] -12.2423708 -13.8057376 -14.7537258 -15.3905117 -16.4515758 -17.8838823
-## [19] -18.9918564 -19.5501221 -20.5625570 -21.4431208 -22.7623260 -23.5055111
-## [25] -24.3780790
+##  [1]  -0.7423789  -1.3546515  -2.8370664  -3.0981029  -4.6664658  -5.6252286
+##  [7]  -6.7207868  -7.6846005  -8.3837598  -9.6554909 -10.0359593 -11.6129663
+## [13] -12.0741961 -13.9838551 -14.8256612 -15.7557355 -16.3228084 -17.5270224
+## [19] -18.7418253 -19.6890957 -20.9344363 -21.5676338 -22.1684322 -23.6590148
+## [25] -24.0125423
 \end{verbatim}
 
 \begin{Shaded}
@@ -766,11 +945,11 @@ experience comes with time. Here's an example:
 \end{verbatim}
 
 \begin{verbatim}
-##  [1]  8.43039128 -4.39652520  7.42692753 -6.95618859  6.07953966 -2.70241955
-##  [7]  8.02375228 -7.16008097  1.19222724 -4.71734680  4.61503703 -4.44240536
-## [13]  7.57629197 -1.94262389  2.46274171 -6.09488279  5.48424200 -1.16117670
-## [19]  0.08143599 -4.49877890  4.37442974 -5.56879221  2.37673983 -4.94488886
-## [25]  6.21920952
+##  [1]  2.5762106 -6.4534852  1.6293360 -9.0189714  3.3353415 -3.7477138
+##  [7]  2.7921316 -3.1539952  6.1624019 -3.4450912  9.6404068 -3.8703375
+## [13]  9.2580388 -0.1614490  1.7433879 -2.4426455  6.7719158 -4.7297756
+## [19]  2.5817466 -3.1090434  0.6556366 -4.3236615  8.3156777 -3.4098518
+## [25]  9.8745771
 \end{verbatim}
 
 \emph{Question: what's happened for each of those lines of code? What does the Warning
@@ -824,8 +1003,8 @@ usually relate to a question we ask of our data:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
-## [13]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+##  [1] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE
+## [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
 ## [25]  TRUE
 \end{verbatim}
 
@@ -1979,7 +2158,7 @@ We're interested, in fact, in the \texttt{pballs} and \texttt{ffold} variables. 
 like this:\\
 ~\\
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-35-1.pdf}
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-41-1.pdf}
 
 Thinking about our hypothesis that
 better aim will mean better flexibility\ldots{}
@@ -2048,7 +2227,7 @@ default arguments and values.
 ## Warning: Removed 1 rows containing missing values (geom_point).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-37-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-43-1.pdf}\\
 
 \emph{Question: What do you think this warning message could mean? (Hint: look
 at the data and pay attention to the \texttt{role} and any missing data in \texttt{ffold}).}\\
@@ -2060,7 +2239,7 @@ Now we want to know whether someone's reaction time influences their ability
 to fold themselves in half. If you change the ``independent (x) variable'' to
 \texttt{ruler} then you should get a plot something like this:\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-38-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-44-1.pdf}\\
 
 I changed the colour of the points, for a bit of a change. If you're coding
 alongside reading, you don't have to change the colour
@@ -2101,7 +2280,7 @@ independent (x) variable to gender.
 
 Your graph should look something like this (but with a different colour):\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-39-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-45-1.pdf}\\
 
 Points are not really a helpful way to visualise data in groups, although
 we can sometimes tell something from them.
@@ -2138,7 +2317,7 @@ A more helpful way to look at these two variables is using a box plot:
 ## Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-40-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-46-1.pdf}\\
 
 Our \texttt{fill} argument has actually come into some use now! (There are some
 points that have an outline and a fill: if you want to give it a try then try
