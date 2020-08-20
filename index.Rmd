@@ -115,7 +115,15 @@ cat(
 ## Shiny apps
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
-knitr::include_app("https://ashbaldry.shinyapps.io/Pokemon_20Q/", height = "500px")
+cat(
+'<div style = "overflow: hidden; padding-top: 100%; position: relative;">
+  <iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
+    src="https://ashbaldry.shinyapps.io/Pokemon_20Q/">
+  </iframe>
+</div>'
+)
+
+# knitr::include_app("https://ashbaldry.shinyapps.io/Pokemon_20Q/", height = "500px")
 ```
 \  
 Did it work??
