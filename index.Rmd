@@ -13,7 +13,7 @@ github-repo: rstudio/bookdown-demo
 description: "This workbook accompanies the University of Lincoln School of Life Sciences Level 2 Module BGY2011M Data Skills for the Life Sciences."
 ---
 
-***
+
 # Introduction 
 
 Welcome to Data Skills for the Life Sciences! This page contains important 
@@ -23,6 +23,7 @@ describe everything you need to know to set yourself up for the course. It's
 really important you complete these as soon as possible.  
 \ 
 
+***
 ## This book
 
 First, some **information on this web book**. This book accompanies every student for 
@@ -32,11 +33,13 @@ analytical techniques which are relevant to their courses: some stay with this
 content, and some do not. The learning and assessment schedule can be found at 
 the bottom of the page.  
 
-**Using the web book /** You will see some icons at the top of the page:  
+### Using the web book
+
+You will see some icons at the top of the page:  
 
 ![][gitbook_icons]
 
-[gitbook_icons]: gitbook:_icons.jpg "Icons"  
+[gitbook_icons]: gitbook_icons.jpg "Icons"  
 
 From left to right these are: 
 
@@ -56,7 +59,9 @@ perhaps smartphone screens are a little small).
 * The _information_ icon gives 
 some useful information on keyboard shortcuts.  
 
-**Web book contents /** Within the text you will find instructional videos, 
+### Web book contents
+
+Within the text you will find instructional videos, 
 "chunks" of R code and R outputs including text and plots, and interactive 
 quizzes. Each chapter is arranged like this:
 
@@ -80,13 +85,35 @@ cat(
 ```
 
 * **Part 3** of each chapter presents some analytical tasks for biological data 
-for you to code in R.
+for you to code in R.  
+\ 
 
-**Learning schedule /** Parts 1 and 2 are to be completed at home each week, prior to the online session 
-(and this will be made clear on blackboard every week). Part 3 is to be 
-completed during the online sessions, and you will work in your tutor groups 
-during these sessions. You may complete Parts 1 and 2 either individually, or 
-in tutor groups as you wish.  
+Code is always written using a `fixed width font` like Courier New, Consolas or 
+Lucida Console. My personal favourite at the moment is
+[Space Mono](https://fonts.google.com/specimen/Space+Mono). The reason for this 
+is that all the letters line up vertically, which is far easier to read and crucial
+for coding, where often lines will only be slightly different to one another. 
+_Code chunks_ are collections of lines of code which do a certain thing. This 
+code will draw 1000 random numbers from a normal distribution with a mean of zero 
+and standard deviation of 1, then calculate the mean and standard deviation 
+(which of course should be approximately zero and one respectively):  
+
+```{r}
+random <- rnorm(1000, 0, 1)
+mean(random)
+sd(random)
+```
+\ 
+
+_Scripts_ are files which contain many chunks of code.  
+
+### Learning schedule 
+
+Parts 1 and 2 of each chapter are to be completed at home each week, prior to the 
+online session. These should take 1-2 hours per chapter, although this will 
+definitely vary depending on the topic. Part 3 is to be 
+completed during the online sessions, when you will work in your tutor groups. 
+You may complete Parts 1 and 2 either individually, or in tutor groups, as you wish.  
 
 Information on the timetable, and both the formative and summative assessments, 
 are found at the bottom of the page.  
@@ -148,7 +175,7 @@ There are naturally feedbacks between these steps, where new information may
 mean you need to revise earlier steps.  
 \ 
 
-
+***
 ## Installing R and RStudio
 
 We will be using a program called _RStudio_ (the technical term for it is an 
@@ -182,9 +209,10 @@ cat(
 'Installing R and RStudio video: https://youtu.be/d7lARa168gk'
 )
 ```
-\  
+\ 
 
 
+***
 ## Why R?
 
 You may have come across other programs that allow you to work with data, 
