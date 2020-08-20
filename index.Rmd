@@ -115,7 +115,7 @@ cat(
 ## Shiny apps
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
-knitr::include_app("https://ashbaldry.shinyapps.io/Pokemon_20Q/", height = "400px")
+knitr::include_app("https://ashbaldry.shinyapps.io/Pokemon_20Q/", height = "500px")
 ```
 \  
 Did it work??
