@@ -134,7 +134,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#this-book"><i class="fa fa-check"></i><b>1.1</b> This book</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#this-book"><i class="fa fa-check"></i><b>1.1</b> This book</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#using-the-web-book"><i class="fa fa-check"></i><b>1.1.1</b> Using the web book</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#web-book-contents"><i class="fa fa-check"></i><b>1.1.2</b> Web book contents</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#learning-schedule"><i class="fa fa-check"></i><b>1.1.3</b> Learning schedule</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-analytical-process"><i class="fa fa-check"></i><b>1.2</b> The analytical process</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing R and RStudio</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i><b>1.4</b> Why R?</a></li>
@@ -234,6 +238,7 @@ information will always be here for you to refer back to. The first few sections
 describe everything you need to know to set yourself up for the course. It’s
 really important you complete these as soon as possible.<br />
  </p>
+<hr />
 <div id="this-book" class="section level2">
 <h2><span class="header-section-number">1.1</span> This book</h2>
 <p>First, some <strong>information on this web book</strong>. This book accompanies every student for
@@ -242,14 +247,24 @@ to diverge for different programmes. This allows programs to learn different
 analytical techniques which are relevant to their courses: some stay with this
 content, and some do not. The learning and assessment schedule can be found at
 the bottom of the page.</p>
-<p><strong>Using the web book /</strong> You will see some icons at the top of the page:</p>
-<p><img src="gitbook:_icons.jpg" title="Icons" /></p>
+<div id="using-the-web-book" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Using the web book</h3>
+<p>You will see some icons at the top of the page:</p>
+<p><img src="gitbook_icons.jpg" title="Icons" /></p>
 <p>From left to right these are:</p>
 <ul>
 <li>the <em>hamburger</em> icon on the left shows or hides the page navigation
 sidebar.</li>
 <li>The <em>magnifying glass</em> icon allows you to search the book for any
 term you like.</li>
+<li>The <em>format</em> (A) icon is designed for accessibility and allows you to:
+<ul>
+<li>increase or decrease font size,</li>
+<li>change the font from sans serif to serif, depending on what you find easiest
+to read,</li>
+<li>change the colour scheme to black-on-white, toned-down sepia or white-on-
+black, depending on what you find easiest to read.</li>
+</ul></li>
 <li>The <em>edit</em> icon in the middle is not of interest (it redirects any
 other web developers to a site where they can copy and edit the book).</li>
 <li>The <em>download</em>
@@ -262,7 +277,10 @@ perhaps smartphone screens are a little small).</li>
 <li>The <em>information</em> icon gives
 some useful information on keyboard shortcuts.</li>
 </ul>
-<p><strong>Web book contents /</strong> Within the text you will find instructional videos,
+</div>
+<div id="web-book-contents" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Web book contents</h3>
+<p>Within the text you will find instructional videos,
 “chunks” of R code and R outputs including text and plots, and interactive
 quizzes. Each chapter is arranged like this:</p>
 <ul>
@@ -275,22 +293,43 @@ topics and skills in Part 1. Here is an example:</li>
 </ul>
 <div style="overflow: hidden; padding-top: 66.66%; position: relative;">
 <p><iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
-    src="https://ashbaldry.shinyapps.io/Pokemon_20Q/">
+    src="https://shiny.rstudio.com/gallery/kmeans-example.html">
 </iframe></p>
 </div>
 <ul>
 <li><strong>Part 3</strong> of each chapter presents some analytical tasks for biological data
-for you to code in R.</li>
+for you to code in R.<br />
+ </li>
 </ul>
-<p><strong>Learning schedule /</strong> Parts 1 and 2 are to be completed at home each week, prior to the online session
-(and this will be made clear on blackboard every week). Part 3 is to be
-completed during the online sessions, and you will work in your tutor groups
-during these sessions. You may complete Parts 1 and 2 either individually, or
-in tutor groups as you wish.</p>
+<p>Code is always written using a <code>fixed width font</code> like Courier New, Consolas or
+Lucida Console. My personal favourite at the moment is
+<a href="https://fonts.google.com/specimen/Space+Mono">Space Mono</a>. The reason for this
+is that all the letters line up vertically, which is far easier to read and crucial
+for coding, where often lines will only be slightly different to one another.
+<em>Code chunks</em> are collections of lines of code which do a certain thing. This
+code will draw 1000 random numbers from a normal distribution with a mean of zero
+and standard deviation of 1, then calculate the mean and standard deviation
+(which of course should be approximately zero and one respectively):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a>random &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="kw">mean</span>(random)</span></code></pre></div>
+<pre><code>## [1] -0.0372132</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a><span class="kw">sd</span>(random)</span></code></pre></div>
+<pre><code>## [1] 1.004776</code></pre>
+<p> </p>
+<p><em>Scripts</em> are files which contain many chunks of code.</p>
+</div>
+<div id="learning-schedule" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Learning schedule</h3>
+<p>Parts 1 and 2 of each chapter are to be completed at home each week, prior to the
+online session. These should take 1-2 hours per chapter, although this will
+definitely vary depending on the topic. Part 3 is to be
+completed during the online sessions, when you will work in your tutor groups.
+You may complete Parts 1 and 2 either individually, or in tutor groups, as you wish.</p>
 <p>Information on the timetable, and both the formative and summative assessments,
 are found at the bottom of the page.<br />
  </p>
 <hr />
+</div>
 </div>
 <div id="the-analytical-process" class="section level2">
 <h2><span class="header-section-number">1.2</span> The analytical process</h2>
@@ -352,6 +391,7 @@ analyses fit into the glm framework.</p>
 <p>There are naturally feedbacks between these steps, where new information may
 mean you need to revise earlier steps.<br />
  </p>
+<hr />
 </div>
 <div id="installing-r-and-rstudio" class="section level2">
 <h2><span class="header-section-number">1.3</span> Installing R and RStudio</h2>
@@ -369,6 +409,7 @@ these, and the following video walks you through that:</p>
 <p> </p>
 <p> </p>
 <p> </p>
+<hr />
 </div>
 <div id="why-r" class="section level2">
 <h2><span class="header-section-number">1.4</span> Why R?</h2>

@@ -47,6 +47,12 @@ From left to right these are:
 sidebar. 
 * The _magnifying glass_ icon allows you to search the book for any 
 term you like. 
+* The _format_  (A) icon is designed for accessibility and allows you to: 
+  - increase or decrease font size,
+  - change the font from sans serif to serif, depending on what you find easiest
+  to read,
+  - change the colour scheme to black-on-white, toned-down sepia or white-on-
+  black, depending on what you find easiest to read.
 * The _edit_ icon in the middle is not of interest (it redirects any 
 other web developers to a site where they can copy and edit the book). 
 * The _download_
@@ -76,12 +82,10 @@ topics and skills in Part 1. Here is an example:
 cat(
 '<div style = "overflow: hidden; padding-top: 66.66%; position: relative;">
   <iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
-    src="https://ashbaldry.shinyapps.io/Pokemon_20Q/">
+    src="https://shiny.rstudio.com/gallery/kmeans-example.html">
   </iframe>
 </div>'
 )
-
-# knitr::include_app("https://ashbaldry.shinyapps.io/Pokemon_20Q/", height = "500px")
 ```
 
 * **Part 3** of each chapter presents some analytical tasks for biological data 
