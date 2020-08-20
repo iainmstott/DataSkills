@@ -89,7 +89,7 @@ cat(
 </div>'
 )
 ```
-
+\ 
 * **Part 3** of each chapter presents some analytical tasks for biological data 
 for you to code in R.  
 \ 
@@ -111,7 +111,6 @@ mean(random)
 sd(random)
 ```
 \ 
-
 _Scripts_ are files which contain many chunks of code.  
 
 ### Learning schedule 
@@ -147,6 +146,7 @@ them, as illustrated above. It's important not to dive right into statistical
 analysis without understanding your data, your variables and the relationships 
 between them first. For that reason, much of the course will be dedicated to 
 understanding data, and how to plot data.  
+
 These steps forms the **FIRST HALF of the course**:
 
 * **Tidy data**
@@ -164,6 +164,7 @@ whereas statistical analyses are easier to code but harder to interpret.
 Equally, you cannot complete a statistical analysis without assessing how well 
 that model fits the data, and whether any 'assumptions' of your statistical 
 model are violated.  
+
 These steps form the **SECOND HALF of the course**:
 
 * **Model**
@@ -202,14 +203,12 @@ cat(
 </div>'
 )
 ```
-\  
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
 cat(
 'Installing R and RStudio video: https://youtu.be/d7lARa168gk'
 )
 ```
-\  
 
 ```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
 cat(
