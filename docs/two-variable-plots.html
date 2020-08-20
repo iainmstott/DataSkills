@@ -136,8 +136,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#the-analytical-process"><i class="fa fa-check"></i><b>1.0.1</b> The analytical process</a></li>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installing-r-packages"><i class="fa fa-check"></i><b>1.2</b> Installing R packages</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#iains-notes"><i class="fa fa-check"></i><b>1.3</b> iain’s notes</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#shiny-apps"><i class="fa fa-check"></i><b>1.2</b> Shiny apps</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-r-packages"><i class="fa fa-check"></i><b>1.3</b> Installing R packages</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#iains-notes"><i class="fa fa-check"></i><b>1.4</b> iain’s notes</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R BASICS</a><ul>
 <li class="chapter" data-level="2.0.1" data-path="r-basics.html"><a href="r-basics.html#resources"><i class="fa fa-check"></i><b>2.0.1</b> RESOURCES</a></li>
@@ -272,10 +273,10 @@ this session, we will be working with:</p>
 <li><code>dplyr</code>, which is our data subsetting and manipulation friend</li>
 <li><code>ggplot2</code>, which makes pretty pretty data visualisations.</li>
 </ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="two-variable-plots.html#cb58-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb58-2"><a href="two-variable-plots.html#cb58-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="two-variable-plots.html#cb59-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb59-2"><a href="two-variable-plots.html#cb59-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.1</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="two-variable-plots.html#cb60-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="two-variable-plots.html#cb61-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <p><br />
 </p>
 <hr />
@@ -352,17 +353,17 @@ quick reactions and good aim must be sporty, and therefore be flexible.</p>
 one group who didn’t have that measured (group 5). That means we only want the first
 20 rows of data.</p>
 <p><em>Question: pick the correct line of code to subset the data to the first 20 rows.</em></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="two-variable-plots.html#cb61-1"></a><span class="co"># a)</span></span>
-<span id="cb61-2"><a href="two-variable-plots.html#cb61-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rows</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">20</span>))</span>
-<span id="cb61-3"><a href="two-variable-plots.html#cb61-3"></a></span>
-<span id="cb61-4"><a href="two-variable-plots.html#cb61-4"></a><span class="co"># b)</span></span>
-<span id="cb61-5"><a href="two-variable-plots.html#cb61-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">1</span>))</span>
-<span id="cb61-6"><a href="two-variable-plots.html#cb61-6"></a></span>
-<span id="cb61-7"><a href="two-variable-plots.html#cb61-7"></a><span class="co"># c)</span></span>
-<span id="cb61-8"><a href="two-variable-plots.html#cb61-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rows <span class="op">&lt;=</span><span class="st"> </span><span class="dv">20</span>)</span>
-<span id="cb61-9"><a href="two-variable-plots.html#cb61-9"></a></span>
-<span id="cb61-10"><a href="two-variable-plots.html#cb61-10"></a><span class="co"># d)</span></span>
-<span id="cb61-11"><a href="two-variable-plots.html#cb61-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">rows</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="two-variable-plots.html#cb62-1"></a><span class="co"># a)</span></span>
+<span id="cb62-2"><a href="two-variable-plots.html#cb62-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rows</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">20</span>))</span>
+<span id="cb62-3"><a href="two-variable-plots.html#cb62-3"></a></span>
+<span id="cb62-4"><a href="two-variable-plots.html#cb62-4"></a><span class="co"># b)</span></span>
+<span id="cb62-5"><a href="two-variable-plots.html#cb62-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">1</span>))</span>
+<span id="cb62-6"><a href="two-variable-plots.html#cb62-6"></a></span>
+<span id="cb62-7"><a href="two-variable-plots.html#cb62-7"></a><span class="co"># c)</span></span>
+<span id="cb62-8"><a href="two-variable-plots.html#cb62-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(rows <span class="op">&lt;=</span><span class="st"> </span><span class="dv">20</span>)</span>
+<span id="cb62-9"><a href="two-variable-plots.html#cb62-9"></a></span>
+<span id="cb62-10"><a href="two-variable-plots.html#cb62-10"></a><span class="co"># d)</span></span>
+<span id="cb62-11"><a href="two-variable-plots.html#cb62-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="kw">rows</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>))</span></code></pre></div>
 <p><br />
 </p>
 <p>You can now use the app to check whether you were right by going to the
@@ -400,7 +401,7 @@ person. Why is this?</em><br />
 like this:<br />
 <br />
 </p>
-<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <p>Thinking about our hypothesis that
 better aim will mean better flexibility…</p>
 <p><em>Questions: what can we say about this graph, in terms of…</em></p>
@@ -436,14 +437,14 @@ Here’s a relatively big task: using your educated intuition…</p>
 <code>ylim()</code>, <code>ylab()</code>, <code>xlab()</code> and theme functions, and eliminate the arguments
 from the <code>geom_point()</code> function. We’d still get a graph, just plotted with all the
 default arguments and values.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="two-variable-plots.html#cb62-1"></a><span class="co"># initialise</span></span>
-<span id="cb62-2"><a href="two-variable-plots.html#cb62-2"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> pballs, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
-<span id="cb62-3"><a href="two-variable-plots.html#cb62-3"></a><span class="st">    </span><span class="co"># plot a histogram (geom)</span></span>
-<span id="cb62-4"><a href="two-variable-plots.html#cb62-4"></a><span class="st">    </span><span class="kw">geom_point</span>()</span>
-<span id="cb62-5"><a href="two-variable-plots.html#cb62-5"></a></span>
-<span id="cb62-6"><a href="two-variable-plots.html#cb62-6"></a>plot</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="two-variable-plots.html#cb63-1"></a><span class="co"># initialise</span></span>
+<span id="cb63-2"><a href="two-variable-plots.html#cb63-2"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> pballs, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
+<span id="cb63-3"><a href="two-variable-plots.html#cb63-3"></a><span class="st">    </span><span class="co"># plot a histogram (geom)</span></span>
+<span id="cb63-4"><a href="two-variable-plots.html#cb63-4"></a><span class="st">    </span><span class="kw">geom_point</span>()</span>
+<span id="cb63-5"><a href="two-variable-plots.html#cb63-5"></a></span>
+<span id="cb63-6"><a href="two-variable-plots.html#cb63-6"></a>plot</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-36-1.png" width="672" /><br />
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-37-1.png" width="672" /><br />
 </p>
 <p><em>Question: What do you think this warning message could mean? (Hint: look
 at the data and pay attention to the <code>role</code> and any missing data in <code>ffold</code>).</em><br />
@@ -455,7 +456,7 @@ Now we want to know whether someone’s reaction time influences their ability
 to fold themselves in half. If you change the “independent (x) variable” to
 <code>ruler</code> then you should get a plot something like this:<br />
 <br />
-<img src="DSftLS_book_files/figure-html/unnamed-chunk-37-1.png" width="672" /><br />
+<img src="DSftLS_book_files/figure-html/unnamed-chunk-38-1.png" width="672" /><br />
 </p>
 <p>I changed the colour of the points, for a bit of a change. If you’re coding
 alongside reading, you don’t have to change the colour
@@ -482,7 +483,7 @@ independent (x) variable to gender.</p>
 </ul>
 <p>Your graph should look something like this (but with a different colour):<br />
 <br />
-<img src="DSftLS_book_files/figure-html/unnamed-chunk-38-1.png" width="672" /><br />
+<img src="DSftLS_book_files/figure-html/unnamed-chunk-39-1.png" width="672" /><br />
 </p>
 <p>Points are not really a helpful way to visualise data in groups, although
 we can sometimes tell something from them.</p>
@@ -497,15 +498,15 @@ we can sometimes tell something from them.</p>
 <div id="box-plots" class="section level3">
 <h3><span class="header-section-number">5.7.2</span> BOX PLOTS</h3>
 <p>A more helpful way to look at these two variables is using a box plot:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="two-variable-plots.html#cb64-1"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> gender, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
-<span id="cb64-2"><a href="two-variable-plots.html#cb64-2"></a><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">color =</span> <span class="st">&#39;goldenrod&#39;</span>, <span class="dt">fill =</span> <span class="st">&#39;papayawhip&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb64-3"><a href="two-variable-plots.html#cb64-3"></a><span class="st">        </span><span class="co"># some colour names are ridiculous...</span></span>
-<span id="cb64-4"><a href="two-variable-plots.html#cb64-4"></a><span class="st">    </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">15</span>, <span class="dv">28</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&#39;Forward fold&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&#39;Gender&#39;</span>) <span class="op">+</span></span>
-<span id="cb64-5"><a href="two-variable-plots.html#cb64-5"></a><span class="st">    </span><span class="kw">theme_minimal</span>()</span>
-<span id="cb64-6"><a href="two-variable-plots.html#cb64-6"></a></span>
-<span id="cb64-7"><a href="two-variable-plots.html#cb64-7"></a>plot</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="two-variable-plots.html#cb65-1"></a>plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dataSubset, <span class="kw">aes</span>(<span class="dt">x =</span> gender, <span class="dt">y =</span> ffold)) <span class="op">+</span></span>
+<span id="cb65-2"><a href="two-variable-plots.html#cb65-2"></a><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">color =</span> <span class="st">&#39;goldenrod&#39;</span>, <span class="dt">fill =</span> <span class="st">&#39;papayawhip&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb65-3"><a href="two-variable-plots.html#cb65-3"></a><span class="st">        </span><span class="co"># some colour names are ridiculous...</span></span>
+<span id="cb65-4"><a href="two-variable-plots.html#cb65-4"></a><span class="st">    </span><span class="kw">ylim</span>(<span class="op">-</span><span class="dv">15</span>, <span class="dv">28</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&#39;Forward fold&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&#39;Gender&#39;</span>) <span class="op">+</span></span>
+<span id="cb65-5"><a href="two-variable-plots.html#cb65-5"></a><span class="st">    </span><span class="kw">theme_minimal</span>()</span>
+<span id="cb65-6"><a href="two-variable-plots.html#cb65-6"></a></span>
+<span id="cb65-7"><a href="two-variable-plots.html#cb65-7"></a>plot</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing non-finite values (stat_boxplot).</code></pre>
-<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-39-1.png" width="672" /><br />
+<p><img src="DSftLS_book_files/figure-html/unnamed-chunk-40-1.png" width="672" /><br />
 </p>
 <p>Our <code>fill</code> argument has actually come into some use now! (There are some
 points that have an outline and a fill: if you want to give it a try then try

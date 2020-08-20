@@ -69,7 +69,7 @@ _general linear model (glm)_. This is a framework which brings together
 many traditional statistical analyses. You will learn where these traditional 
 analyses fit into the glm framework.  
 
-There is naturally feedbacks between these steps, where new information may 
+There are naturally feedbacks between these steps, where new information may 
 mean you need to revise earlier steps.  
 \ 
 
@@ -111,6 +111,32 @@ cat(
 \  
 
 
+***
+## Shiny apps
+
+```{r, echo=FALSE}
+library(shiny)
+shinyApp(
+
+  ui = fluidPage(
+    selectInput("region", "Region:",
+                choices = colnames(WorldPhones)),
+    plotOutput("phonePlot")
+  ),
+
+  server = function(input, output) {
+    output$phonePlot = renderPlot({
+      barplot(WorldPhones[,input$region]*1000,
+              ylab = "Number of Telephones", xlab = "Year")
+    })
+  },
+
+  options = list(height = 500)
+)
+```
+
+
+***
 ## Installing R packages
 
 PACKAGES
