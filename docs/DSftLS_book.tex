@@ -120,7 +120,7 @@
 
 \title{BGY2011M Data Skills for the Life Sciences}
 \author{Module lead: IAIN STOTT / email \href{mailto:istott@lincoln.ac.uk}{\nolinkurl{istott@lincoln.ac.uk}}}
-\date{Last updated 2020-08-19}
+\date{Last updated 2020-08-20}
 
 \begin{document}
 \maketitle
@@ -227,7 +227,7 @@ The ``statistical model'' we will be working with is the
 many traditional statistical analyses. You will learn where these traditional
 analyses fit into the glm framework.
 
-There is naturally feedbacks between these steps, where new information may
+There are naturally feedbacks between these steps, where new information may
 mean you need to revise earlier steps.\\
 \hspace*{0.333em}
 
@@ -250,6 +250,15 @@ Install here
 
 Installing R and RStudio video: \url{https://youtu.be/d7lARa168gk}
 ~
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{shiny-apps}{%
+\section{Shiny apps}\label{shiny-apps}}
+
+~
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{installing-r-packages}{%
 \section{Installing R packages}\label{installing-r-packages}}
@@ -691,11 +700,11 @@ We've encountered numeric and character. Let's create slightly longer vectors:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.49888369 0.65581497 0.34523862 0.02181481 0.77969862 0.43155889
-##  [7] 0.95548139 0.47501897 0.51973104 0.41575823 0.86000936 0.82083885
-## [13] 0.28870000 0.41217097 0.04864290 0.87270385 0.84167962 0.28799505
-## [19] 0.13827150 0.13153555 0.41568646 0.45963247 0.72183962 0.18728266
-## [25] 0.28447117
+##  [1] 0.843039128 0.439652520 0.742692753 0.695618859 0.607953966 0.270241955
+##  [7] 0.802375228 0.716008097 0.119222724 0.471734680 0.461503703 0.444240536
+## [13] 0.757629197 0.194262389 0.246274171 0.609488279 0.548424200 0.116117670
+## [19] 0.008143599 0.449877890 0.437442974 0.556879221 0.237673983 0.494488886
+## [25] 0.621920952
 \end{verbatim}
 
 \begin{Shaded}
@@ -724,10 +733,11 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 4.9888369 6.5581497 3.4523862 0.2181481 7.7969862 4.3155889 9.5548139
-##  [8] 4.7501897 5.1973104 4.1575823 8.6000936 8.2083885 2.8870000 4.1217097
-## [15] 0.4864290 8.7270385 8.4167962 2.8799505 1.3827150 1.3153555 4.1568646
-## [22] 4.5963247 7.2183962 1.8728266 2.8447117
+##  [1] 8.43039128 4.39652520 7.42692753 6.95618859 6.07953966 2.70241955
+##  [7] 8.02375228 7.16008097 1.19222724 4.71734680 4.61503703 4.44240536
+## [13] 7.57629197 1.94262389 2.46274171 6.09488279 5.48424200 1.16117670
+## [19] 0.08143599 4.49877890 4.37442974 5.56879221 2.37673983 4.94488886
+## [25] 6.21920952
 \end{verbatim}
 
 \begin{Shaded}
@@ -737,11 +747,11 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  -0.5011163  -1.3441850  -2.6547614  -3.9781852  -4.2203014  -5.5684411
-##  [7]  -6.0445186  -7.5249810  -8.4802690  -9.5842418 -10.1399906 -11.1791612
-## [13] -12.7113000 -13.5878290 -14.9513571 -15.1272962 -16.1583204 -17.7120049
-## [19] -18.8617285 -19.8684644 -20.5843135 -21.5403675 -22.2781604 -23.8127173
-## [25] -24.7155288
+##  [1]  -0.1569609  -1.5603475  -2.2573072  -3.3043811  -4.3920460  -5.7297580
+##  [7]  -6.1976248  -7.2839919  -8.8807773  -9.5282653 -10.5384963 -11.5557595
+## [13] -12.2423708 -13.8057376 -14.7537258 -15.3905117 -16.4515758 -17.8838823
+## [19] -18.9918564 -19.5501221 -20.5625570 -21.4431208 -22.7623260 -23.5055111
+## [25] -24.3780790
 \end{verbatim}
 
 \begin{Shaded}
@@ -756,11 +766,11 @@ experience comes with time. Here's an example:
 \end{verbatim}
 
 \begin{verbatim}
-##  [1]  4.9888369 -6.5581497  3.4523862 -0.2181481  7.7969862 -4.3155889
-##  [7]  9.5548139 -4.7501897  5.1973104 -4.1575823  8.6000936 -8.2083885
-## [13]  2.8870000 -4.1217097  0.4864290 -8.7270385  8.4167962 -2.8799505
-## [19]  1.3827150 -1.3153555  4.1568646 -4.5963247  7.2183962 -1.8728266
-## [25]  2.8447117
+##  [1]  8.43039128 -4.39652520  7.42692753 -6.95618859  6.07953966 -2.70241955
+##  [7]  8.02375228 -7.16008097  1.19222724 -4.71734680  4.61503703 -4.44240536
+## [13]  7.57629197 -1.94262389  2.46274171 -6.09488279  5.48424200 -1.16117670
+## [19]  0.08143599 -4.49877890  4.37442974 -5.56879221  2.37673983 -4.94488886
+## [25]  6.21920952
 \end{verbatim}
 
 \emph{Question: what's happened for each of those lines of code? What does the Warning
@@ -814,9 +824,9 @@ usually relate to a question we ask of our data:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
-## [13] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
-## [25] FALSE
+##  [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+## [13]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+## [25]  TRUE
 \end{verbatim}
 
 The result is information on which of your random data are higher than 0.5.\\
@@ -1969,7 +1979,7 @@ We're interested, in fact, in the \texttt{pballs} and \texttt{ffold} variables. 
 like this:\\
 ~\\
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-34-1.pdf}
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-35-1.pdf}
 
 Thinking about our hypothesis that
 better aim will mean better flexibility\ldots{}
@@ -2038,7 +2048,7 @@ default arguments and values.
 ## Warning: Removed 1 rows containing missing values (geom_point).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-36-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-37-1.pdf}\\
 
 \emph{Question: What do you think this warning message could mean? (Hint: look
 at the data and pay attention to the \texttt{role} and any missing data in \texttt{ffold}).}\\
@@ -2050,7 +2060,7 @@ Now we want to know whether someone's reaction time influences their ability
 to fold themselves in half. If you change the ``independent (x) variable'' to
 \texttt{ruler} then you should get a plot something like this:\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-37-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-38-1.pdf}\\
 
 I changed the colour of the points, for a bit of a change. If you're coding
 alongside reading, you don't have to change the colour
@@ -2091,7 +2101,7 @@ independent (x) variable to gender.
 
 Your graph should look something like this (but with a different colour):\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-38-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-39-1.pdf}\\
 
 Points are not really a helpful way to visualise data in groups, although
 we can sometimes tell something from them.
@@ -2128,7 +2138,7 @@ A more helpful way to look at these two variables is using a box plot:
 ## Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-39-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-40-1.pdf}\\
 
 Our \texttt{fill} argument has actually come into some use now! (There are some
 points that have an outline and a fill: if you want to give it a try then try
