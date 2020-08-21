@@ -129,6 +129,8 @@ cat(
 ```
 \  
 
+### Learning schedule 
+
 Each chapter is arranged like this:
 
 * **Part 1** of each chapter uses a web application I wrote to help teach analysis 
@@ -138,19 +140,19 @@ By interacting with the app, you'll learn how to code different tasks and
 write these into a script which ultimately will contain a full analysis of a
 data set. 
 * **Part 2** of each chapter is an interactive quiz which tests your knowledge of the 
-topics and skills learned in Part 1. Here is an example:  
+topics and skills learned in Part 1.
 * **Part 3** of each chapter presents some analytical tasks for biological data 
 for you to code in R.  
-\ 
+\  
 
+Classwork (online) will be done in tutor groups. Homework can be completed 
+individually or in tutor groups, as you wish.  
 
-### Learning schedule 
+_Parts 1 and 2 of each chapter are to be completed at home each week, prior to the_
+_online session._ These should take 1-2 hours per chapter, although this will 
+definitely vary depending on the topic.  
 
-Parts 1 and 2 of each chapter are to be completed at home each week, prior to the 
-online session. These should take 1-2 hours per chapter, although this will 
-definitely vary depending on the topic. Part 3 is to be 
-completed during the online sessions, when you will work in your tutor groups. 
-You may complete Parts 1 and 2 either individually, or in tutor groups, as you wish.  
+_Part 3 is to be completed during the online sessions_, which each last 1 hour.  
 
 Information on the timetable, and both the formative and summative assessments, 
 are found at the bottom of the page.  
