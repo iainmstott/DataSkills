@@ -80,7 +80,8 @@ Lucida Console (my personal favourite at the moment is
 is that all the letters line up vertically, which is far easier to read.  
 
 _Code chunks_ are collections of lines of code which do a certain thing. There's 
-an example of a code chunk below. It's just for you to see what code chunks and 
+an example of a code chunk below, and its common outputs you'll see in these 
+worksheets: a plot, and some text. It's just for you to see what code chunks and 
 their outputs look like, so you don't need to understand it just yet! Here's 
 what it does: 
 
@@ -99,11 +100,10 @@ sd(random)
 ```
 \ 
 _Scripts_ are files which contain many chunks of code.  
-
-Running R code results in many outputs, especially text outputs (such as th)
+\  
 
 The worksheets also include instructional videos (a couple of examples are 
-found further down on this page) text and plots, and interactive 
+found further down on this page), and interactive 
 quizzes. Each chapter is arranged like this:
 
 * **Part 1** of each chapter uses a web application I wrote to help teach analysis 
