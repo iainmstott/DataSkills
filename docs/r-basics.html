@@ -349,30 +349,30 @@ are and how they work.<br />
 <p>Objects are created using <strong>functions</strong>. functions take the form
 <code>function(argument1, argument2, ...)</code>. Each function takes unique arguments,
 and a different object is created depending on what these arguments are.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1"></a>numbers &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span>
-<span id="cb5-2"><a href="r-basics.html#cb5-2"></a>numbers</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1"></a>numbers &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="r-basics.html#cb6-2"></a>numbers</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p><br />
 </p>
 <p>The object <code>numbers</code> is a <strong>numeric vector</strong>: this means a sequence of
 numbers. You can see that the class of <code>numbers</code> is numeric:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1"></a><span class="kw">class</span>(numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1"></a><span class="kw">class</span>(numbers)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p><br />
 </p>
 <p>We can do certain things with this vector. For example, we might want to see a
 summary about it, find out what its length is, or calculate the mean:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1"></a><span class="kw">summary</span>(numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-basics.html#cb10-1"></a><span class="kw">summary</span>(numbers)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    1.00    3.25    5.50    5.50    7.75   10.00</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1"></a><span class="kw">length</span>(numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-basics.html#cb12-1"></a><span class="kw">length</span>(numbers)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-basics.html#cb13-1"></a><span class="kw">mean</span>(numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-basics.html#cb14-1"></a><span class="kw">mean</span>(numbers)</span></code></pre></div>
 <pre><code>## [1] 5.5</code></pre>
 <p><br />
 </p>
 <p>We can change or add arguments to make a function behave differently. For example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-basics.html#cb15-1"></a><span class="kw">summary</span>(numbers, <span class="dt">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-basics.html#cb16-1"></a><span class="kw">summary</span>(numbers, <span class="dt">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##       1       3       6       6       8      10</code></pre>
 <p><br />
@@ -381,8 +381,8 @@ summary about it, find out what its length is, or calculate the mean:</p>
 </p>
 <p>Going back to the original creation of the <code>numbers</code> object, we can change the
 arguments to create a different object.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-basics.html#cb17-1"></a>numbers2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
-<span id="cb17-2"><a href="r-basics.html#cb17-2"></a>numbers2</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-basics.html#cb18-1"></a>numbers2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="r-basics.html#cb18-2"></a>numbers2</span></code></pre></div>
 <pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
 <p><br />
 </p>
@@ -391,15 +391,15 @@ arguments to create a different object.</p>
 </p>
 <p>Maybe now we want to use <code>numbers1</code> instead of <code>numbers</code>. We can create <code>numbers1</code>
 which has the same value as <code>numbers</code>, and remove <code>numbers</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1"></a>numbers1 &lt;-<span class="st"> </span>numbers</span>
-<span id="cb19-2"><a href="r-basics.html#cb19-2"></a><span class="kw">rm</span>(numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1"></a>numbers1 &lt;-<span class="st"> </span>numbers</span>
+<span id="cb20-2"><a href="r-basics.html#cb20-2"></a><span class="kw">rm</span>(numbers)</span></code></pre></div>
 <p><br />
 </p>
 <p>As you can see, we can create an object from another object. In fact, you can
 create object using multiple other objects, and objects can be created in
 different ways.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1"></a>numbers1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>  <span class="co"># this gives the same values as seq(1, 10, 1)</span></span>
-<span id="cb20-2"><a href="r-basics.html#cb20-2"></a>numbers2 &lt;-<span class="st"> </span>numbers1 <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1"></a>numbers1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>  <span class="co"># this gives the same values as seq(1, 10, 1)</span></span>
+<span id="cb21-2"><a href="r-basics.html#cb21-2"></a>numbers2 &lt;-<span class="st"> </span>numbers1 <span class="op">*</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
 <p><br />
 </p>
 <p>We use the <code>#</code> (hash) symbol to create a comment: nothing after it will be run
@@ -418,8 +418,8 @@ easier for your future self if you comment well!<br />
 <h2><span class="header-section-number">2.3</span> CLASSES</h2>
 <p>We’ll create a new object which looks kinda like our original object, but is
 not actually the same.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1"></a>characters1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>, <span class="st">&quot;10&quot;</span>)</span>
-<span id="cb21-2"><a href="r-basics.html#cb21-2"></a>characters1</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-basics.html#cb22-1"></a>characters1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>, <span class="st">&quot;5&quot;</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;7&quot;</span>, <span class="st">&quot;8&quot;</span>, <span class="st">&quot;9&quot;</span>, <span class="st">&quot;10&quot;</span>)</span>
+<span id="cb22-2"><a href="r-basics.html#cb22-2"></a>characters1</span></code></pre></div>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
 <p><br />
 </p>
@@ -433,12 +433,12 @@ around each vector element.<br />
 <br />
 </p>
 <p>What happens if we try to do the same things with this vector?</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1"></a><span class="kw">summary</span>(characters1)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-basics.html#cb24-1"></a><span class="kw">summary</span>(characters1)</span></code></pre></div>
 <pre><code>##    Length     Class      Mode 
 ##        10 character character</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-basics.html#cb25-1"></a><span class="kw">length</span>(characters1)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-basics.html#cb26-1"></a><span class="kw">length</span>(characters1)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-basics.html#cb27-1"></a><span class="kw">mean</span>(characters1)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1"></a><span class="kw">mean</span>(characters1)</span></code></pre></div>
 <pre><code>## Warning in mean.default(characters1): argument is not numeric or logical:
 ## returning NA</code></pre>
 <pre><code>## [1] NA</code></pre>
@@ -456,8 +456,8 @@ on things going right.<br />
 </p>
 <p>It’s possible to convert things between different classes, although the
 behaviour is sometimes unpredictable so be careful!</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1"></a>characters2 &lt;-<span class="st"> </span><span class="kw">as.character</span>(numbers2)</span>
-<span id="cb30-2"><a href="r-basics.html#cb30-2"></a>characters2</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-basics.html#cb31-1"></a>characters2 &lt;-<span class="st"> </span><span class="kw">as.character</span>(numbers2)</span>
+<span id="cb31-2"><a href="r-basics.html#cb31-2"></a>characters2</span></code></pre></div>
 <pre><code>##  [1] &quot;2&quot;  &quot;4&quot;  &quot;6&quot;  &quot;8&quot;  &quot;10&quot; &quot;12&quot; &quot;14&quot; &quot;16&quot; &quot;18&quot; &quot;20&quot;</code></pre>
 <p><br />
 </p>
@@ -476,15 +476,15 @@ behaviour is sometimes unpredictable so be careful!</p>
 <div id="numeric-and-character" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> numeric and character</h3>
 <p>We’ve encountered numeric and character. Let’s create slightly longer vectors:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
-<span id="cb32-2"><a href="r-basics.html#cb32-2"></a>num</span></code></pre></div>
-<pre><code>##  [1] 0.167355614 0.020886650 0.544341361 0.778597959 0.707217218 0.876745105
-##  [7] 0.531027241 0.468363228 0.791451754 0.580586705 0.426475368 0.912136362
-## [13] 0.009750718 0.291124042 0.960799096 0.396604864 0.325566457 0.651560487
-## [19] 0.417518327 0.880487146 0.446286759 0.345085450 0.464048074 0.310273411
-## [25] 0.065895973</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
-<span id="cb34-2"><a href="r-basics.html#cb34-2"></a>char</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-basics.html#cb33-1"></a>num &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">25</span>)</span>
+<span id="cb33-2"><a href="r-basics.html#cb33-2"></a>num</span></code></pre></div>
+<pre><code>##  [1] 0.58595251 0.33572472 0.81083389 0.04977226 0.46986659 0.74851930
+##  [7] 0.18625934 0.74671800 0.13235113 0.24986013 0.79853424 0.07966480
+## [13] 0.30266173 0.78570408 0.08015830 0.18062510 0.51479536 0.31381729
+## [19] 0.82290567 0.64137750 0.19336279 0.10831082 0.26988071 0.94728645
+## [25] 0.85418931</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-basics.html#cb35-1"></a>char &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>]</span>
+<span id="cb35-2"><a href="r-basics.html#cb35-2"></a>char</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot;</code></pre>
 <p><br />
@@ -495,26 +495,25 @@ contains the alphabet.<br />
 </p>
 <p>It’s important to understand how different vectors ‘work’, but most of this
 experience comes with time. Here’s an example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
-<pre><code>##  [1] 1.67355614 0.20886650 5.44341361 7.78597959 7.07217218 8.76745105
-##  [7] 5.31027241 4.68363228 7.91451754 5.80586705 4.26475368 9.12136362
-## [13] 0.09750718 2.91124042 9.60799096 3.96604864 3.25566457 6.51560487
-## [19] 4.17518327 8.80487146 4.46286759 3.45085450 4.64048074 3.10273411
-## [25] 0.65895973</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-basics.html#cb38-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>##  [1]  -0.8326444  -1.9791133  -2.4556586  -3.2214020  -4.2927828  -5.1232549
-##  [7]  -6.4689728  -7.5316368  -8.2085482  -9.4194133 -10.5735246 -11.0878636
-## [13] -12.9902493 -13.7088760 -14.0392009 -15.6033951 -16.6744335 -17.3484395
-## [19] -18.5824817 -19.1195129 -20.5537132 -21.6549145 -22.5359519 -23.6897266
-## [25] -24.9341040</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-basics.html#cb40-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-basics.html#cb37-1"></a>num <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1] 5.8595251 3.3572472 8.1083389 0.4977226 4.6986659 7.4851930 1.8625934
+##  [8] 7.4671800 1.3235113 2.4986013 7.9853424 0.7966480 3.0266173 7.8570408
+## [15] 0.8015830 1.8062510 5.1479536 3.1381729 8.2290567 6.4137750 1.9336279
+## [22] 1.0831082 2.6988071 9.4728645 8.5418931</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-basics.html#cb39-1"></a>num <span class="op">-</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##  [1]  -0.4140475  -1.6642753  -2.1891661  -3.9502277  -4.5301334  -5.2514807
+##  [7]  -6.8137407  -7.2532820  -8.8676489  -9.7501399 -10.2014658 -11.9203352
+## [13] -12.6973383 -13.2142959 -14.9198417 -15.8193749 -16.4852046 -17.6861827
+## [19] -18.1770943 -19.3586225 -20.8066372 -21.8916892 -22.7301193 -23.0527136
+## [25] -24.1458107</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-basics.html#cb41-1"></a>num <span class="op">*</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">-10</span>)</span></code></pre></div>
 <pre><code>## Warning in num * c(10, -10): longer object length is not a multiple of shorter
 ## object length</code></pre>
-<pre><code>##  [1]  1.67355614 -0.20886650  5.44341361 -7.78597959  7.07217218 -8.76745105
-##  [7]  5.31027241 -4.68363228  7.91451754 -5.80586705  4.26475368 -9.12136362
-## [13]  0.09750718 -2.91124042  9.60799096 -3.96604864  3.25566457 -6.51560487
-## [19]  4.17518327 -8.80487146  4.46286759 -3.45085450  4.64048074 -3.10273411
-## [25]  0.65895973</code></pre>
+<pre><code>##  [1]  5.8595251 -3.3572472  8.1083389 -0.4977226  4.6986659 -7.4851930
+##  [7]  1.8625934 -7.4671800  1.3235113 -2.4986013  7.9853424 -0.7966480
+## [13]  3.0266173 -7.8570408  0.8015830 -1.8062510  5.1479536 -3.1381729
+## [19]  8.2290567 -6.4137750  1.9336279 -1.0831082  2.6988071 -9.4728645
+## [25]  8.5418931</code></pre>
 <p><br />
 </p>
 <p><em>Question: what’s happened for each of those lines of code? What does the Warning
@@ -525,14 +524,14 @@ message mean after running the final line?</em><br />
 <h3><span class="header-section-number">2.4.2</span> factor</h3>
 <p>A <strong>factor</strong> object is like a character object, but recognises groups of elements
 which are the same, called <em>levels</em>. Let’s take a look:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-basics.html#cb43-1"></a>fac &lt;-<span class="st"> </span><span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">5</span>)</span>
-<span id="cb43-2"><a href="r-basics.html#cb43-2"></a>fac &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fac)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-basics.html#cb44-1"></a>fac &lt;-<span class="st"> </span><span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">5</span>)</span>
+<span id="cb44-2"><a href="r-basics.html#cb44-2"></a>fac &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fac)</span></code></pre></div>
 <p><br />
 </p>
 <p>We use the square brackets to choose which letters we
 want: we choose A, B, C, D and E. The <code>rep</code> function means repeat, so we
 repeat A to E five times, to give a vector that has a length of 25.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-basics.html#cb44-1"></a><span class="kw">summary</span>(fac)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-basics.html#cb45-1"></a><span class="kw">summary</span>(fac)</span></code></pre></div>
 <pre><code>## A B C D E 
 ## 5 5 5 5 5</code></pre>
 <p><br />
@@ -547,11 +546,11 @@ A through E.<br />
 <p>Logical objects are perhaps hard to understand at first, but they’re simple
 really. They basically indicate whether something is <code>TRUE</code> or <code>FALSE</code>. They
 usually relate to a question we ask of our data:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-basics.html#cb46-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
-<span id="cb46-2"><a href="r-basics.html#cb46-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE  TRUE
-## [13] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE
-## [25] FALSE</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-basics.html#cb47-1"></a>over0<span class="fl">.5</span> &lt;-<span class="st"> </span>num <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb47-2"><a href="r-basics.html#cb47-2"></a>over0<span class="fl">.5</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE
+## [13] FALSE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE
+## [25]  TRUE</code></pre>
 <p><br />
 </p>
 <p>The result is information on which of your random data are higher than 0.5.<br />
@@ -573,7 +572,7 @@ encounter on your R journey e.g. </p>
 </ul>
 <p>Let’s have a look at that last function. It tells us whether a value or values
 (on the left) exist in the data (on the right). For example:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-basics.html#cb48-1"></a>numbers2 <span class="op">%in%</span><span class="st"> </span>numbers1</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-basics.html#cb49-1"></a>numbers2 <span class="op">%in%</span><span class="st"> </span>numbers1</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <p><br />
 </p>
@@ -597,7 +596,7 @@ than or equal to 10.</em><br />
 <p>Finally, we’ll encounter the <code>data.frame</code>. This is the way most data is
 stored for data analysis. As we learned earlier, there’s one column per variable
 and one row per observation. <code>data.frame</code>s are simply collections of variables:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-basics.html#cb50-1"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(num, char, fac)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-basics.html#cb51-1"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(num, char, fac)</span></code></pre></div>
 <p><br />
 </p>
 <p>To access variables in a data.frame, you simply use the <code>$</code> dollar sign.</p>
@@ -629,9 +628,9 @@ time it’s because you’ve made a mistake. R is very literal. Be careful!<br /
 <br />
 </p>
 <p>_Task: what are the errors (‘bugs’) in the lines of code below?</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-basics.html#cb52-1"></a>mynums &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">40</span>, <span class="dv">4</span>,)</span>
-<span id="cb52-2"><a href="r-basics.html#cb52-2"></a>mychar &lt;-<span class="st"> </span>LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">21</span><span class="op">:</span><span class="dv">26</span>)]</span>
-<span id="cb52-3"><a href="r-basics.html#cb52-3"></a><span class="kw">length</span>(Mychar)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-basics.html#cb53-1"></a>mynums &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">40</span>, <span class="dv">4</span>,)</span>
+<span id="cb53-2"><a href="r-basics.html#cb53-2"></a>mychar &lt;-<span class="st"> </span>LETTERS[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">21</span><span class="op">:</span><span class="dv">26</span>)]</span>
+<span id="cb53-3"><a href="r-basics.html#cb53-3"></a><span class="kw">length</span>(Mychar)</span></code></pre></div>
 <p><br />
 </p>
 <p>These are really common mistakes to make. Be aware!</p>

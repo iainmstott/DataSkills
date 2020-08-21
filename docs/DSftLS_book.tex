@@ -120,7 +120,7 @@
 
 \title{BGY2011M Data Skills for the Life Sciences}
 \author{Module lead: IAIN STOTT / email \href{mailto:istott@lincoln.ac.uk}{\nolinkurl{istott@lincoln.ac.uk}}}
-\date{Last updated 2020-08-20}
+\date{Last updated 2020-08-21}
 
 \begin{document}
 \maketitle
@@ -201,8 +201,67 @@ From left to right these are:
 \hypertarget{web-book-contents}{%
 \subsection{Web book contents}\label{web-book-contents}}
 
-Within the text you will find instructional videos,
-``chunks'' of R code and R outputs including text and plots, and interactive
+Within the text you will find a diversity of content. You'll get very familiar
+with R code! There's an example of some R code below. Code (of any type)
+is always written using a \texttt{fixed\ width\ font} like Courier New, Consolas or
+Lucida Console (my personal favourite at the moment is
+\href{https://fonts.google.com/specimen/Space+Mono}{Space Mono}). The reason for this
+is that all the letters line up vertically, which is far easier to read.
+
+\emph{Code chunks} are collections of lines of code which do a certain thing. There's
+an example of a code chunk below. It's just for you to see what code chunks and
+their outputs look like, so you don't need to understand it just yet! Here's
+what it does:
+
+\begin{itemize}
+\tightlist
+\item
+  draw 1000 random numbers from a normal distribution with a mean of zero
+  and standard deviation of 1
+\item
+  create a simple plot of the distribution
+\item
+  calculate the mean and standard deviation of the random distribution (which
+  of course should be approximately zero and one respectively):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{random <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(random), }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ random)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_density}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(random)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.0008705651
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(random)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.003491
+\end{verbatim}
+
+~
+\emph{Scripts} are files which contain many chunks of code.
+
+Running R code results in many outputs, especially text outputs (such as th)
+
+The worksheets also include instructional videos (a couple of examples are
+found further down on this page) text and plots, and interactive
 quizzes. Each chapter is arranged like this:
 
 \begin{itemize}
@@ -219,7 +278,7 @@ quizzes. Each chapter is arranged like this:
   topics and skills learned in Part 1. Here is an example:
 \end{itemize}
 
-Installing R and RStudio video: \url{https://shiny.rstudio.com/gallery/kmeans-example.html}
+Quiz example: \url{https://shiny.rstudio.com/gallery/kmeans-example.html}
 ~
 
 \begin{itemize}
@@ -229,41 +288,6 @@ Installing R and RStudio video: \url{https://shiny.rstudio.com/gallery/kmeans-ex
   for you to code in R.\\
   \hspace*{0.333em}
 \end{itemize}
-
-This book will naturally contain a lot of R code. Code (of any type)
-is always written using a \texttt{fixed\ width\ font} like Courier New, Consolas or
-Lucida Console. My personal favourite at the moment is
-\href{https://fonts.google.com/specimen/Space+Mono}{Space Mono}. The reason for this
-is that all the letters line up vertically, which is far easier to read and crucial
-for coding, where often lines will only be slightly different to one another.
-\emph{Code chunks} are collections of lines of code which do a certain thing. This
-code will draw 1000 random numbers from a normal distribution with a mean of zero
-and standard deviation of 1, then calculate the mean and standard deviation
-(which of course should be approximately zero and one respectively):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{random <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\KeywordTok{mean}\NormalTok{(random)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.001392339
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sd}\NormalTok{(random)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.9820536
-\end{verbatim}
-
-~
-\emph{Scripts} are files which contain many chunks of code.
 
 \hypertarget{learning-schedule}{%
 \subsection{Learning schedule}\label{learning-schedule}}
@@ -442,12 +466,7 @@ However some tasks require add-on \emph{packages} with
 extra functions and tools: think of these like dictionaries of extra vocabulary and grammar
 which allow R to communicate with the computer in more elaborate ways.
 
-This video explains some of these concepts:\\
-\hspace*{0.333em}
-
-~
-
-~
+This video explains some of these concepts:
 
 Installing R and RStudio video: \url{https://youtu.be/-BLSElo-ZP4}
 ~
@@ -880,11 +899,11 @@ We've encountered numeric and character. Let's create slightly longer vectors:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.25762106 0.64534852 0.16293360 0.90189714 0.33353415 0.37477138
-##  [7] 0.27921316 0.31539952 0.61624019 0.34450912 0.96404068 0.38703375
-## [13] 0.92580388 0.01614490 0.17433879 0.24426455 0.67719158 0.47297756
-## [19] 0.25817466 0.31090434 0.06556366 0.43236615 0.83156777 0.34098518
-## [25] 0.98745771
+##  [1] 0.84343042 0.09876384 0.61611441 0.64640032 0.56374624 0.71967089
+##  [7] 0.10919717 0.23357911 0.14730790 0.68181946 0.43694531 0.86924333
+## [13] 0.75896950 0.48361278 0.86645575 0.44046400 0.99522617 0.52961399
+## [19] 0.10903827 0.28883285 0.05993533 0.33501590 0.30997129 0.43784098
+## [25] 0.21355927
 \end{verbatim}
 
 \begin{Shaded}
@@ -913,10 +932,10 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 2.5762106 6.4534852 1.6293360 9.0189714 3.3353415 3.7477138 2.7921316
-##  [8] 3.1539952 6.1624019 3.4450912 9.6404068 3.8703375 9.2580388 0.1614490
-## [15] 1.7433879 2.4426455 6.7719158 4.7297756 2.5817466 3.1090434 0.6556366
-## [22] 4.3236615 8.3156777 3.4098518 9.8745771
+##  [1] 8.4343042 0.9876384 6.1611441 6.4640032 5.6374624 7.1967089 1.0919717
+##  [8] 2.3357911 1.4730790 6.8181946 4.3694531 8.6924333 7.5896950 4.8361278
+## [15] 8.6645575 4.4046400 9.9522617 5.2961399 1.0903827 2.8883285 0.5993533
+## [22] 3.3501590 3.0997129 4.3784098 2.1355927
 \end{verbatim}
 
 \begin{Shaded}
@@ -926,11 +945,11 @@ experience comes with time. Here's an example:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  -0.7423789  -1.3546515  -2.8370664  -3.0981029  -4.6664658  -5.6252286
-##  [7]  -6.7207868  -7.6846005  -8.3837598  -9.6554909 -10.0359593 -11.6129663
-## [13] -12.0741961 -13.9838551 -14.8256612 -15.7557355 -16.3228084 -17.5270224
-## [19] -18.7418253 -19.6890957 -20.9344363 -21.5676338 -22.1684322 -23.6590148
-## [25] -24.0125423
+##  [1]  -0.1565696  -1.9012362  -2.3838856  -3.3535997  -4.4362538  -5.2803291
+##  [7]  -6.8908028  -7.7664209  -8.8526921  -9.3181805 -10.5630547 -11.1307567
+## [13] -12.2410305 -13.5163872 -14.1335443 -15.5595360 -16.0047738 -17.4703860
+## [19] -18.8909617 -19.7111671 -20.9400647 -21.6649841 -22.6900287 -23.5621590
+## [25] -24.7864407
 \end{verbatim}
 
 \begin{Shaded}
@@ -945,11 +964,11 @@ experience comes with time. Here's an example:
 \end{verbatim}
 
 \begin{verbatim}
-##  [1]  2.5762106 -6.4534852  1.6293360 -9.0189714  3.3353415 -3.7477138
-##  [7]  2.7921316 -3.1539952  6.1624019 -3.4450912  9.6404068 -3.8703375
-## [13]  9.2580388 -0.1614490  1.7433879 -2.4426455  6.7719158 -4.7297756
-## [19]  2.5817466 -3.1090434  0.6556366 -4.3236615  8.3156777 -3.4098518
-## [25]  9.8745771
+##  [1]  8.4343042 -0.9876384  6.1611441 -6.4640032  5.6374624 -7.1967089
+##  [7]  1.0919717 -2.3357911  1.4730790 -6.8181946  4.3694531 -8.6924333
+## [13]  7.5896950 -4.8361278  8.6645575 -4.4046400  9.9522617 -5.2961399
+## [19]  1.0903827 -2.8883285  0.5993533 -3.3501590  3.0997129 -4.3784098
+## [25]  2.1355927
 \end{verbatim}
 
 \emph{Question: what's happened for each of those lines of code? What does the Warning
@@ -1003,9 +1022,9 @@ usually relate to a question we ask of our data:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE
-## [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
-## [25]  TRUE
+##  [1]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE
+## [13]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [25] FALSE
 \end{verbatim}
 
 The result is information on which of your random data are higher than 0.5.\\
@@ -2158,7 +2177,7 @@ We're interested, in fact, in the \texttt{pballs} and \texttt{ffold} variables. 
 like this:\\
 ~\\
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-42-1.pdf}
 
 Thinking about our hypothesis that
 better aim will mean better flexibility\ldots{}
@@ -2227,7 +2246,7 @@ default arguments and values.
 ## Warning: Removed 1 rows containing missing values (geom_point).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-43-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-44-1.pdf}\\
 
 \emph{Question: What do you think this warning message could mean? (Hint: look
 at the data and pay attention to the \texttt{role} and any missing data in \texttt{ffold}).}\\
@@ -2239,7 +2258,7 @@ Now we want to know whether someone's reaction time influences their ability
 to fold themselves in half. If you change the ``independent (x) variable'' to
 \texttt{ruler} then you should get a plot something like this:\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-44-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-45-1.pdf}\\
 
 I changed the colour of the points, for a bit of a change. If you're coding
 alongside reading, you don't have to change the colour
@@ -2280,7 +2299,7 @@ independent (x) variable to gender.
 
 Your graph should look something like this (but with a different colour):\\
 ~\\
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-45-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-46-1.pdf}\\
 
 Points are not really a helpful way to visualise data in groups, although
 we can sometimes tell something from them.
@@ -2317,7 +2336,7 @@ A more helpful way to look at these two variables is using a box plot:
 ## Warning: Removed 1 rows containing non-finite values (stat_boxplot).
 \end{verbatim}
 
-\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-46-1.pdf}\\
+\includegraphics{DSftLS_book_files/figure-latex/unnamed-chunk-47-1.pdf}\\
 
 Our \texttt{fill} argument has actually come into some use now! (There are some
 points that have an outline and a fill: if you want to give it a try then try

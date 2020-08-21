@@ -279,8 +279,8 @@ this session, we will be working with:</p>
 <li><code>readr</code>, which helps load in data</li>
 <li><code>dplyr</code>, which is our data subsetting and manipulation friend</li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-handling-and-management.html#cb57-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb57-2"><a href="data-handling-and-management.html#cb57-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-handling-and-management.html#cb58-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb58-2"><a href="data-handling-and-management.html#cb58-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
 <p><br />
 </p>
 <hr />
@@ -378,12 +378,12 @@ specifying the rows to take out?</em><br />
 <br />
 </p>
 <p>You’ll notice that we use a <strong>pipe</strong> <code>%&gt;%</code> in this code:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-handling-and-management.html#cb58-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
-<span id="cb58-2"><a href="data-handling-and-management.html#cb58-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-handling-and-management.html#cb59-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
+<span id="cb59-2"><a href="data-handling-and-management.html#cb59-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
 <p>The pipe is a way of taking whatever you have and then passing it to the next
 function. So, here we take <code>data</code>, and then pass it to <code>slice()</code> to chop out
 some rows. We could do this a different way without a pipe:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-handling-and-management.html#cb59-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-handling-and-management.html#cb60-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) )</span></code></pre></div>
 <p>For something short like we’re doing here, this might make sense. But as you
 need to do more and more things with your data, this gets more complicated as
 you end up with functions inside functions, parentheses within parentheses…<br />
@@ -397,15 +397,15 @@ For now we’ll choose by column number. Pick “Choose by… Column numbers” 
 change the slider to whatever values you want. Check the DATA FRAME to check
 you have the right ones, then check the CODE to see what you have. Notice that
 there’s a further step in the data subsetting.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-handling-and-management.html#cb60-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
-<span id="cb60-2"><a href="data-handling-and-management.html#cb60-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ) <span class="op">%&gt;%</span></span>
-<span id="cb60-3"><a href="data-handling-and-management.html#cb60-3"></a><span class="st">        </span><span class="kw">select</span>( <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>) ) </span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-handling-and-management.html#cb61-1"></a>dataSubset &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></span>
+<span id="cb61-2"><a href="data-handling-and-management.html#cb61-2"></a><span class="st">    </span><span class="kw">slice</span>( <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ) <span class="op">%&gt;%</span></span>
+<span id="cb61-3"><a href="data-handling-and-management.html#cb61-3"></a><span class="st">        </span><span class="kw">select</span>( <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>) ) </span></code></pre></div>
 <p><em>Question: using information from the R basics worksheet, how would you choose
 columns (or rows) that aren’t in a sequence, for example only columns 2 and 4?</em><br />
 <br />
 </p>
 <p>Let’s imagine what that the above code would look like without pipes…</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-handling-and-management.html#cb61-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ), <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-handling-and-management.html#cb62-1"></a>dataSubset &lt;-<span class="st"> </span><span class="kw">select</span>(<span class="kw">slice</span>(data, <span class="kw">seq</span>(rows[<span class="dv">1</span>], rows[<span class="dv">2</span>], <span class="dv">1</span>) ), <span class="kw">seq</span>(cols[<span class="dv">1</span>], cols[<span class="dv">2</span>], <span class="dv">1</span>))</span></code></pre></div>
 <p>Yeah, not great. Lesson: pipes <em>are</em> great!<br />
 <br />
 </p>

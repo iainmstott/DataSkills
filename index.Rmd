@@ -14,6 +14,11 @@ description: "This workbook accompanies the University of Lincoln School of Life
 ---
 
 
+```{r echo = FALSE}
+# packages
+library(ggplot2)
+```
+
 # Introduction 
 
 Welcome to Data Skills for the Life Sciences! This page contains important 
@@ -67,8 +72,38 @@ some useful information on keyboard shortcuts.
 
 ### Web book contents
 
-Within the text you will find instructional videos, 
-"chunks" of R code and R outputs including text and plots, and interactive 
+Within the text you will find a diversity of content. You'll get very familiar
+with R code! There's an example of some R code below. Code (of any type) 
+is always written using a `fixed width font` like Courier New, Consolas or 
+Lucida Console (my personal favourite at the moment is
+[Space Mono](https://fonts.google.com/specimen/Space+Mono)). The reason for this 
+is that all the letters line up vertically, which is far easier to read.  
+
+_Code chunks_ are collections of lines of code which do a certain thing. There's 
+an example of a code chunk below. It's just for you to see what code chunks and 
+their outputs look like, so you don't need to understand it just yet! Here's 
+what it does: 
+
+* draw 1000 random numbers from a normal distribution with a mean of zero 
+and standard deviation of 1
+* create a simple plot of the distribution
+* calculate the mean and standard deviation of the random distribution (which 
+of course should be approximately zero and one respectively):  
+
+```{r}
+random <- rnorm(1000, 0, 1)
+ggplot(as.data.frame(random), aes(x = random)) + 
+    geom_density()
+mean(random)
+sd(random)
+```
+\ 
+_Scripts_ are files which contain many chunks of code.  
+
+Running R code results in many outputs, especially text outputs (such as th)
+
+The worksheets also include instructional videos (a couple of examples are 
+found further down on this page) text and plots, and interactive 
 quizzes. Each chapter is arranged like this:
 
 * **Part 1** of each chapter uses a web application I wrote to help teach analysis 
@@ -92,13 +127,13 @@ cat(
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
 cat(
-'Installing R and RStudio video: https://shiny.rstudio.com/gallery/kmeans-example.html'
+'Quiz example: https://shiny.rstudio.com/gallery/kmeans-example.html'
 )
 ```
 
 ```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
 cat(
-'Installing R and RStudio video: https://shiny.rstudio.com/gallery/kmeans-example.html'
+'Quiz example: https://shiny.rstudio.com/gallery/kmeans-example.html'
 )
 ```
 \ 
@@ -107,24 +142,6 @@ cat(
 for you to code in R.  
 \ 
 
-This book will naturally contain a lot of R code. Code (of any type) 
-is always written using a `fixed width font` like Courier New, Consolas or 
-Lucida Console. My personal favourite at the moment is
-[Space Mono](https://fonts.google.com/specimen/Space+Mono). The reason for this 
-is that all the letters line up vertically, which is far easier to read and crucial
-for coding, where often lines will only be slightly different to one another. 
-_Code chunks_ are collections of lines of code which do a certain thing. This 
-code will draw 1000 random numbers from a normal distribution with a mean of zero 
-and standard deviation of 1, then calculate the mean and standard deviation 
-(which of course should be approximately zero and one respectively):  
-
-```{r}
-random <- rnorm(1000, 0, 1)
-mean(random)
-sd(random)
-```
-\ 
-_Scripts_ are files which contain many chunks of code.  
 
 ### Learning schedule 
 
@@ -269,7 +286,6 @@ extra functions and tools: think of these like dictionaries of extra vocabulary 
 which allow R to communicate with the computer in more elaborate ways.  
 
 This video explains some of these concepts:  
-\ 
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
@@ -282,22 +298,19 @@ cat(
 </div>'
 )
 ```
-\  
 
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = c("html", "html5")), results = 'asis', echo = F}
 cat(
 'Installing R and RStudio video: https://youtu.be/-BLSElo-ZP4'
 )
 ```
-\  
 
 ```{r, include=knitr::is_latex_output(), results = 'asis', echo = F}
 cat(
 'Installing R and RStudio video: https://youtu.be/-BLSElo-ZP4'
 )
 ```
-\  
-
+\ 
 
 
 ```{r include=FALSE}

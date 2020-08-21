@@ -282,9 +282,9 @@ this session, we will be working with:</p>
 <li><code>dplyr</code>, which is our data subsetting and manipulation friend</li>
 <li><code>ggplot2</code>, which makes pretty pretty data visualisations.</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="single-variable-plots.html#cb53-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb53-2"><a href="single-variable-plots.html#cb53-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb53-3"><a href="single-variable-plots.html#cb53-3"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="single-variable-plots.html#cb54-1"></a><span class="kw">library</span>(readr)</span>
+<span id="cb54-2"><a href="single-variable-plots.html#cb54-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb54-3"><a href="single-variable-plots.html#cb54-3"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <p><br />
 </p>
 <hr />
@@ -415,17 +415,17 @@ that their tight muscle tension could mean they have quicker reactions
 (the <code>ruler</code> variable).</p>
 <p><em>Task: work out (without looking at the app!) which of these three pieces of code
 give the correct way to subset the data in the way described above.</em></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="single-variable-plots.html#cb54-1"></a><span class="co"># a)</span></span>
-<span id="cb54-2"><a href="single-variable-plots.html#cb54-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">%over%</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb54-3"><a href="single-variable-plots.html#cb54-3"></a></span>
-<span id="cb54-4"><a href="single-variable-plots.html#cb54-4"></a><span class="co"># b)</span></span>
-<span id="cb54-5"><a href="single-variable-plots.html#cb54-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(ffold <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb54-6"><a href="single-variable-plots.html#cb54-6"></a></span>
-<span id="cb54-7"><a href="single-variable-plots.html#cb54-7"></a><span class="co"># c)</span></span>
-<span id="cb54-8"><a href="single-variable-plots.html#cb54-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb54-9"><a href="single-variable-plots.html#cb54-9"></a></span>
-<span id="cb54-10"><a href="single-variable-plots.html#cb54-10"></a><span class="co"># d)</span></span>
-<span id="cb54-11"><a href="single-variable-plots.html#cb54-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="single-variable-plots.html#cb55-1"></a><span class="co"># a)</span></span>
+<span id="cb55-2"><a href="single-variable-plots.html#cb55-2"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">%over%</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb55-3"><a href="single-variable-plots.html#cb55-3"></a></span>
+<span id="cb55-4"><a href="single-variable-plots.html#cb55-4"></a><span class="co"># b)</span></span>
+<span id="cb55-5"><a href="single-variable-plots.html#cb55-5"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">slice</span>(ffold <span class="op">&gt;=</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb55-6"><a href="single-variable-plots.html#cb55-6"></a></span>
+<span id="cb55-7"><a href="single-variable-plots.html#cb55-7"></a><span class="co"># c)</span></span>
+<span id="cb55-8"><a href="single-variable-plots.html#cb55-8"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb55-9"><a href="single-variable-plots.html#cb55-9"></a></span>
+<span id="cb55-10"><a href="single-variable-plots.html#cb55-10"></a><span class="co"># d)</span></span>
+<span id="cb55-11"><a href="single-variable-plots.html#cb55-11"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(ffold <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
 <p><br />
 </p>
 <p>Now, head to the DATA page and subset the data to only people who can’t touch the
@@ -460,15 +460,15 @@ us about the hypothesis?</em><br />
 variable. Choose a number of histogram bins that you’re comfortable with, and then add a density plot.</p>
 <p><em>Task: Without looking at the CODE tab, find the mistake(s) in the code below
 and correct them to give you the code needed to produce the plot.</em></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="single-variable-plots.html#cb55-1"></a>hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data, <span class="dt">x =</span> pballs)</span>
-<span id="cb55-2"><a href="single-variable-plots.html#cb55-2"></a>    <span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), bins<span class="op">:</span><span class="st"> </span><span class="dv">8</span>, fill<span class="op">:</span><span class="st"> </span>steelblue4) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb55-3"><a href="single-variable-plots.html#cb55-3"></a><span class="st">    </span><span class="co"># your bin numbers and colour may be different to above!</span></span>
-<span id="cb55-4"><a href="single-variable-plots.html#cb55-4"></a><span class="st">    </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
-<span id="cb55-5"><a href="single-variable-plots.html#cb55-5"></a>    <span class="co"># your xlim may be different to above!</span></span>
-<span id="cb55-6"><a href="single-variable-plots.html#cb55-6"></a>    <span class="kw">theme</span>(<span class="st">&quot;minimal&quot;</span>)</span>
-<span id="cb55-7"><a href="single-variable-plots.html#cb55-7"></a>    <span class="co"># your theme may be different to above!</span></span>
-<span id="cb55-8"><a href="single-variable-plots.html#cb55-8"></a></span>
-<span id="cb55-9"><a href="single-variable-plots.html#cb55-9"></a>hist <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bars =</span> <span class="st">&#39;darkgrey&#39;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="single-variable-plots.html#cb56-1"></a>hist &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data, <span class="dt">x =</span> pballs)</span>
+<span id="cb56-2"><a href="single-variable-plots.html#cb56-2"></a>    <span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), bins<span class="op">:</span><span class="st"> </span><span class="dv">8</span>, fill<span class="op">:</span><span class="st"> </span>steelblue4) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb56-3"><a href="single-variable-plots.html#cb56-3"></a><span class="st">    </span><span class="co"># your bin numbers and colour may be different to above!</span></span>
+<span id="cb56-4"><a href="single-variable-plots.html#cb56-4"></a><span class="st">    </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb56-5"><a href="single-variable-plots.html#cb56-5"></a>    <span class="co"># your xlim may be different to above!</span></span>
+<span id="cb56-6"><a href="single-variable-plots.html#cb56-6"></a>    <span class="kw">theme</span>(<span class="st">&quot;minimal&quot;</span>)</span>
+<span id="cb56-7"><a href="single-variable-plots.html#cb56-7"></a>    <span class="co"># your theme may be different to above!</span></span>
+<span id="cb56-8"><a href="single-variable-plots.html#cb56-8"></a></span>
+<span id="cb56-9"><a href="single-variable-plots.html#cb56-9"></a>hist <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">bars =</span> <span class="st">&#39;darkgrey&#39;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><br />
 </p>
 <p>Check the code tab to see whether you managed to catch the mistakes properly.</p>
@@ -516,12 +516,12 @@ analysis. At this point, response variables should be variables with Gaussian (n
 </ul></li>
 </ul>
 <p>On this last point: moments of data are easy to calculate. You can use, e.g.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="single-variable-plots.html#cb56-1"></a><span class="kw">mean</span>(data<span class="op">$</span>pballs) <span class="co"># if there are missing values add na.rm = TRUE</span></span>
-<span id="cb56-2"><a href="single-variable-plots.html#cb56-2"></a><span class="kw">median</span>(data<span class="op">$</span>pballs) </span>
-<span id="cb56-3"><a href="single-variable-plots.html#cb56-3"></a></span>
-<span id="cb56-4"><a href="single-variable-plots.html#cb56-4"></a><span class="co"># calculating other moments requires using a package</span></span>
-<span id="cb56-5"><a href="single-variable-plots.html#cb56-5"></a><span class="kw">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</span>
-<span id="cb56-6"><a href="single-variable-plots.html#cb56-6"></a><span class="kw">skewness</span>(data<span class="op">$</span>pballs)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="single-variable-plots.html#cb57-1"></a><span class="kw">mean</span>(data<span class="op">$</span>pballs) <span class="co"># if there are missing values add na.rm = TRUE</span></span>
+<span id="cb57-2"><a href="single-variable-plots.html#cb57-2"></a><span class="kw">median</span>(data<span class="op">$</span>pballs) </span>
+<span id="cb57-3"><a href="single-variable-plots.html#cb57-3"></a></span>
+<span id="cb57-4"><a href="single-variable-plots.html#cb57-4"></a><span class="co"># calculating other moments requires using a package</span></span>
+<span id="cb57-5"><a href="single-variable-plots.html#cb57-5"></a><span class="kw">install.packages</span>(<span class="st">&quot;moments&quot;</span>)</span>
+<span id="cb57-6"><a href="single-variable-plots.html#cb57-6"></a><span class="kw">skewness</span>(data<span class="op">$</span>pballs)</span></code></pre></div>
 <p> 
  </p>
 
