@@ -72,49 +72,40 @@ some useful information on keyboard shortcuts.
 
 ### Web book contents
 
-Within the text you will find a diversity of content. You'll get very familiar
-with R code! There's an example of some R code below. Code (of any type) 
-is always written using a `fixed width font` like Courier New, Consolas or 
-Lucida Console (my personal favourite at the moment is
-[Space Mono](https://fonts.google.com/specimen/Space+Mono)). The reason for this 
-is that all the letters line up vertically, which is far easier to read.  
+Within the text you will find a diversity of content. 
 
-_Code chunks_ are collections of lines of code which do a certain thing. There's 
-an example of a code chunk below, and its common outputs you'll see in these 
-worksheets: a plot, and some text. It's just for you to see what code chunks and 
-their outputs look like, so you don't need to understand it just yet! Here's 
-what it does: 
-
-* draw 1000 random numbers from a normal distribution with a mean of zero 
-and standard deviation of 1
-* create a simple plot of the distribution
-* calculate the mean and standard deviation of the random distribution (which 
-of course should be approximately zero and one respectively):  
-
+* Of course, there is **R code**, which is alway written in a `fixed width font`
+such as Courier New, Consolas or Lucida Console. 
+  + Code is usually in code _chunks_ 
+  which have outputs such as text and plots.
+  + _comments_ (notes) on the code are written on 
+  lines beginning with `#`.
+  + Here's an example of what a code chunk and its outputs looks like:
 ```{r}
+# create an object which is 1000 random 
+# numbers drawn from a normal distribution 
+# with a mean of zero and standard deviation of 1
 random <- rnorm(1000, 0, 1)
+
+# create a simple plot of the distribution
 ggplot(as.data.frame(random), aes(x = random)) + 
     geom_density()
+
+# calculate the mean of the distribution
+# (should be approximately 0)
 mean(random)
+
+# calculate the standard deviation of the 
+# distribution (should be approximately 1)
 sd(random)
 ```
-\ 
-_Scripts_ are files which contain many chunks of code.  
 \  
 
-The worksheets also include instructional videos (a couple of examples are 
-found further down on this page), and interactive 
-quizzes. Each chapter is arranged like this:
-
-* **Part 1** of each chapter uses a web application I wrote to help teach analysis 
-using R. It is available at 
-[iainmstott.shinyapps.io/ShinyGLiM](iainmstott.shinyapps.io/ShinyGLiM). 
-By interacting with the app, you'll learn how to code different tasks and 
-write these into a script which ultimately will contain a full analysis of a
-data set. 
-* **Part 2** of each chapter is an interactive quiz which tests your knowledge of the 
-topics and skills learned in Part 1. Here is an example:  
-
+* The worksheets also include **instructional videos** (a couple of examples are 
+found further down on this page).
+* There are **interactive quizzes** which help you to evaluate your knowledge of 
+the Chapter. Here's an example:
+\  
 ```{r, include=knitr::is_html_output(), eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
 cat(
 '<div style = "overflow: hidden; padding-top: 66.66%; position: relative;">
@@ -136,8 +127,18 @@ cat(
 'Quiz example: https://shiny.rstudio.com/gallery/kmeans-example.html'
 )
 ```
-\ 
+\  
 
+Each chapter is arranged like this:
+
+* **Part 1** of each chapter uses a web application I wrote to help teach analysis 
+using R. It is available at 
+[iainmstott.shinyapps.io/ShinyGLiM](iainmstott.shinyapps.io/ShinyGLiM). 
+By interacting with the app, you'll learn how to code different tasks and 
+write these into a script which ultimately will contain a full analysis of a
+data set. 
+* **Part 2** of each chapter is an interactive quiz which tests your knowledge of the 
+topics and skills learned in Part 1. Here is an example:  
 * **Part 3** of each chapter presents some analytical tasks for biological data 
 for you to code in R.  
 \ 

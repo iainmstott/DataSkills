@@ -280,38 +280,49 @@ some useful information on keyboard shortcuts.</li>
 </div>
 <div id="web-book-contents" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> Web book contents</h3>
-<p>Within the text you will find a diversity of content. You’ll get very familiar
-with R code! There’s an example of some R code below. Code (of any type)
-is always written using a <code>fixed width font</code> like Courier New, Consolas or
-Lucida Console (my personal favourite at the moment is
-<a href="https://fonts.google.com/specimen/Space+Mono">Space Mono</a>). The reason for this
-is that all the letters line up vertically, which is far easier to read.</p>
-<p><em>Code chunks</em> are collections of lines of code which do a certain thing. There’s
-an example of a code chunk below, and its common outputs you’ll see in these
-worksheets: a plot, and some text. It’s just for you to see what code chunks and
-their outputs look like, so you don’t need to understand it just yet! Here’s
-what it does:</p>
+<p>Within the text you will find a diversity of content.</p>
 <ul>
-<li>draw 1000 random numbers from a normal distribution with a mean of zero
-and standard deviation of 1</li>
-<li>create a simple plot of the distribution</li>
-<li>calculate the mean and standard deviation of the random distribution (which
-of course should be approximately zero and one respectively):</li>
+<li>Of course, there is <strong>R code</strong>, which is alway written in a <code>fixed width font</code>
+such as Courier New, Consolas or Lucida Console.
+<ul>
+<li>Code is usually in code <em>chunks</em>
+which have outputs such as text and plots.</li>
+<li><em>comments</em> (notes) on the code are written on
+lines beginning with <code>#</code>.</li>
+<li>Here’s an example of what a code chunk and its outputs looks like:</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a>random &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(random), <span class="kw">aes</span>(<span class="dt">x =</span> random)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="st">    </span><span class="kw">geom_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="co"># create an object which is 1000 random </span></span>
+<span id="cb1-2"><a href="index.html#cb1-2"></a><span class="co"># numbers drawn from a normal distribution </span></span>
+<span id="cb1-3"><a href="index.html#cb1-3"></a><span class="co"># with a mean of zero and standard deviation of 1</span></span>
+<span id="cb1-4"><a href="index.html#cb1-4"></a>random &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="index.html#cb1-5"></a></span>
+<span id="cb1-6"><a href="index.html#cb1-6"></a><span class="co"># create a simple plot of the distribution</span></span>
+<span id="cb1-7"><a href="index.html#cb1-7"></a><span class="kw">ggplot</span>(<span class="kw">as.data.frame</span>(random), <span class="kw">aes</span>(<span class="dt">x =</span> random)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-8"><a href="index.html#cb1-8"></a><span class="st">    </span><span class="kw">geom_density</span>()</span></code></pre></div>
 <p><img src="DSftLS_book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a><span class="kw">mean</span>(random)</span></code></pre></div>
-<pre><code>## [1] -0.005939837</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="kw">sd</span>(random)</span></code></pre></div>
-<pre><code>## [1] 1.019844</code></pre>
-<p> 
-<em>Scripts</em> are files which contain many chunks of code.<br />
- </p>
-<p>The worksheets also include instructional videos (a couple of examples are
-found further down on this page), and interactive
-quizzes. Each chapter is arranged like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a><span class="co"># calculate the mean of the distribution</span></span>
+<span id="cb2-2"><a href="index.html#cb2-2"></a><span class="co"># (should be approximately 0)</span></span>
+<span id="cb2-3"><a href="index.html#cb2-3"></a><span class="kw">mean</span>(random)</span></code></pre></div>
+<pre><code>## [1] -0.022037</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="co"># calculate the standard deviation of the </span></span>
+<span id="cb4-2"><a href="index.html#cb4-2"></a><span class="co"># distribution (should be approximately 1)</span></span>
+<span id="cb4-3"><a href="index.html#cb4-3"></a><span class="kw">sd</span>(random)</span></code></pre></div>
+<pre><code>## [1] 0.9987947</code></pre>
+<p> </p>
+<ul>
+<li>The worksheets also include <strong>instructional videos</strong> (a couple of examples are
+found further down on this page).</li>
+<li>There are <strong>interactive quizzes</strong> which help you to evaluate your knowledge of
+the Chapter. Here’s an example:
+ 
+<div style="overflow: hidden; padding-top: 66.66%; position: relative;">
+<iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://shiny.rstudio.com/gallery/kmeans-example.html">
+</iframe>
+</div></li>
+</ul>
+<p> </p>
+<p>Each chapter is arranged like this:</p>
 <ul>
 <li><strong>Part 1</strong> of each chapter uses a web application I wrote to help teach analysis
 using R. It is available at
@@ -320,15 +331,8 @@ By interacting with the app, you’ll learn how to code different tasks and
 write these into a script which ultimately will contain a full analysis of a
 data set.</li>
 <li><strong>Part 2</strong> of each chapter is an interactive quiz which tests your knowledge of the
-topics and skills learned in Part 1. Here is an example:</li>
-</ul>
-<div style="overflow: hidden; padding-top: 66.66%; position: relative;">
-<p><iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
-    src="https://shiny.rstudio.com/gallery/kmeans-example.html">
-</iframe></p>
-</div>
-<p> </p>
-<ul>
+topics and skills learned in Part 1. Here is an example:<br />
+</li>
 <li><strong>Part 3</strong> of each chapter presents some analytical tasks for biological data
 for you to code in R.<br />
  </li>
