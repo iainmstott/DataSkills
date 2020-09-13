@@ -1,0 +1,756 @@
+
+## 1 - R Basics
+\
+
+Welcome to your first R tutorial! In this tutorial we'll be covering the very basics of R, which is a programming language originally developed for 
+understanding data and doing statistics. This tutorial includes:  
+
+* `R` packages
+* the anatomy ("vocabulary" and "grammar") of R code
+* objects
+   + assignment to objects
+   + object classes
+* functions
+   + function arguments
+* outputs
+* code comments
+* loading data into `R`  
+\
+* What programming languages are
+  + types of programming language
+  + the anatomy ("vocabulary" and "grammar") of R code
+* What RStudio is, and how RStudio works with R
+* The structure of R
+  + base R packages
+  + add-on R packages
+* Reading data into `R`.  
+\  
+
+With this information, we'll put our newfound knowledge into practice and 
+do some basic coding in R to get used to this new way of working with data. If 
+you're familiar with R already, this should still serve as a 
+useful reminder!  
+\ 
+
+CONTINUE TO RESOURCES LIST...  
+
+
+$~$
+
+***
+### RESOURCES
+\
+
+##### BOOKS
+ 
+* Beckerman, Childs & Petchey (2017) _Getting started with R, an 
+introduction for Biologists_, 2nd ed. pp 1 - 34, Chapter 1, "Getting and 
+getting acquainted with R".  
+\ 
+
+##### CHEATSHEETS:
+
+* [RStudio IDE cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) by RStudio
+* [base-R cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf) by RStudio
+\ 
+
+##### WEB LINKS:
+
+* [R for beginners](https://education.rstudio.com/learn/beginner) by RStudio  
+\ 
+
+Let's get started!  
+
+
+$~$
+
+***
+### R PACKAGES
+\
+
+Lots of things can be done with what is called _base R_, 
+which is a set of R functions and tools that load every time you start R 
+(and therefore every time you start RStudio, as R is run from within RStudio).  
+
+Some tasks require add-on _R packages_ with 
+extra functions and tools. Think of these like dictionaries of extra vocabulary 
+and grammar which allow R to communicate with the computer in more elaborate ways.  
+\ 
+
+This video explains briefly how `R` packages work:
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+
+
+$~$
+
+
+***
+### THE ANATOMY, VOCABULARY AND GRAMMAR OF `R` CODE
+\
+
+There are 6 key components to `R`code: objects, assignment, functions, 
+arguments, outputs and comments.
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+
+##### **OBJECTS**
+R is used for _Object-Oriented Programming (OOP)_. This means that when coding 
+in R, you create **objects**, which are packets of data saved in the 
+computer's RAM. These objects can be recalled and used throughout that R 
+session, until they are either overwritten or removed.  
+
+Think of it like filling a weekend bag full of things: your bag is full of 
+objects ready to use; your `R` session is also full of objects ready for you 
+to use.  
+
+##### **CLASSES**
+These objects have different **classes**, which define
+what the object is and how `R` works with it. `R` will work with objects 
+differently, depending on their class: for example, it is possible to calculate 
+the mean of some numbers, but it's not possible to calculate a mean of some words!  
+
+Similarly, you might have two similar-looking objects in your weekend bag, but 
+their "class" would mean you use them in unique ways. Your toothbrush and your 
+hairbrush are both brushes, but you (presumably) use them differently.
+
+##### FUNCTIONS AND ASSIGNING
+Objects are usually created using **functions**. These create or process data 
+in some way and save it to the RAM (like putting something in the bag). The 
+way this is done is using an **assigning arrow** `<-`. The object goes on the 
+left, and the function on the right.  
+`answer <- 6 * 7`
+
+
+
+$~$
+
+***
+### OBJECTS
+\
+
+This section covers how to create objects, what classes mean, what functions 
+are and how they work.  
+\
+
+Objects are created using **functions**. Simple functions include `+ - * /`, 
+only one of which is not an Ed Sheeran album.
+
+_In the exercise below, use these functions to:_
+
+1. _Choose any number_
+2. _Add the next highest integer number_
+3. _Add 9_
+4. _Divide by 2_
+4. _Subtract your original number_
+
+_Hint: don't forget the order of operations: which of `+ - * /` is done first!_
+_Parentheses `( )` can help group the right operations._
+```{r C01_simplefunctionsE1, exercise=TRUE, echo=FALSE}
+
+```
+```{r C01_simplefunctionsE1-solution}
+# If your number is 42
+((42 + 43 + 9) / 2) - 42
+
+# Whatever number you chose, your answer is 5.
+```
+\  
+
+More complicated functions take the form 
+`function(argument1, argument2, ...)`. Each function has its own specific
+set of arguments, and a different object is created depending on what 
+these arguments are.
+```{r}
+numbers <- seq(1, 10, 1)
+numbers
+```
+\
+
+The function `seq()` means "sequence". This sequence is the integer numbers 
+starting at 1 and ending at 10.  
+\
+
+We can do certain things with this vector. For example, we might want to see a 
+summary about it, find out what its length is, calculate the mean or see the 
+first 5 elements:
+```{r}
+summary(numbers)
+length(numbers)
+mean(numbers)
+numbers[1:5]
+```
+\
+
+In this case `1:5` does the same thing as `seq(1, 5, 1)`. There are often many 
+ways to get any single output in `R`, in the same way that there are often 
+many different ways to say one thing in a spoken language.  
+\
+
+We can change or add arguments to make a function behave differently. For example,
+adding an argument _digits_ to the `summary()` function gives the results to 
+a certain number of decimal places.
+```{r}
+summary(numbers, digits = 1)
+```
+\
+
+Going back to the original creation of the `numbers` object, we can change the 
+arguments of `seq` to create a different object: the two-times-table up to 20.
+```{r}
+numbers2 <- seq(2, 20, 2)
+numbers2
+```
+\
+
+_In the exercise below, create an object called `numbers3` which is a sequence_ 
+_of numbers from 3 to 21, in steps of 2._
+```{r C01_seqE1, exercise=TRUE, echo=FALSE}
+
+```
+```{r C01_seqE1-solution}
+seq(3, 21, 2)
+```
+\  
+
+As we have `numbers2` and `numbers3`, maybe we should be consistent and change 
+the name of `numbers` to `numbers1`. We can do that by creating a new object and 
+removing the old one:
+```{r}
+numbers1 <- numbers
+rm(numbers)
+```
+\
+
+We created `numbers1` from another object `numbers`. In fact, you can
+create object using multiple other objects, and objects can be created in 
+different ways.
+```{r}
+# We could create numbers2 by multiplying numbers1 by 2
+numbers1 * 2
+
+# We could add 1 to every number in numbers2
+numbers2 + 1
+
+# We could add together numbers1 and numbers2
+numbers1 + numbers2
+```
+\
+
+Note how `R` processes objects: both `numbers1` and `numbers2` have 10 individual 
+numbers (termed _elements_ of the vector), 
+so `R` adds the two first elements, the two second elements, the two third elements, 
+etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter 
+vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
+\  
+
+
+
+```{r C01_objectsQ1, echo = FALSE}
+### *** TO COMPLETE!
+quiz(caption = "Objects",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+
+
+$~$
+
+***
+### OBJECT CLASSES
+\
+
+Objects always have a **class** which defines how `R` processes and interacts with 
+them. There are 5 different class types that it's important to know at this point.
+
+* **numeric**
+* **character**
+* **factor**
+* **logical**
+* **data.frame**
+
+### numeric
+\
+
+The objects `numbers1`, `numbers2` and `numbers3` have the class _numeric_: 
+this means a set (called a _vector_) of 
+numbers. You can see that the class of `numbers1` is numeric using the function 
+`class()`:
+```{r}
+class(numbers1)
+```
+\
+
+We have already seen a fair bit of how numeric vectors are processed by `R`.  
+\
+
+
+### character
+\
+
+We'll create a new object which looks kinda like `numbers1`, but is
+not actually the same.
+```{r}
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+characters1
+```
+\
+
+The `c()` function is really important. It means "concatenate", and basically 
+glues together the arguments you give it. The `characters1` object 
+looks similar to the `numbers1` object, but it's not. Note the quote marks 
+around each vector element.  
+\
+
+_Exercise: find out the class of `characters1`._
+```{r C01_characterE1, exercise=TRUE, echo=FALSE}
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+
+```
+```{r C01_characterE1-solution}
+# the answer is 'character'.
+class(characters1)
+```
+\  
+
+Let's try and find the same information about `characters1` as we did for `numbers1`.
+```{r}
+summary(characters1)
+length(characters1)
+mean(characters1)
+characters1[1:5]
+```
+\
+
+One of these functions went kinda wrong. As far as R is concerned, the 
+elements of `characters1` are words, and it can't calculate the mean of some 
+words. It returns `NA`, meaning "Not Applicable": R language for something which 
+doesn't exist or is missing.  
+
+The _Warning_ message makes sure you're aware that
+the code did run and give an output, but something probably went wrong.  
+
+R can also return an _Error_ message, which tells you that
+the function has failed to run at all, and gave no output.  
+
+_Pay attention to these messages_: usually if you get 
+an Error or a Warning, much of your subsequent code will fail as it depends
+on things being calculated properly.  
+\
+
+It's possible to convert things between different classes, although the 
+behaviour is sometimes unpredictable so be careful!
+```{r}
+characters2 <- as.character(numbers2)
+characters2
+```
+\
+
+
+```{r C01_characterQ1, echo = FALSE}
+# *** TO COMPLETE!
+quiz(caption = "Objects",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+```{r C01_characterQ1-hint}
+"Try running ?seq for the help page for the function (though R documentation is confusing at first!)"
+```
+\
+
+
+### factor
+\
+
+A **factor** object is like a character object, but recognises groups of elements
+which are the same, called _levels_. Let's take a look:
+```{r}
+factor1 <- rep(LETTERS[1:5], 2)
+factor1 <- as.factor(factor1)
+factor1
+```
+\
+
+The object `LETTERS` is a character object which already exists in `R` without us having 
+to create it. Note that it has to be LETTERS in capitals: `R` is case-sensitive, 
+which means the code won't work if you have a lower-case letter rather than 
+an upper-case letter or vice versa. This is a really common mistake to make and 
+easy to miss!  
+
+We use the square brackets to choose which letters we
+want: we choose A, B, C, D and E, which are the first 5 letters of the alphabet.  
+
+The `rep` function means repeat, so we repeat A to E five times, to give a vector 
+that has a length of 25.  
+
+Finally, we convert that character vector to a factor using `as.factor()` and 
+overwrite the original `factor1` object by reassigning it.
+```{r}
+summary(factor1)
+```
+\
+
+We can see from the summary that R recognises the five different factor levels,
+A through E.  
+\
+
+```{r C01_factorQ1, echo = FALSE}
+# *** TO COMPLETE!
+quiz(caption = "Objects",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+```{r C01_factorQ1-hint}
+"Try running ?seq for the help page for the function (though R documentation is confusing at first!)"
+```
+\
+
+
+### logical
+\
+
+Logical objects are perhaps hard to understand at first, but they're simple
+really. They basically indicate whether something is `TRUE` or `FALSE`. They
+usually relate to a question we ask of our data.
+```{r}
+rand_norm <- rnorm(50, 0, 1)
+over0 <- rand_norm > 0
+over0
+```
+\
+
+The result is information on which of your random data are greater than than 0.  
+\
+
+```{r C01_logicalQ1, echo = FALSE}
+quiz(caption = "Random",
+    question("If you ran the above code multiple times, would you get the same result each time?",
+        answer("Yes", correct = TRUE),
+        answer("No"),
+        random_answer_order = TRUE
+    ),
+
+    question("You won't get the same result each time. Which part of the code causes that to happen?",
+        answer("the function rnorm()", correct = TRUE, message = "The function rnorm() creates random numbers."),
+        answer("The arguments 50, 0, 1", message = "The function rnorm() creates random numbers."),
+        answer("The logical operator >", message = "The function rnorm() creates random numbers."),
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+There are lots of questions you can ask of your data using logical operators, and 
+you will encounter many on your R journey e.g. 
+
+* `>` greater than 
+* `>=` greater than or equal to
+* `<` less than
+* `<=` less than or equal to  
+
+These behave in exactly the way you would expect given how you've already seen 
+`>` works.  
+
+Logical operators (and `R` in general) don't always behave in the way you might 
+expect, however. Take these logical operators:
+
+* `==` exactly equal to
+* `!=` not equal to
+
+`==` tells you whether the two objects on the left and the right are exactly equal 
+to each other:
+
+```{r}
+1 == 1
+numbers2 == numbers1 * 2
+numbers1 == characters1
+```
+
+We expect the first two to be true. But the final one also returns all `TRUE`
+even though `numbers1` is numberic vector and characters1 is a character vector. 
+All I can say is... sometimes `R` is weird.  
+
+`!=` does the opposite job, telling us which elements on the right are NOT the same as 
+the element(s) on the left.  
+\
+
+One final useful logical operator:
+
+* `%in%` tells you which elements of one vector belong to another vector.
+\
+
+`%in%` is used to find out whether a value or values in one vector
+(on the left) exist in another vector (on the right). For example:
+```{r}
+num2_in_num1 <- numbers2 %in% numbers1
+num2_in_num1
+numbers2[num2_in_num1]
+```
+\
+
+If the logical object `num2_in_num1` is `TRUE` then that element of `numbers2`
+is found in `numbers1`. When `num2_in_num1` is put in the square brackets it 
+picks out all the elements of `numbers2` which are `TRUE` and shows them to us: 
+these are the numbers in `numbers2` which are also in `numbers1`. It's not 
+necessary when using `%in%` for the two vectors to have the same length.  
+\
+
+`==`, `!=` and `%in%` are VERY useful for handling data and subsetting data 
+sets, and we'll see this later in the course.
+\
+
+_Exercise: put in the correct logical operators. The correct outputs are found in the_
+_solutions._
+```{r C01_logicalE1, exercise=TRUE, echo=FALSE}
+# 1. ((42 + 43 + 9) / 2) - 42 is the same as ((31 + 32 + 9) / 2) - 31
+((42 + 43 + 9) / 2) - 42     ((31 + 32 + 9) / 2) - 31
+
+# the mean of one set of random numbers is NOT the same as the mean of another
+mean(runif(100))     mean(runif(100))
+
+# cake is greater than biscuits
+"cake"     "biscuits"
+
+# c("A", "B", "Z") are found in the last 10 letters of the alphabet
+c("A", "B", "Z")     LETTERS[16:26]
+
+```
+```{r C01_logicalE1-solution}
+1. TRUE, using ==
+2. TRUE, using !=
+3. FALSE, using >
+This is another strange behaviour of R that I don't understand. I 
+don't understand how or why one character object "cake" can be numerically greater than another
+"biscuits", but R has some way of deciding. It works with any character object.
+4. FALSE FALSE TRUE, using %in%
+```
+\  
+
+
+### data.frame
+\
+
+Finally, we'll encounter the `data.frame`. This is the way most data is 
+stored for data analysis. As we learned earlier, there's one column per variable
+and one row per observation. `data.frame`s are simply collections of variables:
+```{r}
+data <- data.frame(numbers2, characters1, factor1)
+data
+```
+\
+
+To access variables in a data.frame, you simply use the `$` dollar sign.
+```{r}
+data$numbers1
+```
+\
+
+Vectors are one-dimensional but data frames are two-dimensional. To quickly 
+select a few rows and/or columns, we can use the square brackets but we need 
+to provide two numbers: which rows first, followed by which columns.
+```{r}
+# If you want all columns then leave the second number blank.
+# The first 5 rows of the data frame:
+data[1:5, ]
+
+# If you want all rows then leave the first number blank.
+# The first and third columns of the data frame:
+data[ , c(1, 3)]
+
+# The first rows of columns 1 and 3:
+data[1:5, c(1, 3)]
+```
+\
+
+Having commas in the right places is important in `R`. If you don't have a 
+comma to indicate both rows and columns, then you will encounter an error 
+about "undefined rows" or "undefined columns". A missing or extra comma is a
+really common mistake and easy to miss.  
+\
+
+You can read in `data.frame`s from your own data using the function 
+`read.csv()`. Your data frame needs to be saved as a CSV file, in a data frame 
+format. You can do this easily in Excel using File -> Save As -> CSV (Comma delimited).
+Then you provide the path to the file. For example, on windows, if the 
+file "data.csv" is stored in your "My Documents" folder, you use 
+```{r, eval=FALSE}
+read.csv("C:/Users/UserName/Documents/data.csv")
+# (replace "UserName" with your user name)
+```
+
+On Mac, if the file was stored in your Documents folder then you may use 
+```{r, eval=FALSE}
+### *** CHECK
+read.csv("~/Documents/data.csv")
+```
+
+
+$~$
+
+***
+### CREATING AN R SCRIPT
+\ 
+
+R code is saved in a file with the extension `.R`. In the same way as Micosoft 
+Word knows to open files with `.docx` extensions and Adobe Reader knows to
+open files with `.pdf` extensions, RStudio knows to open files with `.R` 
+extensions, and to work with them in certain ways.  
+
+Create an R file in the folder you wish to use as your working directory by 
+following the steps in the video below.  
+\ 
+
+<center>
+![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
+</center>  
+\ 
+
+Save this file wherever you like.  
+
+_This is the file in which you're going to write code to fulfil the tasks in Section 2 of each Chapter._ In each Chapter you will cover one aspect of the analytical process.
+You'll apply the knowledge and skills learned during the Chapter to a biological data set and 
+add to this code file, so that by the end of the 
+book, you'll have completed a full analysis including Tidying and Visualising 
+your data, fitting a model and evaluating how well it fits the data, 
+tweaking the data, visualisations and the model if necessary, until you have some 
+reliable and reproducible results.  
+
+
+$~$
+
+***
+### FINAL TIPS
+\
+
+Use `?` to get help on a function. These help pages take a fair while to get used 
+to, but they lay out what arguments a function takes, what those arguments 
+are, what the output (value) of the function is, and some examples.  
+\
+
+We use the `#` (hash) symbol to create a comment: nothing after the `#` will be run
+as code. It's good practise to comment your code as you go, so when you 
+go back to it later, it makes sense to you. Trust me, you make life so much 
+easier for your future self if you comment well!  
+\
+
+The internet is really useful. As you get used to R, you'll be able to find
+blogs and articles and forums that give you answers. There are also R mailing
+lists, but it's best not to email them until you're sure you've done everything
+you can to solve your problem.  
+\
+
+If something goes wrong with your R coding (usually Errors), then 99.9% of the
+time it's because you've made a mistake. R is very literal. Be careful!  
+\
+
+_Exercise: correct the mistakes ('bugs') in the lines of code below, bearing in_
+_mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
+_right outputs!_
+```{r C01tipsE, exercise = TRUE, eval = FALSE}
+# a sequence from 4 to 40 in steps of 4
+mynums <- seq(4, 40, 4,)
+mynums
+
+# the first 5 and last 5 letters of the alphabet
+mychars <- LETTERS[c(1:5, 21:26)]
+# length of mychars
+length(Mychars)
+
+# turn mychars into a factor
+myfacs <- asfactor(mychars)
+
+# create data frame
+mydata <- data.frame(mynums, mychars, myfacs)
+# see numbers
+mydata$mynum
+# first 5 rows of data frame
+mydata[1:5]
+# first 2 columns of data frame
+mydata[1:2, ]
+
+```
+\
+
+These are really common mistakes to make. Be aware!
+
+
+***
+##### **END OF CHAPTER**
+***
+
+
+
+
+

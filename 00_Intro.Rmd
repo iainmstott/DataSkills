@@ -1,0 +1,568 @@
+
+## Introduction 
+\
+
+### Welcome to Data Skills for the Life Sciences! 
+
+This page contains important 
+information on the module: it's worth reading through carefully, and the 
+information will always be here for you to refer back to. The first few sections
+describe everything you need to know to set yourself up for the course. It's 
+really important you complete these as soon as possible.  
+\  
+
+We'll cover:
+
+* This book and its content
+  + `R` Code, including
+    - `R`
+    - RStudio
+    - R packages
+  + Picture and Video
+  + Interactive Elements
+    - Quizzes
+    - Exercises
+  + Completing each Chapter
+* Other resources
+  + Books
+  + Cheatsheets
+  + ShinyGLM
+  + Forums
+  + Collaboration
+* The analytical process which will underpin how we learn to analyse data
+* Finally, a walkthrough to install `R` and RStudio.  
+\  
+
+Click the button below to continue.  
+
+
+$~$
+
+***
+### This book
+
+First, some information on this web book.  
+\ 
+
+The book accompanies every student for 
+the first 9 weeks of the module, after which the teaching and content start
+to diverge for different programmes. This divergence allows programmes to learn 
+analytical techniques which are relevant to their courses: some stay with 
+content in this book, and some do not.  
+\  
+
+Here's a quick video tutorial on the layout of this book, and how it 
+functions.  
+\  
+
+<!--
+<center>
+![](https://youtu.be/HtTUsOKjWyQ){width="80%"}
+</center>  
+\  
+-->
+\  
+
+<!--
+#### Using the web book  
+\  
+
+##### **PROGRESS**
+
+The table of contents, on larger screens, is to the left of the main content. 
+On smaller screens you'll need to click the 
+title at the top of the page to see it. You should see 
+that a small black bar has appeared to the 
+left of "Introduction". That's your **PROGRESS BAR**, showing how 
+far you've progressed in each chapter. There is one page to complete per week
+(except in the first week, when you need to complete both "Introduction" and 
+"R Basics"). The indented page is the one that's currently selected.  
+
+Your progess should be saved each time you complete a part of the tutorial 
+(provided you access it on the same device).  
+\ 
+
+##### **ACCESSIBILITY / THEME**
+
+_COLOURS AND FONTS_: The theme can be changed using a dropdown menu which should 
+be visible at the top right of this page. Some of you may find
+certain fonts easier to read than others, some may prefer muted background 
+colours, or light text on dark backgrounds rather than light text on dark backgrounds.
+Try a few out and choose one that works for you (although there's no need to stick with 
+just one: you can change the theme at any time).  
+
+_ZOOM_: The book uses _responsive design_, which means it adapts to the size of the 
+screen you're using. This also means you can use your browser's zoom to make text 
+larger and smaller and it'll adapt to fit in the space available.  
+\  
+-->
+
+
+##### **CONTENT TYPES**
+
+Within the book you will find a diversity of content, which we'll go through 
+in the next sections.  
+\  
+
+
+### `R` CODE
+
+We are learning how to visualise, manage and analyse data in `R`. `R` is a 
+**programming language**, and people who use it are variously called "programmers", 
+"coders" or "developers".  
+
+#### Why R?
+
+You may have come across other programs that allow you to work with data, 
+plot data and run statistical analyses. So why a programming language, and 
+_why R?_  
+\ 
+
+##### WHAT IS `R`?
+_Think of_ `R` _as a language_ you're writing in. 
+"Running" R code from within a file allows you 
+to communicate with the computer and instruct it to do something, 
+resulting in outputs like plots or data.  
+\ 
+
+##### WHAT ARE THE BENEFITS OF USING `R`?
+
+There are a _huge number of benefits to using R_, listed here and elaborated on in 
+the video below.
+
+1. It's **_free_**.
+2. It's **_open source_**.
+3. It's **_cross-platform_**.
+4. It's **_transparent_** and **_replicable_**.
+5. It's **_powerful_** and **_fast_**.
+6. It's **_flexible_**.
+7. It makes you **_employable_**.  
+\ 
+
+##### WHAT IS **RSTUDIO**?
+We will be working with `R` in a program called **RStudio**; think of this like 
+`R`'s Microsoft Word; i.e. a program that allows you to create, save and open `R` code
+files; to edit those files and write `R` code. RStudio enables you to run `R` 
+code, and get whatever output you need, whether it's a calculation, a subset 
+of data, or a graph, for example.  
+\ 
+
+This video explains some of these concepts:  
+\  
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+\  
+
+
+#### What does `R` code look like?
+
+`R` often seems scary when you first 
+encounter it, but as outlined in the _R Basics_ chapter, thinking of it like 
+a language can help. As with learning a language, practise makes perfect. 
+\ 
+
+First of all, `R` code is always written in a `fixed width font`, where every 
+character has the same width. This way it's easier to read, as the characters align 
+vertically from line to line.  Short pieces of code may be written as `inline code`. 
+Longer pieces of code (especially if they run over multiple lines) are written as a 
+**code chunk**. Here's an example:  
+
+```{r}
+# draw random numbers
+random <- rnorm(1000, 0, 1)
+
+# plot distribution
+ggplot(as.data.frame(random), aes(x = random)) + 
+    geom_density()
+
+# mean
+mean(random)
+
+# standard deviation
+sd(random)
+```
+\  
+
+_What does this code do?_
+
+1. Draws 1000 random numbers from a normal distribution with mean of 0 and 
+standard deviation of 1.
+2. Plots thie distribution of these numbers (this should look roughly like 
+a normal-distribution-bell-curve).
+3. Calculates the mean of the distribution (which should be close to zero)
+4. Calculates the standard deviation of the distribution (which should be 
+close to 1).  
+
+_How can I "read" the code?_  
+
+Take a look at the code alongside the description of what it does, and elements 
+might start to match up. For example, 
+`rnorm` could mean "random normal". `1000` is how many random normal numbers we want, 
+`0` is the mean, and `1` is the standard deviation. Putting them together, 
+`rnorm(1000, 0, 1)` calculates the data we want out of point 1. above. The 
+next part uses `ggplot` and `geom_density`, so that has something 
+to do with making a density plot (point 2). `mean` must calculate the mean
+(point 3), and `sd` must calculate the standard deviation (point 4). 
+That's the basics; you'll get to learn the specifics with time.  
+
+`R` is _very_ literal and logical: you'll become used to this! Learning to 
+"read" it definitely comes with practice.  
+
+_What does the code make?_
+
+There are a couple of types of **outputs** from the above code:
+
+* data, saved within the `R` session and shown as text in the output, is 
+something you either calculate in `R` or read into `R` from data files.
+* plots and figures are images you create from your data in `R`.  
+
+
+$~$
+
+### Picture & Video
+
+Picture and video content is used to help explain analytical concepts or ideas 
+in data, data visualisation and statistics, and to give technical run-throughs.  
+\ 
+
+##### **PICTURE**
+Here's a GIF of the _Datasaurus rex_, which we'll be coming back to later in the 
+course, to understand a certain statistical concept:  
+\ 
+
+<center>
+![Datasaurus rex](images/datasaurus_dozen.gif){width="60%"}
+</center>  
+\  
+
+##### **VIDEO**
+Here's a video of what _not_ to do when you get angry with `R`. Because _trust me_,
+I know from personal experience that `R` will make you angry at some point, 
+and that's ok. Deep breath, walk away.  
+\ 
+
+<center>
+![](https://youtu.be/HtTUsOKjWyQ){width="80%"}
+</center>  
+
+
+$~$
+
+### INTERACTIVE ELEMENTS
+
+Interactive content is really important. It will test your 
+knowledge as  you work through these worksheets, and inform your home learning.  
+\ 
+
+##### **QUIZZES**
+
+Quizzes are multiple choice questions, which will test your knowledge and skills 
+in understanding, visualising and analysing data. They may have single answers 
+or multiple possible correct answers, as seen below.
+
+```{r exampleQ, echo = FALSE}
+quiz(caption = "Example Quiz",
+    question("Here's a simple multiple choice question: which of these is the best?",
+        answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
+        answer("Biscuits", correct = TRUE, message = "Yes!!! Biscuits rule all!"),
+        answer("Cheesecake", message = "Incorrect. Biscuits rule all. Try dunking some cheesecake in tea or coffee!"),
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+\ 
+
+##### **EXERCISES**
+
+Exercises are designed to make you better coders, and involve you correcting 
+or typing your own R code, which you can run to see a result, or an error, 
+depending on whether you have it correct...  
+
+Write the code `6 * 7` in the box below and then click **RUN** to get the correct answer.  
+
+```{r exampleE1, exercise=TRUE, echo=FALSE}
+
+```
+<div id="exampleE1-hint">
+_Hint: the answer to life, the universe and everthing..._
+</div>
+\  
+
+Sometimes exercises will have **Hints** and/or **Solutions** to help you get to 
+the right answer. Take another look at the exercise above and notice that 
+there's a "Hint" button, with a clue to completing the exercise. Sometimes there 
+will be multiple hints and/or solutions to click through.  
+
+It goes without saying to try to complete the exercise _before_ looking at the 
+hint or solution. Like any language, coding in `R` requires practice.  
+\  
+
+_Edit the code below to:_ 
+
+1. _Draw 1000 random numbers from a normal distribution with mean of 42 and standard_
+_deviation of 12._
+2. _Calculate the mean of the distribution._
+3. _Calculate the standard deviation of the distribution._  
+\  
+
+Use the code at the top of this page as a template, and delete, change or add 
+elements to the exercise below to get the desired result. Programming is _very_
+logical, so logic is the best way to a solution...  
+...(there is also a Solution button with notes, but give it a go first!)
+
+```{r exampleE2, exercise=TRUE, echo=FALSE}
+# draw random numbers
+random <- rnorm(1000, , 12)
+
+# mean
+mean_average(random)
+
+# standard deviation
+sd()
+```
+```{r exampleE2-solution}
+# draw random numbers
+# 42 is the mean and it is the second argument in rnorm().
+random <- rnorm(1000, 42, 12)
+
+# mean
+# the function is mean(), not mean_average().
+mean(new_random)
+
+# standard deviation
+# add 'random' inside the parentheses.
+sd(random)
+```
+\  
+
+Lots of what we do when coding is taking existing code and adapting it for our 
+own needs.  
+
+
+$~$
+
+***
+### COMPLETING EACH CHAPTER
+
+_There is one chapter per week, starting with **R Basics** in week 1._ 
+Each chapter is arranged like this:  
+\ 
+
+##### **PART 1**
+_--- Part 1 of each chapter is to be completed at home BEFORE each online workshop._  
+
+Part 1 uses code, images, videos and quizzes for learning
+and practicing concepts and skills in R, data, data handling, data visualisation 
+and statistics.  
+\ 
+
+##### **PART 2**
+_--- Part 2 of each chapter is to be completed during online workshops._  
+
+During these workshops you will be working in your tutor
+groups. You'll have some analytical tasks each week to complete, working with 
+real biological data to apply the concepts and skills learned in part 1 of the 
+chapter. These will all be collated in an R file which will take you through the 
+whole analytical process, from start to finish.  
+
+
+$~$
+
+***
+### OTHER RESOURCES
+
+Resources external to this book are also important to the module. A list of 
+useful resources will be provided at the top of each Chapter.  
+\  
+
+##### **BOOKS**
+There are several books that we'll be using throughout the course, and  in the 
+spirit of programming, these are all available open source, for free, online. 
+Different books will be useful at different parts of the module. 
+
+1. [_R for Data Science_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham.
+2. [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan.
+3. [_An Introduction to Statistical Learning with Applications in R_](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf) by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani.
+4. [_Learning statistics with R: A tutorial for psychology students and other beginners (Version 0.6)_](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
+
+I also recommend [_Getting Started with R: An Introduction for Biologists (2nd ed)_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, if you're looking to buy a book to help you both now and in the future.  
+\  
+
+##### **CHEAT SHEETS**
+The RStudio team publish `R` and RStudio cheat sheets which can be really useful 
+to refer to, such as this 
+[base R cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/base-r.pdf) 
+and this 
+[RStudio cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
+At the top of each chapter will be links to relevant cheatsheets for that chapter.  
+\  
+
+##### **ShinyGLM**
+I've developed an interactive web app called 
+[ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLiM/)
+which helps to understand how code and its 
+outputs are related to one another. You'll probably use it a fair bit, starting 
+from Chapter 2 "Data distributions".  
+\  
+
+##### **THE INTERNET**
+Programmers probably spend at least as much time googling as they do writing 
+code. If you're having trouble, chances are someone else had the same trouble as 
+you: search for the solution to your problem! The skill to find solutions to 
+
+
+##### **THE FORUM**
+Programmers use forums _all the time_, such as 
+[RStudio Community](https://community.RStudio.com),
+[Stack Overflow](https://stackexchange.com), and 
+[GitHub Community](https://github.community).
+These forums are places to:
+
+* Ask questions about things you need help understanding.
+* Post code that is giving errors.
+* Report bugs and errors in resources and software you use.
+
+I have set up a blackboard forum for these purposes. This includes reporting 
+any bugs, spelling mistakes or errors in this book. Software isn't a static 
+thing, and if there are things that need fixing, then they need fixing!  
+\  
+
+##### **EACH OTHER**
+Coding is usually a collaborative endeavour. Work with each other: in your 
+tutor groups, in your friendship groups, over video chat, via email, in person 
+(so long as it's in necessary bubbles, appropriately socially distanced and 
+adhering to national and local government guidelines at all times). Share 
+knowledge and information 
+(_except for the purposes of either of the assessments, which are to be completed individually!_)  
+
+
+$~$
+
+***
+### THE ANALYTICAL PROCESS
+
+This module is all about analysing data. 
+Any analytical process is really just a means of understanding your data, and 
+relationships between variables in that data. That's why I do not consider this
+to be a "statistics course"; it is a course in giving you many skills to
+understand data in many ways. Statistics is one part of that.  
+\  
+
+<center>
+![The analytical process and its feedbacks](images/Process.png){width="80%"}
+</center>  
+\  
+
+There is a process to analysis, with a few different steps and feedbacks between 
+them, as illustrated above. It's important not to dive right into statistical 
+analysis without understanding your data, your variables and the relationships 
+between them first. For that reason, much of the course will be dedicated to 
+understanding data, and how to plot data.  
+\ 
+
+#### FIRST half of the course (weeks 1-6)
+\ 
+
+##### **TIDY DATA**
+
+* data exploration
+* data subsetting
+* data manipulation  
+\ 
+
+##### **PLOTS**
+
+* Single-variable distributions and summary statistics
+* Two- and three-variable plots to explore hypotheses  
+\  
+
+Data handling and plotting is also the best vehicle to learn how to 
+code: data handling and plots are harder to code but easier to interpret, 
+whereas statistical analyses are easier to code but harder to interpret.  
+\ 
+
+#### SECOND half of the course (weeks 8-16)
+\ 
+
+##### **MODEL**
+
+* fitting a statistical model  
+\ 
+
+##### **MODEL FIT**
+
+* assessing how well a statistical model fits the data  
+\ 
+
+##### **RESULTS**
+
+* Understanding and interpreting the results of a statistical model  
+\  
+
+#### General Linear Model (GLM)
+
+The "statistical model" we will be working with is the 
+_general linear model (glm)_. This is a framework which brings together 
+many traditional statistical analyses. You will learn where these traditional 
+analyses fit into the glm framework.  
+
+There are naturally feedbacks between these steps, where new information may 
+mean you need to revise earlier steps.  
+\ 
+
+In order to be able to achieve this, we're going to need the right software...  
+
+
+$~$
+
+***
+### INSTALLING `R` and RSTUDIO
+
+**RStudio** is the program (or to give the technical term, an 
+"Integrated Development Environment" or _IDE_), which we'll be using to code 
+in a `R`. The very first thing you need to do is install both of 
+these. The following video walks you through installation and briefly explains 
+the difference between the two.  
+\  
+
+<center>
+![](https://youtu.be/d7lARa168gk){width="80%"}
+</center>  
+\  
+
+OK so following these steps the software is now installed. But why do we choose 
+to use this approach to analysis...?  
+\  
+
+
+$~$
+
+***
+#### **END OF CHAPTER**
+***
+
+### DATA TEST
+<div align="center">
+   <iframe width="360" height="640" src="https://games.softgames.com/games/toss-a-paper-2/gamesites/4831/" frameborder="0" allowfullscreen>
+   </iframe>
+</div>

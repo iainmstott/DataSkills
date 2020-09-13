@@ -1,0 +1,86 @@
+---
+title: "Data Skills for the Life Sciences"
+author: "Module lead: IAIN STOTT  /   email istott@lincoln.ac.uk"
+date: "Last updated `r Sys.Date()`"
+output: 
+  learnr::tutorial:
+    progressive: true
+    theme: default
+runtime: shiny_prerendered
+description: "This workbook accompanies the University of Lincoln School of Life Sciences Level 2 Module BGY2011M Data Skills for the Life Sciences."
+---
+
+
+
+
+
+```{r, setup, include=FALSE}
+# packages
+library(learnr)
+library(shiny)
+library(shinythemes)
+library(shinyjs)
+library(DT)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(ggfortify)
+
+# knitr options
+knitr::opts_chunk$set(
+  fig.align = 'center'
+)
+
+# Tutorial options
+tutorial_options(exercise.cap = "Exercise")
+```
+
+```{r, scripts, echo = FALSE}
+source("scripts/themeSelectorHack.R")
+themeSelectorHack()
+```
+
+```{css, styles, echo = FALSE}
+body{
+  padding-top: 90px;
+}
+
+.topicsList .topic{
+  border-bottom: 0px;
+}
+
+.topicsList .topic.current{
+  background-color: inherit;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .topicsList {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.15);
+    color: #333;
+  }
+
+  .topicsHeader h1, .topicsHeader .h1, .topicsHeader h2, .topicsHeader .h2, .topicsHeader h3, .topicsHeader .h3, .topicsHeader h4, .topicsHeader .h4, .topicsHeader h5, .topicsHeader .h5, .topicsHeader h6, .topicsHeader .h6 {
+    color: #333;
+    text-shadow: none;
+  }
+
+  #doc-metadata h1, #doc-metadata #h1, #doc-metadata h2, #doc-metadata #h2, #doc-metadata h3, #doc-metadata #h3, #doc-metadata h4, #doc-metadata #h4, #doc-metadata h5, #doc-metadata #h5, #doc-metadata h6, #doc-metadata #h6, #doc-metadata a {
+    color: #333;
+    text-shadow: none;
+  }
+  .scroll-250 {
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: inherit;
+  }
+
+}
+```
+
+```{r, knit, child=c('00_Intro.Rmd', '01_Rbasics.Rmd', '02_DataDistributions.Rmd', '03_DataManagement.Rmd', '04_DataVisualisation.Rmd')}
+```
+
+
