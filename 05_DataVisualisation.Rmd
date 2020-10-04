@@ -1,87 +1,16 @@
 
-## 4 - DATA VISUALISATION
+## 4 --- DATA VISUALISATION I
 
 <!-- spiel -->
-As you complete Part 1 of this worksheet, you may find it useful to copy the code that the ShinyGLiM 
-app shows, into the .R file you've been using for the 'games' data. Hopefully
-you can create the same plots that the ShinyGLiM app shows you :)  
 
-Remember again: typing code really is better than copy-pasting, as it helps the R language stick in your 
-brain better.  
+_The first section of this Chapter will be completed at home before this week's online workshop._
+This first section contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
 
-The first part of this worksheet contains _Questions_ and _Tasks_ in _italics_: note 
-down the answers you get, and we'll go through them at the end of the session.  
-
-The second part of this worksheet continues our adventures with our real data sets.
-Having worked out how we need to subset the data, and looked at the distribution(s)
-of the variable(s) we're working with, we're now going to see how those variables 
-relate to one another. 
-\
-
-<!-- Resources -->
-***
-**RESOURCES**  
-
-Books:
- 
-* Beckerman, Childs & Petchey (2017) _Getting started with R, an 
-introduction for Biologists_, 2nd ed. pp 79 - 92, Chapter 4, "Visualizing
-your data". Extra delectable content on pimping your plots on pp 203-218, 
-Chapter 8, "Pimping your plots: scales and themes in `ggplot2`".
-\ 
-
-Cheatsheets:
-
-* ggplot2 cheatsheet - see Resources section on blackboard or 
-download [here](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-\ 
-
-Web links:
-
-* [gpglot2](https://ggplot2.tidyverse.org/) by RStudio  
-\ 
-
-* [__ShinyGLiM__](https://iainmstott.shinyapps.io/ShinyGLiM)  
-\
-
-
-**PACKAGES**  
-
-You'll need to load the right packages every time you complete worksheets. In 
-this session, we will be working with:
-
- * `readr`, which helps load in data
- * `dplyr`, which is our data subsetting and manipulation friend
- * `ggplot2`, which makes pretty pretty data visualisations.
- ```{r echo = TRUE, message = FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
- ```
-\
-
-
-***
-### PLOTTING MULTIPLE VARIABLES
-Of course as scientists, what we really want to know is how a variable, let's 
-call it the _dependent variable_, the _response variable_, the _y variable_ is
-affected by another variable, which we could call the _independent variable_, the
-_explanatory variable_, the _x variable_.  
-
-In fact, those things are what we do call these variables, and there are more 
-terms besides those. Different fields and different people like to use different 
-terms. We're generally going to use the terms _dependent_ and _independent_, 
-which generally refer to the _y_ and _x_ variables respectively. But
-some points to consider are:
-
-+ does the dependent variable depend on the independent variable? 
-+ is the independent variable in fact independent?
-+ does the response variable actually respond to the explanatory variable? If 
-it doesn't, is the explanatory variable really explanatory?
-+ do we plot the dependent variable on the y axis and the independent 
-variable on the x axis?  
-
-_Question: For each of the above questions, would you answer yes, or no?_  
+_The second section of this worksheet will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
 \
 
 In this session, we're going to reacquaint ourselves with the 
@@ -97,22 +26,141 @@ be influencing others. We'll be learning:
    + box plots using `geom_boxplot()`
    + violin plots using `geom_violin()`
    + bar plots using `geom_bar()`  
+* more about customising plots  
+* how to "draw lines" through data (_relationships_ between variables)
+* why the difference between data and fitted lines is important (_residuals_)
+* how mathematical relationships are found between variables to give lines of best fit (_sums of squares_)
+\
 
-We'll also learn a little more about customising plots.  
+Don't forget everything you've learned about tidy data, data subsetting and adding variables, the grammar of graphics, code to create plots using `ggplot2`, and of course those eternally useful skills and knowledge about basic `R`.  
+\
+
+Contine to Resources...  
+\
+
+$~$
+
+***
+### 4.1 RESOURCES  
+
+##### **BOOKS**
+ 
+<!-- ### *** Pages etc. -->
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 92, Chapter 4, "Visualizing
+your data", and Extra delectable content on pimping your plots on pp 203-218, 
+Chapter 8, "Pimping your plots: scales and themes in `ggplot2`".
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [here](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
 \
 
 
-***
-***
-### PLOTTING MULTIPLE VARIABLES: PART 1
+### 4.2 **R PACKAGES**  
 
- \
+In this Chapter we will 
+need to use both packages we've already encountered in the first few Chapters.
 
-**USER GUIDE**  
+ * `dplyr`, is an `R` package which helps work with data: subsetting, transforming, manipulating... etc.
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
 
-Reacquaint yourself with the USER GUIDE, as it may be able to answer some of 
-your questions!  
+As these packages are already installed, if you are working alongside in RStudio, they only need to be loaded using `library()`. 
+
+ ```{r eval = FALSE}
+library(dplyr)
+library(ggplot)
+ ```
 \
+
+$~$
+
+***
+### **3.3 DATA VISUALISATION I** 
+\
+
+
+As scientists, what we really want to know is how one variable 
+is influenced by another. There are a many names for these variables; here are a few:
+
+* The variable that _**influences, affects or changes**_ another variable is called:
+  + the **x variable** because it is generally plotted on the x axis
+  + the **explanatory variable** because it explains the other variable
+  + the **independent variable** because it is not dependent on the other variable
+* The variable that _**is influenced, affected or changed by**_ another variable is called
+  + the **y variable** because it is generally plotted on the y axis
+  + the **response variable** because it responds to the explanatory variable
+  + the **dependent variable** because it is dependent on the independent variable
+
+_I cannot stress how important it is to be able to recognise which variable is which and outline this clearly when writing methods._
+\
+
+I favour using _independent_ and _dependent variable_. Here are the reasons:
+
+1. The _x variable_ is not always plotted on the x axis, and the _y variable_ is not always plotted on the y axis. Think, for example, of a horizontal bar chart, with the dependent variable on the x axis.
+2. The _explanatory variable_ does not always explain the _response variable_. Think, for example, of a scatter plot where there's no trend in the data: clearly nothing is explaining the dependent variable.
+3. The _dependent variable_ is definitely the one whose values are dependent on other variables, and the _independent variable_ is clearly the one which is not dependent on other variables (or at least, when it comes to statistics, should not be).
+  + Usually, an independent variable is on the x axis and a dependent variable is on the y axis, but not always.
+  + Sometimes, an independent variable explains a dependent variable, but not always.  
+\
+
+They're very similar names, so yes, it can be confusing. Just remember that the _**in**_dependent variable _**in**_fluences and the dependent variable... depends. I try to be consistent in using these terms, but I'll probably make mistakes. You also need to be aware of all the names as you'll encounter all of them in your scientific careers.  
+\
+
+OK now that's over, let's get onto something more interesting.  
+\
+
+
+
+$~$
+
+***
+### ONE INDEPENDENT VARIABLE
+\
+
+In this Chapter, we're going to focus our efforts on plots with one dependent variable and one independent variable. Most of these will be familiar to you, some perhaps less so:
+
+* scatter (points) plots
+* boxplots
+* violin plots
+* barplots (but we don't always like these, as we'll find out later)
+\
+
+The `ggplot` framework is a great framework for data visualisation, with its precise but flexible definitions of plot layers, and the ability to layer all these options up as you want to.  
+\
+
+##### DON'T FORGET YOUR DATA DISTRIBUTIONS
+
+Speaking of the `ggplot` framework, don't forget what we've learned about data distributions and how to visualise them. You'll need it for this Chapter.  
+\
+
+##### DON'T FORGET YOUR DATA MANAGEMENT
+
+Speaking of not forgetting things, also don't forget what you learned about managing your data, including subsetting data by rows and columns, or adding extra variables to your data set.  
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### SUBSETTING DATA
 For this exercise, our dependent variable is going to be the `ffold` variable.  
@@ -454,3 +502,34 @@ and come up with a preliminary statement on whether the plots seems to initially
 support the hypothesis, and whether any other variables may need to be taken into account.
 \
 \
+
+$~$
+
+***
+### **4.X OTHER RESOURCES**
+\
+
+...
+
+$~$
+
+***
+### **4.X FINAL TIPS**
+\
+
+...
+
+$~$
+
+***
+### 4 --- **Data Visualisation: WORKSHOP**
+***  
+\
+...
+
+$~$
+
+***
+##### END OF CHAPTER
+***
+

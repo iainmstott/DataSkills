@@ -1,5 +1,5 @@
 
-## 1 - R Basics
+## 2 --- R Basics
 \
 
 Welcome to your first R tutorial! In this tutorial we'll be covering the very basics of R, which is a programming language originally developed for 
@@ -30,15 +30,11 @@ With this information, we'll put our newfound knowledge into practice and
 do some basic coding in R to get used to this new way of working with data. If 
 you're familiar with R already, this should still serve as a 
 useful reminder!  
-\ 
-
-CONTINUE TO RESOURCES LIST...  
-
 
 $~$
 
 ***
-### RESOURCES
+### **2.1 RESOURCES**
 \
 
 ##### BOOKS
@@ -65,7 +61,7 @@ Let's get started!
 $~$
 
 ***
-### R PACKAGES
+### **2.2 R PACKAGES**
 \
 
 Lots of things can be done with what is called _base R_, 
@@ -77,7 +73,8 @@ extra functions and tools. Think of these like dictionaries of extra vocabulary
 and grammar which allow R to communicate with the computer in more elaborate ways.  
 \ 
 
-This video explains briefly how `R` packages work:
+This video explains briefly how `R` packages work:  
+\
 
 <center>
 ![](https://youtu.be/-BLSElo-ZP4){width="80%"}
@@ -87,13 +84,43 @@ This video explains briefly how `R` packages work:
 
 $~$
 
+##### **IMPORTANT: TWO SCHOOLS OF THOUGHT**
 
-***
-### THE ANATOMY, VOCABULARY AND GRAMMAR OF `R` CODE
+In this module, we'll be using a collection of packages, built by RStudio, collectively called the
+[**tidyverse**](https://www.tidyverse.org) (although we'll only be using a 
+few of the ones that are on offer).  
+
+The tidyverse is a new, emerging way of working with and visualising data 
+in `R`. It's fast becoming a standard way of coding, although some old-schoolers
+have taken a while to get used to it*. I'll often refer to it as the 'new', 'modern' 
+or 'contemporary' way of doing things, simply because it was born in the last 
+few years.  
+
+An alternative way of working with data and data visualisation is using 
+base `R`, and many people still do. This has been around since the inception 
+of `R`. I'll often refer to it as the 'old' or 'traditional' way of doing 
+things, simply because it has been around longer.  
+
+There is no one 'correct' way of doing things. I use a mix of the two for my research, 
+as do many people, and in fact it's almost impossible to use the tidyverse 
+approach without using some base `R`.  
+Many of your lecturers that use `R` will work only in base `R`.  
+
+We're using the _tidyverse_ in this module as it generally has a more coherent 
+approach to coding, and because it's easier to do more powerful things more 
+quickly.  
 \
 
-There are 6 key components to `R`code: objects, assignment, functions, 
-arguments, outputs and comments.
+Even I was one of those old-schoolers until just over a year ago! 
+
+$~$
+
+***
+### **2.3 THE ANATOMY, VOCABULARY AND GRAMMAR OF `R` CODE**
+\
+
+There are 6 key components to `R`code: **objects**, **assignment**, **functions**, **arguments**, **outputs** and **comments**.  
+\
 
 <center>
 ![](https://youtu.be/-BLSElo-ZP4){width="80%"}
@@ -109,6 +136,7 @@ session, until they are either overwritten or removed.
 Think of it like filling a weekend bag full of things: your bag is full of 
 objects ready to use; your `R` session is also full of objects ready for you 
 to use.  
+\
 
 ##### **CLASSES**
 These objects have different **classes**, which define
@@ -120,29 +148,31 @@ Similarly, you might have two similar-looking objects in your weekend bag, but
 their "class" would mean you use them in unique ways. Your toothbrush and your 
 hairbrush are both brushes, but you (presumably) use them differently.
 
-##### FUNCTIONS AND ASSIGNING
+##### **FUNCTIONS** AND **ASSIGNING**
 Objects are usually created using **functions**. These create or process data 
 in some way and save it to the RAM (like putting something in the bag). The 
 way this is done is using an **assigning arrow** `<-`. The object goes on the 
 left, and the function on the right.  
-`answer <- 6 * 7`
+`answer <- 6 * 7`  
+\
 
-
+The next sections go into greater depth on these topics.  
 
 $~$
 
 ***
-### OBJECTS
+### **2.4 OBJECTS**
 \
 
 This section covers how to create objects, what classes mean, what functions 
 are and how they work.  
-\
 
 Objects are created using **functions**. Simple functions include `+ - * /`, 
-only one of which is not an Ed Sheeran album.
+only one of which is not an Ed Sheeran album.  
+\
 
-_In the exercise below, use these functions to:_
+#### **< EXERCISE 1 >** Objects
+_Use the functions `+ - * /` to:_
 
 1. _Choose any number_
 2. _Add the next highest integer number_
@@ -152,16 +182,15 @@ _In the exercise below, use these functions to:_
 
 _Hint: don't forget the order of operations: which of `+ - * /` is done first!_
 _Parentheses `( )` can help group the right operations._
-```{r C01_simplefunctionsE1, exercise=TRUE, echo=FALSE}
+```{r ex24_1, exercise=TRUE, echo=FALSE}
 
 ```
-```{r C01_simplefunctionsE1-solution}
+```{r ex24_1-solution}
 # If your number is 42
 ((42 + 43 + 9) / 2) - 42
 
 # Whatever number you chose, your answer is 5.
 ```
-\  
 
 More complicated functions take the form 
 `function(argument1, argument2, ...)`. Each function has its own specific
@@ -171,7 +200,6 @@ these arguments are.
 numbers <- seq(1, 10, 1)
 numbers
 ```
-\
 
 The function `seq()` means "sequence". This sequence is the integer numbers 
 starting at 1 and ending at 10.  
@@ -209,15 +237,15 @@ numbers2
 ```
 \
 
-_In the exercise below, create an object called `numbers3` which is a sequence_ 
+#### **< EXERCISE 2 >** Objects
+_Create an object called `numbers3` which is a sequence_ 
 _of numbers from 3 to 21, in steps of 2._
-```{r C01_seqE1, exercise=TRUE, echo=FALSE}
+```{r ex24_2, exercise=TRUE, echo=FALSE}
 
 ```
-```{r C01_seqE1-solution}
+```{r ex24_2-solution}
 seq(3, 21, 2)
 ```
-\  
 
 As we have `numbers2` and `numbers3`, maybe we should be consistent and change 
 the name of `numbers` to `numbers1`. We can do that by creating a new object and 
@@ -250,11 +278,9 @@ etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter
 vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
 \  
 
-
-
-```{r C01_objectsQ1, echo = FALSE}
+```{r qz24_1, echo = FALSE}
 ### *** TO COMPLETE!
-quiz(caption = "Objects",
+quiz(caption = "**< QUIZ 1 >** (Objects)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
         answer("start of sequence, end of sequence, length of sequence"),
@@ -281,11 +307,10 @@ quiz(caption = "Objects",
 )
 ```
 
-
 $~$
 
 ***
-### OBJECT CLASSES
+### **2.5 OBJECT CLASSES**
 \
 
 Objects always have a **class** which defines how `R` processes and interacts with 
@@ -297,7 +322,9 @@ them. There are 5 different class types that it's important to know at this poin
 * **logical**
 * **data.frame**
 
-### numeric
+$~$
+
+### 2.5.1 `numeric`
 \
 
 The objects `numbers1`, `numbers2` and `numbers3` have the class _numeric_: 
@@ -313,7 +340,7 @@ We have already seen a fair bit of how numeric vectors are processed by `R`.
 \
 
 
-### character
+### 2.5.2 `character`
 \
 
 We'll create a new object which looks kinda like `numbers1`, but is
@@ -330,16 +357,16 @@ looks similar to the `numbers1` object, but it's not. Note the quote marks
 around each vector element.  
 \
 
-_Exercise: find out the class of `characters1`._
-```{r C01_characterE1, exercise=TRUE, echo=FALSE}
+#### **< EXERCISE 3 >** Classes - `character`
+_Find out the class of `characters1`._
+```{r ex252_3, exercise=TRUE, echo=FALSE}
 characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
 
 ```
-```{r C01_characterE1-solution}
+```{r ex252_3-solution}
 # the answer is 'character'.
 class(characters1)
 ```
-\  
 
 Let's try and find the same information about `characters1` as we did for `numbers1`.
 ```{r}
@@ -374,10 +401,9 @@ characters2
 ```
 \
 
-
-```{r C01_characterQ1, echo = FALSE}
+```{r qz252_2, echo = FALSE}
 # *** TO COMPLETE!
-quiz(caption = "Objects",
+quiz(caption = " **< QUIZ 2 >** (Classes - `character`)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
         answer("start of sequence, end of sequence, length of sequence"),
@@ -403,13 +429,9 @@ quiz(caption = "Objects",
     )
 )
 ```
-```{r C01_characterQ1-hint}
-"Try running ?seq for the help page for the function (though R documentation is confusing at first!)"
-```
-\
 
 
-### factor
+### 2.5.3 `factor`
 \
 
 A **factor** object is like a character object, but recognises groups of elements
@@ -438,15 +460,14 @@ overwrite the original `factor1` object by reassigning it.
 ```{r}
 summary(factor1)
 ```
-\
 
 We can see from the summary that R recognises the five different factor levels,
 A through E.  
 \
 
-```{r C01_factorQ1, echo = FALSE}
+```{r qz253_3, echo = FALSE}
 # *** TO COMPLETE!
-quiz(caption = "Objects",
+quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
         answer("start of sequence, end of sequence, length of sequence"),
@@ -472,13 +493,10 @@ quiz(caption = "Objects",
     )
 )
 ```
-```{r C01_factorQ1-hint}
-"Try running ?seq for the help page for the function (though R documentation is confusing at first!)"
-```
-\
 
+$~$
 
-### logical
+### 2.5.4 `logical`
 \
 
 Logical objects are perhaps hard to understand at first, but they're simple
@@ -486,16 +504,16 @@ really. They basically indicate whether something is `TRUE` or `FALSE`. They
 usually relate to a question we ask of our data.
 ```{r}
 rand_norm <- rnorm(50, 0, 1)
+rand_norm
 over0 <- rand_norm > 0
 over0
 ```
-\
 
 The result is information on which of your random data are greater than than 0.  
 \
 
-```{r C01_logicalQ1, echo = FALSE}
-quiz(caption = "Random",
+```{r qz254_4, echo = FALSE}
+quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
     question("If you ran the above code multiple times, would you get the same result each time?",
         answer("Yes", correct = TRUE),
         answer("No"),
@@ -534,16 +552,22 @@ to each other:
 
 ```{r}
 1 == 1
+c(1, 1, 2, 3) == 1
+
+# using some objects we created earlier in the chapter:
 numbers2 == numbers1 * 2
 numbers1 == characters1
 ```
 
-We expect the first two to be true. But the final one also returns all `TRUE`
-even though `numbers1` is numberic vector and characters1 is a character vector. 
-All I can say is... sometimes `R` is weird.  
+We might not expect `numbers1 == characters1` to return all `TRUE`. All I can say is... sometimes `R` is weird.  
+\
 
-`!=` does the opposite job, telling us which elements on the right are NOT the same as 
-the element(s) on the left.  
+`!=` does the opposite job of `==`, telling us which elements on the right are NOT the same as the element(s) on the left.  
+\
+```{r}
+1 != 1
+"ABC" != "ABCDEFG"
+```
 \
 
 One final useful logical operator:
@@ -554,26 +578,28 @@ One final useful logical operator:
 `%in%` is used to find out whether a value or values in one vector
 (on the left) exist in another vector (on the right). For example:
 ```{r}
+c(1, 2, 3) %in% c(1, 2)
+numbers2 %in% numbers1
+```
+It's not necessary when using `%in%` for the two vectors to have the same length; in the first line of code, we compare a vector with three elements to a vector with two elements.  
+
+We interpret the results like this: if `numbers2 %in% numbers1` is `TRUE` then the corresponding element of `numbers2`
+is found somewhere in `numbers1`. If `FALSE`, it isn't. We can see that the first 5 elements of `numbers2` are found in `numbers1`.  
+\
+
+Logicals are very useful for subsetting data:
+```{r}
 num2_in_num1 <- numbers2 %in% numbers1
-num2_in_num1
 numbers2[num2_in_num1]
 ```
+We first create an object that tells us which elements of `numbers2` are in `numbers1`. Then, when `num2_in_num1` is put in the square brackets, it 
+picks out all the elements of `numbers2` which are `TRUE`: 
+these are the values of numbers in `numbers2` which are also found somewhere in `numbers1`.  
 \
 
-If the logical object `num2_in_num1` is `TRUE` then that element of `numbers2`
-is found in `numbers1`. When `num2_in_num1` is put in the square brackets it 
-picks out all the elements of `numbers2` which are `TRUE` and shows them to us: 
-these are the numbers in `numbers2` which are also in `numbers1`. It's not 
-necessary when using `%in%` for the two vectors to have the same length.  
-\
-
-`==`, `!=` and `%in%` are VERY useful for handling data and subsetting data 
-sets, and we'll see this later in the course.
-\
-
-_Exercise: put in the correct logical operators. The correct outputs are found in the_
-_solutions._
-```{r C01_logicalE1, exercise=TRUE, echo=FALSE}
+#### **< EXERCISE 4 >** Classes - `logical`
+_Put in the correct logical operators. The correct outputs are found in the solutions._
+```{r ex254_4, exercise=TRUE, echo=FALSE}
 # 1. ((42 + 43 + 9) / 2) - 42 is the same as ((31 + 32 + 9) / 2) - 31
 ((42 + 43 + 9) / 2) - 42     ((31 + 32 + 9) / 2) - 31
 
@@ -587,7 +613,7 @@ mean(runif(100))     mean(runif(100))
 c("A", "B", "Z")     LETTERS[16:26]
 
 ```
-```{r C01_logicalE1-solution}
+```{r ex254_4-solution}
 1. TRUE, using ==
 2. TRUE, using !=
 3. FALSE, using >
@@ -599,38 +625,42 @@ don't understand how or why one character object "cake" can be numerically great
 \  
 
 
-### data.frame
+$~$
+
+### 2.5.5 `data.frame`
 \
 
-Finally, we'll encounter the `data.frame`. This is the way most data is 
+`data.frame`s are extremely important objects. This is the way most data is 
 stored for data analysis. As we learned earlier, there's one column per variable
 and one row per observation. `data.frame`s are simply collections of variables:
 ```{r}
-data <- data.frame(numbers2, characters1, factor1)
-data
+factor2 <- rep(LETTERS[1:2], 5)
+random <- rnorm(10, 0, 1)
+toydata <- data.frame(numbers2, factor1, factor2, random)
+toydata
 ```
 \
 
 To access variables in a data.frame, you simply use the `$` dollar sign.
 ```{r}
-data$numbers1
+toydata$numbers2
 ```
 \
 
 Vectors are one-dimensional but data frames are two-dimensional. To quickly 
 select a few rows and/or columns, we can use the square brackets but we need 
-to provide two numbers: which rows first, followed by which columns.
+to provide two numbers. **First: rows** we want to select. **Second: columns** we want to select. **Separated by a comma.** Like this: `dataframe[rows, columns]`
 ```{r}
 # If you want all columns then leave the second number blank.
 # The first 5 rows of the data frame:
-data[1:5, ]
+toydata[1:5, ]
 
 # If you want all rows then leave the first number blank.
 # The first and third columns of the data frame:
-data[ , c(1, 3)]
+toydata[ , c(1, 3)]
 
 # The first rows of columns 1 and 3:
-data[1:5, c(1, 3)]
+toydata[1:5, c(1, 3)]
 ```
 \
 
@@ -640,9 +670,18 @@ about "undefined rows" or "undefined columns". A missing or extra comma is a
 really common mistake and easy to miss.  
 \
 
+Most of the time we will be using a different, more modern way of managing and 
+selecting data from data frames (introduced in Chapter 4). 
+It's a little more flexible and elegant. 
+Using the square brackets `[ ]` is really great for doing very simple and 
+quick data subsets, but they can get unwieldy when it comes to more complicated
+data subsets involving logicals.  
+\
+
 You can read in `data.frame`s from your own data using the function 
 `read.csv()`. Your data frame needs to be saved as a CSV file, in a data frame 
-format. You can do this easily in Excel using File -> Save As -> CSV (Comma delimited).
+layout. You can do this easily in Excel using File -> Save As -> CSV (Comma delimited).  
+
 Then you provide the path to the file. For example, on windows, if the 
 file "data.csv" is stored in your "My Documents" folder, you use 
 ```{r, eval=FALSE}
@@ -655,12 +694,96 @@ On Mac, if the file was stored in your Documents folder then you may use
 ### *** CHECK
 read.csv("~/Documents/data.csv")
 ```
+\
 
+There are a few requirements / good practices when preparing data.
+
+1. One column per variable, one row per "replicate" (an individual piece of data
+associated with that variable).
+2. No empty columns or rows.
+3. No empty cells. If there is a missing piece of data, put `NA` in the cell. `R`
+understands this to be missing data.
+4. Ideally, no spaces. Replace spaces in variable names and character or factor 
+vectors with an underscore `_`.
+5. Character variables should have quote marks `" "` or `' '` around each 
+data point, otherwise `R` will interpret them as factors. 
+\
+
+This video goes over some of these concepts in more detail.  
+\
+
+<center>
+![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
+</center>  
+\
 
 $~$
 
 ***
-### CREATING AN R SCRIPT
+### **2.6 SIMPLE PLOTS**
+\
+
+`R` is an extremely powerful graphics generator. In recent years, this has 
+extended to generation of things like interactive and multi-dimensional figures.
+Check out for example this app that 
+[catalogues all LEGO pieces in all sets of the LEGO world](https://shiny.rstudio.com/gallery/lego-world.html), 
+or this one that allows you to 
+[explore recent crimes anywhere in the UK](https://shiny.rstudio.com/gallery/crime-watch.html).
+More apps, including many with biological data, are available in 
+[this gallery](https://shiny.rstudio.com/gallery/). All of these are powered 
+by `R`.  
+
+BUT, it all starts with a simple plot. It's _very_ easy to produce a plot
+in `R`, and we'll run through some here. These are what we term simple 
+**base `R`* graphics.  
+\
+
+**Histograms** can be produced using the `hist()` function.
+
+```{r}
+hist(toydata$random)
+```
+\
+
+**Box plots** can be produced using the `boxplot()` function.
+
+```{r}
+boxplot(toydata$numbers2)
+```
+\
+
+**Bar graphs** can be produced using the `barplot()` function.
+
+```{r}
+barplot(toydata$numbers2[1:5], names.arg = toydata$factor1[1:5], 
+        ylab = "numbers2")
+```
+
+We introduced a couple of extre arguments here: `names.arg` labels the x axis
+and `ylab` labels the y axis.  
+\
+
+**Scatter plots** can be produced using the `plot()` function, with both an 
+x variable (first argument) and a y variable (second argument).
+
+```{r}
+plot(toydata$numbers2, toydata$random)
+```
+\
+
+##### **< EXERCISE 5 >** Simple Plots
+_Create a boxplot of `random` and a histogram of `numbers2`_.
+```{r ex26_5, exercise = TRUE, echo = FALSE}
+
+```
+```{r ex26_5-hint, eval = FALSE}
+Copy the code from the example boxplot and histogram, and replace the variable names.
+```
+
+$~$
+
+***
+### **2.7 CREATING AN R SCRIPT**
 \ 
 
 R code is saved in a file with the extension `.R`. In the same way as Micosoft 
@@ -681,17 +804,30 @@ Save this file wherever you like.
 
 _This is the file in which you're going to write code to fulfil the tasks in Section 2 of each Chapter._ In each Chapter you will cover one aspect of the analytical process.
 You'll apply the knowledge and skills learned during the Chapter to a biological data set and 
-add to this code file, so that by the end of the 
+add to this code file during each online workshop, so that by the end of the 
 book, you'll have completed a full analysis including Tidying and Visualising 
 your data, fitting a model and evaluating how well it fits the data, 
 tweaking the data, visualisations and the model if necessary, until you have some 
 reliable and reproducible results.  
+\
+
+If you wish, you can copy code from these worksheets into a second R file and practise coding in RStudio alongside completing these worksheets at home.
+
+$~$
+
+***
+### **2.8 OTHER RESOURCES**
+\
+
+There's a huge amount of other resources out there in the web to help you 
+learn basic `R` programming. For exmple, check out this tutorial from RStudio on 
+[Programming Basics](https://tutorials.shinyapps.io/04-Programming-Basics).
 
 
 $~$
 
 ***
-### FINAL TIPS
+### **2.9 FINAL TIPS**
 \
 
 Use `?` to get help on a function. These help pages take a fair while to get used 
@@ -715,10 +851,11 @@ If something goes wrong with your R coding (usually Errors), then 99.9% of the
 time it's because you've made a mistake. R is very literal. Be careful!  
 \
 
-_Exercise: correct the mistakes ('bugs') in the lines of code below, bearing in_
+#### **< EXERCISE 6 >** Final Tips
+_Correct the mistakes ('bugs') in the lines of code below, bearing in_
 _mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
 _right outputs!_
-```{r C01tipsE, exercise = TRUE, eval = FALSE}
+```{r ex29_6, exercise = TRUE, eval = FALSE}
 # a sequence from 4 to 40 in steps of 4
 mynums <- seq(4, 40, 4,)
 mynums
@@ -741,10 +878,58 @@ mydata[1:5]
 mydata[1:2, ]
 
 ```
-\
 
 These are really common mistakes to make. Be aware!
 
+
+$~$
+
+***
+### **< WORKSHOP >** R Basics
+***
+\
+
+During this week's workshop, we're going to build a data frame of made-up data, similar to what was done in the first Chapter of the workbook. This will involve:
+
+* creating random numeric vectors
+* creating factor vectors
+* creating character vectors
+* building a data frame from existing vectors in R
+* selecting parts of a data frame using `base R` methods
+
+We will cover quick, basic plots in `base R`, including:
+
+* histograms 
+* boxplots
+* barplots
+* scatter plots
+
+Finally, we will read in the data that we'll be using for the rest of these online sessions, which are saved as csv files. If you're not sure which one you're supposed to be using, check the DATA page of this workbook.  
+
+You won't have encountered absolutely everything you need to do during the at-home study. To mention it again, a really important part of data skills and coding is being able to find answers to question and solutions to probelms yourselves, using whatever resources you have to hand, but especially the internet.  
+\
+
+##### **R BASICS: EXERCISES & QUESTIONS**
+\
+
+1. First create a character object called `names` which is the first name of the people in your tutor group (including anyone who is missing). If there are two people in your group with the same name, then give each a number (i.e. `Jane1`, `Jane2`,... )
+  * What is the length of this character vector?
+
+2. Now create a numeric variable called `norm` which is a random normal distribution with the same length as the number of people in your tutor group. It should have a mean value of 7 and a variance of 1.
+  * Can this normal distribution have values below zero?
+
+3. The normal distribution is just one kind of distribution that you can draw random numbers from. Another distribution you are probably familiar with is the _uniform distribution_, where every number has an equal chance of being chosen. Find out how to draw numbers from a random uniform distribution, and create an object called `unif` which is a numeric vector the same length as the number of people in your tutor group, drawn from a random uniform distribution between 0 and 1.
+  * What is the name of the _function_ you used
+
+4. The random uniform numbers are between 0 and 1, meaning they are proportions. Change these proportions into percentages.
+
+5. Now create a factor vector called `sibs` which tells you whether each person in your tutor group has siblings. It should take the value `sis` if the person has sister(s), `bro` if the person has brother(s),`both` if they have both, and `neither` if they have neither. If the person is absent, use `NA`.
+  + Hint: you may want to create a character vector first, and convert it into a factor.
+
+6. Create a data frame for your tutor group of the 4 objects (`name`, `norm`, `unif` and `sibs`). Call it what you like :)
+  * What is the name of this object?
+
+$~$
 
 ***
 ##### **END OF CHAPTER**

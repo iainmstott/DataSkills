@@ -1,0 +1,54 @@
+SampleNo,DNAmAge,ExternalSampleID,Tissue,Age,Gender,TransformationStatus
+SampleNo1,43.43071462,17B-C,Fibroblasts,17,male,Untransformed
+SampleNo2,47.06178708,72-C,Fibroblasts,72,male,Untransformed
+SampleNo3,36.18118255,01-M,MSN,1,male,Lentiviral miR-9/9-124-CDM
+SampleNo4,32.29126227,01-C,Fibroblasts,1,male,Untransformed
+SampleNo5,46.29781251,44-M,MSN,44,male,Lentiviral miR-9/9-124-CDM
+SampleNo6,45.76298415,44-C,Fibroblasts,44,male,Untransformed
+SampleNo7,64.56197053,92A-M,MSN,92,male,Lentiviral miR-9/9-124-CDM
+SampleNo8,71.63425286,92A-C,Fibroblasts,92,male,Untransformed
+SampleNo9,51.7345529,92B-C,Fibroblasts,92,female,Untransformed
+SampleNo10,45.52498921,31-M,MSN,31,male,Lentiviral miR-9/9-124-CDM
+SampleNo11,40.0242587,31-C,Fibroblasts,31,male,Untransformed
+SampleNo12,36.18568331,10B-C-2,Fibroblasts,10,male,Untransformed
+SampleNo13,55.60662456,11A-C,Fibroblasts,11,male,Untransformed
+SampleNo14,31.18521277,17A-C,Fibroblasts,17,male,Untransformed
+SampleNo15,38.07688111,05M-M,MSN,0.42,male,Lentiviral miR-9/9-124-CDM
+SampleNo16,26.92994964,05M-C,Fibroblasts,0.42,male,Untransformed
+SampleNo17,23.46121862,07B-C,Fibroblasts,7,male,Untransformed
+SampleNo18,37.4978501,08A-C,Fibroblasts,8,male,Untransformed
+SampleNo19,66.13406488,92A-C,Fibroblasts,92,male,Untransformed
+SampleNo20,40.59127311,90-C,Fibroblasts,90,male,Untransformed
+SampleNo21,21.56566337,05-M,MSN,5,male,Lentiviral miR-9/9-124-CDM
+SampleNo22,43.43062909,05-C,Fibroblasts,5,male,Untransformed
+SampleNo23,64.54454277,56-C,Fibroblasts,56,male,Untransformed
+SampleNo24,38.30248497,10C-C,Fibroblasts,10,male,Untransformed
+SampleNo25,37.27402681,10A-C,Fibroblasts,10,male,Untransformed
+SampleNo26,31.59470059,08B-C,Fibroblasts,8,male,Untransformed
+SampleNo27,38.34232076,10B-C,Fibroblasts,10,male,Untransformed
+SampleNo28,39.37648028,07A-C,Fibroblasts,7,male,Untransformed
+SampleNo29,41.46804794,90-M,MSN,90,male,Lentiviral miR-9/9-124-CDM
+SampleNo30,65.37342784,89-M,MSN,89,male,Lentiviral miR-9/9-124-CDM
+SampleNo31,41.42568368,90-C,Fibroblasts,90,male,Untransformed
+SampleNo32,62.31230391,89-C,Fibroblasts,89,male,Untransformed
+SampleNo33,17.07166383,03D-M,MSN,0,male,Lentiviral miR-9/9-124-CDM
+SampleNo34,19.47359506,03D-C,Fibroblasts,0,male,Untransformed
+SampleNo35,55.45433513,96-M,MSN,96,male,Lentiviral miR-9/9-124-CDM
+SampleNo36,81.03423903,91-M,MSN,91,male,Lentiviral miR-9/9-124-CDM
+SampleNo37,47.88809941,92B-C,Fibroblasts,92,female,Untransformed
+SampleNo38,82.83895967,91-C,Fibroblasts,91,male,Untransformed
+SampleNo39,17.76924399,02-M,MSN,2,male,Lentiviral miR-9/9-124-CDM
+SampleNo40,23.50989584,02-C,Fibroblasts,2,male,Untransformed
+SampleNo41,41.5055081,12-M,MSN,12,male,Lentiviral miR-9/9-124-CDM
+SampleNo42,41.60492667,12-C,Fibroblasts,12,male,Untransformed
+SampleNo43,41.84610442,12B-M,MSN,12,male,Lentiviral miR-9/9-124-CDM
+SampleNo44,32.25291972,06-C,Fibroblasts,6,male,Untransformed
+SampleNo45,35.19662643,12B-C,Fibroblasts,12,male,Untransformed
+SampleNo46,50.05884191,19A-C,Fibroblasts,19,male,Untransformed
+SampleNo47,39.46307926,19C-C,Fibroblasts,19,male,Untransformed
+SampleNo48,60.286239,68-M,MSN,68,male,Lentiviral miR-9/9-124-CDM
+SampleNo49,65.27542701,68-C,Fibroblasts,68,male,Untransformed
+SampleNo50,58.55491313,94-M,MSN,94,male,Lentiviral miR-9/9-124-CDM
+SampleNo51,56.33478275,74-C,Fibroblasts,74,male,Untransformed
+SampleNo52,56.81032299,94-C,Fibroblasts,94,male,Untransformed
+SampleNo53,55.44876895,86-C,Fibroblasts,86,male,Untransformed

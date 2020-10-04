@@ -14,7 +14,8 @@ description: "This workbook accompanies the University of Lincoln School of Life
 
 
 
-```{r, setup, include=FALSE}
+
+```{r setup, include=FALSE}
 # packages
 library(learnr)
 library(shiny)
@@ -26,13 +27,25 @@ library(dplyr)
 library(ggplot2)
 library(ggfortify)
 
+# toy data
+numbers2 <- seq(2, 20, 2)
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+factor1 <- rep(LETTERS[1:5], 2)
+factor2 <- rep(LETTERS[1:2], 5)
+random <- rnorm(10)
+toydata <- data.frame(numbers2, characters1, factor1, factor2, random)
+rm(numbers2, characters1, factor1, factor2, random)
+
+# games data
+games <- read.csv("data/games_data.csv")
+
 # knitr options
 knitr::opts_chunk$set(
   fig.align = 'center'
 )
 
 # Tutorial options
-tutorial_options(exercise.cap = "Exercise")
+tutorial_options(exercise.cap = "")
 ```
 
 ```{r, scripts, echo = FALSE}
@@ -80,7 +93,9 @@ body{
 }
 ```
 
-```{r, knit, child=c('00_Intro.Rmd', '01_Rbasics.Rmd', '02_DataDistributions.Rmd', '03_DataManagement.Rmd', '04_DataVisualisation.Rmd')}
+```{r, knit, child=c('01_0_Intro.Rmd', '01_1_Data.Rmd', '02_0_Rbasics.Rmd', '02_1_GrammarOfGraphics.rmd', '03_DataDistributions.Rmd', '04_DataManagement.Rmd')}
 ```
 
-
+<!--
+'03_DataManagement.Rmd', '04_DataVisualisation.Rmd'
+-->

@@ -1,0 +1,110 @@
+
+##  2½ - Grammar of Graphics
+\
+
+Data visualisations are based on an inherent underlying **Grammar of Graphics**.
+This framework was developed by 
+[Leland Wilkinson](https://www.springer.com/gp/book/9780387245447)
+in the 1990's and then repurposed more recently by 
+[Hadley Wickham](https://byrneslab.net/classes/biol607/readings/wickham_layered-grammar.pdf),
+who is a chief scientist at RStudio.  
+
+<div align="center">
+   ![](images/ggplot2_logo.jpg){width="75px"}
+</div>  
+
+We will be using the `R` package `ggplot2` for our graphics. (`gg` stands for 
+"grammar of graphics", and this is the second version of the package... hence 
+the `2`).  
+\
+
+Click Continue for a quick overview of what the grammar of graphics means.
+
+
+$~$
+
+### GRAMMAR OF GRAPHICS 
+\  
+
+<div align="center">
+   ![](images/GG.png){width="80%"}
+</div>  
+\
+
+Any data visualisation is a set of different _layers_ of information, as illustrated
+in the image above. We'll go through the most important ones from bottom to top.  
+
+**Data** is the most fundamental base layer. All figures are plotted from data.  
+
+**Aesthetics** describe the mapping of data onto the graph. Foremost, aesthetics are used 
+to state what the x-variable and y-variable are, although they can extend to other 
+variables for more complex graphs (e.g. a third variable to colour data points, 
+or a third axis for a 3D graph).  
+
+**Geometries** describe how aesthetics are represented. This principally includes
+the graph "type" (e.g. histogram, boxplot, barplot, scatter plot etc.).
+
+**Facets** can be used to split a figure into sub-plots. Sometimes putting all 
+data in one space is difficult to read, so a plot can be split out into different
+facets according to chosen aesthetics.  
+
+**Statistics** describe any models used to describe or predict the data. This 
+may commonly include means and standard deviations, linear models or loess 
+curves.  
+
+**Coordinates** are not commonly used for simple graphs, but are useful when 
+projecting the data into a different coordinate space. Mapping is the 
+most obvious example: the same data can be plotted using many different 
+geographic coordinate systems.
+
+
+
+### `ggplot`
+\
+
+Functions and arguments in `ggplot2` mirror these layers. You'll encounter 
+these methods in the next several chapters. The reason we're using `ggplot`
+is because the graphics is produces are generally far better quality than 
+the `base` `R` graphics. 
+
+* `base R` graphics **GOOD** for: 
+  + Quick, simple plots
+  + Fast viewing of your data
+  + Extremely flexible customisation _if you take considerable time to learn methods and code._
+* `base R` graphics are **NOT good** for:
+  + Not good for using for publications if you rely on default options, which are ugly.
+  + Not good for customising plots _unless time is taken to learn how_
+  + Not good for coherent coding (no underlying framework, order of functions very important)
+  + Not good for tutorials available
+
+* `ggplot` graphics are **GOOD** for:
+  + Quickly producing and customising aesthetically pleasing plots 
+  + Publication-quality figures out the box
+  + Coherent code (clear underlying framework, order of functions flexible)
+  + Easy access tutorials
+* `ggplot` graphics are **NOT good** for:
+  + Not good given lack of flexibility outside available options 
+  + Not good for quick plots as more code is needed
+  + Not good for viewing data fast
+\
+
+Here's an example of a scatter plot made using `ggplot` with the  with the toy 
+data. 
+\
+
+```{r}
+ggplot(toydata, aes(x = numbers2, y = random)) +
+  geom_point(color = "steelblue4") +
+  xlim(0, 20) + ylim(-2, 2) +
+  xlab("Even numbers") + ylab("Random normal") +
+  theme_minimal()
+```
+\
+
+Take a look at the graph and the code, and it's possible to match up the different layers:
+
+* The **DATA** is `toydata`.
+* The **AESTHETICS** (in this case just x and y variables) are defined using `aes()`
+* The **COORDINATES** are altered in a very simple way by changing the x and y 
+axis limits using `xlim()` and `ylim()`
+* The **THEME** is changed by applying the minimal theme using `theme_minimal()`.
