@@ -160,21 +160,24 @@ standard deviation of 1.
 a normal-distribution-bell-curve).
 3. Calculates the mean of the distribution (which should be close to zero)
 4. Calculates the standard deviation of the distribution (which should be 
-close to 1).  
+close to 1).
+5. Any lines which start with `#` are _comments_: anything after the # symbol is ignored and not run as code. This means you can keep a commentary alongside your code, detailing what it does.  
 \
 
 ##### **HOW CAN I "READ" THE CODE?**  
 
-This is something that takes practice. Chapter 1 R Basics will help understand the vocabulary and grammar of `R` code, but for now...  
+This is something that takes practice. Chapter 1 'R Basics' will help understand the vocabulary and grammar of `R` code. When understanding `R` code, most of the time you have to think relatively logically and apply a little common sense. Like reading any language, it takes practice!  
 
-Take a look at the code alongside the description of what it does, and elements 
-might start to match up. For example, 
+The paragraph below walks you through interpreting some elements of the above code chunk  
+
+Take a look at the code, including the _comments_ (lines beginning with `#`, as explained above).
+Certain elements might start to match up. For example, 
 `rnorm` could mean "random normal". `1000` is how many random normal numbers we want, 
-`0` is the mean, and `1` is the standard deviation. Putting them together, 
-`rnorm(1000, 0, 1)` calculates the data we want out of point 1: 1000 random numbers from a normal distribution with mean 0 and standard deviation 1. The 
+`0` is the mean, and `1` is the standard deviation. It makes sense then, that putting them together using 
+`rnorm(1000, 0, 1)` calculates the data we want for step one of the above list: 1000 random numbers from a normal distribution with mean 0 and standard deviation 1. The 
 next part uses `ggplot` and `geom_density`, so that has something 
-to do with making a density plot (point 2). `mean` must calculate the mean
-(point 3), and `sd` must calculate the standard deviation (point 4).  
+to do with making a density plot (step 2). `mean` must calculate the mean
+(step 3), and `sd` must calculate the standard deviation (step 4). The values of these can be seen below the lines that calculate them.  
 \
 
 You'll get to learn the specifics with time. `R` is _very_ literal and logical: you'll become used to this! Learning to "read" it definitely comes with practice.  
@@ -182,11 +185,12 @@ You'll get to learn the specifics with time. `R` is _very_ literal and logical: 
 
 ##### **WHAT DOES THE CODE MAKE?**
 
-There are a couple of types of **outputs** from the above code:
+There are a couple of types of **outputs** from the above code chunk:
 
 * Data outputs that have been calculated are shown as text outputs.
-  + These can also be saved for use later using the backwards arrow `<-` (and we'll learn more about this later). 
-* You can also see that the code produces plot outputs as well.  
+  + These can be saved for use later by 'assigning' the values to objects using the backwards arrow `<-`. We see that in the above code for the object `random`, and we'll learn more about this process later. 
+* You can also see that the code produces plot outputs as well.
+* Data and plots are probably the primary outputs `R` makes, but the possibilities are endless: spatial data, interfacing with online databases and servers   
 
 
 $~$
@@ -234,7 +238,7 @@ or multiple possible correct answers, as seen below.
 \
 
 ```{r qz031, echo = FALSE}
-quiz(caption = " **<** QUIZ 1 (Interactive Elements - quizzes) **>**",
+quiz(caption = " **< QUIZ 1 >** (Interactive Elements - quizzes)",
     question("Here's a simple multiple choice question: which of these is the best?",
         answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
         answer("Biscuits", correct = TRUE, message = "Yes!!! Biscuits rule all!"),
@@ -293,7 +297,7 @@ the only time I'll instruct you to click the solution button, copy the solution 
 then click **Run Code** to get the desired figure.  
 \  
 
-#### **<** EXERCISE 2 (Interactive elements - exercises) **>**
+#### **< EXERCISE 2 >** (Interactive elements - exercises)
 _Edit the code below to:_ 
 
 1. _Draw 1000 random numbers from a normal distribution with mean of 42 and standard_
@@ -495,13 +499,12 @@ whereas statistical analyses are easier to code but harder to interpret.
 
 #### **1.5.3 General Linear Model (GLM)**
 
-The "statistical model" we will be working with is the 
+The "statistical model" we will be working with (mostly) is the 
 _general linear model (glm)_. This is a framework which brings together 
 many traditional statistical analyses. You will learn where these traditional 
 analyses fit into the glm framework.  
 
-There are naturally feedbacks between these steps, where new information may 
-mean you need to revise earlier steps.  
+There are naturally feedbacks between the steps of the analytical process, where new information may mean you need to revise earlier steps (hence the backwards arrows).  
 \ 
 
 _In order to be able to achieve this, we're going to need the right software..._
@@ -522,6 +525,27 @@ the difference between the two.
 
 <center>
 ![](https://youtu.be/d7lARa168gk){width="80%"}
+</center>  
+\  
+
+$~$
+
+***
+### LEARNING SCHEDULE
+\
+
+Below is a diagram of the learning schedule (you can find a pdf copy on blackboard also).
+
+* The top row shows the timings of **ASSESSMENTS**. Detailed information can be found on blackboard in the "Assessments" folder: there is one pdf file for each assessment, called "Assessment Briefings".
+  + An online Multiple Choice Questionnaire must be completed on _Friday 27th October (week 7)_.
+  + A data analysis report must be handed in on or before _Wednesday 27th January (week 16)_.
+* The **SCHEDULE** has one row for each programme, and shows the topics covered for each programme, week-by-week. Everyone takes takes the same topics until week 9, after which the teaching and content start to diverge for different programmes. This divergence allows programmes to learn analytical techniques which are relevant to their courses.
+* The **STAFF** section shows which staff are teaching in which weeks, topic-by-topic.  
+\
+
+
+<center>
+![Learning Schedule](images/Schedule.png){width="100%"}
 </center>  
 \  
 

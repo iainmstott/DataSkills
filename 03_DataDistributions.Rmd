@@ -98,13 +98,13 @@ quiz(caption = "**< QUIZ 1 >** R Packages",
         random_answer_order = TRUE
     ),
 
-    question("What is ggplot2?",
+    question("What is `ggplot2`?",
         answer("None of these", correct = TRUE, message = "Correct. In fact, loading packages means loading functions, objects and more into the R session."),
         answer("A character object"),
         answer("A logical object"),
         answer("An object"),
         answer("A function"),
-        incorrect = "They are none of these. In fact, loading packages means loading functions, objects and more into the R session.",
+        incorrect = "They are none of these. ggplot2 is a package, and loading packages means loading functions, objects and more into the R session.",
         random_answer_order = TRUE
     )
 )
@@ -174,7 +174,7 @@ quiz(caption = "**< QUIZ 2 >** Data Distributions",
         random_answer_order = TRUE
     ),
 
-        question("What distribution does the glasses prescription follow?",
+    question("What distribution does the glasses prescription follow?",
         answer("Gaussian", correct = TRUE),
         answer("poisson"),
         answer("beta"),
@@ -303,7 +303,7 @@ quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
         answer("Yes: a negative skew"),
         incorrect = "There is a positive skew in the data, with a tail to the right.",
         random_answer_order = TRUE
-    )
+    ),
 
     question("Are there any potential outliers?",
         answer("Yes: at the upper end of the distribution", correct = TRUE),

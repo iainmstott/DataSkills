@@ -14,7 +14,6 @@ description: "This workbook accompanies the University of Lincoln School of Life
 
 
 
-
 ```{r setup, include=FALSE}
 # packages
 library(learnr)
@@ -93,7 +92,7 @@ body{
 }
 ```
 
-```{r, knit, child=c('01_0_Intro.Rmd', '01_1_Data.Rmd', '02_0_Rbasics.Rmd', '02_1_GrammarOfGraphics.rmd', '03_DataDistributions.Rmd', '04_DataManagement.Rmd')}
+```{r, knit, child=c('0_Data.Rmd', '01_Intro.Rmd', '02_0_Rbasics.Rmd', '02_1_GrammarOfGraphics.rmd', '03_DataDistributions.Rmd', '04_DataManagement.Rmd')}
 ```
 
 <!--

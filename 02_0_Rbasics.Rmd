@@ -146,7 +146,8 @@ the mean of some numbers, but it's not possible to calculate a mean of some word
 
 Similarly, you might have two similar-looking objects in your weekend bag, but 
 their "class" would mean you use them in unique ways. Your toothbrush and your 
-hairbrush are both brushes, but you (presumably) use them differently.
+hairbrush are both brushes, but you (presumably) use them differently.  
+\
 
 ##### **FUNCTIONS** AND **ASSIGNING**
 Objects are usually created using **functions**. These create or process data 
@@ -180,8 +181,7 @@ _Use the functions `+ - * /` to:_
 4. _Divide by 2_
 4. _Subtract your original number_
 
-_Hint: don't forget the order of operations: which of `+ - * /` is done first!_
-_Parentheses `( )` can help group the right operations._
+_Hint: don't forget the order of operations: `*` and `/` are executed before `+` and `-`! Parentheses `( )` can help group the right operations._
 ```{r ex24_1, exercise=TRUE, echo=FALSE}
 
 ```
@@ -191,6 +191,7 @@ _Parentheses `( )` can help group the right operations._
 
 # Whatever number you chose, your answer is 5.
 ```
+\
 
 More complicated functions take the form 
 `function(argument1, argument2, ...)`. Each function has its own specific
@@ -647,9 +648,25 @@ toydata$numbers2
 ```
 \
 
-Vectors are one-dimensional but data frames are two-dimensional. To quickly 
-select a few rows and/or columns, we can use the square brackets but we need 
-to provide two numbers. **First: rows** we want to select. **Second: columns** we want to select. **Separated by a comma.** Like this: `dataframe[rows, columns]`
+Vectors are one-dimensional but data frames are two-dimensional: rows and columns. The function `dim()` shows you how many dimensions:
+
+* First, rows 
+* Second, columns
+
+We know this to be 10 replicates (rows) and 4 variables (columns):
+```{r}
+dim(toydata)
+```
+\
+
+To quickly select a few rows and/or columns, we can use the square brackets like for vectors, but we need to provide two numbers. 
+
+* **First: the rows** we want to select
+* **Second: the columns** we want to select. 
+* Separated by a comma
+* If you want to select all rows or columns, leave a blank space before or after the comma.
+
+Like this: `dataframe[rows, columns]`.
 ```{r}
 # If you want all columns then leave the second number blank.
 # The first 5 rows of the data frame:
@@ -696,7 +713,7 @@ read.csv("~/Documents/data.csv")
 ```
 \
 
-There are a few requirements / good practices when preparing data.
+There are a few requirements / good practices when preparing data in excel or other spreadsheet programs to save as a csv file.
 
 1. One column per variable, one row per "replicate" (an individual piece of data
 associated with that variable).
@@ -912,14 +929,17 @@ You won't have encountered absolutely everything you need to do during the at-ho
 ##### **R BASICS: EXERCISES & QUESTIONS**
 \
 
+30 mins:  
+
 1. First create a character object called `names` which is the first name of the people in your tutor group (including anyone who is missing). If there are two people in your group with the same name, then give each a number (i.e. `Jane1`, `Jane2`,... )
   * What is the length of this character vector?
 
 2. Now create a numeric variable called `norm` which is a random normal distribution with the same length as the number of people in your tutor group. It should have a mean value of 7 and a variance of 1.
   * Can this normal distribution have values below zero?
+  * Can the arguments of this vector be written in any order or does it have to be in the order you used?
 
 3. The normal distribution is just one kind of distribution that you can draw random numbers from. Another distribution you are probably familiar with is the _uniform distribution_, where every number has an equal chance of being chosen. Find out how to draw numbers from a random uniform distribution, and create an object called `unif` which is a numeric vector the same length as the number of people in your tutor group, drawn from a random uniform distribution between 0 and 1.
-  * What is the name of the _function_ you used
+  * What is the name of the _function_ you used?
 
 4. The random uniform numbers are between 0 and 1, meaning they are proportions. Change these proportions into percentages.
 
@@ -927,7 +947,29 @@ You won't have encountered absolutely everything you need to do during the at-ho
   + Hint: you may want to create a character vector first, and convert it into a factor.
 
 6. Create a data frame for your tutor group of the 4 objects (`name`, `norm`, `unif` and `sibs`). Call it what you like :)
-  * What is the name of this object?
+  * What is the name of this object?  
+\
+
+##### **BIOLOGICAL DATA**
+
+30 mins:  
+
+For the rest of the online workshops, we'll be using real biological data sets. These data sets are tailored slightly to your degree programs: check the DATA page for a summary of the data set and to find out which one you're using.
+
+7. Read the CSV in to R. Save the object as:
+  * `DNA_data` for the DNA and ageing data set from Huh _et al._ (2016) Maintenance of age in human neurons generated by microRNA-based neuronal conversion of fibroblasts. _eLife_, 5:e18648. DOI: 10.7554/eLife.18648.
+  * `dogs_data` for the urban dogs data set from Majumder _et al._ (2016) Denning habits of free-ranging dogs reveal preference for human proximity. _Scientific Reports_, 6:32014. DOI: 10.1038/srep32014.
+  * `pantheria_data` for the mammal life history data set from Jones _et al._ (2009) PanTHERIA: a species-level database of life history, ecology, and geography of extant and recently extinct mammals. _Ecology_, **90**, 2648. DOI: 10.1890/08-1494.1.
+
+I want to encourage you to explore the data now. Usually these sections will be quite prescriptive, with specific tasks. Right now is just a good opportunity to get to know the data, which is _so_ important. You're free to explore as you wish, using the things you've learned in this Chapter, but here are some ideas of things you might want to do:
+
+* How many variables, and how many replicates (i.e. the dimensions of the data frame)
+* How many `numeric`, `character`, `factor`, `logical` or other different types of variable are there?
+* Is there any missing data?
+* What does a summary of the data frame tell you?
+* Make a histogram of one of the numeric variables
+* Make a boxplot of one of the factors (x axis) against one of the numeric variables (y axis)
+* Make a scatterplot of two numeric variables against one another
 
 $~$
 
