@@ -1,0 +1,3215 @@
+---
+title: "Data Skills for the Life Sciences"
+author: "Module lead: IAIN STOTT  /   email istott@lincoln.ac.uk"
+date: "Last updated `r Sys.Date()`"
+output: 
+  learnr::tutorial:
+    progressive: true
+    theme: default
+runtime: shiny_prerendered
+description: "This workbook accompanies the University of Lincoln School of Life Sciences Level 2 Module BGY2011M Data Skills for the Life Sciences."
+---
+
+
+
+
+
+
+```{r setup, include=FALSE}
+# packages
+library(learnr)
+library(shiny)
+library(shinythemes)
+library(shinyjs)
+library(DT)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(ggfortify)
+
+# toy data
+numbers2 <- seq(2, 20, 2)
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+factor1 <- rep(LETTERS[1:5], 2)
+factor2 <- rep(LETTERS[1:2], 5)
+random <- rnorm(10)
+toydata <- data.frame(numbers2, characters1, factor1, factor2, random)
+rm(numbers2, characters1, factor1, factor2, random)
+
+# games data
+games <- read.csv("data/games_data.csv")
+
+# knitr options
+knitr::opts_chunk$set(
+  fig.align = 'center'
+)
+
+# Tutorial options
+tutorial_options(exercise.cap = "")
+```
+
+```{r, scripts, echo = FALSE}
+source("scripts/themeSelectorHack.r")
+themeSelectorHack()
+```
+
+```{css, styles, echo = FALSE}
+body{
+  padding-top: 90px;
+}
+
+.topicsList .topic{
+  border-bottom: 0px;
+}
+
+.topicsList .topic.current{
+  background-color: inherit;
+  padding-left: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .topicsList {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.15);
+    color: #333;
+  }
+
+  .topicsHeader h1, .topicsHeader .h1, .topicsHeader h2, .topicsHeader .h2, .topicsHeader h3, .topicsHeader .h3, .topicsHeader h4, .topicsHeader .h4, .topicsHeader h5, .topicsHeader .h5, .topicsHeader h6, .topicsHeader .h6 {
+    color: #333;
+    text-shadow: none;
+  }
+
+  #doc-metadata h1, #doc-metadata #h1, #doc-metadata h2, #doc-metadata #h2, #doc-metadata h3, #doc-metadata #h3, #doc-metadata h4, #doc-metadata #h4, #doc-metadata h5, #doc-metadata #h5, #doc-metadata h6, #doc-metadata #h6, #doc-metadata a {
+    color: #333;
+    text-shadow: none;
+  }
+  .scroll-250 {
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: inherit;
+  }
+
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 1 --- Introduction 
+\
+
+### Welcome to Data Skills for the Life Sciences! 
+
+This page contains important 
+information on the module: it's worth reading through carefully, and the 
+information will always be here for you to refer back to. The first few sections
+describe everything you need to know to set yourself up for the course. It's 
+really important you complete these as soon as possible.  
+\  
+
+We'll cover:
+
+* This book and its content
+  + `R` Code, including
+    - `R`
+    - RStudio
+    - R packages
+  + Picture and Video
+  + Interactive Elements
+    - Quizzes
+    - Exercises
+  + Completing each Chapter
+* Other resources
+  + Books
+  + Cheatsheets
+  + ShinyGLM
+  + Forums
+  + Collaboration
+* The analytical process which will underpin how we learn to analyse data
+* Finally, a walkthrough to install `R` and RStudio.  
+\  
+
+Click the button below to continue.  
+
+
+$~$
+
+***
+### 1.1 THIS BOOK
+
+First, some information on this web book.  
+\ 
+
+The book accompanies every student for 
+the first 9 weeks of the module, after which the teaching and content start
+to diverge for different programmes. This divergence allows programmes to learn 
+analytical techniques which are relevant to their courses: some stay with 
+content in this book, and some do not.  
+\  
+
+Here's a quick video tutorial on the layout of this book, and how it 
+functions.  
+
+<!--
+<center>
+![](https://youtu.be/HtTUsOKjWyQ){width="80%"}
+</center>  
+\  
+-->
+
+
+$~$
+
+### CONTENT TYPES
+
+Within the book you will find a diversity of content, which we'll go through 
+in the next sections.  
+\  
+
+
+### 1.1.1 `R` Code
+
+We are learning how to visualise, manage and analyse data in `R`. `R` is a 
+**programming language**, and people who use it are variously called "programmers", 
+"coders" or "developers".  
+\
+
+##### **Why R?**
+
+You may have come across other programs that allow you to work with data, 
+plot data and run statistical analyses. So why a programming language, and 
+_why R?_  
+\ 
+
+##### **WHAT IS `R`?**
+_Think of_ `R` _as a language_ you're writing in. 
+"Running" R code from within a file allows you 
+to communicate with the computer and instruct it to do something, 
+resulting in outputs like plots or data.  
+\ 
+
+##### **WHAT ARE THE BENEFITS OF USING `R`?**
+
+There are a _huge number of benefits to using R_, listed here and elaborated on in the video below.
+
+1. It's **_free_**.
+2. It's **_open source_**.
+3. It's **_cross-platform_**.
+4. It's **_transparent_** and **_replicable_**.
+5. It's **_powerful_** and **_fast_**.
+6. It's **_flexible_**.
+7. It makes you **_employable_**.  
+\ 
+
+##### **WHAT IS RSTUDIO?**
+We will be working with `R` in a program called **RStudio**; think of this like 
+`R`'s Microsoft Word; i.e. a program that allows you to create, save and open `R` code
+files; to edit those files and write `R` code. RStudio enables you to run `R` 
+code, and get whatever output you need, whether it's a calculation, a subset 
+of data, or a graph, for example.  
+\ 
+
+This video explains some of these concepts:  
+\  
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+\  
+
+
+##### **WHAT DOES `R` CODE LOOK LIKE?**
+
+`R` often seems scary when you first 
+encounter it, but as outlined in the _R Basics_ chapter, thinking of it like 
+a language can help. As with learning a language, practise makes perfect. 
+\ 
+
+First of all, `R` code is always written in a `fixed width font`, where every 
+character has the same width. This way it's easier to read, as the characters align 
+vertically from line to line.  Short pieces of code may be written as `inline code`. 
+Longer pieces of code (especially if they run over multiple lines) are written as a 
+**code chunk**. Here's an example:  
+
+```{r}
+# draw random numbers
+random <- rnorm(1000, 0, 1)
+
+# plot distribution
+ggplot(as.data.frame(random), aes(x = random)) + 
+    geom_density()
+
+# mean
+mean(random)
+
+# standard deviation
+sd(random)
+```
+\  
+
+##### **WHAT DOES THE ABOVE CODE DO?**
+
+1. Draws 1000 random numbers from a normal distribution with mean of 0 and 
+standard deviation of 1.
+2. Plots thie distribution of these numbers (this should look roughly like 
+a normal-distribution-bell-curve).
+3. Calculates the mean of the distribution (which should be close to zero)
+4. Calculates the standard deviation of the distribution (which should be 
+close to 1).
+5. Any lines which start with `#` are _comments_: anything after the # symbol is ignored and not run as code. This means you can keep a commentary alongside your code, detailing what it does.  
+\
+
+##### **HOW CAN I "READ" THE CODE?**  
+
+This is something that takes practice. Chapter 1 'R Basics' will help understand the vocabulary and grammar of `R` code. When understanding `R` code, most of the time you have to think relatively logically and apply a little common sense. Like reading any language, it takes practice!  
+
+The paragraph below walks you through interpreting some elements of the above code chunk  
+
+Take a look at the code, including the _comments_ (lines beginning with `#`, as explained above).
+Certain elements might start to match up. For example, 
+`rnorm` could mean "random normal". `1000` is how many random normal numbers we want, 
+`0` is the mean, and `1` is the standard deviation. It makes sense then, that putting them together using 
+`rnorm(1000, 0, 1)` calculates the data we want for step one of the above list: 1000 random numbers from a normal distribution with mean 0 and standard deviation 1. The 
+next part uses `ggplot` and `geom_density`, so that has something 
+to do with making a density plot (step 2). `mean` must calculate the mean
+(step 3), and `sd` must calculate the standard deviation (step 4). The values of these can be seen below the lines that calculate them.  
+\
+
+You'll get to learn the specifics with time. `R` is _very_ literal and logical: you'll become used to this! Learning to "read" it definitely comes with practice.  
+\
+
+##### **WHAT DOES THE CODE MAKE?**
+
+There are a couple of types of **outputs** from the above code chunk:
+
+* Data outputs that have been calculated are shown as text outputs.
+  + These can be saved for use later by 'assigning' the values to objects using the backwards arrow `<-`. We see that in the above code for the object `random`, and we'll learn more about this process later. 
+* You can also see that the code produces plot outputs as well.
+* Data and plots are probably the primary outputs `R` makes, but the possibilities are endless: spatial data, interfacing with online databases and servers   
+
+
+$~$
+
+### 1.1.2 Picture & Video
+
+Picture and video content is used to help explain analytical concepts or ideas 
+in data, data visualisation and statistics, and to give technical run-throughs.  
+\ 
+
+##### **PICTURE**
+Here's a GIF of the _Datasaurus rex_, which we'll be coming back to later in the 
+course, to understand a certain statistical concept:  
+\ 
+
+<center>
+![Datasaurus rex](images/datasaurus_dozen.gif){width="60%"}
+</center>  
+\  
+
+##### **VIDEO**
+Here's a video of what _not_ to do when you get angry with `R`. Because _trust me_,
+I know from personal experience that `R` will make you angry at some point, 
+and that's ok. Deep breath, walk away.  
+\ 
+
+<center>
+![](https://youtu.be/HtTUsOKjWyQ){width="80%"}
+</center>  
+
+
+$~$
+
+### 1.1.3 INTERACTIVE ELEMENTS
+
+Interactive content is really important. It will test your 
+knowledge as  you work through these worksheets, and inform your home learning.  
+\ 
+
+##### **QUIZZES**
+
+Quizzes are multiple choice questions, which will test your knowledge and skills 
+in understanding, visualising and analysing data. They may have single answers 
+or multiple possible correct answers, as seen below.  
+\
+
+```{r qz031, echo = FALSE}
+quiz(caption = " **< QUIZ 1 >** (Interactive Elements - quizzes)",
+    question("Here's a simple multiple choice question: which of these is the best?",
+        answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
+        answer("Biscuits", correct = TRUE, message = "Yes!!! Biscuits rule all!"),
+        answer("Cheesecake", message = "Incorrect. Biscuits rule all. Try dunking some cheesecake in tea or coffee!"),
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+##### **EXERCISES**
+
+Exercises are designed to make you better coders, and involve you correcting 
+or typing your own R code, which you can run to see a result, or an error, 
+depending on whether you have it correct...  
+\
+
+#### **<** EXERCISE 1 (Interactive elements - exercises) **>**
+_Write the code `6 * 7` in the box below and then click **Run Code** to get the correct answer._  
+
+```{r ex113_1, exercise=TRUE, echo=FALSE}
+
+```
+```{r ex113_1-hint}
+# The answer to life, the universe and everything...
+```
+\
+
+Sometimes exercises will have **Hints** and/or **Solutions** to help you get to 
+the right answer. Take another look at the exercise above and notice that 
+there's a "Solution" button, with a solution to completing the exercise.  
+
+The button may sometimes say "Hint", in which case there is a hint to help you, 
+rather than a full solution. There may be multiple hints and/or solutions to 
+click through!  
+
+It goes without saying to try to complete the exercise _before_ looking at the 
+hint or solution. Like any language, coding in `R` requires practice. This is 
+the only time I'll instruct you to click the solution button, copy the solution and paste it in the box, 
+then click **Run Code** to get the desired figure.  
+\  
+
+#### **< EXERCISE 2 >** (Interactive elements - exercises)
+_Edit the code below to:_ 
+
+1. _Draw 1000 random numbers from a normal distribution with mean of 42 and standard_
+_deviation of 12._
+2. _Calculate the mean of the distribution._
+3. _Calculate the standard deviation of the distribution._  
+
+```{r ex113_2, exercise=TRUE, echo=FALSE, exercise.eval = FALSE}
+# draw random numbers
+random <- rnorm(1000, , 12)
+
+# mean
+mean(random)
+
+# standard deviation
+sd()
+
+```
+```{r ex113_2-solution}
+# draw random numbers
+# 42 is the mean and it is the second argument in rnorm().
+random <- rnorm(1000, 42, 12)
+
+# mean
+# the function is mean(), not mean_average().
+mean(random)
+
+# standard deviation
+# add 'random' inside the parentheses.
+sd(random)
+
+```
+\  
+
+Lots of what we do when coding is taking existing code and adapting it for our 
+own needs.  
+
+
+$~$
+
+***
+### 1.2 COMPLETING EACH CHAPTER
+
+_There is one chapter per week, starting with **R Basics** in week 1._ 
+Each chapter is arranged like this:  
+\ 
+
+##### **MAIN CONTENT**
+_**MOST SECTIONS OF EACH CHAPTER IS TO BE COMPLETED AT HOME BEFORE EACH ONLINE WORKSHOP.**_  
+
+These first sections of each chapter use code, images, videos, quizzes and exercises for learning
+and practicing concepts and skills in R, data, data handling, data visualisation 
+and statistics.  
+\ 
+
+##### **ONLINE WORKSHOP**
+_**THE "ONLINE WORKSHOP" SECTION IS THE LAST SECTION OF EACH CHAPTER AND IS TO BE COMPLETED DURING ONLINE WORKSHOPS.**_  
+
+During these workshops you will be working in your tutor
+groups. You'll have some analytical tasks each week to complete, working with 
+real biological data to apply the concepts and skills learned in part 1 of the 
+chapter. These will all be collated in an R file which will take you through the 
+whole analytical process, from start to finish.  
+
+
+$~$
+
+***
+### 1.3 OTHER RESOURCES
+
+Resources external to this book are also important to the module. A list of 
+useful resources will be provided at the top of each Chapter.  
+\  
+
+##### **BOOKS**
+There are several books that we'll be using throughout the course, and  in the 
+spirit of programming, these are all available open source, for free, online. 
+Different books will be useful at different parts of the module. 
+
+1. [_R for Data Science_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham.
+2. [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan.
+3. [_An Introduction to Statistical Learning with Applications in R_](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf) by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani.
+4. [_Learning statistics with R: A tutorial for psychology students and other beginners (Version 0.6)_](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
+
+I also recommend [_Getting Started with R: An Introduction for Biologists (2nd ed)_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, if you're looking to buy a book to help you both now and in the future.  
+\  
+
+##### **CHEAT SHEETS**
+The RStudio team publish `R` and RStudio cheat sheets which can be really useful 
+to refer to, such as this 
+[base R cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/base-r.pdf) 
+and this 
+[RStudio cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
+At the top of each chapter will be links to relevant cheatsheets for that chapter.  
+\  
+
+##### **ShinyGLM**
+I've developed an interactive web app called 
+[ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLiM/)
+which helps to understand how code and its 
+outputs are related to one another. You'll probably use it a fair bit, starting 
+from Chapter 2 "Data distributions".  
+\  
+
+##### **THE INTERNET**
+Data Scientists and statisticians probably spend at least as much time googling as they do writing 
+code. If you're having trouble, chances are someone else had the same trouble as 
+you: search for the solution to your problem! The skill to find solutions to data and statistics problems is a hugely important part of learning data skills, and will form part of what we learn.  
+\
+
+##### **THE FORUM**
+Programmers use forums _all the time_, such as 
+[RStudio Community](https://community.RStudio.com),
+[Stack Overflow](https://stackexchange.com), and 
+[GitHub Community](https://github.community).
+These forums are places to:
+
+* Ask questions about things you need help understanding.
+* Post code that is giving errors.
+* Report bugs and errors in resources and software you use.
+
+I have set up a blackboard forum for these purposes. This includes reporting 
+any bugs, spelling mistakes or errors in this book. Software isn't a static 
+thing, and if there are things that need fixing, then they need fixing!  
+\  
+
+##### **EACH OTHER**
+Coding is usually a collaborative endeavour. Work with each other: in your 
+tutor groups, in your friendship groups, over video chat, via email, in person 
+(so long as it's in necessary bubbles, appropriately socially distanced and 
+adhering to national and local government guidelines at all times). Share 
+knowledge and information 
+(_except for the purposes of either of the assessments, which are to be completed individually!_)  
+
+
+$~$
+
+***
+### 1.4 THE ANALYTICAL PROCESS
+
+This module is all about analysing data. 
+Any analytical process is really just a means of understanding your data, and 
+relationships between variables in that data. That's why I do not consider this
+to be a "statistics course"; it is a course in giving you many skills to
+understand data in many ways. Statistics is one part of that.  
+\  
+
+<center>
+![The analytical process and its feedbacks](images/Process.png){width="80%"}
+</center>  
+\  
+
+There is a process to analysis, with a few different steps and feedbacks between 
+them, as illustrated above. It's important not to dive right into statistical 
+analysis without understanding your data, your variables and the relationships 
+between them first. For that reason, much of the course will be dedicated to 
+understanding data, and how to plot data.  
+\ 
+
+#### **1.5.1 FIRST half of the course (weeks 1-6)**
+\ 
+
+##### **TIDY DATA**
+
+* data exploration
+* data subsetting
+* data manipulation  
+\ 
+
+##### **PLOTS**
+
+* Single-variable distributions and summary statistics
+* Two- and three-variable plots to explore hypotheses  
+\  
+
+Data handling and plotting is also the best vehicle to learn how to 
+code: data handling and plots are harder to code but easier to interpret, 
+whereas statistical analyses are easier to code but harder to interpret.  
+\ 
+
+#### **1.5.2 SECOND half of the course (weeks 8-16)**
+\ 
+
+##### **MODEL**
+
+* fitting a statistical model  
+\ 
+
+##### **MODEL FIT**
+
+* assessing how well a statistical model fits the data  
+\ 
+
+##### **RESULTS**
+
+* Understanding and interpreting the results of a statistical model  
+\  
+
+#### **1.5.3 General Linear Model (GLM)**
+
+The "statistical model" we will be working with (mostly) is the 
+_general linear model (glm)_. This is a framework which brings together 
+many traditional statistical analyses. You will learn where these traditional 
+analyses fit into the glm framework.  
+
+There are naturally feedbacks between the steps of the analytical process, where new information may mean you need to revise earlier steps (hence the backwards arrows).  
+\ 
+
+_In order to be able to achieve this, we're going to need the right software..._
+
+
+$~$
+
+***
+### 1.5 INSTALLING `R` and RSTUDIO
+\
+
+**RStudio** is the program (or to give the technical term, an 
+"Integrated Development Environment" or _IDE_), which we'll be using to code 
+in a `R`. The very first thing you need to do is install both of 
+these. The following video walks you through installation and briefly explains 
+the difference between the two.  
+\  
+
+<center>
+![](https://youtu.be/d7lARa168gk){width="80%"}
+</center>  
+\  
+
+$~$
+
+***
+### LEARNING SCHEDULE
+\
+
+Below is a diagram of the learning schedule (you can find a pdf copy on blackboard also).
+
+* The top row shows the timings of **ASSESSMENTS**. Detailed information can be found on blackboard in the "Assessments" folder: there is one pdf file for each assessment, called "Assessment Briefings".
+  + An online Multiple Choice Questionnaire must be completed on _Friday 27th October (week 7)_.
+  + A data analysis report must be handed in on or before _Wednesday 27th January (week 16)_.
+* The **SCHEDULE** has one row for each programme, and shows the topics covered for each programme, week-by-week. Everyone takes takes the same topics until week 9, after which the teaching and content start to diverge for different programmes. This divergence allows programmes to learn analytical techniques which are relevant to their courses.
+* The **STAFF** section shows which staff are teaching in which weeks, topic-by-topic.  
+\
+
+
+<center>
+![Learning Schedule](images/Schedule.png){width="100%"}
+</center>  
+\  
+
+$~$
+
+***
+##### **END OF CHAPTER**
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2 --- R Basics
+\
+
+Welcome to your first R tutorial! In this tutorial we'll be covering the very basics of R, which is a programming language originally developed for 
+understanding data and doing statistics. This tutorial includes:  
+
+* `R` packages
+* the anatomy ("vocabulary" and "grammar") of R code
+* objects
+   + assignment to objects
+   + object classes
+* functions
+   + function arguments
+* outputs
+* code comments
+* loading data into `R`  
+\
+* What programming languages are
+  + types of programming language
+  + the anatomy ("vocabulary" and "grammar") of R code
+* What RStudio is, and how RStudio works with R
+* The structure of R
+  + base R packages
+  + add-on R packages
+* Reading data into `R`.  
+\  
+
+With this information, we'll put our newfound knowledge into practice and 
+do some basic coding in R to get used to this new way of working with data. If 
+you're familiar with R already, this should still serve as a 
+useful reminder!  
+
+$~$
+
+***
+### **2.1 RESOURCES**
+\
+
+##### BOOKS
+ 
+* Beckerman, Childs & Petchey (2017) _Getting started with R, an 
+introduction for Biologists_, 2nd ed. pp 1 - 34, Chapter 1, "Getting and 
+getting acquainted with R".  
+\ 
+
+##### CHEATSHEETS:
+
+* [RStudio IDE cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) by RStudio
+* [base-R cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf) by RStudio
+\ 
+
+##### WEB LINKS:
+
+* [R for beginners](https://education.rstudio.com/learn/beginner) by RStudio  
+\ 
+
+Let's get started!  
+
+
+$~$
+
+***
+### **2.2 R PACKAGES**
+\
+
+Lots of things can be done with what is called _base R_, 
+which is a set of R functions and tools that load every time you start R 
+(and therefore every time you start RStudio, as R is run from within RStudio).  
+
+Some tasks require add-on _R packages_ with 
+extra functions and tools. Think of these like dictionaries of extra vocabulary 
+and grammar which allow R to communicate with the computer in more elaborate ways.  
+\ 
+
+This video explains briefly how `R` packages work:  
+\
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+
+
+$~$
+
+##### **IMPORTANT: TWO SCHOOLS OF THOUGHT**
+
+In this module, we'll be using a collection of packages, built by RStudio, collectively called the
+[**tidyverse**](https://www.tidyverse.org) (although we'll only be using a 
+few of the ones that are on offer).  
+
+The tidyverse is a new, emerging way of working with and visualising data 
+in `R`. It's fast becoming a standard way of coding, although some old-schoolers
+have taken a while to get used to it*. I'll often refer to it as the 'new', 'modern' 
+or 'contemporary' way of doing things, simply because it was born in the last 
+few years.  
+
+An alternative way of working with data and data visualisation is using 
+base `R`, and many people still do. This has been around since the inception 
+of `R`. I'll often refer to it as the 'old' or 'traditional' way of doing 
+things, simply because it has been around longer.  
+
+There is no one 'correct' way of doing things. I use a mix of the two for my research, 
+as do many people, and in fact it's almost impossible to use the tidyverse 
+approach without using some base `R`.  
+Many of your lecturers that use `R` will work only in base `R`.  
+
+We're using the _tidyverse_ in this module as it generally has a more coherent 
+approach to coding, and because it's easier to do more powerful things more 
+quickly.  
+\
+
+Even I was one of those old-schoolers until just over a year ago! 
+
+$~$
+
+***
+### **2.3 THE ANATOMY, VOCABULARY AND GRAMMAR OF `R` CODE**
+\
+
+There are 6 key components to `R`code: **objects**, **assignment**, **functions**, **arguments**, **outputs** and **comments**.  
+\
+
+<center>
+![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+</center>
+\  
+
+##### **OBJECTS**
+R is used for _Object-Oriented Programming (OOP)_. This means that when coding 
+in R, you create **objects**, which are packets of data saved in the 
+computer's RAM. These objects can be recalled and used throughout that R 
+session, until they are either overwritten or removed.  
+
+Think of it like filling a weekend bag full of things: your bag is full of 
+objects ready to use; your `R` session is also full of objects ready for you 
+to use.  
+\
+
+##### **CLASSES**
+These objects have different **classes**, which define
+what the object is and how `R` works with it. `R` will work with objects 
+differently, depending on their class: for example, it is possible to calculate 
+the mean of some numbers, but it's not possible to calculate a mean of some words!  
+
+Similarly, you might have two similar-looking objects in your weekend bag, but 
+their "class" would mean you use them in unique ways. Your toothbrush and your 
+hairbrush are both brushes, but you (presumably) use them differently.  
+\
+
+##### **FUNCTIONS** AND **ASSIGNING**
+Objects are usually created using **functions**. These create or process data 
+in some way and save it to the RAM (like putting something in the bag). The 
+way this is done is using an **assigning arrow** `<-`. The object goes on the 
+left, and the function on the right.  
+`answer <- 6 * 7`  
+\
+
+The next sections go into greater depth on these topics.  
+
+$~$
+
+***
+### **2.4 OBJECTS**
+\
+
+This section covers how to create objects, what classes mean, what functions 
+are and how they work.  
+
+Objects are created using **functions**. Simple functions include `+ - * /`, 
+only one of which is not an Ed Sheeran album.  
+\
+
+#### **< EXERCISE 1 >** Objects
+_Use the functions `+ - * /` to:_
+
+1. _Choose any number_
+2. _Add the next highest integer number_
+3. _Add 9_
+4. _Divide by 2_
+4. _Subtract your original number_
+
+_Hint: don't forget the order of operations: `*` and `/` are executed before `+` and `-`! Parentheses `( )` can help group the right operations._
+```{r ex24_1, exercise=TRUE, echo=FALSE}
+
+```
+```{r ex24_1-solution}
+# If your number is 42
+((42 + 43 + 9) / 2) - 42
+
+# Whatever number you chose, your answer is 5.
+```
+\
+
+More complicated functions take the form 
+`function(argument1, argument2, ...)`. Each function has its own specific
+set of arguments, and a different object is created depending on what 
+these arguments are.
+```{r}
+numbers <- seq(1, 10, 1)
+numbers
+```
+
+The function `seq()` means "sequence". This sequence is the integer numbers 
+starting at 1 and ending at 10.  
+\
+
+We can do certain things with this vector. For example, we might want to see a 
+summary about it, find out what its length is, calculate the mean or see the 
+first 5 elements:
+```{r}
+summary(numbers)
+length(numbers)
+mean(numbers)
+numbers[1:5]
+```
+\
+
+In this case `1:5` does the same thing as `seq(1, 5, 1)`. There are often many 
+ways to get any single output in `R`, in the same way that there are often 
+many different ways to say one thing in a spoken language.  
+\
+
+We can change or add arguments to make a function behave differently. For example,
+adding an argument _digits_ to the `summary()` function gives the results to 
+a certain number of decimal places.
+```{r}
+summary(numbers, digits = 1)
+```
+\
+
+Going back to the original creation of the `numbers` object, we can change the 
+arguments of `seq` to create a different object: the two-times-table up to 20.
+```{r}
+numbers2 <- seq(2, 20, 2)
+numbers2
+```
+\
+
+#### **< EXERCISE 2 >** Objects
+_Create an object called `numbers3` which is a sequence_ 
+_of numbers from 3 to 21, in steps of 2._
+```{r ex24_2, exercise=TRUE, echo=FALSE}
+
+```
+```{r ex24_2-solution}
+seq(3, 21, 2)
+```
+
+As we have `numbers2` and `numbers3`, maybe we should be consistent and change 
+the name of `numbers` to `numbers1`. We can do that by creating a new object and 
+removing the old one:
+```{r}
+numbers1 <- numbers
+rm(numbers)
+```
+\
+
+We created `numbers1` from another object `numbers`. In fact, you can
+create object using multiple other objects, and objects can be created in 
+different ways.
+```{r}
+# We could create numbers2 by multiplying numbers1 by 2
+numbers1 * 2
+
+# We could add 1 to every number in numbers2
+numbers2 + 1
+
+# We could add together numbers1 and numbers2
+numbers1 + numbers2
+```
+\
+
+Note how `R` processes objects: both `numbers1` and `numbers2` have 10 individual 
+numbers (termed _elements_ of the vector), 
+so `R` adds the two first elements, the two second elements, the two third elements, 
+etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter 
+vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
+\  
+
+```{r qz24_1, echo = FALSE}
+### *** TO COMPLETE!
+quiz(caption = "**< QUIZ 1 >** (Objects)",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+
+$~$
+
+***
+### **2.5 OBJECT CLASSES**
+\
+
+Objects always have a **class** which defines how `R` processes and interacts with 
+them. There are 5 different class types that it's important to know at this point.
+
+* **numeric**
+* **character**
+* **factor**
+* **logical**
+* **data.frame**
+
+$~$
+
+### 2.5.1 `numeric`
+\
+
+The objects `numbers1`, `numbers2` and `numbers3` have the class _numeric_: 
+this means a set (called a _vector_) of 
+numbers. You can see that the class of `numbers1` is numeric using the function 
+`class()`:
+```{r}
+class(numbers1)
+```
+\
+
+We have already seen a fair bit of how numeric vectors are processed by `R`.  
+\
+
+
+### 2.5.2 `character`
+\
+
+We'll create a new object which looks kinda like `numbers1`, but is
+not actually the same.
+```{r}
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+characters1
+```
+\
+
+The `c()` function is really important. It means "concatenate", and basically 
+glues together the arguments you give it. The `characters1` object 
+looks similar to the `numbers1` object, but it's not. Note the quote marks 
+around each vector element.  
+\
+
+#### **< EXERCISE 3 >** Classes - `character`
+_Find out the class of `characters1`._
+```{r ex252_3, exercise=TRUE, echo=FALSE}
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+
+```
+```{r ex252_3-solution}
+# the answer is 'character'.
+class(characters1)
+```
+
+Let's try and find the same information about `characters1` as we did for `numbers1`.
+```{r}
+summary(characters1)
+length(characters1)
+mean(characters1)
+characters1[1:5]
+```
+\
+
+One of these functions went kinda wrong. As far as R is concerned, the 
+elements of `characters1` are words, and it can't calculate the mean of some 
+words. It returns `NA`, meaning "Not Applicable": R language for something which 
+doesn't exist or is missing.  
+
+The _Warning_ message makes sure you're aware that
+the code did run and give an output, but something probably went wrong.  
+
+R can also return an _Error_ message, which tells you that
+the function has failed to run at all, and gave no output.  
+
+_Pay attention to these messages_: usually if you get 
+an Error or a Warning, much of your subsequent code will fail as it depends
+on things being calculated properly.  
+\
+
+It's possible to convert things between different classes, although the 
+behaviour is sometimes unpredictable so be careful!
+```{r}
+characters2 <- as.character(numbers2)
+characters2
+```
+\
+
+```{r qz252_2, echo = FALSE}
+# *** TO COMPLETE!
+quiz(caption = " **< QUIZ 2 >** (Classes - `character`)",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+
+
+### 2.5.3 `factor`
+\
+
+A **factor** object is like a character object, but recognises groups of elements
+which are the same, called _levels_. Let's take a look:
+```{r}
+factor1 <- rep(LETTERS[1:5], 2)
+factor1 <- as.factor(factor1)
+factor1
+```
+\
+
+The object `LETTERS` is a character object which already exists in `R` without us having 
+to create it. Note that it has to be LETTERS in capitals: `R` is case-sensitive, 
+which means the code won't work if you have a lower-case letter rather than 
+an upper-case letter or vice versa. This is a really common mistake to make and 
+easy to miss!  
+
+We use the square brackets to choose which letters we
+want: we choose A, B, C, D and E, which are the first 5 letters of the alphabet.  
+
+The `rep` function means repeat, so we repeat A to E five times, to give a vector 
+that has a length of 25.  
+
+Finally, we convert that character vector to a factor using `as.factor()` and 
+overwrite the original `factor1` object by reassigning it.
+```{r}
+summary(factor1)
+```
+
+We can see from the summary that R recognises the five different factor levels,
+A through E.  
+\
+
+```{r qz253_3, echo = FALSE}
+# *** TO COMPLETE!
+quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
+    question("What do the three arguments of the seq() function mean (in order)?",
+        answer("start of sequence, length of sequence, sequence increment"),
+        answer("start of sequence, end of sequence, length of sequence"),
+        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
+        incorrect = "start, end, increment.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
+        answer("Tea", correct = TRUE, message = "Tea is amazing."),
+        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
+        answer("Fruit tea"),
+        answer("None of these"),
+        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
+        random_answer_order = TRUE
+    ),
+
+    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
+        answer("No", message = "...wow. Harsh. Try again."),
+        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
+        allow_retry = TRUE,
+        random_answer_order = TRUE
+    )
+)
+```
+
+$~$
+
+### 2.5.4 `logical`
+\
+
+Logical objects are perhaps hard to understand at first, but they're simple
+really. They basically indicate whether something is `TRUE` or `FALSE`. They
+usually relate to a question we ask of our data.
+```{r}
+rand_norm <- rnorm(50, 0, 1)
+rand_norm
+over0 <- rand_norm > 0
+over0
+```
+
+The result is information on which of your random data are greater than than 0.  
+\
+
+```{r qz254_4, echo = FALSE}
+quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
+    question("If you ran the above code multiple times, would you get the same result each time?",
+        answer("Yes", correct = TRUE),
+        answer("No"),
+        random_answer_order = TRUE
+    ),
+
+    question("You won't get the same result each time. Which part of the code causes that to happen?",
+        answer("the function rnorm()", correct = TRUE, message = "The function rnorm() creates random numbers."),
+        answer("The arguments 50, 0, 1", message = "The function rnorm() creates random numbers."),
+        answer("The logical operator >", message = "The function rnorm() creates random numbers."),
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+There are lots of questions you can ask of your data using logical operators, and 
+you will encounter many on your R journey e.g. 
+
+* `>` greater than 
+* `>=` greater than or equal to
+* `<` less than
+* `<=` less than or equal to  
+
+These behave in exactly the way you would expect given how you've already seen 
+`>` works.  
+
+Logical operators (and `R` in general) don't always behave in the way you might 
+expect, however. Take these logical operators:
+
+* `==` exactly equal to
+* `!=` not equal to
+
+`==` tells you whether the two objects on the left and the right are exactly equal 
+to each other:
+
+```{r}
+1 == 1
+c(1, 1, 2, 3) == 1
+
+# using some objects we created earlier in the chapter:
+numbers2 == numbers1 * 2
+numbers1 == characters1
+```
+
+We might not expect `numbers1 == characters1` to return all `TRUE`. All I can say is... sometimes `R` is weird.  
+\
+
+`!=` does the opposite job of `==`, telling us which elements on the right are NOT the same as the element(s) on the left.  
+\
+```{r}
+1 != 1
+"ABC" != "ABCDEFG"
+```
+\
+
+One final useful logical operator:
+
+* `%in%` tells you which elements of one vector belong to another vector.
+\
+
+`%in%` is used to find out whether a value or values in one vector
+(on the left) exist in another vector (on the right). For example:
+```{r}
+c(1, 2, 3) %in% c(1, 2)
+numbers2 %in% numbers1
+```
+It's not necessary when using `%in%` for the two vectors to have the same length; in the first line of code, we compare a vector with three elements to a vector with two elements.  
+
+We interpret the results like this: if `numbers2 %in% numbers1` is `TRUE` then the corresponding element of `numbers2`
+is found somewhere in `numbers1`. If `FALSE`, it isn't. We can see that the first 5 elements of `numbers2` are found in `numbers1`.  
+\
+
+Logicals are very useful for subsetting data:
+```{r}
+num2_in_num1 <- numbers2 %in% numbers1
+numbers2[num2_in_num1]
+```
+We first create an object that tells us which elements of `numbers2` are in `numbers1`. Then, when `num2_in_num1` is put in the square brackets, it 
+picks out all the elements of `numbers2` which are `TRUE`: 
+these are the values of numbers in `numbers2` which are also found somewhere in `numbers1`.  
+\
+
+#### **< EXERCISE 4 >** Classes - `logical`
+_Put in the correct logical operators. The correct outputs are found in the solutions._
+```{r ex254_4, exercise=TRUE, echo=FALSE}
+# 1. ((42 + 43 + 9) / 2) - 42 is the same as ((31 + 32 + 9) / 2) - 31
+((42 + 43 + 9) / 2) - 42     ((31 + 32 + 9) / 2) - 31
+
+# the mean of one set of random numbers is NOT the same as the mean of another
+mean(runif(100))     mean(runif(100))
+
+# cake is greater than biscuits
+"cake"     "biscuits"
+
+# c("A", "B", "Z") are found in the last 10 letters of the alphabet
+c("A", "B", "Z")     LETTERS[16:26]
+
+```
+```{r ex254_4-solution}
+1. TRUE, using ==
+2. TRUE, using !=
+3. FALSE, using >
+This is another strange behaviour of R that I don't understand. I 
+don't understand how or why one character object "cake" can be numerically greater than another
+"biscuits", but R has some way of deciding. It works with any character object.
+4. FALSE FALSE TRUE, using %in%
+```
+\  
+
+
+$~$
+
+### 2.5.5 `data.frame`
+\
+
+`data.frame`s are extremely important objects. This is the way most data is 
+stored for data analysis. As we learned earlier, there's one column per variable
+and one row per observation. `data.frame`s are simply collections of variables:
+```{r}
+factor2 <- rep(LETTERS[1:2], 5)
+random <- rnorm(10, 0, 1)
+toydata <- data.frame(numbers2, factor1, factor2, random)
+toydata
+```
+\
+
+To access variables in a data.frame, you simply use the `$` dollar sign.
+```{r}
+toydata$numbers2
+```
+\
+
+Vectors are one-dimensional but data frames are two-dimensional: rows and columns. The function `dim()` shows you how many dimensions:
+
+* First, rows 
+* Second, columns
+
+We know this to be 10 replicates (rows) and 4 variables (columns):
+```{r}
+dim(toydata)
+```
+\
+
+To quickly select a few rows and/or columns, we can use the square brackets like for vectors, but we need to provide two numbers. 
+
+* **First: the rows** we want to select
+* **Second: the columns** we want to select. 
+* Separated by a comma
+* If you want to select all rows or columns, leave a blank space before or after the comma.
+
+Like this: `dataframe[rows, columns]`.
+```{r}
+# If you want all columns then leave the second number blank.
+# The first 5 rows of the data frame:
+toydata[1:5, ]
+
+# If you want all rows then leave the first number blank.
+# The first and third columns of the data frame:
+toydata[ , c(1, 3)]
+
+# The first rows of columns 1 and 3:
+toydata[1:5, c(1, 3)]
+```
+\
+
+Having commas in the right places is important in `R`. If you don't have a 
+comma to indicate both rows and columns, then you will encounter an error 
+about "undefined rows" or "undefined columns". A missing or extra comma is a
+really common mistake and easy to miss.  
+\
+
+Most of the time we will be using a different, more modern way of managing and 
+selecting data from data frames (introduced in Chapter 4). 
+It's a little more flexible and elegant. 
+Using the square brackets `[ ]` is really great for doing very simple and 
+quick data subsets, but they can get unwieldy when it comes to more complicated
+data subsets involving logicals.  
+\
+
+You can read in `data.frame`s from your own data using the function 
+`read.csv()`. Your data frame needs to be saved as a CSV file, in a data frame 
+layout. You can do this easily in Excel using File -> Save As -> CSV (Comma delimited).  
+
+Then you provide the path to the file. For example, on windows, if the 
+file "data.csv" is stored in your "My Documents" folder, you use 
+```{r, eval=FALSE}
+read.csv("C:/Users/UserName/Documents/data.csv")
+# (replace "UserName" with your user name)
+```
+
+On Mac, if the file was stored in your Documents folder then you may use 
+```{r, eval=FALSE}
+### *** CHECK
+read.csv("~/Documents/data.csv")
+```
+\
+
+There are a few requirements / good practices when preparing data in excel or other spreadsheet programs to save as a csv file.
+
+1. One column per variable, one row per "replicate" (an individual piece of data
+associated with that variable).
+2. No empty columns or rows.
+3. No empty cells. If there is a missing piece of data, put `NA` in the cell. `R`
+understands this to be missing data.
+4. Ideally, no spaces. Replace spaces in variable names and character or factor 
+vectors with an underscore `_`.
+5. Character variables should have quote marks `" "` or `' '` around each 
+data point, otherwise `R` will interpret them as factors. 
+\
+
+This video goes over some of these concepts in more detail.  
+\
+
+<center>
+![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
+</center>  
+\
+
+$~$
+
+***
+### **2.6 SIMPLE PLOTS**
+\
+
+`R` is an extremely powerful graphics generator. In recent years, this has 
+extended to generation of things like interactive and multi-dimensional figures.
+Check out for example this app that 
+[catalogues all LEGO pieces in all sets of the LEGO world](https://shiny.rstudio.com/gallery/lego-world.html), 
+or this one that allows you to 
+[explore recent crimes anywhere in the UK](https://shiny.rstudio.com/gallery/crime-watch.html).
+More apps, including many with biological data, are available in 
+[this gallery](https://shiny.rstudio.com/gallery/). All of these are powered 
+by `R`.  
+
+BUT, it all starts with a simple plot. It's _very_ easy to produce a plot
+in `R`, and we'll run through some here. These are what we term simple 
+**base `R`* graphics.  
+\
+
+**Histograms** can be produced using the `hist()` function.
+
+```{r}
+hist(toydata$random)
+```
+\
+
+**Box plots** can be produced using the `boxplot()` function.
+
+```{r}
+boxplot(toydata$numbers2)
+```
+\
+
+**Bar graphs** can be produced using the `barplot()` function.
+
+```{r}
+barplot(toydata$numbers2[1:5], names.arg = toydata$factor1[1:5], 
+        ylab = "numbers2")
+```
+
+We introduced a couple of extre arguments here: `names.arg` labels the x axis
+and `ylab` labels the y axis.  
+\
+
+**Scatter plots** can be produced using the `plot()` function, with both an 
+x variable (first argument) and a y variable (second argument).
+
+```{r}
+plot(toydata$numbers2, toydata$random)
+```
+\
+
+##### **< EXERCISE 5 >** Simple Plots
+_Create a boxplot of `random` and a histogram of `numbers2`_.
+```{r ex26_5, exercise = TRUE, echo = FALSE}
+
+```
+```{r ex26_5-hint, eval = FALSE}
+Copy the code from the example boxplot and histogram, and replace the variable names.
+```
+
+$~$
+
+***
+### **2.7 CREATING AN R SCRIPT**
+\ 
+
+R code is saved in a file with the extension `.R`. In the same way as Micosoft 
+Word knows to open files with `.docx` extensions and Adobe Reader knows to
+open files with `.pdf` extensions, RStudio knows to open files with `.R` 
+extensions, and to work with them in certain ways.  
+
+Create an R file in the folder you wish to use as your working directory by 
+following the steps in the video below.  
+\ 
+
+<center>
+![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
+</center>  
+\ 
+
+Save this file wherever you like.  
+
+_This is the file in which you're going to write code to fulfil the tasks in Section 2 of each Chapter._ In each Chapter you will cover one aspect of the analytical process.
+You'll apply the knowledge and skills learned during the Chapter to a biological data set and 
+add to this code file during each online workshop, so that by the end of the 
+book, you'll have completed a full analysis including Tidying and Visualising 
+your data, fitting a model and evaluating how well it fits the data, 
+tweaking the data, visualisations and the model if necessary, until you have some 
+reliable and reproducible results.  
+\
+
+If you wish, you can copy code from these worksheets into a second R file and practise coding in RStudio alongside completing these worksheets at home.
+
+$~$
+
+***
+### **2.8 OTHER RESOURCES**
+\
+
+There's a huge amount of other resources out there in the web to help you 
+learn basic `R` programming. For exmple, check out this tutorial from RStudio on 
+[Programming Basics](https://tutorials.shinyapps.io/04-Programming-Basics).
+
+
+$~$
+
+***
+### **2.9 FINAL TIPS**
+\
+
+Use `?` to get help on a function. These help pages take a fair while to get used 
+to, but they lay out what arguments a function takes, what those arguments 
+are, what the output (value) of the function is, and some examples.  
+\
+
+We use the `#` (hash) symbol to create a comment: nothing after the `#` will be run
+as code. It's good practise to comment your code as you go, so when you 
+go back to it later, it makes sense to you. Trust me, you make life so much 
+easier for your future self if you comment well!  
+\
+
+The internet is really useful. As you get used to R, you'll be able to find
+blogs and articles and forums that give you answers. There are also R mailing
+lists, but it's best not to email them until you're sure you've done everything
+you can to solve your problem.  
+\
+
+If something goes wrong with your R coding (usually Errors), then 99.9% of the
+time it's because you've made a mistake. R is very literal. Be careful!  
+\
+
+#### **< EXERCISE 6 >** Final Tips
+_Correct the mistakes ('bugs') in the lines of code below, bearing in_
+_mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
+_right outputs!_
+```{r ex29_6, exercise = TRUE, eval = FALSE}
+# a sequence from 4 to 40 in steps of 4
+mynums <- seq(4, 40, 4,)
+mynums
+
+# the first 5 and last 5 letters of the alphabet
+mychars <- LETTERS[c(1:5, 21:26)]
+# length of mychars
+length(Mychars)
+
+# turn mychars into a factor
+myfacs <- asfactor(mychars)
+
+# create data frame
+mydata <- data.frame(mynums, mychars, myfacs)
+# see numbers
+mydata$mynum
+# first 5 rows of data frame
+mydata[1:5]
+# first 2 columns of data frame
+mydata[1:2, ]
+
+```
+
+These are really common mistakes to make. Be aware!
+
+
+$~$
+
+***
+### **< WORKSHOP >** R Basics
+***
+\
+
+During this week's workshop, we're going to build a data frame of made-up data, similar to what was done in the first Chapter of the workbook. This will involve:
+
+* creating random numeric vectors
+* creating factor vectors
+* creating character vectors
+* building a data frame from existing vectors in R
+* selecting parts of a data frame using `base R` methods
+
+We will cover quick, basic plots in `base R`, including:
+
+* histograms 
+* boxplots
+* barplots
+* scatter plots
+
+Finally, we will read in the data that we'll be using for the rest of these online sessions, which are saved as csv files. If you're not sure which one you're supposed to be using, check the DATA page of this workbook.  
+
+You won't have encountered absolutely everything you need to do during the at-home study. To mention it again, a really important part of data skills and coding is being able to find answers to question and solutions to probelms yourselves, using whatever resources you have to hand, but especially the internet.  
+\
+
+##### **R BASICS: EXERCISES & QUESTIONS**
+\
+
+30 mins:  
+
+1. First create a character object called `names` which is the first name of the people in your tutor group (including anyone who is missing). If there are two people in your group with the same name, then give each a number (i.e. `Jane1`, `Jane2`,... )
+  * What is the length of this character vector?
+
+2. Now create a numeric variable called `norm` which is a random normal distribution with the same length as the number of people in your tutor group. It should have a mean value of 7 and a variance of 1.
+  * Can this normal distribution have values below zero?
+  * Can the arguments of this vector be written in any order or does it have to be in the order you used?
+
+3. The normal distribution is just one kind of distribution that you can draw random numbers from. Another distribution you are probably familiar with is the _uniform distribution_, where every number has an equal chance of being chosen. Find out how to draw numbers from a random uniform distribution, and create an object called `unif` which is a numeric vector the same length as the number of people in your tutor group, drawn from a random uniform distribution between 0 and 1.
+  * What is the name of the _function_ you used?
+
+4. The random uniform numbers are between 0 and 1, meaning they are proportions. Change these proportions into percentages.
+
+5. Now create a factor vector called `sibs` which tells you whether each person in your tutor group has siblings. It should take the value `sis` if the person has sister(s), `bro` if the person has brother(s),`both` if they have both, and `neither` if they have neither. If the person is absent, use `NA`.
+  + Hint: you may want to create a character vector first, and convert it into a factor.
+
+6. Create a data frame for your tutor group of the 4 objects (`name`, `norm`, `unif` and `sibs`). Call it what you like :)
+  * What is the name of this object?  
+\
+
+##### **BIOLOGICAL DATA**
+
+30 mins:  
+
+For the rest of the online workshops, we'll be using real biological data sets. These data sets are tailored slightly to your degree programs: check the DATA page for a summary of the data set and to find out which one you're using.
+
+7. Read the CSV in to R. Save the object as:
+  * `DNA_data` for the DNA and ageing data set from Huh _et al._ (2016) Maintenance of age in human neurons generated by microRNA-based neuronal conversion of fibroblasts. _eLife_, 5:e18648. DOI: 10.7554/eLife.18648.
+  * `dogs_data` for the urban dogs data set from Majumder _et al._ (2016) Denning habits of free-ranging dogs reveal preference for human proximity. _Scientific Reports_, 6:32014. DOI: 10.1038/srep32014.
+  * `pantheria_data` for the mammal life history data set from Jones _et al._ (2009) PanTHERIA: a species-level database of life history, ecology, and geography of extant and recently extinct mammals. _Ecology_, **90**, 2648. DOI: 10.1890/08-1494.1.
+
+I want to encourage you to explore the data now. Usually these sections will be quite prescriptive, with specific tasks. Right now is just a good opportunity to get to know the data, which is _so_ important. You're free to explore as you wish, using the things you've learned in this Chapter, but here are some ideas of things you might want to do:
+
+* How many variables, and how many replicates (i.e. the dimensions of the data frame)
+* How many `numeric`, `character`, `factor`, `logical` or other different types of variable are there?
+* Is there any missing data?
+* What does a summary of the data frame tell you?
+* Make a histogram of one of the numeric variables
+* Make a boxplot of one of the factors (x axis) against one of the numeric variables (y axis)
+* Make a scatterplot of two numeric variables against one another
+
+$~$
+
+***
+##### **END OF CHAPTER**
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##  2½ - Grammar of Graphics
+\
+
+Data visualisations are based on an inherent underlying **Grammar of Graphics**.
+This framework was developed by 
+[Leland Wilkinson](https://www.springer.com/gp/book/9780387245447)
+in the 1990's and then repurposed more recently by 
+[Hadley Wickham](https://byrneslab.net/classes/biol607/readings/wickham_layered-grammar.pdf),
+who is a chief scientist at RStudio.  
+
+<div align="center">
+   ![](images/ggplot2_logo.jpg){width="75px"}
+</div>  
+
+We will be using the `R` package `ggplot2` for our graphics. (`gg` stands for 
+"grammar of graphics", and this is the second version of the package... hence 
+the `2`).  
+\
+
+Click Continue for a quick overview of what the grammar of graphics means.
+
+
+$~$
+
+### GRAMMAR OF GRAPHICS 
+\  
+
+<div align="center">
+   ![](images/GG.png){width="80%"}
+</div>  
+\
+
+Any data visualisation is a set of different _layers_ of information, as illustrated
+in the image above. We'll go through the most important ones from bottom to top.  
+
+**Data** is the most fundamental base layer. All figures are plotted from data.  
+
+**Aesthetics** describe the mapping of data onto the graph. Foremost, aesthetics are used 
+to state what the x-variable and y-variable are, although they can extend to other 
+variables for more complex graphs (e.g. a third variable to colour data points, 
+or a third axis for a 3D graph).  
+
+**Geometries** describe how aesthetics are represented. This principally includes
+the graph "type" (e.g. histogram, boxplot, barplot, scatter plot etc.).
+
+**Facets** can be used to split a figure into sub-plots. Sometimes putting all 
+data in one space is difficult to read, so a plot can be split out into different
+facets according to chosen aesthetics.  
+
+**Statistics** describe any models used to describe or predict the data. This 
+may commonly include means and standard deviations, linear models or loess 
+curves.  
+
+**Coordinates** are not commonly used for simple graphs, but are useful when 
+projecting the data into a different coordinate space. Mapping is the 
+most obvious example: the same data can be plotted using many different 
+geographic coordinate systems.
+
+
+
+### `ggplot`
+\
+
+Functions and arguments in `ggplot2` mirror these layers. You'll encounter 
+these methods in the next several chapters. The reason we're using `ggplot`
+is because the graphics is produces are generally far better quality than 
+the `base` `R` graphics. 
+
+* `base R` graphics **GOOD** for: 
+  + Quick, simple plots
+  + Fast viewing of your data
+  + Extremely flexible customisation _if you take considerable time to learn methods and code._
+* `base R` graphics are **NOT good** for:
+  + Not good for using for publications if you rely on default options, which are ugly.
+  + Not good for customising plots _unless time is taken to learn how_
+  + Not good for coherent coding (no underlying framework, order of functions very important)
+  + Not good for tutorials available
+
+* `ggplot` graphics are **GOOD** for:
+  + Quickly producing and customising aesthetically pleasing plots 
+  + Publication-quality figures out the box
+  + Coherent code (clear underlying framework, order of functions flexible)
+  + Easy access tutorials
+* `ggplot` graphics are **NOT good** for:
+  + Not good given lack of flexibility outside available options 
+  + Not good for quick plots as more code is needed
+  + Not good for viewing data fast
+\
+
+Here's an example of a scatter plot made using `ggplot` with the  with the toy 
+data. 
+\
+
+```{r}
+ggplot(toydata, aes(x = numbers2, y = random)) +
+  geom_point(color = "steelblue4") +
+  xlim(0, 20) + ylim(-2, 2) +
+  xlab("Even numbers") + ylab("Random normal") +
+  theme_minimal()
+```
+\
+
+Take a look at the graph and the code, and it's possible to match up the different layers:
+
+* The **DATA** is `toydata`.
+* The **AESTHETICS** (in this case just x and y variables) are defined using `aes()`
+* The **COORDINATES** are altered in a very simple way by changing the x and y 
+axis limits using `xlim()` and `ylim()`
+* The **THEME** is changed by applying the minimal theme using `theme_minimal()`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- spiel -->
+## 3 --- Data Distributions
+\
+
+_The first section of this Chapter will be completed at home before this week's online workshop._
+This first section contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The second section of this worksheet will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session...
+
+
+
+Contine to Resources...  
+
+
+$~$
+
+***
+### **3.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+<!-- ### *** Pages etc. -->
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 87 - 91, Chapter 4.4, "Distributions:
+making histograms of numeric variables", & Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
+\
+
+
+##### **ShinyGLM**
+
+We'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM) webapp 
+in this and subsequent chapters. It's designed to make learning data skills in `R`
+an interactive experience. It's worth getting to know how to use it, so make sure 
+to read the **USER GUIDE** now.  
+
+In this Chapter, we'll mainly be working with the _DATA DISTRIBUTIONS_ tab.  
+
+$~$
+
+***
+### **3.2 R PACKAGES**  
+
+We encountered **R packages** in the last 2 Chapters. In this Chapter we will 
+need to use an R package developed by the RStudio team.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+If you are working in RStudio, the package first needs to be installed onto your computer. Unless you update `R`, this only needs to be done _once_. 
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. The reason for thisvis that once you're using `R` a lot and have loads of packages installed, if you loaded _all_ the packages in every time you start `R` it would take forever.  
+
+Think of it like apps on your phone: imagine if every single app on your phone opened 
+every time you switched the phone on on...!  _Nightmare_.  
+
+The way we load up these packages is using `library()`. You usually need to do this every time you start a new `R` session (i.e. every time you open RStudio).
+
+ ```{r eval = FALSE}
+library(ggplot2)
+ ```
+\
+
+```{r qz32_1, echo = FALSE}
+quiz(caption = "**< QUIZ 1 >** R Packages",
+    question("In the line of code above, what is `library()`?",
+        answer("A function", correct = TRUE),
+        answer("An object"),
+        answer("An argument"),
+        answer("A-nnoying"),
+        incorrect = "Remember almost anything with parentheses `()` following it is a function.",
+        random_answer_order = TRUE
+    ),
+
+    question("What is `ggplot2`?",
+        answer("None of these", correct = TRUE, message = "Correct. In fact, loading packages means loading functions, objects and more into the R session."),
+        answer("A character object"),
+        answer("A logical object"),
+        answer("An object"),
+        answer("A function"),
+        incorrect = "They are none of these. ggplot2 is a package, and loading packages means loading functions, objects and more into the R session.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+R aficionados will tell you not to confuse "package" and "library"
+
+* packages are stored in a library
+* you use the function `library()` to load a package from your library.
+
+If you tell `R` geeks like me that you're loading a library, we can't handle it 
+and our brains explode.  
+
+$~$
+
+***
+### **3.3 DATA DISTRIBUTIONS** 
+\
+
+It's really important to understand the nature of your data. There are different 
+types of data, and here are some of the types we regularly encounter as biologists:
+
+* numeric
+   + continuous: Gaussian, beta, exponential
+   + discrete (counts): Poisson, binomial
+* non-numeric
+   + categorical
+   + ordinal
+\
+
+Let's remind ourselves of the different distributions found in the _**games**_ 
+data, and the distributions they follow.  
+\
+
+```{r qz33_2, echo = FALSE}
+quiz(caption = "**< QUIZ 2 >** Data Distributions",
+    question("What distribution does the paper balls variable follow?",
+        answer("poisson", correct = TRUE),
+        answer("Gaussian"),
+        answer("binomial"),
+        answer("categorical"),
+        incorrect = "It's a poisson variable, as it's a count.",
+        random_answer_order = TRUE
+    ),
+
+    question("Is the paper balls variable continuous or discrete?",
+        answer("discrete", correct = TRUE, message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
+        answer("continuous", message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
+        random_answer_order = TRUE
+    ),
+
+    question("What distribution does the reaction time follow?",
+        answer("beta", correct = TRUE),
+        answer("ordinal"),
+        answer("poisson"),
+        answer("categorical"),
+        incorrect = "It's beta, which is the distribution that describes proportions.",
+        random_answer_order = TRUE
+    ),
+
+    question("Is Tutor Group categorical or ordinal?",
+        answer("categorical", correct = TRUE),
+        answer("ordinal"),
+        incorrect = "It's categorical, as it has no natural hierarchy (even if you do think 
+        your tutor group is the best in the year group...).",
+        random_answer_order = TRUE
+    ),
+
+    question("What distribution does the glasses prescription follow?",
+        answer("Gaussian", correct = TRUE),
+        answer("poisson"),
+        answer("beta"),
+        answer("ordinal"),
+        incorrect = "It's Gaussian, as it can in theory take any continuous value.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+#### **3.3.1 Data Distributions Explained**
+\
+
+Here's a little from me on data distributions:  
+\
+
+<center>
+![](https://youtu.be/d7lARa168gk){width="80%"}
+</center>  
+\  
+
+The **distributions** of variables are important factors in how we 
+interpret plots and analyses. Distributions are effectively 'counts' of the
+number of times certain variable values occur (e.g. for the paper balls game, which has discrete values, the distribution may be simply 
+the counts of occurrence of 0, 1, 2, 3, 4,...), or the number of times variable 
+values occur within certain intervals (e.g. for the eyesight variable we can count the number of 
+values between -3 to -2, -2 to -1, -1 to 0,..., or any other intervals we choose).  
+
+We use these counts to visualise distributions, as we will see shortly.  
+
+Distributions also show us how variables are:
+
+* _bounded_ (i.e. cannot occur above, below or between certain values)
+* how they are _skewed_ (e.g. there are lots of small values but not many large ones or vice versa)
+* what values their _moments_ (i.e. mean, variance, skewness) may take
+* which _statistical distributions_ the data approximate.
+
+Distributions of your data are important, as all of the things listed here can have implications
+for: 
+
+* how you analyse your data
+* whether your statistical models are valid
+* how you interpret your results.
+
+<!--
+In this particular session, we're going to acquaint ourselves with the 
+[`ggplot2`](https://ggplot2.tidyverse.org/) package. `ggplot2` is a great 
+package for data visualisation: it's easy to make very pretty graphs with 
+only a few lines of code, and has simplified many data visualisation problems 
+which previously were tricky in R. We'll be learning:
+
+* a reinforcement of data-handling skills
+* an understanding of the grammar of graphics and how ggplot uses it
+* how plot histograms
+   + `ggplot()` and `aes()` to initialise a plot
+   + adjustments to coordinates
+   + `geom_histogram` to map a histogram 
+   + how to change the look of a plot with themes and other options  
+\
+-->
+
+$~$
+
+***
+### **3.4 VISUALISING DATA DISTRIBUTIONS**
+ \
+
+Data distributions are most commonly visualised using a **histogram**.  
+
+A refresher on 
+histograms: the variable 
+of interest, on the x axis, is split into _bins_. Each bin has a bar representing 
+either the _count_ of the number of data points that fall in that bin, or the 
+_density_: the proportion of total data points that fall in that bin.  
+
+$~$
+
+### 3.4.1 EYESIGHT
+\  
+
+We're going to begin by working with the `eyesight` variable.  
+\
+
+Head on over to [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM). 
+I assume you've read all of the user guide now... (I know 
+it must have been thrilling reading). Go to the DATA DISTRIBUTIONS page. Choose to plot the 
+`eyesight` variable. Keep all of the other options at their defaults, for now.  
+
+Your histogram should look like this:  
+
+```{r}
+### *** THIS NEEDS FIXING
+hist <- ggplot(games, aes(x = eyesight)) +
+    geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
+    xlim(-7.5, 14) +
+    theme_minimal()
+
+hist
+```
+\
+
+Using this histogram, answer the questions below.  
+\
+
+```{r qz341_3, echo = FALSE}
+quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
+    question("Does the eyesight variable have any bounds?",
+        answer("No", correct = TRUE),
+        answer("Yes: -7 and 14"),
+        answer("Yes: the maximum short- and long-sighted prescriptions ever given"),
+        incorrect = "There are no strict bounds on the data, even if values are very unlikely to go beyond a certain maximum or minimum",
+        random_answer_order = TRUE
+    ),
+
+    question("Is the eyesight variable continuous or discrete?",
+        answer("continuous", correct = TRUE),
+        answer("discrete"),
+        incorrect = "Continuous: the numbers are often rounded to the nearest 0.25, but they theoretically could take any real number.",
+        random_answer_order = TRUE
+    ),
+
+    question("Is the data skewed?",
+        answer("Yes: a positive skew", correct = TRUE),
+        answer("No"),
+        answer("Yes: a negative skew"),
+        incorrect = "There is a positive skew in the data, with a tail to the right.",
+        random_answer_order = TRUE
+    ),
+
+    question("Are there any potential outliers?",
+        answer("Yes: at the upper end of the distribution", correct = TRUE),
+        answer("Yes: at the lower end of the distribution"),
+        answer("No"),
+        incorrect = "There is a potential outlier at the upper end of the distribution, as evidenced by a single bar which is apart from the others.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+##### **A little bit on outliers**
+
+The potential outlier at the upper end of the `eyesight` distribution may cause some significant problems for later analysis. Common sense tells us that an eyesight prescription of 14 is very unlikely (extreme farsightedness is considered to be anything over +5 to +6!), so when we come to analyse the data, we may want to remove this data point for purely that reason. When we are trying to analyse the relationship between two (or more) variables, outliers can either
+
+* influence relationships between two variables such that they cause a significant relationship where there otherwise isn't one if the outlier is removed
+* mask a real relationship between two variables where the influence of the outlier is in the opposite direction to the relationship between the two variables where the outlier is removed.  
+\
+
+**THERE IS A DIFFERENCE BETWEEN AN OUTLIER AND AN INFLUENTIAL POINT**.  
+
+* An outlier is a data point which sits far apart from the majority of points that make up the bulk of its variable's distribution, like the high data point for eyesight.
+* Outliers can potentially become influential points when analysing the relationship between one variable and another.
+  + An outlier may sit far from the other data, but close to the fitted relationship between two variables, in which case it is not influential.
+  + An outlier may sit far from the other data, and also far away from the fitted relationship between two variables, in which case it may be an influential point.  
+\
+
+If an outlier is unlikely to be a reasonable or realistic data point (such as an eyesight prescription of +14), we may want to remove it from the data in any case. Otherwise, if we find that an outlier, or another point, significantly influences the outcome of an analysis, we may way to remove it for that reason.  
+
+If this all sounds confusing, it will become clear when we visualise the relationships between data in Chapters 5 and 6.  
+
+We will find out how to subset data frames to remove certain data such as outliers or influential points in Chapter 4.  
+
+$~$
+
+##### **We digress. Back to histograms.**  
+
+In the ShinyGLM app, try adjusting the number of bins that you're plotting. 
+
+* Try higher numbers
+* Try lower numbers
+* As you adjust the number of bins, look at the CODE tab to see what changes.  
+\
+
+```{r qz341_4, echo = FALSE}
+quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
+    question("What makes for better visualisation of the data distribution?",
+        answer("Neither more bins nor fewer bins", correct = TRUE, 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        answer("More bins", 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        answer("Fewer bins", 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        random_answer_order = TRUE
+    ),
+
+    question("What is the perfect number of bins to use?",
+        answer("There isn't one", correct = TRUE),
+        answer("10"),
+        answer("14"),
+        answer("20"),
+        answer("7"),
+        answer("However many bins show one bar per data point"),
+        answer("However many bins show ten bars"),
+        incorrect = "check the answer to the question before this one!",
+        random_answer_order = TRUE,
+        allow_retry = TRUE
+    ),
+
+    question("When the number of bins is changed, what changes in the code?",
+        answer("the argument 'bins' in the function geom_histogram", correct = TRUE),
+        answer("the function 'bins' in the argument geom_histogram"),
+        answer("the data in 'ggplot'"),
+        answer("the y value"),
+        answer("the option 'bins'"),
+        random_answer_order = TRUE, 
+        allow_retry = TRUE,
+        try_again = "Remember the grammar of R code... what goes before curved parentheses?"
+    )
+)
+```
+\
+
+On the left of the ShinyGLM page you can see lots of different options for the plot. 
+You can probably guess by looking at the code how elements of the code match up to the rest of the options in the app.  
+\
+
+#### **< EXERCISE 1 >** Visualising Data Distributions - Gaussian
+_Use the options in the ShinyGLM app to make a histogram that has:_
+
+1. _Bars which are 'black'_
+2. _x axis limits of -10 and 15_
+3. _12 bins_
+4. _A 'classic' theme_
+
+_Edit the code below, which has deliberate mistakes in it, to reproduce the histogram with the above criteria. Think of this as a game of spot-the-difference... compare this code to the code generated from the app, and fix the differences._  
+
+_Edit the code directly rather than copy-pasting from the ShinyGLM app: you learn far quicker that way._
+
+```{r ex341_1, exercise=TRUE, echo=FALSE}
+hist <- ggplot(games aes(x = Eyesight)) +
+    geom_histogram(aes(y = ..density..), bin = 12, color = 'black') +
+    xlim(c(-10, 15)) 
+    theme('classic')
+
+hist
+
+```
+\  
+```{r ex341_1-solution}
+hist <- ggplot(games, aes(x = eyesight)) +
+    geom_histogram(aes(y = ..density..), bins = 12, fill = 'black') +
+    xlim(-10, 15) 
+    theme_classic()
+
+hist
+
+```
+
+Just reflect also on what's different in the code for this histogram compared to the first histogram in this chapter, and how this maps on to the differences in what the histograms show. For example, using `ggplot(` You'll need this knowledge for the next exercise.  
+
+
+$~$
+
+### 3.4.2 REACTION
+\
+
+The following exercise requires you to code a histogram yourself, for the 'reaction' variable.  
+\
+
+Ideally, you should take the following approach to this exercise:
+
+* Step 1: see if you can copy-paste the code for the _eyesight_ histogram from the last exercise and alter it for this exercise
+* Step 2: If you need an easier starting point, change the options in the ShinyGLM app to generate the code you need and copy it across here.
+
+You won't find all the answers in the ShinyGLM app. Some of the solutions require a little bit of internet searching. A key skill for any programmer is to be able to find out the answers to any coding problems you encounter.
+
+* Step 3: Google [other search providers are available] to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
+* Step 4: look at the hints if you're stuck.  
+\
+
+#### **< EXERCISE 2 >** Visualising Data Distributions - beta
+_Plot a histogram of `reaction`, with:_
+
+* _bar colour "goldenrod"_
+* _x limits of 0 and 1_
+* _11 bins_
+* _x label "Number of continents visited" and y label "Number of countries visited"_
+* _a density plot added_
+* _a black and white theme_
+
+```{r ex342_2, exercise=TRUE, echo=FALSE}
+
+```
+```{r ex342_2-hint, eval = FALSE}
+Solutions to the last two points, if not found through googling, are on the 
+ggplot cheat sheet, linked to at the top of the page! Everything else
+is covered in the ShinyGLM app.
+```
+\  
+
+```{r qz342_5, echo = FALSE}
+quiz(caption = "**< QUIZ 5 >** Visualising Data Distributions - beta",
+    question("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?",
+        answer("Zero and one are the outer bounds of the data", correct = TRUE),
+        answer("Zero and 1 are the right distances outside the range to be able to view all the data"),
+        answer("Zero and one are aesthetically pleasing choices"),
+        answer("Zero and one are a clear unit integer width"),
+        incorrect = "Zero and one are the outer bounds of the data. By making these the axis limits, it's clear how the data are distributed relative to the whole of the possible range.",
+        correct = "By making the axis limits equal to the outer bounds of the data, it's clear how the data are distributed relative to the whole of the possible range.",
+        random_answer_order = TRUE
+    )#,
+    ### *** complete here
+#    question("What do you think the 'density plot' added to the previous 
+#    histogram represents?",
+#        answer(),
+#        answer(),
+#        answer(),
+#        incorrect = "",
+#        random_answer_order = TRUE   
+#    )
+)
+```
+\
+
+$~$
+
+### 3.4.3 COUNTRIES
+\
+
+You may remember that histograms may be represented as densities 
+(counts in a bin represented as a proportion of the total), and counts 
+(raw counts of 
+the number of data points in a bin). So far, we have only plotted histograms 
+using density.  
+
+If we want to plot a histogram of countries people have visited, then we 
+might want to use counts as it's more informative in this case. We also would 
+want to make sure there's one bar per number of countries visited.  
+\
+
+#### **< EXERCISE 3 >** Visualising Data Distributions - poisson
+_Edit the code below to make a histogram of counts with one_ 
+_bar per number of countries visited. Here's two hints:_
+
+* _`R` is literal: if there's somewhere in the code that specifies a density_
+_plot, then it's very likely that's what you might have to edit to produce a_
+_count plot instead._
+* _Run the code `?geom_histogram` before you start to see the help page on this function, and_
+_somewhere on this page is another way to specify bins which have a specific_
+_width: you want to specify bins that have a width of 1._
+
+```{r ex343_3, exercise=TRUE, echo=FALSE, exercise.cap="2.3 Data Distributions: Exercise 3"}
+hist <- ggplot(games, aes(x = countries)) +
+    geom_histogram(aes(y = ..density..), bins = 12, color = 'green4') +
+    xlim(0.5, 30.5) +
+    theme_minimal()
+
+hist
+
+```
+```{r ex343_3-solution}
+hist <- ggplot(games, aes(x = countries)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, color = 'green4') +
+    xlim(0.5, 30.5) +
+    theme_minimal()
+
+hist
+
+```
+
+$~$  
+
+### 3.4.4 CONTINENTS
+\
+
+Consider the three code chunks below. There are mistakes in the code.  
+\
+
+_Continents: chunk 1_
+```{r eval = FALSE}
+hist <- ggplot(games, aes(x = continents)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlim(0.5, 7.5) +
+    theme_minimal()
+
+hist
+```
+
+_Continents: chunk 2_
+```{r eval = FALSE}
+hist <- ggplot(games, aes(x = Continents)) +
+    geom_hist(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlims(0.5, 7.5) +
+    theme_minimal()
+
+hist
+```
+
+_Continents: chunk 3_
+```{r eval = FALSE}
+hist <- ggplot(games_data, aes(x = continents)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlim(0.5, 7.5) +
+    minimal_theme()
+
+hist
+```
+
+_Continents: chunk 4_
+```{r eval = FALSE}
+hist <- ggplot(games, aes(x = continents)) +
+    geom_histogram(aes(y = 'count'), bins = 1, fill = 'chocolate4') +
+    xlim(0.5, 7.5) +
+    theme_minimal()
+
+hist
+```
+\
+
+```{r qz344_6, echo = FALSE}
+quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
+    question("Which of the chunks has a mistake in the _data_? Choose one or more answers.",
+        type = "checkbox",
+        answer("Chunk 1"),
+        answer("Chunk 2"),
+        answer("Chunk 3", correct = TRUE, message = "Correct: `games_data` should be `games`."),
+        answer("Chunk 4"),
+        allow_retry = TRUE,
+        message = "The data is always the first argument of the `games()` function."
+    ),
+    question("Which of the chunks has a mistake in the _aesthetics_? Choose one or more answers.",
+        answer("Chunk 1"),
+        answer("Chunk 2", correct = TRUE, message = "Correct: `aes(x = Continents)` should be `aes(x = continents)`... the uppercase C should be lowercase."),
+        answer("Chunk 3"),
+        answer("Chunk 4", correct = TRUE, message = "Correct: `aes(y = 'count')` should be `aes(y = ..count..)`"),
+        allow_retry = TRUE,
+        message = "aesthetics are most often associated with specifying the axes and are specified using the aes() function."
+    ),
+    question("Which of the chunks has a mistake in the _geometries_? Choose one or more answers.",
+        answer("Chunk 1"),
+        answer("Chunk 2", correct = TRUE, message = "Correct: `geom_hist` should be `geom_histogram`."),
+        answer("Chunk 3"),
+        answer("Chunk 4", correct = TRUE, message = "Correct: `bins = 1` should be `binwidth = 1`, and are a part of specifying the histogram using the `geom_histogram()` function."),
+        allow_retry = TRUE,
+        message = "geometries are simply the type of plot: in this case the histogram."
+    ),
+    question("Which of the chunks has a mistake in the _theme_? Choose one or more answers.",
+        type = "checkbox",
+        answer("Chunk 1"),
+        answer("Chunk 2"),
+        answer("Chunk 3", correct = TRUE, message = "Correct: `minimal_theme` should be `theme_minimal`."),
+        answer("Chunk 4"),
+        allow_retry = TRUE
+    ),
+    question("Which of the chunks has no mistakes?",
+        type = "checkbox",
+        answer("Chunk 1", correct = TRUE),
+        answer("Chunk 2"),
+        answer("Chunk 3"),
+        answer("Chunk 4"),
+        answer("None of the chunks"),
+        allow_retry = TRUE,
+        correct = "Well done!",
+        incorrect = "It could only have been chunk 1 or none of them... better luck next time."
+    )
+)
+```
+\
+
+$~$
+
+
+***
+### **3.5 OTHER RESOURCES**
+\
+
+...
+
+$~$
+
+***
+### **3.6 FINAL TIPS**
+\
+
+...
+
+$~$
+
+***
+### **< WORKSHOP >** Data Distributions
+***  
+\
+
+...
+
+$~$
+
+***
+##### END OF CHAPTER
+***
+
+
+
+
+<!--
+Cast your mind back to the _BGY2010M W1.2 Data handling_ worksheet, because 
+you're going to have to remember something you learned! You want to look 
+at the 'games' data for only people who can't touch the floor, as you have a theory 
+that their tight muscle tension could mean they have quicker reactions 
+(the `ruler` variable).  
+
+_Task: work out (without looking at the app!) which of these three pieces of code 
+give the correct way to subset the data in the way described above._
+
+```{r eval=FALSE}
+# a)
+data %>% filter(ffold %over% 0)
+
+# b)
+data %>% slice(ffold >= 0)
+
+# c)
+data %>% select(ffold > 0)
+
+# d)
+data %>% filter(ffold > 0)
+
+```
+\
+
+Now, head to the DATA page and subset the data to only people who can't touch the 
+floor. See whether you got the above answer right.  
+\
+
+Returning to the DATA VISUALISATION (ONE VARIABLE) page, see how subsetting 
+the data has changed your plot.  
+
+_Question: think back to the start of this worksheet and what you thought about
+the characteristics of the distribution of the `ffold` variable. Now that you've subsetted the `ffold` data, have those thoughts changed?_  
+\
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 4 --- Data Management
+\
+
+_The first section of this Chapter will be completed at home before this week's online workshop._
+This first section contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The second section of this worksheet will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+We've learned some basic stuff in R: objects, classes, assignments, functions,
+arguments, outputs, comments. Importantly we've learned of a few common classes
+of object that we'll often encounter during our R adventures: numeric, 
+character, factor, logical, data.frame.  
+
+We've also learned about __Tidy Data__. Tidy data allows you, as analyst padawans, 
+to easily subset and manipulate data, so you're working with the data that you 
+need to be working with.  
+
+In this session, we're going to learn common means of manipulating data. 
+We're going to acquaint ourselves with the 
+[`dplyr`](https://dplyr.tidyverse.org/) package. `dplyr` is an expert 
+data-wrangler which you can use to organise and manipulate data ready for 
+plotting and analysis. We'll be learning:
+
+* how to read data into R
+* how to subset data
+   + `slice()` and `filter()` to choose certain rows of the `data.frame`
+   + `select()` to choose certain columns of the `data.frame`
+* how to manipulate data
+   + how to add a variable to the `data.frame` using `mutate()`
+   + how to arrange the `data.frame` by variable values using `arrange()`
+* how to use **pipes** `%>%` to make coding neater and cleaner.  
+\
+
+$~$
+
+***
+### **4.1 RESOURCES**  
+\
+
+##### **BOOKS**
+ 
+<!-- ### *** Pages etc. -->
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 35 - 78, Chapter 2, "Getting your 
+data into R" and Chapter 3, "Data management, manipulation and exploration".
+\ 
+
+##### **CHEATSHEETS**
+
+* data transformation with dplyr cheatsheet - 
+see Resources section on blackboard or download 
+[here](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+\
+
+##### **WEB LINKS**
+
+* [**dplyr package**](https://dplyr.tidyverse.org/)
+* [**R for beginners**](https://education.rstudio.com/learn/beginner") by RStudio
+* [**ShinyGLiM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
+\
+
+##### **ShinyGLM**
+
+In this Chapter, we'll mainly be working with the _DATA_ tab.  
+\
+
+***
+### **4.2 R PACKAGES**  
+\
+
+In this Chapter we will 
+need to use another R package developed by the RStudio team.
+
+ * `dplyr`, is an `R` package which helps work with data: subsetting, transforming, manipulating... etc.
+
+Remember that if you're working alongside this in RStudio, the package first needs to be installed onto your computer, and unless you update `R`, this only needs to be done _once_. 
+
+```{r eval = FALSE}
+install.packages("dplyr")
+ ```
+\
+
+Then in order for `R` to know to use it in your session, it needs to also be loaded:
+ ```{r eval = FALSE}
+library(dplyr)
+ ```
+
+$~$
+
+***
+### **4.3 SUBSETTING DATA**
+\  
+
+On the DATA tab of the ShinyGLM app, you can see the games data.  
+
+There are two panels on the right 
+(although if your browser window is narrow or you're 
+using a smartphone or a tablet then these might be at the bottom of the 
+page): **DATA FRAME** and **CODE**. On the CODE tab, you'll see a couple of lines of code which, if you cast your mind back to _Chapter 1 R Basics_, will be familiar. These two lines of 
+code are what you would need to use in R Studio to read in the games data and 
+get R to show it.  
+
+On the left (or at the top of the page if you're using a small screen or 
+small browser window) are some options.  
+
+These options allow you to subset the data:
+
+* Subset rows either by...
+  + row numbers using the `slice()` function, or
+  + selecting variable values using the `filter()` function
+* Subset columns either by...
+  + column numbers using the `select()` function, or
+  + variable names, also using the `select()` function.  
+\
+
+One HUGE advantage of `R` and other coding languages is how quickly and easily it is to manage your data in these ways. With a single line of code you can apply one or more criteria which strip out what you don't want and keep in what you do. When working with data, you usually find this shuffling and re-shuffling of the data is absolutely necessary.  
+
+$~$
+
+### 4.3.1 `slice()`
+\
+
+##### **CHOOSING ROWS BY NUMBER**
+
+First we'll pick some rows by their number using `slice`. Imagine that we want to view only the data for group 2, which are rows 7-10 of the data.  
+
+* Change the row numbers slider to values of **7** and **10**.
+* Check that the DATA FRAME is displaying persons 7 to 10.
+* Look at the CODE panel to see how it's changed.  
+\
+
+```{r qz431_3, echo = FALSE}
+quiz(caption = "**< QUIZ 1 >** Subsetting Data - slice",
+    question("How many objects are assigned in this code?",
+        answer("1", correct = TRUE),
+        answer("2"),
+        answer("3"),
+        answer("4"),
+        message = "There are 3 objects: `data`, `rows` and `dataSubset`. Objects are assigned using the backwards arrow `<-`",
+        random_answer_order = FALSE
+    ),
+
+    question("How could you specify the rows to subset without assigning the desired range to the object `rows`? Select one or more options.",
+        answer("using `slice(seq(7, 10, 1))`", correct = TRUE),
+        answer("using `slice(7:10)`", correct = TRUE),
+        answer("using `slice(c(7, 8, 9, 10))`", correct = TRUE),
+        message = "There's always more than one way of doing things in `R`. We've learned about all of these methods in previous chapters.",
+        random_answer_order = TRUE
+    ),
+
+    question("Even though the above options require fewer lines of code, why might we want to use the `rows` object anyway?`",
+        answer("`rows` can be re-used in later code", correct = TRUE),
+        answer("We can change `rows` once, and the row values will change every time it's used in the code", correct = TRUE),
+        answer("Using the `rows` object requires less computer RAM"),
+        answer("Using the `rows` object makes you look cooler and better at coding"),
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+$~$
+
+### 4.3.2 PIPE `%>%`
+\
+
+You'll notice that we use a **pipe** `%>%` in the code.
+
+```{r eval = FALSE}
+rows <- c(7, 10)
+
+dataSubset <-games %>%
+    slice( seq(rows[1], rows[2], 1) )
+```
+\
+
+Whatever comes before the pipe is passed to whatever comes after the pipe. So, 
+the chunk of code above could be interpreted as  
+
+_"Take the `games` object (which is the games data frame), and use the `slice()` function to subset rows 7 to 10 from it._  
+
+This is assigned to an object called `dataSubset`.  
+\
+
+There's another way we can write this code:
+
+```{r eval = FALSE}
+rows <- c(7, 10)
+
+dataSubset <- slice(games, seq(rows[1], rows[2], 1) )
+```
+\
+
+For something short like we're doing here, this might be OK. But as you 
+need to do more and more things with your data, this gets more complicated:
+you end up with functions inside functions, parentheses within parentheses.  
+\
+
+#### **< EXERCISE 1 >** Subsetting Data - pipe `%>%`
+_Edit the code below so you condense the first three lines of code into one line. Hint: combine answers from "Subsetting Data: Quiz 1" and the information you just learned about pipes._
+```{r ex432_1, exercise=TRUE, exercise.eval= TRUE, echo=FALSE}
+rows <- c(7, 10)
+dataSubset <- games %>%
+    slice( seq(rows[1], rows[2], 1) )
+dataSubset
+```
+```{r ex432_1-solution}
+dataSubset <- slice(games, seq(7, 10, 1))
+OR
+dataSubset <- slice(games, 7:10)
+
+Step 1: use slice(games, ...) instead of the pipe
+Step 2: use seq(7, 10, 1) or 7:10 instead of rows object
+Step 3: combine!
+```
+\
+
+$~$
+
+### 4.3.3 `select()`
+\
+
+The pipe `%>%` is particularly useful when you want to perform multiple operations
+on an object: we'll see this now as we want to select not just rows, but columns 
+from the data.
+
+##### **CHOOSING COLUMNS BY NUMBER**
+
+First, we'll choose by column number. Imagine that we don't want the data related to the online games: this is the columns `pballs`, `reaction` and `hardware` (columns 7, 8 and 9).
+Back in the ShinyGLM app, with the rows 
+still set to 7 and 10, pick _"Choose by... Column numbers"_ and 
+change the slider to 1 and 6. Check the _DATA FRAME_ tab to check 
+you have the right rows and columns, then check the _CODE_ tab. Notice that
+there's a further step in the data subsetting, which uses `select()` to choose columns. The data should now show the lines for group 2 and the columns for everything except variables related to the online games.  
+\
+
+The pipes have become important here. The chunk of code above could be interpreted as:  
+
+_"Take the `games` object [which is the games data frame], and use the `slice()` function to first, subset rows 7 to 10 and second, use the `select()` function to subset columns 1 to 6, from it."_  
+
+Let's take a moment to imagine what that would look like without pipes:
+\
+
+```{r eval = FALSE}
+rows <- c(7, 10)
+cols <- c(1, 6)
+dataSubset <- select(slice(games, seq(rows[1], rows[2], 1) ), seq(cols[1], cols[2], 1))
+``` 
+\
+
+We also saw in _Chapter 1: R Basics_ that there is a way to use base `R` to 
+select rows and columns from a data frame using square brackets `[]` (check back if you've forgotten). That 
+would look like this:
+\
+
+```{r eval = FALSE}
+rows <- c(7, 10)
+cols <- c(1, 6)
+dataSubset <- games[seq(rows[1], rows[2], 1), seq(cols[1], cols[2], 1)]
+``` 
+\
+
+I hope you agree with me that the pipes make everything neater and easier to understand.  
+\
+
+#### **< EXERCISE 2 >** Subsetting Data - `select`
+_Type in the code you get from the ShinyGLM app (from `# define row range` onwards). Try the following:_
+
+1. _Swapping the `slice()` and `select()` lines_
+2. _Deleting the white space at the start of the `slice()` and `select()` lines_
+3. _Removing the new line after each pipe `%>%` so that the three lines are on the same line_
+```{r ex433_2, exercise=TRUE, echo= FALSE}
+
+```
+\
+
+```{r qz433_1, echo = FALSE}
+quiz(caption = "**< QUIZ 2 >** Subsetting Data - `select()`",
+    question("In this case, does it make a difference to the result whether the subsetting functions `slice()` or `select()` functions come first?",
+        answer("Yes"),
+        answer("No", correct = TRUE),
+        message = "In this case, it doesn't make a difference whether rows or columns are selected first.",
+        random_answer_order = FALSE
+    ),
+
+    question("Will it ever make a difference to the result which order subsetting functions are put?",
+        answer("Yes", correct = TRUE),
+        answer("No"),
+        message = "If for some reason you use `slice()` or `select()` twice when subsetting your data, then the order those commands happen matters. If you only use `slice()` and `select()` once each, then the order of the subsetting commands don't matter.",
+        random_answer_order = TRUE
+    ),
+
+    question("Does it matter whether you delete the white space at the start of the rows?",
+        answer("Yes"),
+        answer("No", correct = TRUE),
+        message ="It takes some practice to know what parts of the code are essential and what parts are stylistic. In this case the white space helps draw quick attention to the fact that each line is 'passed' to the next one using the pipe... sort of like a series of steps. It's good practise in `R` coding.",
+        random_answer_order = TRUE
+    ),
+
+    question("Does it matter whether there is a new line after each pipe or not?",
+        answer("Yes"),
+        answer("No", correct = TRUE),
+        message = "Again, this is a stylistic choice, and is considered good practise.",
+        random_answer_order = TRUE
+    ),
+
+    question("Do you think it would be possible to have the new line _before_ the pipe, so that ths `slice()` and `select()` lines start with a pipe?",
+        answer("Yes"),
+        answer("No", correct = TRUE),
+        message = "Without a pipe at the end of the line, `R` considers the 'chain' of commands to be finished. This is an example of a coding practise which is fundamental, not stylistic.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+**It's important to note: pipes don't work with every function in `R`**. They work for these functions from the `dplyr` package that we encounter in this Chapter, but don't necessarily expect them to work otherwise.  
+\
+
+**It is bad practice to use row and column numbers to select data from a data frame.**
+
+* If you add or remove rows or columns from your data file, then you have to change your code to match those changes.
+* If you change the order of the rows or columns in your data file, then you have to change your code to match those changes.
+\
+
+##### **CHOOSING COLUMNS BY NAME**
+
+`select()` can therefore also be used to subset according to column _**name**_. 
+We're much less likely to make a mistake if we use those names rather 
+than picking the wrong column number.  
+
+In ShinyGLM, choose _COLUMNS | Choose by... Variable names_, and take out `pballs`, `reaction` and `hardware`. Note how the code then changes, 
+and you're selecting variables by name instead of by number.  
+\
+
+#### **< EXERCISE 3 >** Subsetting Data - `select()`
+_Edit the code below to give a data frame which has all columns except `group`. Hint: the result ShinyGLM gives you works fine, but is not the quickest way to do it; try googling something like "remove column dplyr select" and see if you can find a simpler solution._  
+
+```{r ex433_3, exercise=TRUE, echo= FALSE}
+dataSubset <- games %>%
+    select()
+dataSubset
+```
+```{r ex433_3-solution, echo= FALSE}
+dataSubset <- games %>%
+    select(-group)
+dataSubset
+```
+\
+
+$~$
+
+### 4.3.4 `filter()`
+\
+
+Selecting rows using numbers is also not the best way to go about things. `filter()` is a function that can select rows according to variable values.  
+\
+
+##### **SELECTING ROWS USING VARIABLE VALUES**
+
+In ShinyGLM, make sure that all columns are selected, and choose 
+the option to select rows using variable values.  
+\
+
+**Logical** commands come into their own here. When we were selecting rows 7 through 10, we were effectively selecting only Group 2. If the number or order of the rows were to change, then rows 7 through 10 would no longer represent Group 2. Instead, we can use a logical command `group == G2` and the `filter()` function:
+
+```{r}
+dataSubset <- games %>%
+    filter( group == 'G2' )
+dataSubset
+```
+\
+Try it yourself in ShinyGLM: with all columns selected, choose _ROWS | Choose by... Variable values_ and type `group == "G2"` in the box, and click REFRESH. You should have a data frame that includes only Group 2.  
+\
+
+Using `filter()` can be very useful for removing data outliers. There is an outlier in the `eyesight` variable, which is evident from the histogram for `eyesight`. We can remove this by excluding any values below this value.  
+\
+
+#### **< EXERCISE 4 >** Subsetting Data - `filter()`
+_The `eyesight` variable has an outlier of 14. Edit the code below to remove the outlier value by using `filter()` to select values below this outlier, then plot a histogram for the `eyesight` variable using the new data frame (use the ShinyGLM app or look back on Chapter 2: Data Distributions if you're not sure)._
+```{r ex434_4, exercise=TRUE, echo= FALSE}
+# subset the data
+dataSubset <- games %>%
+    filter()
+dataSubset
+
+# plot the data
+
+```
+```{r ex434_4-solution, echo= FALSE}
+# subset the data
+dataSubset <- games %>%
+    filter(eyesight < 14) # look at the data frame: the outlier is 14
+dataSubset
+
+# plot the data
+hist <- ggplot(dataSubset, aes(x = eyesight)) +
+    geom_histogram()
+# This is the simplest histogram possible: you could choose to plot
+# y as density, change the number of bins or bin width, fill colour,
+# x axis limits, theme, etc., but you don't have to. The important 
+# Thing is to use dataSubset as the data layer.
+
+```
+\
+
+More questions on logicals below. If you're not sure of the answers then try them out in ShinyGLM. If you put in an invalid logical then the app will stop working and the screen will fade out. Don't worry: all you need to do is refresh it and try again.
+\
+
+```{r qz434_2, echo = FALSE}
+quiz(caption = "**< QUIZ 3 >** Subsetting Data - `filter`",
+    question("How would you choose everything _except_ group 2?",
+        answer("`group != 'G2'`", correct = TRUE),
+        answer("`group !%in% 'G2'`"),
+        answer("`group =! 'G2'`"),
+        answer("`group - 'G2'`"),
+        message = "`!=` means 'not equal to'.",
+        random_answer_order = TRUE
+    ),
+    question("How would you choose only short-sighted people (with negative values for `eyesight`?) Select all that apply.",
+        answer("`eyesight < 0`", correct = TRUE),
+        answer("`0 > eyesight`", correct = TRUE),
+        answer("`eyesight <= 0`"),
+        answer("`eyesight != 0`"),
+        message = "logicals often work both ways. In this case `eyesight < 0` and `0 > eyesight` are equivalent.",
+        random_answer_order = TRUE
+    ),
+    question("How would you choose only people that have been abroad in their lifetimes? Select all that apply.",
+        answer("`countries >= 2`", correct = TRUE),
+        answer("`countries > 1`", correct = TRUE),
+        answer("`1 > countries`", correct = TRUE),
+        answer("`countries <= 2`"),
+        answer("`1 < Countries`", message = "careful of uppercase letters where they shouldn't be!"),
+        message = "There are often several ways in which you can specify what you want using logicals!",
+        random_answer_order = TRUE
+    ),
+    question("How would you choose only people who aren't adults?",
+        answer("`role %in% c('child', 'baby')`", correct = TRUE),
+        answer("`role = c('child', 'baby')`"),
+        answer("`role == 'child', 'baby'`"),
+        answer("`role == 'child' & 'baby'`"),
+        random_answer_order = TRUE
+    ),
+    question("How would you choose every hardware except touchscreens?",
+        answer("`hardware != 'touchscreen'`", correct = TRUE),
+        answer("`hardware %in% c('mouse', 'keyboard', 'touchpad')`", correct = TRUE),
+        answer("`hardware %not% 'touchscreen'`"),
+        answer("`hardware == !'touchscreen'`"),
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+$~$
+
+***
+### **4.4 ADDING VARIABLES**
+
+Sometimes we might want to add a variable to the data frame that's some kind of
+function of one or more other variables.  
+
+$~$
+
+### 4.4.1 `mutate()`
+\
+
+`mutate()` is the function we'll use to add variables. If we wanted to know how many _extra_ continents someone had been to (i.e. how many continents they have been to, not including their home continent), then we need a variable which is continents minus 1.  
+
+Select _ADD A VARIABLE..._ in ShinyGLM. This allows you to add a variable to the data. You need to give your new variable a name (e.g. `extra_continents`), and then tell `R` how to calculate it: `continents - 1`. If you click _ADD VARIABLE_ it'll add it to the data frame.  
+\
+
+#### **< EXERCISE 5 >** Adding Variables - `mutate()`
+*Often when we analyse counts, we need to log-transform them. Add a variable called log_countries which is the natural log of `countries`. You'll have to look up how to calculate the natural log in `R`.*
+```{r ex441_5, exercise=TRUE, echo= FALSE}
+dataSubset <- games %>%
+    mutate()
+dataSubset
+```
+```{r ex411_5-solution, echo= FALSE}
+dataSubset <- games %>%
+    mutate(log_countries = log(countries))
+dataSubset
+```
+\
+
+You can use `mutate` as many times as you like to add as many variables as you like.  
+
+$~$
+
+***
+### **4.5 CHAINING COMMANDS**
+\
+
+You can use the pipe to chain together as many commands as you like.  
+\
+
+#### **< EXERCISE 6 >** Chaining Commands
+_Subset the data frame to include only data for students, add a variable with a name of your choice which represents `reaction` as a percentage rather than a proportion, remove all columns except `person`, `role`, `reaction` and your new percentage reaction variable._
+```{r ex45_6, exercise=TRUE, echo= FALSE, exercise.cap="3.6 Chaining Commands: Quiz 1"}
+
+```
+```{r ex45_6-solution, echo= FALSE}
+dataSubset <- games %>%
+    filter(role == 'student') # could also use role %in% 'student'
+        mutate(reaction_pc = reaction * 100)
+            select(c('person', 'role', 'reaction', 'reaction_pc'))
+# the order of the filter, mutate and select lines doesn't matter
+dataSubset
+```
+\
+
+$~$
+
+***
+### **4.X OTHER RESOURCES**
+\
+
+...
+
+$~$
+
+***
+### **4.X FINAL TIPS**
+\
+
+...
+
+$~$
+
+***
+### **< WORKSHOP >** Data Management
+***  
+\
+...
+
+$~$
+
+***
+##### END OF CHAPTER
+***
+
+
+
+<!--
+
+***
+### PART 2
+
+We'll now put some of that learning into practise with a few tasks with the 
+data. Try and complete these on your own, without consulting the app, and
+I'm sure you copied the code over from the app as was suggested, so you can
+edit that as you need to. First, pretty simple, but pretty important...  
+\
+
+_Task: read in the games data_  
+\
+
+You're interested in whether luck truly is a real thing in life, as you think
+men are unluckier than any other gender. Drawing a picture card is unlucky, as 
+picture cards look at you funny and you're pretty sure they're up to no good.
+Drawing a black card is luckier than drawing a red card, as red is the colour 
+of the devil. There are several steps to preparing your data...  
+
+_Task: prepare your lucky, lucky data..._
+
+* _You don't want to use any data from people who drew 4 cards, as 4 represents 
+the 4 horsemen of the apocalypse. Remove any data where someone chose 4 cards._
+* _You don't care about any variable that isn't associated with the cards, except
+for the identity of the person: their gender and their group. Get rid of the 
+variables you don't care about._
+* _You need to know how many non-picture cards there were for each person, so
+calculate that and add it to your data._
+\
+
+_Questions:_
+
+* _How many rows of data do you have left?_
+* _What function would you use to arrange the rows of the data frame by the number of 
+picture cards drawn? (Hint: see the Getting Started with R book)... can you 
+write the code that would do that?_
+* _What's the mean total number of black cards drawn?_
+* _What are the mean numbers of picture cards drawn, separately for each gender? 
+Hint: you can look at p. 71 of Getting Started With R for this one, and we'll
+encounter it later in the course as well._
+\
+
+
+***
+### FINAL TIPS
+
+That's a whistle-stop tour in data tidying. I'd encourage you to also look at 
+p.75 of _Getting Started With R_ which shows how this information maps on to
+the _base-R_ methods for working with `data.frame`s. Most people will use these, 
+and they can sometimes be quicker and easier when you just have something 
+very simple to do (this is a general rule with the `tidyverse` packages: 
+often if you have something quick to do, then the base-R approach is better). 
+Either approach is equally as valid.  
+\
+
+Note how I write R code: where there are spaces, what the indentation looks like,
+etc. This is code _formatting_ and there's an accepted standard for what it 
+should look like. Confusingly, it does matter in some instances where you do or 
+do not put a space, but most of the time you can put a space (in fact as many spaces 
+as you like), wherever you want. It's not the end of the world if you don't keep 
+to the proper standards, but it does make code way easier to read.
+
+
+-->
