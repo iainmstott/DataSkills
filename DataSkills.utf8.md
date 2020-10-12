@@ -1,7 +1,7 @@
 ---
 title: "Data Skills for the Life Sciences"
 author: "Module lead: IAIN STOTT  /   email istott@lincoln.ac.uk"
-date: "Last updated `r Sys.Date()`"
+date: "Last updated 2020-10-12"
 output: 
   learnr::tutorial:
     progressive: true
@@ -15,45 +15,11 @@ description: "This workbook accompanies the University of Lincoln School of Life
 
 
 
-```{r setup, include=FALSE}
-# packages
-library(learnr)
-library(shiny)
-library(shinythemes)
-library(shinyjs)
-library(DT)
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(ggfortify)
 
-# toy data
-numbers2 <- seq(2, 20, 2)
-characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
-factor1 <- rep(LETTERS[1:5], 2)
-factor2 <- rep(LETTERS[1:2], 5)
-random <- rnorm(10)
-toydata <- data.frame(numbers2, characters1, factor1, factor2, random)
-rm(numbers2, characters1, factor1, factor2, random)
 
-# games data
-games <- read.csv("data/games_data.csv")
+preserve4113df8e47508797
 
-# knitr options
-knitr::opts_chunk$set(
-  fig.align = 'center'
-)
-
-# Tutorial options
-tutorial_options(exercise.cap = "", exercise.eval = FALSE)
-```
-
-```{r, scripts, echo = FALSE}
-source("scripts/themeSelectorHack.r")
-themeSelectorHack()
-```
-
-```{css, styles, echo = FALSE}
+<style type="text/css">
 body{
   padding-top: 90px;
 }
@@ -91,7 +57,7 @@ body{
   }
 
 }
-```
+</style>
 
 
 
@@ -512,19 +478,34 @@ vertically from line to line.  Short pieces of code may be written as `inline co
 Longer pieces of code (especially if they run over multiple lines) are written as a 
 **code chunk**. Here's an example:  
 
-```{r}
+
+```r
 # draw random numbers
 random <- rnorm(1000, 0, 1)
 
 # plot distribution
 ggplot(as.data.frame(random), aes(x = random)) + 
     geom_density()
+```
 
+<img src="DataSkills_files/figure-html/unnamed-chunk-1-1.png" width="624" style="display: block; margin: auto;" />
+
+```r
 # mean
 mean(random)
+```
 
+```
+## [1] 0.03250772
+```
+
+```r
 # standard deviation
 sd(random)
+```
+
+```
+## [1] 0.9940777
 ```
 \  
 
@@ -613,32 +594,7 @@ in understanding, visualising and analysing data. They may have single answers
 or multiple possible correct answers, as seen below.  
 \
 
-```{r qz031, echo = FALSE}
-quiz(caption = " **< QUIZ 1 >** (Interactive Elements - quizzes)",
-    question("Here's a simple multiple choice question: which of these is the best?",
-        answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
-        answer("Biscuits", correct = TRUE, message = "Yes!!! Biscuits rule all!"),
-        answer("Cheesecake", message = "Incorrect. Biscuits rule all. Try dunking some cheesecake in tea or coffee!"),
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
-    )
-)
-```
+preserved8872d0278ec1d74preserve00c67b96f5ab628apreserve445a3584f3c9894epreserve58a75cd033a50b3c
 \
 
 ##### **EXERCISES**
@@ -651,12 +607,14 @@ depending on whether you have it correct...
 #### **<** EXERCISE 1 (Interactive elements - exercises) **>**
 _Write the code `6 * 7` in the box below and then click **Run Code** to get the correct answer._  
 
-```{r ex113_1, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex113_1" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex113_1-hint" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex113_1-hint}
+```text
 # The answer to life, the universe and everything...
 ```
+
+</div>
 \
 
 Sometimes exercises will have **Hints** and/or **Solutions** to help you get to 
@@ -683,7 +641,9 @@ _deviation of 12._
 
 _Remove the hash `#` from the start of each line first._
 
-```{r ex113_2, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex113_2" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # draw random numbers
 random <- rnorm(1000, , 12)
 
@@ -692,9 +652,12 @@ mean(random)
 
 # standard deviation
 sd()
-
 ```
-```{r ex113_2-solution}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex113_2-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # draw random numbers
 # 42 is the mean and it is the second argument in rnorm().
 random <- rnorm(1000, 42, 12)
@@ -706,8 +669,9 @@ mean(random)
 # standard deviation
 # add 'random' inside the parentheses.
 sd(random)
-
 ```
+
+</div>
 \  
 
 Lots of what we do when coding is taking existing code and adapting it for our 
@@ -1146,24 +1110,31 @@ _Use the functions `+ - * /` to:_
 4. _Subtract your original number_
 
 _Hint: don't forget the order of operations: `*` and `/` are executed before `+` and `-`! Parentheses `( )` can help group the right operations._
-```{r ex24_1, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex24_1" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex24_1-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex24_1-solution}
+```text
 # If your number is 42
 ((42 + 43 + 9) / 2) - 42
 
 # Whatever number you chose, your answer is 5.
 ```
+
+</div>
 \
 
 More complicated functions take the form 
 `function(argument1, argument2, ...)`. Each function has its own specific
 set of arguments, and a different object is created depending on what 
 these arguments are.
-```{r}
+
+```r
 numbers <- seq(1, 10, 1)
 numbers
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
 The function `seq()` means "sequence". This sequence is the integer numbers 
@@ -1173,11 +1144,38 @@ starting at 1 and ending at 10.
 We can do certain things with this vector. For example, we might want to see a 
 summary about it, find out what its length is, calculate the mean or see the 
 first 5 elements:
-```{r}
+
+```r
 summary(numbers)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    3.25    5.50    5.50    7.75   10.00
+```
+
+```r
 length(numbers)
+```
+
+```
+## [1] 10
+```
+
+```r
 mean(numbers)
+```
+
+```
+## [1] 5.5
+```
+
+```r
 numbers[1:5]
+```
+
+```
+## [1] 1 2 3 4 5
 ```
 \
 
@@ -1189,33 +1187,47 @@ many different ways to say one thing in a spoken language.
 We can change or add arguments to make a function behave differently. For example,
 adding an argument _digits_ to the `summary()` function gives the results to 
 a certain number of decimal places.
-```{r}
+
+```r
 summary(numbers, digits = 1)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       1       3       6       6       8      10
 ```
 \
 
 Going back to the original creation of the `numbers` object, we can change the 
 arguments of `seq` to create a different object: the two-times-table up to 20.
-```{r}
+
+```r
 numbers2 <- seq(2, 20, 2)
 numbers2
+```
+
+```
+##  [1]  2  4  6  8 10 12 14 16 18 20
 ```
 \
 
 #### **< EXERCISE 2 >** Objects
 _Create an object called `numbers3` which is a sequence_ 
 _of numbers from 3 to 21, in steps of 2._
-```{r ex24_2, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex24_2" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex24_2-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex24_2-solution}
+```text
 seq(3, 21, 2)
 ```
+
+</div>
 
 As we have `numbers2` and `numbers3`, maybe we should be consistent and change 
 the name of `numbers` to `numbers1`. We can do that by creating a new object and 
 removing the old one:
-```{r}
+
+```r
 numbers1 <- numbers
 rm(numbers)
 ```
@@ -1224,15 +1236,32 @@ rm(numbers)
 We created `numbers1` from another object `numbers`. In fact, you can
 create object using multiple other objects, and objects can be created in 
 different ways.
-```{r}
+
+```r
 # We could create numbers2 by multiplying numbers1 by 2
 numbers1 * 2
+```
 
+```
+##  [1]  2  4  6  8 10 12 14 16 18 20
+```
+
+```r
 # We could add 1 to every number in numbers2
 numbers2 + 1
+```
 
+```
+##  [1]  3  5  7  9 11 13 15 17 19 21
+```
+
+```r
 # We could add together numbers1 and numbers2
 numbers1 + numbers2
+```
+
+```
+##  [1]  3  6  9 12 15 18 21 24 27 30
 ```
 \
 
@@ -1243,34 +1272,7 @@ etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter
 vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
 \  
 
-```{r qz24_1, echo = FALSE}
-### *** TO COMPLETE!
-quiz(caption = "**< QUIZ 1 >** (Objects)",
-    question("What do the three arguments of the seq() function mean (in order)?",
-        answer("start of sequence, length of sequence, sequence increment"),
-        answer("start of sequence, end of sequence, length of sequence"),
-        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
-        incorrect = "start, end, increment.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
-    )
-)
-```
+preserve9821cf411c3910b2preserveefa1d038ccbd86c4preserve68be441309d6c03epreserve4e8acb5e9f26fd24
 
 $~$
 
@@ -1296,8 +1298,13 @@ The objects `numbers1`, `numbers2` and `numbers3` have the class _numeric_:
 this means a set (called a _vector_) of 
 numbers. You can see that the class of `numbers1` is numeric using the function 
 `class()`:
-```{r}
+
+```r
 class(numbers1)
+```
+
+```
+## [1] "numeric"
 ```
 \
 
@@ -1310,9 +1317,14 @@ We have already seen a fair bit of how numeric vectors are processed by `R`.
 
 We'll create a new object which looks kinda like `numbers1`, but is
 not actually the same.
-```{r}
+
+```r
 characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
 characters1
+```
+
+```
+##  [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"
 ```
 \
 
@@ -1324,21 +1336,60 @@ around each vector element.
 
 #### **< EXERCISE 3 >** Classes - `character`
 _Find out the class of `characters1`._
-```{r ex252_3, exercise=TRUE, echo=FALSE}
-characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+<div class="tutorial-exercise" data-label="ex252_3" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
+```text
+characters1 <- c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
 ```
-```{r ex252_3-solution}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex252_3-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # the answer is 'character'.
 class(characters1)
 ```
 
+</div>
+
 Let's try and find the same information about `characters1` as we did for `numbers1`.
-```{r}
+
+```r
 summary(characters1)
+```
+
+```
+##    Length     Class      Mode 
+##        10 character character
+```
+
+```r
 length(characters1)
+```
+
+```
+## [1] 10
+```
+
+```r
 mean(characters1)
+```
+
+```
+## Warning in mean.default(characters1): argument is not numeric or logical:
+## returning NA
+```
+
+```
+## [1] NA
+```
+
+```r
 characters1[1:5]
+```
+
+```
+## [1] "1" "2" "3" "4" "5"
 ```
 \
 
@@ -1360,40 +1411,18 @@ on things being calculated properly.
 
 It's possible to convert things between different classes, although the 
 behaviour is sometimes unpredictable so be careful!
-```{r}
+
+```r
 characters2 <- as.character(numbers2)
 characters2
 ```
+
+```
+##  [1] "2"  "4"  "6"  "8"  "10" "12" "14" "16" "18" "20"
+```
 \
 
-```{r qz252_2, echo = FALSE}
-# *** TO COMPLETE!
-quiz(caption = " **< QUIZ 2 >** (Classes - `character`)",
-    question("What do the three arguments of the seq() function mean (in order)?",
-        answer("start of sequence, length of sequence, sequence increment"),
-        answer("start of sequence, end of sequence, length of sequence"),
-        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
-        incorrect = "start, end, increment.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
-    )
-)
-```
+preserveecf1bdabb8470d02preserve9a9f7c03ecb9420apreserve2ce3083d08364b48preservec8e6c6a27d6bb16c
 
 
 ### 2.5.3 `factor`
@@ -1401,10 +1430,16 @@ quiz(caption = " **< QUIZ 2 >** (Classes - `character`)",
 
 A **factor** object is like a character object, but recognises groups of elements
 which are the same, called _levels_. Let's take a look:
-```{r}
+
+```r
 factor1 <- rep(LETTERS[1:5], 2)
 factor1 <- as.factor(factor1)
 factor1
+```
+
+```
+##  [1] A B C D E A B C D E
+## Levels: A B C D E
 ```
 \
 
@@ -1422,42 +1457,21 @@ that has a length of 25.
 
 Finally, we convert that character vector to a factor using `as.factor()` and 
 overwrite the original `factor1` object by reassigning it.
-```{r}
+
+```r
 summary(factor1)
+```
+
+```
+## A B C D E 
+## 2 2 2 2 2
 ```
 
 We can see from the summary that R recognises the five different factor levels,
 A through E.  
 \
 
-```{r qz253_3, echo = FALSE}
-# *** TO COMPLETE!
-quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
-    question("What do the three arguments of the seq() function mean (in order)?",
-        answer("start of sequence, length of sequence, sequence increment"),
-        answer("start of sequence, end of sequence, length of sequence"),
-        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
-        incorrect = "start, end, increment.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
-    )
-)
-```
+preserve88759e84238e445cpreservea3fdd4c933d28674preserveab0cc28b9d9b714cpreserve128ecb6522826193
 
 $~$
 
@@ -1467,32 +1481,41 @@ $~$
 Logical objects are perhaps hard to understand at first, but they're simple
 really. They basically indicate whether something is `TRUE` or `FALSE`. They
 usually relate to a question we ask of our data.
-```{r}
+
+```r
 rand_norm <- rnorm(50, 0, 1)
 rand_norm
+```
+
+```
+##  [1]  1.01294563 -0.21117113  0.43945541 -0.02851018 -0.15887697 -0.01657858
+##  [7] -0.38883455 -0.20786099  0.60844449  0.05982853 -0.30370304 -1.68021963
+## [13]  0.19953869 -1.74464151 -1.08927475 -0.28937659  1.80938318  0.71886353
+## [19] -0.12530884  1.50716467 -0.80734802 -1.13056521 -0.75973295 -0.64898578
+## [25] -1.13472301 -0.39347740 -0.73903723 -1.83570444 -1.37251763 -0.13164558
+## [31]  0.20769541 -0.38132092 -0.28950930 -1.44316000  1.62750935  1.48981300
+## [37] -0.07028295  0.77889439  1.06062337 -0.06310368 -0.20430551 -1.88294187
+## [43]  0.30339555 -1.85833597  0.76013797  0.87855210  1.38184633  0.72675016
+## [49] -1.28517878  1.40856382
+```
+
+```r
 over0 <- rand_norm > 0
 over0
+```
+
+```
+##  [1]  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+## [13]  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE
+## [25] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE
+## [37] FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
+## [49] FALSE  TRUE
 ```
 
 The result is information on which of your random data are greater than than 0.  
 \
 
-```{r qz254_4, echo = FALSE}
-quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
-    question("If you ran the above code multiple times, would you get the same result each time?",
-        answer("Yes", correct = TRUE),
-        answer("No"),
-        random_answer_order = TRUE
-    ),
-
-    question("You won't get the same result each time. Which part of the code causes that to happen?",
-        answer("the function rnorm()", correct = TRUE, message = "The function rnorm() creates random numbers."),
-        answer("The arguments 50, 0, 1", message = "The function rnorm() creates random numbers."),
-        answer("The logical operator >", message = "The function rnorm() creates random numbers."),
-        random_answer_order = TRUE
-    )
-)
-```
+preservebf997aff4f2e4316preserve423497adb8089a48preservea1441f27a68d6dfc
 \
 
 There are lots of questions you can ask of your data using logical operators, and 
@@ -1515,13 +1538,38 @@ expect, however. Take these logical operators:
 `==` tells you whether the two objects on the left and the right are exactly equal 
 to each other:
 
-```{r}
-1 == 1
-c(1, 1, 2, 3) == 1
 
+```r
+1 == 1
+```
+
+```
+## [1] TRUE
+```
+
+```r
+c(1, 1, 2, 3) == 1
+```
+
+```
+## [1]  TRUE  TRUE FALSE FALSE
+```
+
+```r
 # using some objects we created earlier in the chapter:
 numbers2 == numbers1 * 2
+```
+
+```
+##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+```
+
+```r
 numbers1 == characters1
+```
+
+```
+##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ```
 
 We might not expect `numbers1 == characters1` to return all `TRUE`. All I can say is... sometimes `R` is weird.  
@@ -1529,9 +1577,21 @@ We might not expect `numbers1 == characters1` to return all `TRUE`. All I can sa
 
 `!=` does the opposite job of `==`, telling us which elements on the right are NOT the same as the element(s) on the left.  
 \
-```{r}
+
+```r
 1 != 1
+```
+
+```
+## [1] FALSE
+```
+
+```r
 "ABC" != "ABCDEFG"
+```
+
+```
+## [1] TRUE
 ```
 \
 
@@ -1542,9 +1602,21 @@ One final useful logical operator:
 
 `%in%` is used to find out whether a value or values in one vector
 (on the left) exist in another vector (on the right). For example:
-```{r}
+
+```r
 c(1, 2, 3) %in% c(1, 2)
+```
+
+```
+## [1]  TRUE  TRUE FALSE
+```
+
+```r
 numbers2 %in% numbers1
+```
+
+```
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
 ```
 It's not necessary when using `%in%` for the two vectors to have the same length; in the first line of code, we compare a vector with three elements to a vector with two elements.  
 
@@ -1553,9 +1625,14 @@ is found somewhere in `numbers1`. If `FALSE`, it isn't. We can see that the firs
 \
 
 Logicals are very useful for subsetting data:
-```{r}
+
+```r
 num2_in_num1 <- numbers2 %in% numbers1
 numbers2[num2_in_num1]
+```
+
+```
+## [1]  2  4  6  8 10
 ```
 We first create an object that tells us which elements of `numbers2` are in `numbers1`. Then, when `num2_in_num1` is put in the square brackets, it 
 picks out all the elements of `numbers2` which are `TRUE`: 
@@ -1564,7 +1641,9 @@ these are the values of numbers in `numbers2` which are also found somewhere in 
 
 #### **< EXERCISE 4 >** Classes - `logical`
 _Put in the correct logical operators. The correct outputs are found in the solutions._
-```{r ex254_4, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex254_4" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # 1. ((42 + 43 + 9) / 2) - 42 is the same as ((31 + 32 + 9) / 2) - 31
 ((42 + 43 + 9) / 2) - 42     ((31 + 32 + 9) / 2) - 31
 
@@ -1576,9 +1655,12 @@ mean(runif(100))     mean(runif(100))
 
 # c("A", "B", "Z") are found in the last 10 letters of the alphabet
 c("A", "B", "Z")     LETTERS[16:26]
-
 ```
-```{r ex254_4-solution}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex254_4-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 1. TRUE, using ==
 2. TRUE, using !=
 3. FALSE, using >
@@ -1587,6 +1669,8 @@ don't understand how or why one character object "cake" can be numerically great
 "biscuits", but R has some way of deciding. It works with any character object.
 4. FALSE FALSE TRUE, using %in%
 ```
+
+</div>
 \  
 
 
@@ -1598,17 +1682,29 @@ $~$
 `data.frame`s are extremely important objects. This is the way most data is 
 stored for data analysis. As we learned earlier, there's one column per variable
 and one row per observation. `data.frame`s are simply collections of variables:
-```{r}
+
+```r
 factor2 <- rep(LETTERS[1:2], 5)
 random <- rnorm(10, 0, 1)
 toydata <- data.frame(numbers2, factor1, factor2, random)
 toydata
 ```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"-0.6696485"},{"1":"4","2":"B","3":"B","4":"1.3610599"},{"1":"6","2":"C","3":"A","4":"0.4377715"},{"1":"8","2":"D","3":"B","4":"0.1038490"},{"1":"10","2":"E","3":"A","4":"1.0344012"},{"1":"12","2":"A","3":"B","4":"-1.4158161"},{"1":"14","2":"B","3":"A","4":"1.4236741"},{"1":"16","2":"C","3":"B","4":"0.1100687"},{"1":"18","2":"D","3":"A","4":"-0.9747989"},{"1":"20","2":"E","3":"B","4":"-0.5112231"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 \
 
 To access variables in a data.frame, you simply use the `$` dollar sign.
-```{r}
+
+```r
 toydata$numbers2
+```
+
+```
+##  [1]  2  4  6  8 10 12 14 16 18 20
 ```
 \
 
@@ -1618,8 +1714,13 @@ Vectors are one-dimensional but data frames are two-dimensional: rows and column
 * Second, columns
 
 We know this to be 10 replicates (rows) and 4 variables (columns):
-```{r}
+
+```r
 dim(toydata)
+```
+
+```
+## [1] 10  4
 ```
 \
 
@@ -1631,18 +1732,41 @@ To quickly select a few rows and/or columns, we can use the square brackets like
 * If you want to select all rows or columns, leave a blank space before or after the comma.
 
 Like this: `dataframe[rows, columns]`.
-```{r}
+
+```r
 # If you want all columns then leave the second number blank.
 # The first 5 rows of the data frame:
 toydata[1:5, ]
+```
 
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"-0.6696485","_rn_":"1"},{"1":"4","2":"B","3":"B","4":"1.3610599","_rn_":"2"},{"1":"6","2":"C","3":"A","4":"0.4377715","_rn_":"3"},{"1":"8","2":"D","3":"B","4":"0.1038490","_rn_":"4"},{"1":"10","2":"E","3":"A","4":"1.0344012","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+```r
 # If you want all rows then leave the first number blank.
 # The first and third columns of the data frame:
 toydata[ , c(1, 3)]
+```
 
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor2"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"2","2":"A"},{"1":"4","2":"B"},{"1":"6","2":"A"},{"1":"8","2":"B"},{"1":"10","2":"A"},{"1":"12","2":"B"},{"1":"14","2":"A"},{"1":"16","2":"B"},{"1":"18","2":"A"},{"1":"20","2":"B"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+```r
 # The first rows of columns 1 and 3:
 toydata[1:5, c(1, 3)]
 ```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor2"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"2","2":"A","_rn_":"1"},{"1":"4","2":"B","_rn_":"2"},{"1":"6","2":"A","_rn_":"3"},{"1":"8","2":"B","_rn_":"4"},{"1":"10","2":"A","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 \
 
 Having commas in the right places is important in `R`. If you don't have a 
@@ -1665,13 +1789,15 @@ layout. You can do this easily in Excel using File -> Save As -> CSV (Comma deli
 
 Then you provide the path to the file. For example, on windows, if the 
 file "data.csv" is stored in your "My Documents" folder, you use 
-```{r, eval=FALSE}
+
+```r
 read.csv("C:/Users/UserName/Documents/data.csv")
 # (replace "UserName" with your user name)
 ```
 
 On Mac, if the file was stored in your Documents folder then you may use 
-```{r, eval=FALSE}
+
+```r
 ### *** CHECK
 read.csv("~/Documents/data.csv")
 ```
@@ -1721,24 +1847,33 @@ in `R`, and we'll run through some here. These are what we term simple
 
 **Histograms** can be produced using the `hist()` function.
 
-```{r}
+
+```r
 hist(toydata$random)
 ```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-25-1.png" width="624" style="display: block; margin: auto;" />
 \
 
 **Box plots** can be produced using the `boxplot()` function.
 
-```{r}
+
+```r
 boxplot(toydata$numbers2)
 ```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-26-1.png" width="624" style="display: block; margin: auto;" />
 \
 
 **Bar graphs** can be produced using the `barplot()` function.
 
-```{r}
+
+```r
 barplot(toydata$numbers2[1:5], names.arg = toydata$factor1[1:5], 
         ylab = "numbers2")
 ```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-27-1.png" width="624" style="display: block; margin: auto;" />
 
 We introduced a couple of extre arguments here: `names.arg` labels the x axis
 and `ylab` labels the y axis.  
@@ -1747,19 +1882,24 @@ and `ylab` labels the y axis.
 **Scatter plots** can be produced using the `plot()` function, with both an 
 x variable (first argument) and a y variable (second argument).
 
-```{r}
+
+```r
 plot(toydata$numbers2, toydata$random)
 ```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-28-1.png" width="624" style="display: block; margin: auto;" />
 \
 
 ##### **< EXERCISE 5 >** Simple Plots
 _Create a boxplot of `random` and a histogram of `numbers2`_.
-```{r ex26_5, exercise = TRUE, echo = FALSE}
+<div class="tutorial-exercise" data-label="ex26_5" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex26_5-hint" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex26_5-hint, eval = FALSE}
+```text
 Copy the code from the example boxplot and histogram, and replace the variable names.
 ```
+
+</div>
 
 $~$
 
@@ -1836,7 +1976,9 @@ time it's because you've made a mistake. R is very literal. Be careful!
 _Correct the mistakes ('bugs') in the lines of code below, bearing in_
 _mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
 _right outputs!_
-```{r ex29_6, exercise = TRUE, eval = FALSE}
+<div class="tutorial-exercise" data-label="ex29_6" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # a sequence from 4 to 40 in steps of 4
 mynums <- seq(4, 40, 4,)
 mynums
@@ -1857,8 +1999,9 @@ mydata$mynum
 mydata[1:5]
 # first 2 columns of data frame
 mydata[1:2, ]
-
 ```
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
 
 These are really common mistakes to make. Be aware!
 
@@ -2064,13 +2207,16 @@ Here's an example of a scatter plot made using `ggplot` with the  with the toy
 data. 
 \
 
-```{r}
+
+```r
 ggplot(toydata, aes(x = numbers2, y = random)) +
   geom_point(color = "steelblue4") +
   xlim(0, 20) + ylim(-2, 2) +
   xlab("Even numbers") + ylab("Random normal") +
   theme_minimal()
 ```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-29-1.png" width="624" style="display: block; margin: auto;" />
 \
 
 Take a look at the graph and the code, and it's possible to match up the different layers:
@@ -2186,9 +2332,10 @@ need to use an R package developed by the RStudio team.
 
 If you are working in RStudio, the package first needs to be installed onto your computer. Unless you update `R`, this only needs to be done _once_. 
 
-```{r eval = FALSE}
+
+```r
 install.packages("ggplot2")
- ```
+```
 \
 
 Once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. The reason for thisvis that once you're using `R` a lot and have loads of packages installed, if you loaded _all_ the packages in every time you start `R` it would take forever.  
@@ -2198,33 +2345,13 @@ every time you switched the phone on on...!  _Nightmare_.
 
 The way we load up these packages is using `library()`. You usually need to do this every time you start a new `R` session (i.e. every time you open RStudio).
 
- ```{r eval = FALSE}
-library(ggplot2)
+ 
+ ```r
+ library(ggplot2)
  ```
 \
 
-```{r qz32_1, echo = FALSE}
-quiz(caption = "**< QUIZ 1 >** R Packages",
-    question("In the line of code above, what is `library()`?",
-        answer("A function", correct = TRUE),
-        answer("An object"),
-        answer("An argument"),
-        answer("A-nnoying"),
-        incorrect = "Remember almost anything with parentheses `()` following it is a function.",
-        random_answer_order = TRUE
-    ),
-
-    question("What is `ggplot2`?",
-        answer("None of these", correct = TRUE, message = "Correct. In fact, loading packages means loading functions, objects and more into the R session."),
-        answer("A character object"),
-        answer("A logical object"),
-        answer("An object"),
-        answer("A function"),
-        incorrect = "They are none of these. ggplot2 is a package, and loading packages means loading functions, objects and more into the R session.",
-        random_answer_order = TRUE
-    )
-)
-```
+preserve7f7d518ba1fabd3epreserveaf3ec335770816abpreserve4da291ea6cc5e905
 \
 
 R aficionados will tell you not to confuse "package" and "library"
@@ -2256,50 +2383,7 @@ Let's remind ourselves of the different distributions found in the _**games**_
 data, and the distributions they follow.  
 \
 
-```{r qz33_2, echo = FALSE}
-quiz(caption = "**< QUIZ 2 >** Data Distributions",
-    question("What distribution does the paper balls variable follow?",
-        answer("poisson", correct = TRUE),
-        answer("Gaussian"),
-        answer("binomial"),
-        answer("categorical"),
-        incorrect = "It's a poisson variable, as it's a count.",
-        random_answer_order = TRUE
-    ),
-
-    question("Is the paper balls variable continuous or discrete?",
-        answer("discrete", correct = TRUE, message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
-        answer("continuous", message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
-        random_answer_order = TRUE
-    ),
-
-    question("What distribution does the reaction time follow?",
-        answer("beta", correct = TRUE),
-        answer("ordinal"),
-        answer("poisson"),
-        answer("categorical"),
-        incorrect = "It's beta, which is the distribution that describes proportions.",
-        random_answer_order = TRUE
-    ),
-
-    question("Is Tutor Group categorical or ordinal?",
-        answer("categorical", correct = TRUE),
-        answer("ordinal"),
-        incorrect = "It's categorical, as it has no natural hierarchy (even if you do think 
-        your tutor group is the best in the year group...).",
-        random_answer_order = TRUE
-    ),
-
-    question("What distribution does the glasses prescription follow?",
-        answer("Gaussian", correct = TRUE),
-        answer("poisson"),
-        answer("beta"),
-        answer("ordinal"),
-        incorrect = "It's Gaussian, as it can in theory take any continuous value.",
-        random_answer_order = TRUE
-    )
-)
-```
+preserve5abdfda124a6ffc1preserve8dc3f4c767b630b6preserve7a52668e76db24cepreservece6bb332907a6787preserve15d6051101a3bf29preserve9cc6364a5bdd88a3
 \
 
 #### **3.3.1 Data Distributions Explained**
@@ -2382,7 +2466,8 @@ it must have been thrilling reading). Go to the DATA DISTRIBUTIONS page. Choose 
 
 Your histogram should look like this:  
 
-```{r}
+
+```r
 ### *** THIS NEEDS FIXING
 hist <- ggplot(games, aes(x = eyesight)) +
     geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
@@ -2391,45 +2476,22 @@ hist <- ggplot(games, aes(x = eyesight)) +
 
 hist
 ```
+
+```
+## Warning: Removed 4 rows containing non-finite values (stat_bin).
+```
+
+```
+## Warning: Removed 2 rows containing missing values (geom_bar).
+```
+
+<img src="DataSkills_files/figure-html/unnamed-chunk-32-1.png" width="624" style="display: block; margin: auto;" />
 \
 
 Using this histogram, answer the questions below.  
 \
 
-```{r qz341_3, echo = FALSE}
-quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
-    question("Does the eyesight variable have any bounds?",
-        answer("No", correct = TRUE),
-        answer("Yes: -7 and 14"),
-        answer("Yes: the maximum short- and long-sighted prescriptions ever given"),
-        incorrect = "There are no strict bounds on the data, even if values are very unlikely to go beyond a certain maximum or minimum",
-        random_answer_order = TRUE
-    ),
-
-    question("Is the eyesight variable continuous or discrete?",
-        answer("continuous", correct = TRUE),
-        answer("discrete"),
-        incorrect = "Continuous: the numbers are often rounded to the nearest 0.25, but they theoretically could take any real number.",
-        random_answer_order = TRUE
-    ),
-
-    question("Is the data skewed?",
-        answer("Yes: a positive skew", correct = TRUE),
-        answer("No"),
-        answer("Yes: a negative skew"),
-        incorrect = "There is a positive skew in the data, with a tail to the right.",
-        random_answer_order = TRUE
-    ),
-
-    question("Are there any potential outliers?",
-        answer("Yes: at the upper end of the distribution", correct = TRUE),
-        answer("Yes: at the lower end of the distribution"),
-        answer("No"),
-        incorrect = "There is a potential outlier at the upper end of the distribution, as evidenced by a single bar which is apart from the others.",
-        random_answer_order = TRUE
-    )
-)
-```
+preserve9bf83cfd1a556c50preserveba244f3f7cd7882epreserve98a720ec34a8b1d1preserved9844aae82a34a7cpreserve7505d00060352e2d
 \
 
 ##### **A little bit on outliers**
@@ -2465,43 +2527,7 @@ In the ShinyGLM app, try adjusting the number of bins that you're plotting.
 * As you adjust the number of bins, look at the CODE tab to see what changes.  
 \
 
-```{r qz341_4, echo = FALSE}
-quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
-    question("What makes for better visualisation of the data distribution?",
-        answer("Neither more bins nor fewer bins", correct = TRUE, 
-               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
-        answer("More bins", 
-               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
-        answer("Fewer bins", 
-               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
-        random_answer_order = TRUE
-    ),
-
-    question("What is the perfect number of bins to use?",
-        answer("There isn't one", correct = TRUE),
-        answer("10"),
-        answer("14"),
-        answer("20"),
-        answer("7"),
-        answer("However many bins show one bar per data point"),
-        answer("However many bins show ten bars"),
-        incorrect = "check the answer to the question before this one!",
-        random_answer_order = TRUE,
-        allow_retry = TRUE
-    ),
-
-    question("When the number of bins is changed, what changes in the code?",
-        answer("the argument 'bins' in the function geom_histogram", correct = TRUE),
-        answer("the function 'bins' in the argument geom_histogram"),
-        answer("the data in 'ggplot'"),
-        answer("the y value"),
-        answer("the option 'bins'"),
-        random_answer_order = TRUE, 
-        allow_retry = TRUE,
-        try_again = "Remember the grammar of R code... what goes before curved parentheses?"
-    )
-)
-```
+preservef166d79066cf9a0cpreserve25d9b6ddcf33fe6apreserve359b0c7027e7d0e6preserve87352dedc259b825
 \
 
 On the left of the ShinyGLM page you can see lots of different options for the plot. 
@@ -2520,25 +2546,31 @@ _Edit the code below, which has deliberate mistakes in it, to reproduce the hist
 
 _Edit the code directly rather than copy-pasting from the ShinyGLM app: you learn far quicker that way._
 
-```{r ex341_1, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex341_1" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 hist <- ggplot(games aes(x = Eyesight)) +
     geom_histogram(aes(y = ..density..), bin = 12, color = 'black') +
     xlim(c(-10, 15)) 
     theme('classic')
 
 hist
-
 ```
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
 \  
-```{r ex341_1-solution}
+<div class="tutorial-exercise-support" data-label="ex341_1-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 hist <- ggplot(games, aes(x = eyesight)) +
     geom_histogram(aes(y = ..density..), bins = 12, fill = 'black') +
     xlim(-10, 15) 
     theme_classic()
 
 hist
-
 ```
+
+</div>
 
 Just reflect also on what's different in the code for this histogram compared to the first histogram in this chapter, and how this maps on to the differences in what the histograms show. For example, using `ggplot(` You'll need this knowledge for the next exercise.  
 
@@ -2572,38 +2604,19 @@ _Plot a histogram of `reaction`, with:_
 * _a density plot added_
 * _a black and white theme_
 
-```{r ex342_2, exercise=TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex342_2" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex342_2-hint" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex342_2-hint, eval = FALSE}
+```text
 Solutions to the last two points, if not found through googling, are on the 
 ggplot cheat sheet, linked to at the top of the page! Everything else
 is covered in the ShinyGLM app.
 ```
+
+</div>
 \  
 
-```{r qz342_5, echo = FALSE}
-quiz(caption = "**< QUIZ 5 >** Visualising Data Distributions - beta",
-    question("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?",
-        answer("Zero and one are the outer bounds of the data", correct = TRUE),
-        answer("Zero and 1 are the right distances outside the range to be able to view all the data"),
-        answer("Zero and one are aesthetically pleasing choices"),
-        answer("Zero and one are a clear unit integer width"),
-        incorrect = "Zero and one are the outer bounds of the data. By making these the axis limits, it's clear how the data are distributed relative to the whole of the possible range.",
-        correct = "By making the axis limits equal to the outer bounds of the data, it's clear how the data are distributed relative to the whole of the possible range.",
-        random_answer_order = TRUE
-    )#,
-    ### *** complete here
-#    question("What do you think the 'density plot' added to the previous 
-#    histogram represents?",
-#        answer(),
-#        answer(),
-#        answer(),
-#        incorrect = "",
-#        random_answer_order = TRUE   
-#    )
-)
-```
+preserve3893824a2f454767preserve37d7960017a921fa
 \
 
 $~$
@@ -2633,24 +2646,30 @@ _count plot instead._
 _somewhere on this page is another way to specify bins which have a specific_
 _width: you want to specify bins that have a width of 1._
 
-```{r ex343_3, exercise=TRUE, echo=FALSE, exercise.cap="2.3 Data Distributions: Exercise 3"}
+<div class="tutorial-exercise" data-label="ex343_3" data-caption="2.3 Data Distributions: Exercise 3" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 hist <- ggplot(games, aes(x = countries)) +
     geom_histogram(aes(y = ..density..), bins = 12, color = 'green4') +
     xlim(0.5, 30.5) +
     theme_minimal()
 
 hist
-
 ```
-```{r ex343_3-solution}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex343_3-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 hist <- ggplot(games, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, color = 'green4') +
     xlim(0.5, 30.5) +
     theme_minimal()
 
 hist
-
 ```
+
+</div>
 
 $~$  
 
@@ -2661,7 +2680,8 @@ Consider the three code chunks below. There are mistakes in the code.
 \
 
 _Continents: chunk 1_
-```{r eval = FALSE}
+
+```r
 hist <- ggplot(games, aes(x = continents)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0.5, 7.5) +
@@ -2671,7 +2691,8 @@ hist
 ```
 
 _Continents: chunk 2_
-```{r eval = FALSE}
+
+```r
 hist <- ggplot(games, aes(x = Continents)) +
     geom_hist(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlims(0.5, 7.5) +
@@ -2681,7 +2702,8 @@ hist
 ```
 
 _Continents: chunk 3_
-```{r eval = FALSE}
+
+```r
 hist <- ggplot(games_data, aes(x = continents)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0.5, 7.5) +
@@ -2691,7 +2713,8 @@ hist
 ```
 
 _Continents: chunk 4_
-```{r eval = FALSE}
+
+```r
 hist <- ggplot(games, aes(x = continents)) +
     geom_histogram(aes(y = 'count'), bins = 1, fill = 'chocolate4') +
     xlim(0.5, 7.5) +
@@ -2701,54 +2724,7 @@ hist
 ```
 \
 
-```{r qz344_6, echo = FALSE}
-quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
-    question("Which of the chunks has a mistake in the _data_? Choose one or more answers.",
-        type = "checkbox",
-        answer("Chunk 1"),
-        answer("Chunk 2"),
-        answer("Chunk 3", correct = TRUE, message = "Correct: `games_data` should be `games`."),
-        answer("Chunk 4"),
-        allow_retry = TRUE,
-        message = "The data is always the first argument of the `games()` function."
-    ),
-    question("Which of the chunks has a mistake in the _aesthetics_? Choose one or more answers.",
-        answer("Chunk 1"),
-        answer("Chunk 2", correct = TRUE, message = "Correct: `aes(x = Continents)` should be `aes(x = continents)`... the uppercase C should be lowercase."),
-        answer("Chunk 3"),
-        answer("Chunk 4", correct = TRUE, message = "Correct: `aes(y = 'count')` should be `aes(y = ..count..)`"),
-        allow_retry = TRUE,
-        message = "aesthetics are most often associated with specifying the axes and are specified using the aes() function."
-    ),
-    question("Which of the chunks has a mistake in the _geometries_? Choose one or more answers.",
-        answer("Chunk 1"),
-        answer("Chunk 2", correct = TRUE, message = "Correct: `geom_hist` should be `geom_histogram`."),
-        answer("Chunk 3"),
-        answer("Chunk 4", correct = TRUE, message = "Correct: `bins = 1` should be `binwidth = 1`, and are a part of specifying the histogram using the `geom_histogram()` function."),
-        allow_retry = TRUE,
-        message = "geometries are simply the type of plot: in this case the histogram."
-    ),
-    question("Which of the chunks has a mistake in the _theme_? Choose one or more answers.",
-        type = "checkbox",
-        answer("Chunk 1"),
-        answer("Chunk 2"),
-        answer("Chunk 3", correct = TRUE, message = "Correct: `minimal_theme` should be `theme_minimal`."),
-        answer("Chunk 4"),
-        allow_retry = TRUE
-    ),
-    question("Which of the chunks has no mistakes?",
-        type = "checkbox",
-        answer("Chunk 1", correct = TRUE),
-        answer("Chunk 2"),
-        answer("Chunk 3"),
-        answer("Chunk 4"),
-        answer("None of the chunks"),
-        allow_retry = TRUE,
-        correct = "Well done!",
-        incorrect = "It could only have been chunk 1 or none of them... better luck next time."
-    )
-)
-```
+preservef5ee5d7da6ccda1apreserve46d0a257a555445apreservec33492eccd42d46apreserve2f843bc27c73f4fcpreserve958de592989d0e6bpreservecdcdc6c8d6744973
 \
 
 $~$
@@ -2796,7 +2772,8 @@ that their tight muscle tension could mean they have quicker reactions
 _Task: work out (without looking at the app!) which of these three pieces of code 
 give the correct way to subset the data in the way described above._
 
-```{r eval=FALSE}
+
+```r
 # a)
 data %>% filter(ffold %over% 0)
 
@@ -2808,7 +2785,6 @@ data %>% select(ffold > 0)
 
 # d)
 data %>% filter(ffold > 0)
-
 ```
 \
 
@@ -2937,14 +2913,16 @@ need to use another R package developed by the RStudio team.
 
 Remember that if you're working alongside this in RStudio, the package first needs to be installed onto your computer, and unless you update `R`, this only needs to be done _once_. 
 
-```{r eval = FALSE}
+
+```r
 install.packages("dplyr")
- ```
+```
 \
 
 Then in order for `R` to know to use it in your session, it needs to also be loaded:
- ```{r eval = FALSE}
-library(dplyr)
+ 
+ ```r
+ library(dplyr)
  ```
 
 $~$
@@ -2991,34 +2969,7 @@ First we'll pick some rows by their number using `slice`. Imagine that we want t
 * Look at the CODE panel to see how it's changed.  
 \
 
-```{r qz431_3, echo = FALSE}
-quiz(caption = "**< QUIZ 1 >** Subsetting Data - slice",
-    question("How many objects are assigned in this code?",
-        answer("1", correct = TRUE),
-        answer("2"),
-        answer("3"),
-        answer("4"),
-        message = "There are 3 objects: `data`, `rows` and `dataSubset`. Objects are assigned using the backwards arrow `<-`",
-        random_answer_order = FALSE
-    ),
-
-    question("How could you specify the rows to subset without assigning the desired range to the object `rows`? Select one or more options.",
-        answer("using `slice(seq(7, 10, 1))`", correct = TRUE),
-        answer("using `slice(7:10)`", correct = TRUE),
-        answer("using `slice(c(7, 8, 9, 10))`", correct = TRUE),
-        message = "There's always more than one way of doing things in `R`. We've learned about all of these methods in previous chapters.",
-        random_answer_order = TRUE
-    ),
-
-    question("Even though the above options require fewer lines of code, why might we want to use the `rows` object anyway?`",
-        answer("`rows` can be re-used in later code", correct = TRUE),
-        answer("We can change `rows` once, and the row values will change every time it's used in the code", correct = TRUE),
-        answer("Using the `rows` object requires less computer RAM"),
-        answer("Using the `rows` object makes you look cooler and better at coding"),
-        random_answer_order = TRUE
-    )
-)
-```
+preservece968c7a3dc1e931preserve55bb9d63d27c217cpreserve3e4b8eb932e9a51epreserveeab1f744f1739f49
 \
 
 $~$
@@ -3028,7 +2979,8 @@ $~$
 
 You'll notice that we use a **pipe** `%>%` in the code.
 
-```{r eval = FALSE}
+
+```r
 rows <- c(7, 10)
 
 dataSubset <-games %>%
@@ -3046,7 +2998,8 @@ This is assigned to an object called `dataSubset`.
 
 There's another way we can write this code:
 
-```{r eval = FALSE}
+
+```r
 rows <- c(7, 10)
 
 dataSubset <- slice(games, seq(rows[1], rows[2], 1) )
@@ -3060,13 +3013,23 @@ you end up with functions inside functions, parentheses within parentheses.
 
 #### **< EXERCISE 1 >** Subsetting Data - pipe `%>%`
 _Edit the code below so you condense the first three lines of code into one line. Hint: combine answers from "Subsetting Data: Quiz 1" and the information you just learned about pipes._
-```{r ex432_1, exercise=TRUE, exercise.eval= TRUE, echo=FALSE}
+<div class="tutorial-exercise" data-label="ex432_1" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 rows <- c(7, 10)
 dataSubset <- games %>%
     slice( seq(rows[1], rows[2], 1) )
 dataSubset
 ```
-```{r ex432_1-solution}
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["person"],"name":[1],"type":["chr"],"align":["left"]},{"label":["role"],"name":[2],"type":["chr"],"align":["left"]},{"label":["group"],"name":[3],"type":["chr"],"align":["left"]},{"label":["eyesight"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["continents"],"name":[5],"type":["int"],"align":["right"]},{"label":["countries"],"name":[6],"type":["int"],"align":["right"]},{"label":["reaction"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["hearing"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"P7","2":"student","3":"G2","4":"-1.50","5":"3","6":"14","7":"0.5250000","8":"17917.69"},{"1":"P8","2":"student","3":"G2","4":"1.25","5":"1","6":"9","7":"0.5833333","8":"17955.76"},{"1":"P9","2":"student","3":"G2","4":"0.00","5":"2","6":"14","7":"0.2750000","8":"18446.55"},{"1":"P10","2":"person","3":"G2","4":"0.75","5":"3","6":"16","7":"0.3916667","8":"18410.08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex432_1-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 dataSubset <- slice(games, seq(7, 10, 1))
 OR
 dataSubset <- slice(games, 7:10)
@@ -3075,6 +3038,8 @@ Step 1: use slice(games, ...) instead of the pipe
 Step 2: use seq(7, 10, 1) or 7:10 instead of rows object
 Step 3: combine!
 ```
+
+</div>
 \
 
 $~$
@@ -3103,11 +3068,12 @@ _"Take the `games` object [which is the games data frame], and use the `slice()`
 Let's take a moment to imagine what that would look like without pipes:
 \
 
-```{r eval = FALSE}
+
+```r
 rows <- c(7, 10)
 cols <- c(1, 6)
 dataSubset <- select(slice(games, seq(rows[1], rows[2], 1) ), seq(cols[1], cols[2], 1))
-``` 
+```
 \
 
 We also saw in _Chapter 1: R Basics_ that there is a way to use base `R` to 
@@ -3115,11 +3081,12 @@ select rows and columns from a data frame using square brackets `[]` (check back
 would look like this:
 \
 
-```{r eval = FALSE}
+
+```r
 rows <- c(7, 10)
 cols <- c(1, 6)
 dataSubset <- games[seq(rows[1], rows[2], 1), seq(cols[1], cols[2], 1)]
-``` 
+```
 \
 
 I hope you agree with me that the pipes make everything neater and easier to understand.  
@@ -3131,49 +3098,10 @@ _Type in the code you get from the ShinyGLM app (from `# define row range` onwar
 1. _Swapping the `slice()` and `select()` lines_
 2. _Deleting the white space at the start of the `slice()` and `select()` lines_
 3. _Removing the new line after each pipe `%>%` so that the three lines are on the same line_
-```{r ex433_2, exercise=TRUE, echo= FALSE}
-
-```
+<div class="tutorial-exercise" data-label="ex433_2" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
 \
 
-```{r qz433_1, echo = FALSE}
-quiz(caption = "**< QUIZ 2 >** Subsetting Data - `select()`",
-    question("In this case, does it make a difference to the result whether the subsetting functions `slice()` or `select()` functions come first?",
-        answer("Yes"),
-        answer("No", correct = TRUE),
-        message = "In this case, it doesn't make a difference whether rows or columns are selected first.",
-        random_answer_order = FALSE
-    ),
-
-    question("Will it ever make a difference to the result which order subsetting functions are put?",
-        answer("Yes", correct = TRUE),
-        answer("No"),
-        message = "If for some reason you use `slice()` or `select()` twice when subsetting your data, then the order those commands happen matters. If you only use `slice()` and `select()` once each, then the order of the subsetting commands don't matter.",
-        random_answer_order = TRUE
-    ),
-
-    question("Does it matter whether you delete the white space at the start of the rows?",
-        answer("Yes"),
-        answer("No", correct = TRUE),
-        message ="It takes some practice to know what parts of the code are essential and what parts are stylistic. In this case the white space helps draw quick attention to the fact that each line is 'passed' to the next one using the pipe... sort of like a series of steps. It's good practise in `R` coding.",
-        random_answer_order = TRUE
-    ),
-
-    question("Does it matter whether there is a new line after each pipe or not?",
-        answer("Yes"),
-        answer("No", correct = TRUE),
-        message = "Again, this is a stylistic choice, and is considered good practise.",
-        random_answer_order = TRUE
-    ),
-
-    question("Do you think it would be possible to have the new line _before_ the pipe, so that ths `slice()` and `select()` lines start with a pipe?",
-        answer("Yes"),
-        answer("No", correct = TRUE),
-        message = "Without a pipe at the end of the line, `R` considers the 'chain' of commands to be finished. This is an example of a coding practise which is fundamental, not stylistic.",
-        random_answer_order = TRUE
-    )
-)
-```
+preserve375036a93c4e6964preserve479a0e2ee3adfcf4preserve9a2351baa5ffa374preserve848441f93417eb57preserve7654443c7519ae41preserve488d17d632708ede
 \
 
 **It's important to note: pipes don't work with every function in `R`**. They work for these functions from the `dplyr` package that we encounter in this Chapter, but don't necessarily expect them to work otherwise.  
@@ -3198,16 +3126,24 @@ and you're selecting variables by name instead of by number.
 #### **< EXERCISE 3 >** Subsetting Data - `select()`
 _Edit the code below to give a data frame which has all columns except `group`. Hint: the result ShinyGLM gives you works fine, but is not the quickest way to do it; try googling something like "remove column dplyr select" and see if you can find a simpler solution._  
 
-```{r ex433_3, exercise=TRUE, echo= FALSE}
+<div class="tutorial-exercise" data-label="ex433_3" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 dataSubset <- games %>%
     select()
 dataSubset
 ```
-```{r ex433_3-solution, echo= FALSE}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex433_3-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 dataSubset <- games %>%
     select(-group)
 dataSubset
 ```
+
+</div>
 \
 
 $~$
@@ -3226,11 +3162,18 @@ the option to select rows using variable values.
 
 **Logical** commands come into their own here. When we were selecting rows 7 through 10, we were effectively selecting only Group 2. If the number or order of the rows were to change, then rows 7 through 10 would no longer represent Group 2. Instead, we can use a logical command `group == G2` and the `filter()` function:
 
-```{r}
+
+```r
 dataSubset <- games %>%
     filter( group == 'G2' )
 dataSubset
 ```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["person"],"name":[1],"type":["chr"],"align":["left"]},{"label":["role"],"name":[2],"type":["chr"],"align":["left"]},{"label":["group"],"name":[3],"type":["chr"],"align":["left"]},{"label":["eyesight"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["continents"],"name":[5],"type":["int"],"align":["right"]},{"label":["countries"],"name":[6],"type":["int"],"align":["right"]},{"label":["reaction"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["hearing"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"P7","2":"student","3":"G2","4":"-1.50","5":"3","6":"14","7":"0.5250000","8":"17917.69"},{"1":"P8","2":"student","3":"G2","4":"1.25","5":"1","6":"9","7":"0.5833333","8":"17955.76"},{"1":"P9","2":"student","3":"G2","4":"0.00","5":"2","6":"14","7":"0.2750000","8":"18446.55"},{"1":"P10","2":"person","3":"G2","4":"0.75","5":"3","6":"16","7":"0.3916667","8":"18410.08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 \
 Try it yourself in ShinyGLM: with all columns selected, choose _ROWS | Choose by... Variable values_ and type `group == "G2"` in the box, and click REFRESH. You should have a data frame that includes only Group 2.  
 \
@@ -3240,16 +3183,21 @@ Using `filter()` can be very useful for removing data outliers. There is an outl
 
 #### **< EXERCISE 4 >** Subsetting Data - `filter()`
 _The `eyesight` variable has an outlier of 14. Edit the code below to remove the outlier value by using `filter()` to select values below this outlier, then plot a histogram for the `eyesight` variable using the new data frame (use the ShinyGLM app or look back on Chapter 2: Data Distributions if you're not sure)._
-```{r ex434_4, exercise=TRUE, echo= FALSE}
+<div class="tutorial-exercise" data-label="ex434_4" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # subset the data
 dataSubset <- games %>%
     filter()
 dataSubset
 
 # plot the data
-
 ```
-```{r ex434_4-solution, echo= FALSE}
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex434_4-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 # subset the data
 dataSubset <- games %>%
     filter(eyesight < 14) # look at the data frame: the outlier is 14
@@ -3262,56 +3210,15 @@ hist <- ggplot(dataSubset, aes(x = eyesight)) +
 # y as density, change the number of bins or bin width, fill colour,
 # x axis limits, theme, etc., but you don't have to. The important 
 # Thing is to use dataSubset as the data layer.
-
 ```
+
+</div>
 \
 
 More questions on logicals below. If you're not sure of the answers then try them out in ShinyGLM. If you put in an invalid logical then the app will stop working and the screen will fade out. Don't worry: all you need to do is refresh it and try again.
 \
 
-```{r qz434_2, echo = FALSE}
-quiz(caption = "**< QUIZ 3 >** Subsetting Data - `filter`",
-    question("How would you choose everything _except_ group 2?",
-        answer("`group != 'G2'`", correct = TRUE),
-        answer("`group !%in% 'G2'`"),
-        answer("`group =! 'G2'`"),
-        answer("`group - 'G2'`"),
-        message = "`!=` means 'not equal to'.",
-        random_answer_order = TRUE
-    ),
-    question("How would you choose only short-sighted people (with negative values for `eyesight`?) Select all that apply.",
-        answer("`eyesight < 0`", correct = TRUE),
-        answer("`0 > eyesight`", correct = TRUE),
-        answer("`eyesight <= 0`"),
-        answer("`eyesight != 0`"),
-        message = "logicals often work both ways. In this case `eyesight < 0` and `0 > eyesight` are equivalent.",
-        random_answer_order = TRUE
-    ),
-    question("How would you choose only people that have been abroad in their lifetimes? Select all that apply.",
-        answer("`countries >= 2`", correct = TRUE),
-        answer("`countries > 1`", correct = TRUE),
-        answer("`1 > countries`", correct = TRUE),
-        answer("`countries <= 2`"),
-        answer("`1 < Countries`", message = "careful of uppercase letters where they shouldn't be!"),
-        message = "There are often several ways in which you can specify what you want using logicals!",
-        random_answer_order = TRUE
-    ),
-    question("How would you choose only people who aren't adults?",
-        answer("`role %in% c('child', 'baby')`", correct = TRUE),
-        answer("`role = c('child', 'baby')`"),
-        answer("`role == 'child', 'baby'`"),
-        answer("`role == 'child' & 'baby'`"),
-        random_answer_order = TRUE
-    ),
-    question("How would you choose every hardware except touchscreens?",
-        answer("`hardware != 'touchscreen'`", correct = TRUE),
-        answer("`hardware %in% c('mouse', 'keyboard', 'touchpad')`", correct = TRUE),
-        answer("`hardware %not% 'touchscreen'`"),
-        answer("`hardware == !'touchscreen'`"),
-        random_answer_order = TRUE
-    )
-)
-```
+preservecbe93461ec6a83c3preserveec9e125f0080f01epreserveb4560fe024a84aacpreserve3ad3c401c51cf38epreserve4e9358045484b0abpreserve7c377d5bf6506b13
 \
 
 $~$
@@ -3334,16 +3241,20 @@ Select _ADD A VARIABLE..._ in ShinyGLM. This allows you to add a variable to the
 
 #### **< EXERCISE 5 >** Adding Variables - `mutate()`
 *Often when we analyse counts, we need to log-transform them. Add a variable called log_countries which is the natural log of `countries`. You'll have to look up how to calculate the natural log in `R`.*
-```{r ex441_5, exercise=TRUE, echo= FALSE}
+<div class="tutorial-exercise" data-label="ex441_5" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+
+```text
 dataSubset <- games %>%
     mutate()
 dataSubset
 ```
-```{r ex411_5-solution, echo= FALSE}
-dataSubset <- games %>%
-    mutate(log_countries = log(countries))
-dataSubset
-```
+
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["person"],"name":[1],"type":["chr"],"align":["left"]},{"label":["role"],"name":[2],"type":["chr"],"align":["left"]},{"label":["group"],"name":[3],"type":["chr"],"align":["left"]},{"label":["eyesight"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["continents"],"name":[5],"type":["int"],"align":["right"]},{"label":["countries"],"name":[6],"type":["int"],"align":["right"]},{"label":["reaction"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["hearing"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["log_countries"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"P1","2":"student","3":"G1","4":"-2.50","5":"2","6":"9","7":"0.6666667","8":"15320.148","9":"2.1972246"},{"1":"P2","2":"student","3":"G1","4":"-2.00","5":"1","6":"6","7":"0.5583333","8":"17816.971","9":"1.7917595"},{"1":"P3","2":"person","3":"G1","4":"14.00","5":"1","6":"8","7":"0.7250000","8":"14707.285","9":"2.0794415"},{"1":"P4","2":"student","3":"G1","4":"-4.50","5":"5","6":"15","7":"0.4750000","8":"15886.718","9":"2.7080502"},{"1":"P5","2":"staff","3":"G1","4":"0.00","5":"3","6":"17","7":"0.3916667","8":"15753.990","9":"2.8332133"},{"1":"P6","2":"staff","3":"G1","4":"4.00","5":"2","6":"7","7":"0.3583333","8":"16575.005","9":"1.9459101"},{"1":"P7","2":"student","3":"G2","4":"-1.50","5":"3","6":"14","7":"0.5250000","8":"17917.690","9":"2.6390573"},{"1":"P8","2":"student","3":"G2","4":"1.25","5":"1","6":"9","7":"0.5833333","8":"17955.759","9":"2.1972246"},{"1":"P9","2":"student","3":"G2","4":"0.00","5":"2","6":"14","7":"0.2750000","8":"18446.550","9":"2.6390573"},{"1":"P10","2":"person","3":"G2","4":"0.75","5":"3","6":"16","7":"0.3916667","8":"18410.076","9":"2.7725887"},{"1":"P11","2":"staff","3":"G3","4":"8.50","5":"2","6":"3","7":"0.5000000","8":"12176.728","9":"1.0986123"},{"1":"P12","2":"student","3":"G3","4":"1.50","5":"3","6":"12","7":"0.6083333","8":"13536.106","9":"2.4849066"},{"1":"P13","2":"student","3":"G3","4":"-7.50","5":"6","6":"28","7":"0.8166667","8":"16766.966","9":"3.3322045"},{"1":"P14","2":"student","3":"G3","4":"0.00","5":"3","6":"12","7":"0.4750000","8":"17610.990","9":"2.4849066"},{"1":"P15","2":"staff","3":"G3","4":"6.50","5":"3","6":"4","7":"0.3583333","8":"14924.113","9":"1.3862944"},{"1":"P16","2":"student","3":"G4","4":"1.00","5":"1","6":"7","7":"0.4750000","8":"16798.504","9":"1.9459101"},{"1":"P17","2":"person","3":"G4","4":"-3.50","5":"3","6":"10","7":"0.5250000","8":"13637.507","9":"2.3025851"},{"1":"P18","2":"student","3":"G4","4":"0.00","5":"7","6":"17","7":"0.5000000","8":"17584.127","9":"2.8332133"},{"1":"P19","2":"staff","3":"G4","4":"-2.00","5":"1","6":"1","7":"0.7750000","8":"9247.403","9":"0.0000000"},{"1":"P20","2":"person","3":"G4","4":"0.00","5":"1","6":"1","7":"0.4750000","8":"13366.225","9":"0.0000000"},{"1":"P21","2":"student","3":"G5","4":"0.00","5":"2","6":"14","7":"0.3583333","8":"17201.661","9":"2.6390573"},{"1":"P22","2":"student","3":"G5","4":"1.75","5":"1","6":"18","7":"0.5833333","8":"17393.331","9":"2.8903718"},{"1":"P23","2":"child","3":"G5","4":"NA","5":"2","6":"5","7":"0.5000000","8":"19328.497","9":"1.6094379"},{"1":"P24","2":"child","3":"G5","4":"NA","5":"1","6":"5","7":"0.7500000","8":"18712.134","9":"1.6094379"},{"1":"P25","2":"child","3":"G5","4":"NA","5":"4","6":"14","7":"0.2250000","8":"19812.989","9":"2.6390573"},{"1":"P26","2":"baby","3":"G5","4":"NA","5":"1","6":"1","7":"NA","8":"NA","9":"0.0000000"},{"1":"P27","2":"person","3":"G6","4":"0.00","5":"1","6":"9","7":"0.3583333","8":"19165.151","9":"2.1972246"},{"1":"P28","2":"student","3":"G6","4":"-1.50","5":"4","6":"11","7":"0.6416667","8":"18046.194","9":"2.3978953"},{"1":"P29","2":"student","3":"G6","4":"0.00","5":"2","6":"2","7":"0.5000000","8":"18088.747","9":"0.6931472"},{"1":"P30","2":"student","3":"G6","4":"0.00","5":"2","6":"8","7":"NA","8":"15346.350","9":"2.0794415"},{"1":"P31","2":"student","3":"G6","4":"-2.50","5":"2","6":"17","7":"NA","8":"18244.346","9":"2.8332133"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 \
 
 You can use `mutate` as many times as you like to add as many variables as you like.  
@@ -3359,10 +3270,10 @@ You can use the pipe to chain together as many commands as you like.
 
 #### **< EXERCISE 6 >** Chaining Commands
 _Subset the data frame to include only data for students, add a variable with a name of your choice which represents `reaction` as a percentage rather than a proportion, remove all columns except `person`, `role`, `reaction` and your new percentage reaction variable._
-```{r ex45_6, exercise=TRUE, echo= FALSE, exercise.cap="3.6 Chaining Commands: Quiz 1"}
+<div class="tutorial-exercise" data-label="ex45_6" data-caption="3.6 Chaining Commands: Quiz 1" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0"><script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script></div>
+<div class="tutorial-exercise-support" data-label="ex45_6-solution" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 
-```
-```{r ex45_6-solution, echo= FALSE}
+```text
 dataSubset <- games %>%
     filter(role == 'student') # could also use role %in% 'student'
         mutate(reaction_pc = reaction * 100)
@@ -3370,6 +3281,8 @@ dataSubset <- games %>%
 # the order of the filter, mutate and select lines doesn't matter
 dataSubset
 ```
+
+</div>
 \
 
 $~$
@@ -3483,3 +3396,102 @@ $~$
 \
 
 Nothing to see here... yet
+preserve0edac9c035085922
+preservee1909003893bf7fb
+preserve0e89ee5cd357cec4
+preserve7b18e81fb6c3a3f6
+preserve744ec3a7487827da
+preserve2a0d72ca1c87b152
+preserve994f281c856b88ba
+preserveaba78d5091aac12e
+preserve57643b30cbdfc323
+preserve7fa1c2413b6a1554
+preserve9c33b65f5b7c210f
+preservebbde883963d92849
+preserve075cf02a7939b649
+preserve6b5a09bf631588ca
+preserve5456559ace696caa
+preserve541004163f538be0
+preservec42485f58cd1c0fe
+preservebd9888c5de1e7827
+preserve63a247a98bde0a12
+preservee393b1d739b685e8
+preserveee103968e269db57
+preservef78e0f3d5991adee
+preserve0f599ec24bc1de8a
+preserve14097875438d8cce
+preserve4a37cbf959bf4f06
+preserve03edc7c749de2d12
+preserve4f783074a66bb88f
+preservec6b2348ca8945eac
+preserve53e44a64198cac95
+preserve08f26e3d304e8b3a
+preserve2766259c787a49cb
+preserved546df635017343e
+preservef5e8d0b2b9f6feac
+preserve2efd32aa68184c86
+preserve20ff02779c38404f
+preserve3ae7d520eaa1efb3
+preserve1b6b54887ef59618
+preserve44dc7640bac21ccc
+preserve2f4e67f88d13522a
+preserve85b5106849239073
+preserveccf14c083e5dcbcc
+preserve57a131116adf9df1
+preservef6846647bcec50b8
+preservecea3934eaf107218
+preserveaed4f59df8f6f4dd
+preserve1d2988700161c837
+preserve19fbb37c5d1cfd3f
+preservedf5a7bb85fb02bcb
+preserve016a9cacf22b3675
+preserve0601ad5437fb2f80
+preservef658c6718d7f8ced
+preservef884aad5106ef241
+preserve82378dc4754f35b3
+preservea6b11cbccba4148d
+preservefd7975c5d4bf42de
+preservefd1428f2a218f832
+preserve2166e9e5a2e81ded
+preservec9c2e0d29191edcf
+preserve837fef6ebb484003
+preserve811b96a9b7844fc8
+preserve203bce606d50f90c
+preserveb0c94305b715c5ff
+preservec53eb391145cf792
+preservedb4bac23fc487ed3
+preserve44bd660d4408009e
+preserve45011aef3e25a0e6
+preserve7167a7e7adffc455
+preserve82dc54f0da28b5bb
+preserve21536763c62738f7
+preserve599d86c417bce962
+preserve5ffc119b39c1cd41
+preserve75748fbbfeb197f9
+preserve99a01cb76963d173
+preserve3b6e9cbbbd3f821e
+preserve44a4d15fb5ac5966
+preserveddf0b2cc12900b49
+preserveddf866cb087c7ef0
+preservec0a2643bfd6edeab
+preserve60c67963a35891a5
+preserve14f40bc69428a455
+preserve45c1a20de55276dd
+preservefad3771e1b2a37a4
+preservee5faa987cf8816b4
+preservef7816d5dc2add386
+preserve6e1df6248dcb1479
+preserve7468ffd7425cb17d
+preserve5d8053469d2c0325
+preserve73cd336d2374abac
+preserve8b6bfb9d97524fe1
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66]}},"value":[{"type":"character","attributes":{},"value":["backports","base","checkmate","colorspace","compiler","crayon","curl","datasets","digest","dplyr","DT","ellipsis","evaluate","farver","fastmap","generics","ggfortify","ggplot2","glue","graphics","grDevices","grid","gridExtra","gtable","hms","htmltools","htmlwidgets","httpuv","jsonlite","knitr","labeling","later","learnr","lifecycle","magrittr","markdown","methods","mime","munsell","pillar","pkgconfig","promises","purrr","R6","Rcpp","readr","rlang","rmarkdown","rprojroot","scales","shiny","shinyjs","shinythemes","stats","stringi","stringr","tibble","tidyr","tidyselect","tools","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.1.9","4.0.2","2.0.0","1.4-1","4.0.2","1.3.4","4.3","4.0.2","0.6.25","1.0.2","0.15","0.3.1","0.14","2.0.3","1.0.1","0.0.2","0.4.10","3.3.2","1.4.2","4.0.2","4.0.2","4.0.2","2.3","0.3.0","0.5.3","0.5.0.9000","1.5.1","1.5.4","1.7.1","1.29","0.3","1.1.0.1","0.10.1.9006","0.2.0","1.5","1.1","4.0.2","0.9","0.5.0","1.4.6","2.0.3","1.1.1","0.3.4","2.4.1","1.0.5","1.3.1","0.4.7","2.3","1.3-2","1.1.1","1.5.0","2.0.0","1.1.2","4.0.2","1.5.3","1.4.0","3.0.3","1.1.2","1.1.0","4.0.2","4.0.2","0.3.4","2.2.0","0.17","1.8-4","2.2.1"]}]}]}
+</script>
+<!--/html_preserve-->
