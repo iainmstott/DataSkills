@@ -429,14 +429,12 @@ content in this book, and some do not.
 
 Here's a quick video tutorial on the layout of this book, and how it 
 functions.  
+\
 
-<!--
 <center>
-![](https://youtu.be/HtTUsOKjWyQ){width="80%"}
+![](https://youtu.be/8MuvnkL8kGc){width="80%"}
 </center>  
 \  
--->
-
 
 $~$
 
@@ -481,6 +479,12 @@ There are a _huge number of benefits to using R_, listed here and elaborated on 
 7. It makes you **_employable_**.  
 \ 
 
+<center>
+![](https://youtu.be/0PRoKgyshO0){width="80%"}
+</center>
+\  
+
+
 ##### **WHAT IS RSTUDIO?**
 We will be working with `R` in a program called **RStudio**; think of this like 
 `R`'s Microsoft Word; i.e. a program that allows you to create, save and open `R` code
@@ -493,11 +497,10 @@ This video explains some of these concepts:
 \  
 
 <center>
-![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+![](https://youtu.be/thf9BLJhygo){width="80%"}
 </center>
 \  
 \  
-
 
 ##### **WHAT DOES `R` CODE LOOK LIKE?**
 
@@ -897,14 +900,10 @@ $~$
 **RStudio** is the program (or to give the technical term, an 
 "Integrated Development Environment" or _IDE_), which we'll be using to code 
 in a `R`. The very first thing you need to do is install both of 
-these. The following video walks you through installation and briefly explains 
-the difference between the two.  
-\  
+these. I suggest the link below to guide you through installing `R` and RStudio: it covers Windows, Mac and Linux.  
+\
 
-<center>
-![](https://youtu.be/d7lARa168gk){width="80%"}
-</center>  
-\  
+(https://rstudio-education.github.io/hopr/starting.html)[https://rstudio-education.github.io/hopr/starting.html]
 
 $~$
 
@@ -1040,11 +1039,13 @@ and grammar which allow R to communicate with the computer in more elaborate way
 This video explains briefly how `R` packages work:  
 \
 
+
+<!--
 <center>
-![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+![](https://youtu.be/L2Mm1sFZoYw){width="80%"}
 </center>
 \  
-
+-->
 
 $~$
 
@@ -1086,10 +1087,12 @@ $~$
 There are 6 key components to `R`code: **objects**, **assignment**, **functions**, **arguments**, **outputs** and **comments**.  
 \
 
+<!--
 <center>
 ![](https://youtu.be/-BLSElo-ZP4){width="80%"}
 </center>
 \  
+-->
 
 ##### **OBJECTS**
 R is used for _Object-Oriented Programming (OOP)_. This means that when coding 
@@ -1244,7 +1247,6 @@ vector: so if we add `1` to `numbers1` then it adds 1 to every element.
 \  
 
 ```{r qz24_1, echo = FALSE}
-### *** TO COMPLETE!
 quiz(caption = "**< QUIZ 1 >** (Objects)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
@@ -1254,20 +1256,14 @@ quiz(caption = "**< QUIZ 1 >** (Objects)",
         random_answer_order = TRUE
     ),
 
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
+    question("how could you find the mean of the numeric vector `c(5, 6, 7, 8)`? Choose all answers that apply.",
+        answer("`mean(c(5, 6, 7, 8))`", correct = TRUE),
+        answer("`mean(5:8)`", correct = TRUE),
+        answer("`summary(5:8)`", correct = TRUE),
+        answer("`(5 + 6 + 7 + 8) / 4`", correct = TRUE),
+        incorrect = "These are all different routes to the same answer.",
+        random_answer_order = TRUE,
+        allow_retry = TRUE
     )
 )
 ```
@@ -1366,35 +1362,6 @@ characters2
 ```
 \
 
-```{r qz252_2, echo = FALSE}
-# *** TO COMPLETE!
-quiz(caption = " **< QUIZ 2 >** (Classes - `character`)",
-    question("What do the three arguments of the seq() function mean (in order)?",
-        answer("start of sequence, length of sequence, sequence increment"),
-        answer("start of sequence, end of sequence, length of sequence"),
-        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
-        incorrect = "start, end, increment.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
-        random_answer_order = TRUE
-    )
-)
-```
-
 
 ### 2.5.3 `factor`
 \
@@ -1431,29 +1398,20 @@ A through E.
 \
 
 ```{r qz253_3, echo = FALSE}
-# *** TO COMPLETE!
 quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
-    question("What do the three arguments of the seq() function mean (in order)?",
-        answer("start of sequence, length of sequence, sequence increment"),
-        answer("start of sequence, end of sequence, length of sequence"),
-        answer("start of sequence, end of sequence, sequence increment", correct = TRUE),
-        incorrect = "start, end, increment.",
+    question("What is the fundamental difference between a character vector and a factor vector?",
+        answer("A factor vector excludes quotation marks and a character vector doesn't."),
+        answer("A factor vector can be used in a data frame", message = "Both character vectors and factor vectors can be used in data frames."),
+        answer("A factor vector has defined 'levels' that values can take", correct = TRUE),
+        answer("A factor vector and a character vector are the same."),
         random_answer_order = TRUE
     ),
 
-    question("Here's a multiple choice question with more than one answer: which of these are amazing?",
-        answer("Tea", correct = TRUE, message = "Tea is amazing."),
-        answer("Coffee", correct = TRUE, message = "Coffee is amazing."),
-        answer("Fruit tea"),
-        answer("None of these"),
-        incorrect = "Tea is amazing. Coffee is amazing. Fruit tea is cancelled.",
-        random_answer_order = TRUE
-    ),
-
-    question("Here's a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???",
-        answer("No", message = "...wow. Harsh. Try again."),
-        answer("Yes", correct = TRUE, message = "Yeah you are!!!"),
-        allow_retry = TRUE,
+    question("What are character and factor vectors each best used for?",
+        answer("character: unique information for each data row; factor: shared information across rows", correct = TRUE),
+        answer("character: shared information across rows; factor: unique information for each data row"),
+        answer("It doesn't matter"),
+        message = "As factors recognise defined 'levels' of information (equal to categories), they're well-suited to data where information is shared across rows of the data frame (e.g. colours of cars), whereas character vectors are better for data where every row represents something unique (e.g. names of people driving cars)",
         random_answer_order = TRUE
     )
 )
@@ -1772,16 +1730,7 @@ Word knows to open files with `.docx` extensions and Adobe Reader knows to
 open files with `.pdf` extensions, RStudio knows to open files with `.R` 
 extensions, and to work with them in certain ways.  
 
-Create an R file in the folder you wish to use as your working directory by 
-following the steps in the video below.  
-\ 
-
-<center>
-![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
-</center>  
-\ 
-
-Save this file wherever you like.  
+When you open RStudio for the first time, there is an empty ("Untitled") `.R` file already there for you. Simply save this file wherever you like (and further `.R` files can be generated by using File --> New File --> R Script).  
 
 _This is the file in which you're going to write code to fulfil the tasks in Section 2 of each Chapter._ In each Chapter you will cover one aspect of the analytical process.
 You'll apply the knowledge and skills learned during the Chapter to a biological data set and 
@@ -1893,7 +1842,7 @@ You won't have encountered absolutely everything you need to do during the at-ho
 ##### **R BASICS: EXERCISES & QUESTIONS**
 \
 
-30 mins:  
+20-25 mins:  
 
 1. First create a character object called `names` which is the first name of the people in your tutor group (including anyone who is missing). If there are two people in your group with the same name, then give each a number (i.e. `Jane1`, `Jane2`,... )
   * What is the length of this character vector?
@@ -1901,22 +1850,22 @@ You won't have encountered absolutely everything you need to do during the at-ho
 2. Now create a numeric variable called `norm` which is a random normal distribution with the same length as the number of people in your tutor group. It should have a mean value of 7 and a variance of 1.
   * Can this normal distribution have values below zero?
   * Can the arguments of this vector be written in any order or does it have to be in the order you used?
+  *The normal distribution is just one kind of distribution that you can draw random numbers from. Another distribution you are probably familiar with is the _uniform distribution_, where every number has an equal chance of being chosen. Search online to see whether you can find a function that will draw random numbers from a uniform distribution. 
+  * What is the name of the function?
+  * How would you create an object called `unif` which consists of 10 random numbers drawn from a uniform distribution between 0 and 1?
+  * If you had this object `unif` and you wanted to change those proportions to percentages, how would you do it?
 
-3. The normal distribution is just one kind of distribution that you can draw random numbers from. Another distribution you are probably familiar with is the _uniform distribution_, where every number has an equal chance of being chosen. Find out how to draw numbers from a random uniform distribution, and create an object called `unif` which is a numeric vector the same length as the number of people in your tutor group, drawn from a random uniform distribution between 0 and 1.
-  * What is the name of the _function_ you used?
-
-4. The random uniform numbers are between 0 and 1, meaning they are proportions. Change these proportions into percentages.
-
-5. Now create a factor vector called `sibs` which tells you whether each person in your tutor group has siblings. It should take the value `sis` if the person has sister(s), `bro` if the person has brother(s),`both` if they have both, and `neither` if they have neither. If the person is absent, use `NA`.
+3. Now create a factor vector called `sibs` which tells you whether each person in your tutor group has siblings. It should take the value `sis` if the person has sister(s), `bro` if the person has brother(s),`both` if they have both, and `neither` if they have neither. If the person is absent, use `NA`.
   + Hint: you may want to create a character vector first, and convert it into a factor.
 
-6. Create a data frame for your tutor group of the 4 objects (`name`, `norm`, `unif` and `sibs`). Call it what you like :)
+4. Create a data frame for your tutor group of the 4 objects (`name`, `norm`, and `sibs`). Call it what you like :)
   * What is the name of this object?  
 \
 
+
 ##### **BIOLOGICAL DATA**
 
-30 mins:  
+20-25 mins:  
 
 For the rest of the online workshops, we'll be using real biological data sets. These data sets are tailored slightly to your degree programs: check the DATA page for a summary of the data set and to find out which one you're using.
 
@@ -2119,6 +2068,9 @@ $~$
 ## 3 --- Data Distributions
 \
 
+Nothing to see here... yet
+
+<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
@@ -2258,7 +2210,7 @@ data, and the distributions they follow.
 
 ```{r qz33_2, echo = FALSE}
 quiz(caption = "**< QUIZ 2 >** Data Distributions",
-    question("What distribution does the paper balls variable follow?",
+    question("What distribution does the 'countries' variable follow?",
         answer("poisson", correct = TRUE),
         answer("Gaussian"),
         answer("binomial"),
@@ -2267,7 +2219,7 @@ quiz(caption = "**< QUIZ 2 >** Data Distributions",
         random_answer_order = TRUE
     ),
 
-    question("Is the paper balls variable continuous or discrete?",
+    question("Is the 'countries' variable continuous or discrete?",
         answer("discrete", correct = TRUE, message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
         answer("continuous", message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
         random_answer_order = TRUE
@@ -2782,7 +2734,7 @@ $~$
 ***
 ##### END OF CHAPTER
 ***
-
+-->
 
 
 
@@ -2857,6 +2809,9 @@ the characteristics of the distribution of the `ffold` variable. Now that you've
 ## 4 --- Data Management
 \
 
+Nothing to see here... yet
+
+<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
@@ -3401,7 +3356,7 @@ $~$
 ***
 ##### END OF CHAPTER
 ***
-
+-->
 
 
 <!--
