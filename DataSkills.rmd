@@ -1033,7 +1033,6 @@ and grammar which allow R to communicate with the computer in more elaborate way
 This video explains briefly how `R` packages work:  
 \
 
-VIDEO HERE
 <center>
 ![](https://youtu.be/jATnemXDU2U){width="80%"}
 </center>
@@ -1079,7 +1078,6 @@ $~$
 There are 6 key components to `R`code: **objects**, **assignment**, **functions**, **arguments**, **outputs** and **comments**.  
 \
 
-VIDEO HERE
 <center>
 ![](https://youtu.be/A40B5lelYpY){width="80%"}
 </center>
