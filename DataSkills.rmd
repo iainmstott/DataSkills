@@ -2064,13 +2064,11 @@ $~$
 
 
 
-<!-- spiel -->
+
 ## 3 --- Data Distributions
 \
 
-Nothing to see here... yet
 
-<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
@@ -2734,7 +2732,7 @@ $~$
 ***
 ##### END OF CHAPTER
 ***
--->
+
 
 
 
@@ -2809,9 +2807,7 @@ the characteristics of the distribution of the `ffold` variable. Now that you've
 ## 4 --- Data Management
 \
 
-Nothing to see here... yet
 
-<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
