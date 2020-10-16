@@ -159,32 +159,26 @@ $~$
 * _child_ (coded as `child` in the data)
 * _baby_ (coded as `baby` in the data)
 
-2. **TUTOR GROUP**: your tutor group ID for the module. 
-See document on blackboard if you're not sure.
-This information will be coded anonymously so that it is not clear which tutor
-group is which (makes everything even more anonymous).
-Saved as `group` in the data.
-
-3. **EYESIGHT**: your **glasses prescription** (if any). 
+2. **EYESIGHT**: your **glasses prescription** (if any). 
 If you have a different prescription for 
 each eye then take the average.
 Saved as `eyesight` in the data.
 
-4. **CONTINENTS**: how many continents you've visited in your life (
+3. **CONTINENTS**: how many continents you've visited in your life (
 including your home continent).
 Saved as `continents` in the data.
 
-5. **COUNTRIES**: how many countries you've visited in your life 
+4. **COUNTRIES**: how many countries you've visited in your life 
 (including your home country).
 Saved as `countries` in the data-
 
-6. **HEARING**: your score in the hearing test (see below).
+5. **HEARING**: your score in the hearing test (see below).
 Saved as `hearing` in the data.
 
-7. **REACTION** your score in the reaction test (see below). 
+6. **REACTION** your score in the reaction test (see below). 
 Saved as `reaction` in the data.
 
-8. **HARDWARE**, saved as `hardware` in the data, is whether for the two games above, you were using a:
+7. **HARDWARE**, saved as `hardware` in the data, is whether for the two games above, you were using a:
 
 * mouse (coded as `mouse` in the data)
 * touchpad or touchscreen (coded as `touch` in the data)  
@@ -432,7 +426,7 @@ functions.
 \
 
 <center>
-![](https://youtu.be/8MuvnkL8kGc){width="80%"}
+![](https://youtu.be/FjZ9eILfaeY){width="80%"}
 </center>  
 \  
 
@@ -480,7 +474,7 @@ There are a _huge number of benefits to using R_, listed here and elaborated on 
 \ 
 
 <center>
-![](https://youtu.be/0PRoKgyshO0){width="80%"}
+![](https://youtu.be/sbymgGb06Tc){width="80%"}
 </center>
 \  
 
@@ -497,7 +491,7 @@ This video explains some of these concepts:
 \  
 
 <center>
-![](https://youtu.be/thf9BLJhygo){width="80%"}
+![](https://youtu.be/__y48NmhD_Y){width="80%"}
 </center>
 \  
 \  
@@ -651,7 +645,7 @@ or typing your own R code, which you can run to see a result, or an error,
 depending on whether you have it correct...  
 \
 
-#### **<** EXERCISE 1 (Interactive elements - exercises) **>**
+#### **< EXERCISE 1 >** (Interactive elements - exercises)
 _Write the code `6 * 7` in the box below and then click **Run Code** to get the correct answer._  
 
 ```{r ex113_1, exercise=TRUE, echo=FALSE}
@@ -790,7 +784,7 @@ code. If you're having trouble, chances are someone else had the same trouble as
 you: search for the solution to your problem! The skill to find solutions to data and statistics problems is a hugely important part of learning data skills, and will form part of what we learn.  
 \
 
-##### **THE FORUM**
+##### **FORUMS**
 Programmers use forums _all the time_, such as 
 [RStudio Community](https://community.RStudio.com),
 [Stack Overflow](https://stackexchange.com), and 
@@ -801,8 +795,8 @@ These forums are places to:
 * Post code that is giving errors.
 * Report bugs and errors in resources and software you use.
 
-I have set up a blackboard forum for these purposes. This includes reporting 
-any bugs, spelling mistakes or errors in this book. Software isn't a static 
+I will set up channels on Teams for you to ask and answer questions, share useful tips, and solve issues. This includes reporting 
+any bugs, spelling mistakes or errors in this book. I'll moderate the content and try and solve outstanding issues a couple of times a week. I encourage you to participate in this though, it's great to collaborate on these sorts of things, and that is how coding is done in the real world. I can update this book and apps online if need be: software isn't a static 
 thing, and if there are things that need fixing, then they need fixing!  
 \  
 
@@ -1039,13 +1033,11 @@ and grammar which allow R to communicate with the computer in more elaborate way
 This video explains briefly how `R` packages work:  
 \
 
-
-<!--
+VIDEO HERE
 <center>
-![](https://youtu.be/L2Mm1sFZoYw){width="80%"}
+![](https://youtu.be/jATnemXDU2U){width="80%"}
 </center>
 \  
--->
 
 $~$
 
@@ -1087,12 +1079,11 @@ $~$
 There are 6 key components to `R`code: **objects**, **assignment**, **functions**, **arguments**, **outputs** and **comments**.  
 \
 
-<!--
+VIDEO HERE
 <center>
-![](https://youtu.be/-BLSElo-ZP4){width="80%"}
+![](https://youtu.be/A40B5lelYpY){width="80%"}
 </center>
 \  
--->
 
 ##### **OBJECTS**
 R is used for _Object-Oriented Programming (OOP)_. This means that when coding 
@@ -1384,8 +1375,8 @@ easy to miss!
 We use the square brackets to choose which letters we
 want: we choose A, B, C, D and E, which are the first 5 letters of the alphabet.  
 
-The `rep` function means repeat, so we repeat A to E five times, to give a vector 
-that has a length of 25.  
+The `rep` function means repeat, so we repeat A to E two times, to give a vector 
+that has a length of 10.  
 
 Finally, we convert that character vector to a factor using `as.factor()` and 
 overwrite the original `factor1` object by reassigning it.
@@ -1646,14 +1637,6 @@ understands this to be missing data.
 vectors with an underscore `_`.
 5. Character variables should have quote marks `" "` or `' '` around each 
 data point, otherwise `R` will interpret them as factors. 
-\
-
-This video goes over some of these concepts in more detail.  
-\
-
-<center>
-![](https://www.youtu.be/rWHV2VlQo2w){width="80%"}
-</center>  
 \
 
 $~$
@@ -2064,13 +2047,10 @@ $~$
 
 
 
-<!-- spiel -->
+
 ## 3 --- Data Distributions
 \
 
-Nothing to see here... yet
-
-<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
@@ -2096,7 +2076,6 @@ $~$
 
 ##### **BOOKS**
  
-<!-- ### *** Pages etc. -->
 * [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
 * [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
 by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 87 - 91, Chapter 4.4, "Distributions:
@@ -2288,22 +2267,7 @@ for:
 * whether your statistical models are valid
 * how you interpret your results.
 
-<!--
-In this particular session, we're going to acquaint ourselves with the 
-[`ggplot2`](https://ggplot2.tidyverse.org/) package. `ggplot2` is a great 
-package for data visualisation: it's easy to make very pretty graphs with 
-only a few lines of code, and has simplified many data visualisation problems 
-which previously were tricky in R. We'll be learning:
 
-* a reinforcement of data-handling skills
-* an understanding of the grammar of graphics and how ggplot uses it
-* how plot histograms
-   + `ggplot()` and `aes()` to initialise a plot
-   + adjustments to coordinates
-   + `geom_histogram` to map a histogram 
-   + how to change the look of a plot with themes and other options  
-\
--->
 
 $~$
 
@@ -2734,7 +2698,7 @@ $~$
 ***
 ##### END OF CHAPTER
 ***
--->
+
 
 
 
@@ -2809,9 +2773,7 @@ the characteristics of the distribution of the `ffold` variable. Now that you've
 ## 4 --- Data Management
 \
 
-Nothing to see here... yet
 
-<!--
 _The first section of this Chapter will be completed at home before this week's online workshop._
 This first section contains _Quizzes_ and _Exercises_. These multi-
 choice questions and `R` coding exercises will test your learning on this chapter's
@@ -2855,7 +2817,7 @@ $~$
 
 ##### **BOOKS**
  
-<!-- ### *** Pages etc. -->
+
 * [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
 * [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
 by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 35 - 78, Chapter 2, "Getting your 
@@ -3356,7 +3318,7 @@ $~$
 ***
 ##### END OF CHAPTER
 ***
--->
+
 
 
 <!--
