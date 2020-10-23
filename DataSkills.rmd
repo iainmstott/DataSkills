@@ -37,11 +37,12 @@ toydata <- data.frame(numbers2, characters1, factor1, factor2, random)
 rm(numbers2, characters1, factor1, factor2, random)
 
 # games data
-games <- read.csv("data/games_data.csv")
+data <- read.csv("data/games_data.csv")
 
 # knitr options
 knitr::opts_chunk$set(
-  fig.align = 'center'
+  fig.align = 'center',
+  warning = FALSE
 )
 
 # Tutorial options
@@ -691,7 +692,7 @@ mean(random)
 sd()
 
 ```
-```{r ex113_2-solution}
+```{r ex113_2-solution, echo = FALSE}
 # draw random numbers
 # 42 is the mean and it is the second argument in rnorm().
 random <- rnorm(1000, 42, 12)
@@ -908,7 +909,7 @@ $~$
 Below is a diagram of the learning schedule (you can find a pdf copy on blackboard also).
 
 * The top row shows the timings of **ASSESSMENTS**. Detailed information can be found on blackboard in the "Assessments" folder: there is one pdf file for each assessment, called "Assessment Briefings".
-  + An online Multiple Choice Questionnaire must be completed on _Friday 27th October (week 7)_.
+  + An online Multiple Choice Questionnaire must be completed on _Friday 27th November (week 7)_.
   + A data analysis report must be handed in on or before _Wednesday 27th January (week 16)_.
 * The **SCHEDULE** has one row for each programme, and shows the topics covered for each programme, week-by-week. Everyone takes takes the same topics until week 9, after which the teaching and content start to diverge for different programmes. This divergence allows programmes to learn analytical techniques which are relevant to their courses.
 * The **STAFF** section shows which staff are teaching in which weeks, topic-by-topic.  
@@ -960,28 +961,50 @@ $~$
 \
 
 Welcome to your first R tutorial! In this tutorial we'll be covering the very basics of R, which is a programming language originally developed for 
-understanding data and doing statistics. This tutorial includes:  
+understanding data and doing statistics. 
 
-* `R` packages
-* the anatomy ("vocabulary" and "grammar") of R code
-* objects
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+This tutorial includes:  
+
+* 2.1 Useful resources
+* 2.2 `R` packages
+* 2.3 the anatomy ("vocabulary" and "grammar") of R code
+  + objects
+  + functions
+  + function arguments
+  + assigning
+  + comments
+  + outputs
+* 2.4 objects
    + assignment to objects
    + object classes
-* functions
-   + function arguments
-* outputs
-* code comments
-* loading data into `R`  
+     - 2.5.1 `numeric`
+     - 2.5.2 `character`
+     - 2.5.3 `factor`
+     - 2.5.4 `logical`
+     - 2.5.5 `data.frame`
+       * reading data frames into `R` using `read.csv()`
+       * extracting variables from data frames
+       * simple data frame subsets
+* 2.6 Simple plots using "base" `R`
+  + Histograms
+  + Box plots
+  + Bar plots
+  + Scatter plots
+* 2.7 Opening your own `R` script
+* 2.8 Other resources
+* 2.9 Final tips useful for coding
+* **< WORKSHOP >**
 \
-* What programming languages are
-  + types of programming language
-  + the anatomy ("vocabulary" and "grammar") of R code
-* What RStudio is, and how RStudio works with R
-* The structure of R
-  + base R packages
-  + add-on R packages
-* Reading data into `R`.  
-\  
 
 With this information, we'll put our newfound knowledge into practice and 
 do some basic coding in R to get used to this new way of working with data. If 
@@ -996,6 +1019,7 @@ $~$
 
 ##### BOOKS
  
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 4, "Workflow: Basics".
 * Beckerman, Childs & Petchey (2017) _Getting started with R, an 
 introduction for Biologists_, 2nd ed. pp 1 - 34, Chapter 1, "Getting and 
 getting acquainted with R".  
@@ -1429,6 +1453,7 @@ quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
     question("If you ran the above code multiple times, would you get the same result each time?",
         answer("Yes", correct = TRUE),
         answer("No"),
+        message = "Each time you run the code, a new set of random numbers is generated so you'll get a different result each time.",
         random_answer_order = TRUE
     ),
 
@@ -1961,7 +1986,7 @@ geographic coordinate systems.
 
 
 
-### `ggplot`
+#### `ggplot`
 \
 
 Functions and arguments in `ggplot2` mirror these layers. You'll encounter 
@@ -2013,6 +2038,13 @@ axis limits using `xlim()` and `ylim()`
 
 $~$
 
+#### [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLM)
+\
+
+ShinyGLM is an app I developed to help learn data visualisation, as well as data manipulation and statistical modelling, using General Linear Models (GLM). It's worth reading the "ABOUT" page to get familiar with the app, as it should come in useful for the course. 
+
+$~$
+
 ***
 
 
@@ -2049,7 +2081,870 @@ $~$
 ## 3 --- Data Distributions
 \
 
-Nothing to see here... yet
+
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 3.1 Resources
+* 3.2 R packages needed for visualising data distributions
+* 3.3 What are data distributions
+* 3.4 Visualising data distributions
+  + 3.4.1 Normal (Gaussian) distribution
+  + 3.4.2 Proportions (beta distribution)
+  + 3.4.3 &3.4.4 Counts (Poisson distribution)
+* 3.5 Other resources
+* 3.6 Final tips
+* **< WORKSHOP >**
+\
+
+Continue to Resources...  
+
+$~$
+
+***
+### **3.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 87 - 91, Chapter 4.4, "Distributions:
+making histograms of numeric variables", & Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
+\
+
+
+##### **ShinyGLM**
+
+We'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM) webapp 
+in this and subsequent chapters. It's designed to make learning data skills in `R`
+an interactive experience. It's worth getting to know how to use it, so make sure 
+to read the **USER GUIDE** now.  
+
+In this Chapter, we'll mainly be working with the _DATA DISTRIBUTIONS_ tab.  
+
+$~$
+
+***
+### **3.2 R PACKAGES**  
+
+We encountered **R packages** in the last 2 Chapters. In this Chapter we will 
+need to use an R package developed by the RStudio team.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+If you are working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval = FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. The reason for thisvis that once you're using `R` a lot and have loads of packages installed, if you loaded _all_ the packages in every time you start `R` it would take forever.  
+
+Think of it like apps on your phone: imagine if every single app on your phone opened 
+every time you switched the phone on on...!  _Nightmare_.  
+
+The way we load up these packages is using `library()`. You usually need to do this every time you start a new `R` session (i.e. every time you open RStudio).
+
+ ```{r eval = FALSE}
+library(ggplot2)
+ ```
+\
+
+```{r qz32_1, echo = FALSE}
+quiz(caption = "**< QUIZ 1 >** R Packages",
+    question("In the line of code above, what is `library()`?",
+        answer("A function", correct = TRUE),
+        answer("An object"),
+        answer("An argument"),
+        answer("An-nnoying"),
+        incorrect = "Remember almost anything with parentheses `()` following it is a function.",
+        random_answer_order = TRUE
+    ),
+
+    question("What is `ggplot2`?",
+        answer("None of these", correct = TRUE),
+        answer("A character object"),
+        answer("A logical object"),
+        answer("An object"),
+        answer("A function"),
+        message = "It's just the name of the package. It's not an object as it's not been created, loaded or called within the R session. To be a character object it would have to have quotation marks around it. In fact, by loading the package you load functions, objects and more into your R session.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+R aficionados will tell you not to confuse "package" and "library"
+
+* packages are stored in a library
+* you use the function `library()` to load a package from your library.
+
+If you tell `R` geeks like me that you're loading a library, we can't handle it and our brains explode.  
+
+$~$
+
+***
+### **3.3 DATA DISTRIBUTIONS** 
+\
+
+It's really important to understand the nature of your data. There are different 
+types of data, and here are some of the types we regularly encounter as biologists:
+
+* numeric (quantitative)
+   + continuous: Gaussian, beta, exponential
+   + discrete (counts): Poisson, binomial
+* non-numeric (qualitative)
+   + categorical
+   + ordinal
+\
+
+Let's remind ourselves of the different distributions found in the _**games**_ 
+data, and how they map onto these data qualities.
+\
+
+```{r qz33_2, echo = FALSE}
+quiz(caption = "**< QUIZ 2 >** Data Distributions",
+#    question("What distribution does the 'countries' variable follow?",
+#       answer("poisson", correct = TRUE),
+#        answer("Gaussian"),
+#        answer("binomial"),
+#        answer("categorical"),
+#        incorrect = "It's a poisson variable, as it's a count.",
+#        random_answer_order = TRUE
+#    ),
+
+    question("Is the 'countries' variable numeric or non-numeric?",
+        answer("numeric", correct = TRUE),
+        answer("non-numeric", message = "It's numeric data, but it's discrete as it can only take specific values: 1, 2, 3,..."),
+        random_answer_order = TRUE
+    ),
+
+    question("Is the reaction time variable quantitative or qualitative?",
+        answer("quantitative", correct = TRUE),
+        answer("qualitative"),
+        message = "It's quantitative (i.e. numeric), as it is composed of numbers rather than categories.",
+        random_answer_order = TRUE
+    ),
+
+    question("The countries and continents variables are both numeric data. But are they discrete or continuous?",
+        answer("discrete", correct = TRUE),
+        answer("continuous"),
+        message = "They are discrete: the numbers can only take certain discrete values, i.e., 1, 2, 3, 4,... and not any values in between those numbers.",
+        random_answer_order = TRUE
+    ),
+
+    question("Tutor Group is non-numeric data. Is it categorical or ordinal?",
+        answer("categorical", correct = TRUE),
+        answer("ordinal"),
+        incorrect = "It's categorical, as it has no natural hierarchy (even if you do think 
+        your tutor group is the best in the year group...).",
+        random_answer_order = TRUE
+    ),
+
+    question("What common distribution do you think the glasses prescription follows?",
+        answer("Gaussian (the 'normal' distribtion)", correct = TRUE),
+        answer("poisson"),
+        answer("beta"),
+        answer("ordinal"),
+        incorrect = "It's Gaussian, as it can in theory take any continuous value and should roughly follow a bell curve shape.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+#### **3.3.1 Data Distributions Explained**
+\
+
+<!--
+Here's a little from me on data distributions:  
+\
+
+<center>
+![](https://youtu.be/d7lARa168gk){width="80%"}
+</center>  
+\  
+-->
+
+The **distributions** of variables are important factors in how we 
+interpret plots and analyses. Distributions are effectively 'counts' of the
+number of times certain numeric variable values occur. For discrete numeric variables, such as the number of countries or continents, the distribution may be simply the counts of occurrence of 0, 1, 2, 3, 4, etc. For both discrete and continuous numeric variables, the distribution represents the number of times variable values occur within certain intervals (e.g. for the eyesight variable we can count the number of values between -3 to -2, -2 to -1, -1 to 0,..., or any other intervals we choose).  
+
+We use these counts to visualise distributions, as we will see shortly.  
+
+Distributions also show us how variables are:
+
+* _bounded_ (i.e. cannot occur above, below or between certain values)
+* how they are _skewed_ (e.g. there are lots of small values but not many large ones or vice versa)
+* what values their _moments_ (i.e. mean, variance, skewness) may take
+* which _statistical distributions_ the data approximate.
+
+Distributions of your data are important, as all of the things listed here can have implications for: 
+
+* how you analyse your data
+* whether your statistical models are valid
+* how you interpret your statistical model results.
+
+<!--
+In this particular session, we're going to acquaint ourselves with the 
+[`ggplot2`](https://ggplot2.tidyverse.org/) package. `ggplot2` is a great 
+package for data visualisation: it's easy to make very pretty graphs with 
+only a few lines of code, and has simplified many data visualisation problems 
+which previously were tricky in R. We'll be learning:
+
+* a reinforcement of data-handling skills
+* an understanding of the grammar of graphics and how ggplot uses it
+* how plot histograms
+   + `ggplot()` and `aes()` to initialise a plot
+   + adjustments to coordinates
+   + `geom_histogram` to map a histogram 
+   + how to change the look of a plot with themes and other options  
+\
+-->
+
+### **3.4 SUMMARY STATISTICS**
+\
+
+You've doubtless come across these before. There are a couple of types of summary statistic:
+
+* **parametric** statistics describe the data by processing their actual values. E.g.
+  + the mean
+  + the standard deviation
+* **nonparametric** statistics describe the data in terms of their ranked values. E.g.
+  + the median
+  + the quartiles and other quantiles
+* some statistics can be calculated using both methods
+  + the skewness
+\
+
+#### **< EXERCISE 1 >** Summary Statistics
+_To get an understanding of what this means, consider the following sets of numbers and calculate the mean, standard deviation, median and quartiles of each._
+```{r ex34_1, exercise = TRUE}
+nums1 <- c(2, 3, 4, 4, 4, 5, 6, 7, 9, 12)
+
+nums2 <- c(2, 3, 4, 4, 4, 5, 10, 1534, 7532010)
+
+```
+```{r ex34_1-hint, echo = FALSE}
+The summary() function will give you many, but not all, of the values!
+```
+\
+
+**DON'T BELIEVE NONPARAMETRIC STATISTICS!**  
+You should see once you've calculated the statistics in the above exercise that the mean and standard deviation really reflect the large differences in values between the two sets of numbers, as they are calculated using the values themselves, whilst the median and quartiles do not reflect these differences as they're based simply on ranking whether one data point is bigger than another.  
+\
+
+Be wary and bear these differences in mind whenever you're using summary stats. For example, remember: a boxplot only shows you quartiles, not the full parametric data spread!  
+\
+
+**DON'T BELIEVE PARAMETRIC STATISTICS EITHER!**
+What if I told you that you have two variables with:
+
+* symmetrical distributions
+* roughly the same mean
+* roughly the same median
+* roughly the same interquartile range
+* roughly the same standard deviation
+
+```{r fun1, echo = FALSE}
+question("Would you say they're roughly the same distribution?",
+  answer("Yeah, for sure!"),
+  answer("I feel like this question is here to catch me out, so I'm gonna say no.", correct = TRUE)
+)
+```
+\
+
+Here are two distributions and their summary statistics.  
+
+**Variable 1:**
+```{r, echo = FALSE}
+v1 <- c(rnorm(500 , 2 , 2), rnorm(500 , 8 , 2))
+v2 <- rnorm(1000, 5, 4)
+vard <- data.frame(v1, v2)
+hist <- ggplot(vard, aes(x = v1)) +
+    geom_histogram(aes(y = ..density..), bins = 31, fill = 'grey50') +
+    theme_minimal()
+hist + geom_density(lwd = 1.5)
+```
+Summary stats and standard deviation:
+```{r, echo = FALSE}
+summary(vard$v1)
+sd(vard$v1)
+```
+\
+
+**Variable 2:**
+```{r echo = FALSE}
+hist <- ggplot(vard, aes(x = v2)) +
+    geom_histogram(aes(y = ..density..), bins = 31, fill = 'grey50') +
+    theme_minimal()
+hist + geom_density(lwd = 1.5)
+```
+Summary stats and standard deviation:
+```{r, echo = FALSE}
+summary(vard$v2)
+sd(vard$v2)
+```
+\
+
+Definitely not the same, despite sharing the same summary statisics.  
+
+I hope there's no more need for an explanation than that, as to why you should plot your data distributions before you embark on any kind of analysis!  
+
+$~$
+
+***
+### **3.5 VISUALISING DATA DISTRIBUTIONS**
+ \
+
+Data distributions are most commonly visualised using a **histogram**.  
+
+You've undoubtedly come across histograms, but a refresher: the variable of interest, on the x axis, is split into _bins_. Each bin has a bar representing either the _count_ of the number of data points that fall in that bin, or the _density_: the proportion of total data points that fall in that bin.  
+
+$~$
+
+### 3.5.1 EYESIGHT: NORMAL DATA (NORMAL OR 'GAUSSIAN' DISTRIBUTION)
+\  
+
+We're going to begin by working with the `eyesight` variable. This approximates a normal distribution, which is the most common data distribution you'll analyse and certainly most relevant to this module, so the most time will be spent on it.  
+\
+
+Head on over to [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM). 
+I assume you've read all of the user guide now, as suggested in Chapter 2½... I know 
+it must have been thrilling reading. Go to the DATA DISTRIBUTIONS page. Choose the `eyesight` variable. Keep all of the other options at their defaults, for now.  
+
+Your histogram should look like this:  
+
+```{r, echo = FALSE, warning = FALSE}
+hist <- ggplot(data = data, aes(x = eyesight)) +
+    geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
+    xlim(-10, 16) +
+    theme_minimal()
+
+hist
+```
+\
+
+Click on the CODE tab to see the code that plots that histogram. We will come soon to what the different elements of the code mean, and how they link to the Grammar of Graphics.  
+
+If you were working on your own machine, to plot this histogram you would: 
+
+* read in the data by running the code from the CODE tab on the DATA page
+* then run the code from the CODE tab on the DATA DISTRIBUTIONS PAGE
+
+Like this:  
+\
+
+```{r, echo = FALSE, eval = FALSE, warning = FALSE}
+# Read in the data
+data <- read.csv('games_data.csv')
+
+# Plot the histogram
+hist <- ggplot(data = data, aes(x = eyesight)) +
+    geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
+    xlim(-10, 16) +
+    theme_minimal()
+
+hist
+```
+\
+
+Using this histogram, answer the questions below.  
+\
+
+```{r qz351_3, echo = FALSE}
+quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
+    question("Does the eyesight variable have any bounds?",
+        answer("No", correct = TRUE),
+        answer("Yes: -7 and 14"),
+        answer("Yes: the maximum short- and long-sighted prescriptions ever given"),
+        answer("Yes: -10 and 16"),
+        incorrect = "There are no strict bounds on the data, even if values are very unlikely to go beyond a certain maximum or minimum",
+        random_answer_order = TRUE
+    ),
+
+    question("Is the eyesight variable continuous or discrete?",
+        answer("continuous", correct = TRUE),
+        answer("discrete"),
+        incorrect = "Continuous: the numbers are often rounded to the nearest 0.25, but they theoretically could take any real number.",
+        random_answer_order = TRUE
+    ),
+
+    question("Is the data skewed?",
+        answer("Yes: a positive skew", correct = TRUE),
+        answer("No"),
+        answer("Yes: a negative skew"),
+        incorrect = "There is a positive skew in the data, with a tail to the right.",
+        random_answer_order = TRUE
+    ),
+
+    question("Are there any potential outliers?",
+        answer("Yes: at the upper end of the distribution", correct = TRUE),
+        answer("Yes: at the lower end of the distribution"),
+        answer("No"),
+        incorrect = "There is a potential outlier at the upper end of the distribution, as evidenced by a single bar which is apart from the others.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+##### **A little bit on outliers**
+
+The potential outlier at the upper end of the `eyesight` distribution may cause some significant problems for later analysis. Common sense tells us that an eyesight prescription of 14 is very unlikely (extreme farsightedness is considered to be anything over +5 to +6!), so when we come to analyse the data, we may want to remove this data point for purely that reason. When we are trying to analyse the relationship between two (or more) variables, outliers can either
+
+* influence relationships between two variables such that they cause a significant relationship where there otherwise isn't one if the outlier is removed
+* mask a real relationship between two variables where the influence of the outlier is in the opposite direction to the relationship between the two variables where the outlier is removed.  
+\
+
+**THERE IS A DIFFERENCE BETWEEN AN OUTLIER AND AN INFLUENTIAL POINT**.  
+
+* An outlier is a data point which sits far apart from the majority of points that make up the bulk of its variable's distribution, like the high data point for eyesight.
+* Outliers can potentially become influential points when analysing the relationship between one variable and another.
+  + An outlier may sit far from the other data, but close to the fitted relationship between two variables, in which case it is not influential.
+  + An outlier may sit far from the other data, and also far away from the fitted relationship between two variables, in which case it may be an influential point.  
+\
+
+If an outlier is unlikely to be a reasonable or realistic data point (such as an eyesight prescription of +14), we may want to remove it from the data in any case. Otherwise, if we find that an outlier, or another point, significantly influences the outcome of an analysis, we may way to remove it for that reason.  
+
+If this all sounds confusing, it will become clear when we visualise the relationships between data in Chapters 5 and 6.  
+
+We will find out how to subset data frames to remove certain data such as outliers or influential points in Chapter 4.  
+
+$~$
+
+##### **We digress. Back to histograms.**  
+
+In the ShinyGLM app, try adjusting the number of bins that you're plotting. 
+
+* Try higher numbers
+* Try lower numbers
+* As you adjust the number of bins, look at the CODE tab on the DATA DISTRIBUTIONS page to see what changes.  
+\
+
+```{r qz351_4, echo = FALSE}
+quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
+    question("What makes for better visualisation of the data distribution?",
+        answer("Both more bins and fewer bins", correct = TRUE, 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        answer("More bins", 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        answer("Fewer bins", 
+               message = "It's important to view the data using a variety of bin numbers, to get a good overview of the whole distribution."),
+        random_answer_order = TRUE
+    ),
+
+    question("What is the perfect number of bins to use?",
+        answer("There isn't one", correct = TRUE),
+        answer("10"),
+        answer("14"),
+        answer("20"),
+        answer("7"),
+        answer("However many bins show one bar per data point"),
+        answer("However many bins show ten bars"),
+        incorrect = "check the answer to the question before this one!",
+        random_answer_order = TRUE,
+        allow_retry = TRUE
+    ),
+
+    question("When the number of bins is changed, what changes in the code?",
+        answer("the argument 'bins' in the function geom_histogram", correct = TRUE),
+        answer("the function 'bins' in the argument geom_histogram"),
+        answer("the data in 'ggplot'"),
+        answer("the y value"),
+        answer("the option 'bins'"),
+        random_answer_order = TRUE, 
+        allow_retry = TRUE,
+        try_again = "Remember the grammar of R code... what are the names of the things that go in a function and are separated by commas?"
+    )
+)
+```
+\
+
+On the left of the ShinyGLM page you can see lots of different options for the plot.  
+You can probably guess, by looking at the code, how elements of the code match up to the rest of the options in the app (e.g. colour, theme,...)  
+\
+
+#### **< EXERCISE 2 >** Visualising Data Distributions - Gaussian
+_Use the options in the ShinyGLM app to make a histogram that has:_
+
+1. _Bars which are 'black'_
+2. _x axis limits of -9 and 15_
+3. _12 bins_
+4. _A 'classic' theme_
+
+_Edit the code below, which has deliberate mistakes in it, to reproduce the histogram with the above criteria. Think of this as a game of spot-the-difference... compare this code to the code generated from ShinyGLM, and fix the differences._  
+
+_Edit the code directly rather than copy-pasting from the ShinyGLM app: you learn far quicker that way._
+
+```{r ex351_2, exercise=TRUE, echo=FALSE}
+hist <- ggplot(data = data aes(x = Eyesight)) +
+    geom_histogram(aes(y = ..density..), bin = 12, color = 'black') +
+    xlim(c(-10, 15)) 
+    theme('classic')
+
+hist
+
+```
+\  
+```{r ex351_2-solution}
+hist <- ggplot(data = data, aes(x = eyesight)) +
+    geom_histogram(aes(y = ..density..), bins = 12, fill = 'black') +
+    xlim(-10, 15) +
+    theme_classic()
+
+hist
+
+```
+
+Note how the elements of the code match the elements of the Grammar of Graphics framework:
+
+* `ggplot(data...` sets up the _data_
+* `aes(x = eyesight)` specifies the basic _aesthetics_
+* `geom_histogram(...` sets up the basic _geometry_
+* `aes(y = ..density..)` tweaks the y _aesthetic_ to show a density rather than count histogram
+* `xlim(-10, 15)` sets the x _coordinates_
+* `theme_classic()` specifies the _theme_
+\
+
+It's several lines of code, but it all fits into this cohesive GG framework, with each element relating to a specific graphics layer.  Thinking like this will help you out when completing the next exercise.  
+\
+
+There are a couple of things to note. First, the summary statistics do tell us something about the normal distribution.  
+\
+
+##### **"APPROXIMATING" THE DISTRIBUTION**
+
+I've mentioned a couple of times that the variable "approximates" the distribution. What does "approximates" mean?  
+
+Essentially, just that the distribution of the variable might be roughly the same but not equal. We can calculate the mean and standard deviation of the `eyesight` variable and compare that to a "perfect" normal distribution generated using that that mean and standard deviation, to see that there is a close match but by no means a perfect one: 
+
+```{r echo = FALSE}
+eyem <- mean(data$eyesight, na.rm = TRUE)
+eyesd <- sd(data$eyesight, na.rm = TRUE)
+norm <- rnorm(100000, eyem, eyesd)
+norm <- as.data.frame(norm)
+hist <- ggplot(data = data, aes(x = eyesight)) +
+    geom_histogram(data = data, aes(y = ..density..), bins = 12, fill = 'grey50') +
+    xlim(-10, 15) +
+    theme_minimal()
+hist + geom_density(data = norm, aes(x = norm), lwd = 1.5)
+```
+\
+
+Distributions allow us to do some neat tricks. If we know the mean and the standard deviation of a distribution, then we can work out probabilities of making certain observations, according to the 'perfect' normal distribution that a variable approximates. Here, we can use `pnorm` to calculate the probability that someone is shortsighted (i.e. has a prescription less than zero). This is equal to the area under the density curve in the plot above which is less than zero:
+
+```{r}
+# eyesight mean
+eye_mean <- mean(data$eyesight, na.rm = TRUE)
+eye_mean
+
+# eyesight standard deviation
+eye_sd <- sd(data$eyesight, na.rm = TRUE)
+eye_sd
+
+# We use na.rm = TRUE because we want to remove NA values
+# before we calculate these things.
+
+# probability of being shortsighted
+pnorm(0, eye_mean, eye_sd)
+```
+\
+
+This same approach can be applied to any quantitative data distribution.
+
+$~$
+
+### 3.5.2 REACTION: PROPORTION DATA (BETA AND BINOMIAL DISTRIBUTIONS)
+\
+
+You've now coded a histogram for the `eyesight`variable, and you'll code another from scratch for the 'reaction' variable.  
+\
+
+"From scratch???", I hear you cry! Don't panic. Ideally, you should take the following approach to the following exercise:
+
+* Option 1: copy-paste the code for the histogram at the start of the _eyesight_ section of this chapter. Alter it to get the required result for this exercise.
+* Option 2: If you need an easier starting point, use ShinyGLM to generate the code you need by choosing the right options from the menus to get the required result for this exercise.
+
+You won't find all the answers to this exercise in the ShinyGLM app. Yes, there's going to be a little bit of googling* involved! A key skill for any programmer is to be able to find out the answers to any coding problems you encounter. Next Step:
+
+* Option 3: Google/Bing/Yahoo/DuckDuckGo/Ask Jeeves to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
+* Option 4: look at the hints if you're stuck.  
+\
+
+#### **< EXERCISE 3 >** Visualising Data Distributions - beta
+_Plot a histogram of `reaction`, with:_
+
+1. _bar colour "goldenrod"_
+2. _x limits of 0 and 1_
+3. _11 bins_
+4. _a density plot added_
+5. _x label "Reaction (seconds)"_
+6. _a black and white theme_
+
+_REMEMBER: coding is so often about copying, pasting, and editing. So although you start this exercise with a blank slate, once you've copied and pasted something to start with (using either option 1 or 2 mentioned above), you're totally good to go!_
+
+```{r ex352_3, exercise=TRUE, echo=FALSE}
+
+```
+```{r ex352_3-hint, eval = FALSE}
+Points 1-4 can be done using options in ShinyGLM and copying the code.
+
+Solutions to adding points 5 and 6 can be found on the ggplot cheat sheet, which is linked to at the top of the page.
+```
+```{r ex352_3-solution, eval = FALSE}
+hist <- ggplot(data = data, aes(x = reaction)) +
+    geom_histogram(aes(y = ..density..), bins = 11, fill = 'goldenrod') +
+    xlim(0, 1) +
+    xlab("Reaction (seconds)") +
+    theme_bw()
+hist + geom_density() # could also include colours here
+```
+* other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let's be honest, Google is its own verb now.  
+\  
+
+```{r qz352_5, echo = FALSE}
+quiz(caption = "**< QUIZ 5 >** Visualising Data Distributions - beta",
+    question("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?",
+        answer("Zero and one are the outer bounds of the data", correct = TRUE),
+        answer("Zero and 1 are the right distances outside the range to be able to view all the data"),
+        answer("Zero and one are aesthetically pleasing choices"),
+        answer("Zero and one are a clear unit integer width"),
+        incorrect = "Zero and one are the outer bounds of the data. By making these the axis limits, it's clear how the data are distributed relative to the whole of the possible range.",
+        correct = "By making the axis limits equal to the outer bounds of the data, it's clear how the data are distributed relative to the whole of the possible range.",
+        random_answer_order = TRUE
+    ),
+    question("The `geom_density()` function provides a 'smoothed' curve tracking the density of the variable rather than using bins and bars. What graphics layer do you think this is?",
+        answer("Geometry", correct = TRUE),
+        answer("Theme"),
+        answer("Coordinates"),
+        answer("Aesthetics"),
+        message = "It is in fact a geometry. Plots can have multiple geometries, as we'll see more of later in the module, which is one of `ggplot`'s biggest strengths.",
+        random_answer_order = TRUE
+    )
+)
+```
+\
+
+The distribution of the `reaction` variable is a beta distribution, as it's limited to a number between the bounds of 0 and 1. But, it almost approximates a normal distribution as there aren't any values close to those bounds.  
+\
+
+
+
+$~$
+
+### 3.5.3 CONTINENTS: COUNT DATA (POISSON DISTRIBUTION)
+\
+
+You may remember that histograms may be represented as densities 
+(counts in a bin represented as a proportion of the total), and counts 
+(raw counts of 
+the number of data points in a bin). So far, we have only plotted histograms 
+using density.  
+
+If we want to plot a histogram of continents people have visited, then we 
+might want to use counts as it's more informative in this case. We also would 
+want to make sure there's one bar per number of continents visited.  
+\
+
+Here is a histogram that shows the continents in this manner:
+
+```{r echo = FALSE}
+hist <- ggplot(data = data, aes(x = continents)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'grey75') +
+    xlim(0, 7) +
+    theme_minimal()
+```
+\
+
+There are two arguments in the `geom_histogram()` function that we can change to get the right bin width and a count on the y axis rather than a density.  
+
+Remember that to access help pages for functions, you use `?function_name`. Run the code below to bring up the help page for the `geom_histogram()` function, which may help you answer the questions below.
+
+```{r ex-help, exercise = TRUE, exercise.caption = "Function help"}
+?geom_histogram
+```
+\
+
+Looking at this page, as well as applying `R`'s kind of logical thinking in how things are specified, how do you think the arguments might be changed to get bars representing counts?
+
+```{r qz353_6, echo = FALSE}
+quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - Counts",
+    question("The plot can be converted to counts using:",
+        answer("`aes(y = ..count..)`", correct = TRUE, message = "Nicely done! This is probably the most logical - the most simple - change to the code to get a count."),
+        answer("`orientation = 'count'`"),
+        answer("`count = TRUE`"),
+        answer("`aes(y = 'count')`"),
+        incorrect = "Not quite. Imagine you're as logical as R: almost as logical as Sheldon Cooper. If you use `y = ..density..` normally, how would you turn that into a count?",
+        random_answer_order = TRUE,
+        allow_retry = TRUE
+    ),
+    question("The help page for the `geom_histogram()` function tells you a few means of specifying the bins by using various arguments in the function. How might you achieve a bin width of 1?",
+        answer("`binwidth = 1`", correct = TRUE),
+        answer("`bins = 1`"),
+        answer("`bins(width = 1)`"),
+        answer("`aes(binwidth = 1)`"),
+        message = "The easiest way is probably to specify the bin width using `binwidth`. If it is 1, then every bar must represent a count for 1 continent, 2 continents, 3 continents,... etc.",
+        random_answer_order = TRUE
+    )
+)
+```
+
+$~$  
+
+### 3.5.4 COUNTRIES: MORE COUNT DATA (POISSON DISTRIBUTION)
+\
+
+Consider the three code chunks below. There are mistakes in the code.  
+\
+
+_Countries: chunk 1_
+```{r eval = FALSE}
+hist <- ggplot(data, aes(x = countries)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlim(0, 30) +
+    theme_minimal()
+
+hist
+```
+
+_Countries: chunk 2_
+```{r eval = FALSE}
+hist <- ggplot(data, aes(x = Countries)) +
+    geom_hist(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlims(0, 30) +
+    theme_minimal()
+
+hist
+```
+
+_Countries: chunk 3_
+```{r eval = FALSE}
+hist <- ggplot(games_data, aes(x = countries)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlim(0, 30) +
+    minimal_theme()
+
+hist
+```
+
+_Countries: chunk 4_
+```{r eval = FALSE}
+hist <- ggplot(data, aes(x = countries)) +
+    geom_histogram(aes(y = 'count'), bins = 1, fill = 'chocolate4') +
+    xlim(0, 30) +
+    theme_minimal()
+
+hist
+```
+\
+
+```{r qz354_7, echo = FALSE}
+quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
+    question("Which of the chunks has a mistake in the _data_? Choose one or more answers.",
+        type = "checkbox",
+        answer("Chunk 1"),
+        answer("Chunk 2"),
+        answer("Chunk 3", correct = TRUE, message = "Correct: `games_data` should be `data`."),
+        answer("Chunk 4"),
+        incorrect = "Chunk 3: `games_data` should be `data`.",
+        allow_retry = TRUE
+    ),
+    question("Which of the chunks has a mistake in the _aesthetics_? Choose one or more answers.",
+        answer("Chunk 1"),
+        answer("Chunk 2", correct = TRUE, message = "Correct: `aes(x = Countries)` should be `aes(x = countries)`... the uppercase C should be lowercase."),
+        answer("Chunk 3"),
+        answer("Chunk 4", correct = TRUE, message = "Correct: `aes(y = 'count')` should be `aes(y = ..count..)`"),
+        allow_retry = TRUE,
+        message = "aesthetics are most often associated with specifying the axes and are specified using the `aes()` function. Did you remember that aesthetics are specified twice in the code?"
+    ),
+    question("Which of the chunks has a mistake in the _geometries_? Choose one or more answers.",
+        answer("Chunk 1"),
+        answer("Chunk 2", correct = TRUE, message = "Correct: `geom_hist` should be `geom_histogram`."),
+        answer("Chunk 3"),
+        answer("Chunk 4", correct = TRUE, message = "Correct: `bins = 1` should be `binwidth = 1`."),
+        allow_retry = TRUE,
+        message = "geometries are simply the type of plot: in this case the histogram and the arguments associated with it."
+    ),
+    question("Which of the chunks has a mistake in the _theme_? Choose one or more answers.",
+        type = "checkbox",
+        answer("Chunk 1"),
+        answer("Chunk 2"),
+        answer("Chunk 3", correct = TRUE, message = "Correct: `minimal_theme` should be `theme_minimal`."),
+        answer("Chunk 4"),
+        allow_retry = TRUE
+    ),
+    question("Which of the chunks has no mistakes?",
+        type = "checkbox",
+        answer("Chunk 1", correct = TRUE),
+        answer("Chunk 2"),
+        answer("Chunk 3"),
+        answer("Chunk 4"),
+        answer("None of the chunks"),
+        allow_retry = TRUE
+    )
+)
+```
+\
+
+This is the histogram that Code Chunk 1 produces. Feel free to edit the code to do things like change the colour of the bars or change the axis limits, to get used to using `ggplot`.
+
+```{r ex354_8, echo = FALSE, exercise.eval = TRUE}
+hist <- ggplot(data, aes(x = countries)) +
+    geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
+    xlim(0, 30) +
+    theme_minimal()
+
+hist
+```
+
+$~$
+
+
+***
+### **3.5 OTHER RESOURCES**
+\
+
+The [R Graph Gallery](https://www.r-graph-gallery.com) is an amazing place to learn about graphing in different ways using `R`, and especially `ggplot`. Check out this page where they cover [histograms](https://www.r-graph-gallery.com/histogram.html) in detail.  
+
+$~$
+
+***
+### **< WORKSHOP >** Data Distributions
+***  
+\
+
+Nothing to see here yet...
+
+$~$
+
+***
+##### END OF CHAPTER
+***
 
 
 
