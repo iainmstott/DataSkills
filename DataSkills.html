@@ -531,10 +531,10 @@ ggplot(as.data.frame(random), aes(x = random)) +
 <p><img src="DataSkills_files/figure-html/unnamed-chunk-1-1.png" width="624" style="display: block; margin: auto;" /></p>
 <pre class="r"><code># mean
 mean(random)</code></pre>
-<pre><code>## [1] -0.008082298</code></pre>
+<pre><code>## [1] 0.07024064</code></pre>
 <pre class="r"><code># standard deviation
 sd(random)</code></pre>
-<pre><code>## [1] 0.9996716</code></pre>
+<pre><code>## [1] 1.010546</code></pre>
 <p> </p>
 </div>
 <div id="section-what-does-the-above-code-do" class="section level5">
@@ -1252,21 +1252,22 @@ factor1</code></pre>
 <p>Logical objects are perhaps hard to understand at first, but they’re simple really. They basically indicate whether something is <code>TRUE</code> or <code>FALSE</code>. They usually relate to a question we ask of our data.</p>
 <pre class="r"><code>rand_norm &lt;- rnorm(50, 0, 1)
 rand_norm</code></pre>
-<pre><code>##  [1]  0.55993996 -0.81819101 -0.76072043  0.10085887 -0.11439998  1.29540553
-##  [7]  0.52332893 -1.34102130 -1.26275358 -0.97727513 -0.39334665  1.16126310
-## [13] -0.49192977  0.61761834 -0.60709156 -0.90910518  0.30393883  0.04154857
-## [19] -1.42680563  0.75235389  0.15819571  1.61243353 -0.12704674  0.66735709
-## [25] -0.33291158 -0.72240399  0.85702873  0.25771159  0.68454730  0.96724153
-## [31]  1.33847816  0.44460566  1.45281019  0.78663081 -0.35191766 -1.49013795
-## [37] -0.63765738 -0.14026931  1.37333235  1.17180307  0.20790892  0.24678021
-## [43]  1.07991283 -1.11466910  0.90110800 -0.01720163  0.39518615  1.23510152
-## [49] -0.56174159 -0.29471601</code></pre>
+<pre><code>##  [1] -0.226779413 -0.622672940  0.886267841  0.757103884  0.203657646
+##  [6]  1.513171291  0.366737309  1.001505465  0.364643969 -0.461695019
+## [11]  1.177130344 -0.927696264  1.017812056 -0.370591354 -1.591492025
+## [16] -1.610343434 -0.011967643 -0.228371194  0.955874188  0.587402463
+## [21] -0.005571026 -1.192958389  0.459953984 -0.397811965 -0.038458400
+## [26]  1.110591964  0.677938681 -0.336896507  0.837719045 -0.653889476
+## [31]  1.473640799  0.295424648  0.083266928 -0.638845228 -0.526307982
+## [36] -1.114715609  0.046772789  0.607757227 -1.272475889  0.692355231
+## [41]  0.099811713  0.418188435  1.168329158 -0.535554739 -2.226765970
+## [46]  0.364937820 -1.733267285  1.600806478 -0.265424585 -0.788697137</code></pre>
 <pre class="r"><code>over0 &lt;- rand_norm &gt; 0
 over0</code></pre>
-<pre><code>##  [1]  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
-## [13] FALSE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
-## [25] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
-## [37] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
+## [13]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE
+## [25] FALSE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+## [37]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE
 ## [49] FALSE FALSE</code></pre>
 <p>The result is information on which of your random data are greater than than 0.<br />
 <br />
@@ -1384,7 +1385,7 @@ toydata &lt;- data.frame(numbers2, factor1, factor2, random)
 toydata</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"1.3311026"},{"1":"4","2":"B","3":"B","4":"-0.8230450"},{"1":"6","2":"C","3":"A","4":"-1.4976349"},{"1":"8","2":"D","3":"B","4":"2.5026500"},{"1":"10","2":"E","3":"A","4":"1.9700332"},{"1":"12","2":"A","3":"B","4":"0.6146445"},{"1":"14","2":"B","3":"A","4":"0.4325877"},{"1":"16","2":"C","3":"B","4":"-2.2935436"},{"1":"18","2":"D","3":"A","4":"0.8508364"},{"1":"20","2":"E","3":"B","4":"0.2317370"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"0.63645881"},{"1":"4","2":"B","3":"B","4":"-0.90139192"},{"1":"6","2":"C","3":"A","4":"0.36158592"},{"1":"8","2":"D","3":"B","4":"-1.41468729"},{"1":"10","2":"E","3":"A","4":"0.93788439"},{"1":"12","2":"A","3":"B","4":"-0.03601388"},{"1":"14","2":"B","3":"A","4":"-0.99702820"},{"1":"16","2":"C","3":"B","4":"0.35252343"},{"1":"18","2":"D","3":"A","4":"-0.53156164"},{"1":"20","2":"E","3":"B","4":"0.43317003"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p><br />
@@ -1417,7 +1418,7 @@ toydata</code></pre>
 toydata[1:5, ]</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"1.331103","_rn_":"1"},{"1":"4","2":"B","3":"B","4":"-0.823045","_rn_":"2"},{"1":"6","2":"C","3":"A","4":"-1.497635","_rn_":"3"},{"1":"8","2":"D","3":"B","4":"2.502650","_rn_":"4"},{"1":"10","2":"E","3":"A","4":"1.970033","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["numbers2"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["factor1"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["factor2"],"name":[3],"type":["chr"],"align":["left"]},{"label":["random"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"A","3":"A","4":"0.6364588","_rn_":"1"},{"1":"4","2":"B","3":"B","4":"-0.9013919","_rn_":"2"},{"1":"6","2":"C","3":"A","4":"0.3615859","_rn_":"3"},{"1":"8","2":"D","3":"B","4":"-1.4146873","_rn_":"4"},{"1":"10","2":"E","3":"A","4":"0.9378844","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <pre class="r"><code># If you want all rows then leave the first number blank.
@@ -1776,6 +1777,13 @@ mydata[1:2, ]</code></pre>
 <li><strong>&lt; WORKSHOP &gt;</strong><br />
 </li>
 </ul>
+<p>The Chapter mostly deals with the first <strong>PLOTTING</strong> part of the analytical process:<br />
+<br />
+</p>
+<center>
+<img src="www/Process_2_Plot.png" title="fig:" style="width:80.0%" alt="The analytical process and its feedbacks" />
+</center>
+<p> </p>
 <p>Continue to Resources…</p>
 <p><span class="math inline">\(~\)</span></p>
 <hr />
@@ -2023,14 +2031,14 @@ You should see once you’ve calculated the statistics in the above exercise tha
 <p>Here are two distributions and their summary statistics.</p>
 <p><strong>Variable 1:</strong> <img src="DataSkills_files/figure-html/unnamed-chunk-32-1.png" width="624" style="display: block; margin: auto;" /> Summary stats and standard deviation:</p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -4.927   1.959   5.009   4.971   7.935  13.963</code></pre>
-<pre><code>## [1] 3.596554</code></pre>
+##  -3.167   2.045   5.156   5.067   8.111  14.984</code></pre>
+<pre><code>## [1] 3.714897</code></pre>
 <p><br />
 </p>
 <p><strong>Variable 2:</strong> <img src="DataSkills_files/figure-html/unnamed-chunk-34-1.png" width="624" style="display: block; margin: auto;" /> Summary stats and standard deviation:</p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -6.393   2.217   5.002   4.956   7.602  16.588</code></pre>
-<pre><code>## [1] 4.003805</code></pre>
+##  -7.461   2.074   4.822   4.776   7.321  19.025</code></pre>
+<pre><code>## [1] 4.020717</code></pre>
 <p><br />
 </p>
 <p>Definitely not the same, despite sharing the same summary statisics.</p>
@@ -2251,7 +2259,7 @@ pnorm(0, eye_mean, eye_sd)</code></pre>
 </ul>
 <p>You won’t find all the answers to this exercise in the ShinyGLM app. Yes, there’s going to be a little bit of googling* involved! A key skill for any programmer is to be able to find out the answers to any coding problems you encounter. Next Step:</p>
 <ul>
-<li>Option 3: Google/Bing/Yahoo/DuckDuckGo/Ask Jeeves to see if you can find ways to change the options which aren’t in the ShinyGLM app. Really, really try before moving to step 4.</li>
+<li>Option 3: Search online to see if you can find ways to change the options which aren’t in the ShinyGLM app. Really, really try before moving to step 4.</li>
 <li>Option 4: look at the hints if you’re stuck.<br />
 <br />
 </li>
@@ -2284,10 +2292,8 @@ Solutions to adding points 5 and 6 can be found on the ggplot cheat sheet, which
     theme_bw()
 hist + geom_density() # could also include colours here</code></pre>
 </div>
-<ul>
-<li>other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let’s be honest, Google is its own verb now.<br />
- </li>
-</ul>
+<p>*other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let’s be honest, Google is its own verb now.<br />
+ </p>
 <p><div class="panel-heading tutorial-quiz-title"><strong>&lt; QUIZ 5 &gt;</strong> Visualising Data Distributions - beta</div><div class="panel panel-default">
 <div data-label="qz352_5-1" class="tutorial-question panel-body">
 <div id="qz352_5-1-answer_container" class="shiny-html-output"></div>
@@ -2322,12 +2328,7 @@ hist + geom_density() # could also include colours here</code></pre>
 <p><br />
 </p>
 <p>There are two arguments in the <code>geom_histogram()</code> function that we can change to get the right bin width and a count on the y axis rather than a density.</p>
-<p>Remember that to access help pages for functions, you use <code>?function_name</code>. Run the code below to bring up the help page for the <code>geom_histogram()</code> function, which may help you answer the questions below.</p>
-<div class="tutorial-exercise" data-label="ex-help" data-caption="" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>?geom_histogram</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":false}</script>
-</div>
-<p><br />
+<p>Remember that to access help pages for functions, you use <code>?function_name</code>. Running the code <code>?geom_histogram</code> will bring up a help page for the <code>geom_histogram</code> function, which you can also find <a href="http://search.r-project.org/library/ggplot2/html/geom_histogram.html">HERE</a>, and which may help you answer the questions below.<br />
 </p>
 <p>Looking at this page, as well as applying <code>R</code>’s kind of logical thinking in how things are specified, how do you think the arguments might be changed to get bars representing counts?</p>
 <p><div class="panel-heading tutorial-quiz-title"><strong>&lt; QUIZ 6 &gt;</strong> Visualising Data Distributions - Counts</div><div class="panel panel-default">
@@ -2422,7 +2423,7 @@ hist</code></pre>
 </div><br />
 </p>
 <p>This is the histogram that Code Chunk 1 produces. Feel free to edit the code to do things like change the colour of the bars or change the axis limits, to get used to using <code>ggplot</code>.</p>
-<p><img src="DataSkills_files/figure-html/ex354_8-1.png" width="624" style="display: block; margin: auto;" /></p>
+<p><img src="DataSkills_files/figure-html/ex354_4-1.png" width="624" style="display: block; margin: auto;" /></p>
 <p><span class="math inline">\(~\)</span></p>
 <hr />
 </div>
@@ -2439,9 +2440,174 @@ hist</code></pre>
 <hr />
 <p><br />
 </p>
-<p>Nothing to see here yet…</p>
+<p>During this week’s workshop, we’re going to start exploring the biological data:</p>
+<ul>
+<li>loading <code>.csv</code> files into <code>R</code> (reminder from Ch2)</li>
+<li>plotting variable distributions using <code>ggplot</code>
+<ul>
+<li>histograms</li>
+<li>density plots</li>
+<li>grammar of graphics</li>
+</ul></li>
+<li>understanding types of variable distributions
+<ul>
+<li>data types</li>
+<li>data bounds</li>
+<li>skewness</li>
+<li>outliers</li>
+</ul></li>
+<li>using data distributions to calculate probabilities</li>
+</ul>
+<p>Chapter 0 Data will be useful to re-read quickly, so you can be familiar with the data you’re plotting. Remember:</p>
+<ul>
+<li><strong>Monday group:</strong> Pantheria data</li>
+<li><strong>Tuesday and Wednesday groups:</strong> Cell age data</li>
+<li><strong>Friday group:</strong> Urban dogs data</li>
+</ul>
+<p>In the workshop tasks, you won’t have encountered absolutely everything you need to do during the at-home study. Finding answers to question and solutions to probelms yourselves, using whatever resources you have to hand, is a useful skill to have.<br />
+<br />
+</p>
+<p>You should be able to get through at least Tasks 1 and 2 in the workshop: task 3 is very useful to complete if you have extra time left, and/or for practise in between online sessions.<br />
+<br />
+</p>
+<p>Remember there’s the <a href="https://iainmstott.shinyapps.io/ShinyGLM">ShinyGLM</a> app to help you out.</p>
+<p><span class="math inline">\(~\)</span></p>
+<div id="section-cell-ageing-exercises-questions" class="section level5">
+<h5><strong>CELL AGEING: EXERCISES &amp; QUESTIONS</strong></h5>
+<p><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>Read in the data (this was covered in the workshop tasks last week)</li>
+<li>Plot a histogram of the <code>DNAmAge</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution</li>
+<li><strong>ii.</strong> Specify x-axis limits of 5 and 85.
+<ul>
+<li>Why did you choose the number of bins you chose?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>Does the data distribution appear skewed?</li>
+<li>What is the name of a distribution that approximates the variable?<br />
+</li>
+</ul></li>
+<li><strong>iii.</strong> The histogram should be a count rather than a density</li>
+<li><strong>iv.</strong> The histogram should have bars which are the colour <code>"mistyrose4"</code>
+<ul>
+<li>Search online: can you find any ways to choose a colour other than by specifying a colour name?
+<ul>
+<li>Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what’s called a hexademical format.</li>
+</ul></li>
+</ul></li>
+<li><strong>v.</strong> The histogram should have a ‘classic’ theme.</li>
+<li><strong>vi.</strong> Find the mean and standard deviation of the variable.</li>
+<li><strong>vii.</strong> Using the mean and standard deviation, find the probability that the variable is greater than 80, according to a normal distribution with that mean and sd.<br />
+<br />
+</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Plot a density plot of the <code>Age</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> Choose appropriate x axes
+<ul>
+<li>Why did you choose the x-axis limits you did?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?</li>
+</ul></li>
+<li><strong>ii.</strong> Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.</li>
+</ul>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="section-urban-dogs-exercises-questions" class="section level5">
+<h5><strong>URBAN DOGS: EXERCISES &amp; QUESTIONS</strong></h5>
+<p><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>Read in the data (this was covered in the workshop tasks last week)</li>
+<li>Plot a histogram of the <code>TotalScore</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution</li>
+<li><strong>ii.</strong> Specify x-axis limits of 8 and 21.
+<ul>
+<li>Why did you choose the number of bins you chose?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>Does the data distribution appear skewed?</li>
+<li>What is the name of a distribution that approximates the variable?<br />
+</li>
+</ul></li>
+<li><strong>iii.</strong> The histogram should be a count rather than a density</li>
+<li><strong>iv.</strong> The histogram should have bars which are the colour <code>"orangered"</code>
+<ul>
+<li>Search online: can you find any ways to choose a colour other than by specifying a colour name?
+<ul>
+<li>Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what’s called a hexademical format.</li>
+</ul></li>
+</ul></li>
+<li><strong>v.</strong> The histogram should have a ‘classic’ theme.</li>
+<li><strong>vi.</strong> Find the mean and standard deviation of the variable.</li>
+<li><strong>vii.</strong> Using the mean and standard deviation, find the probability that the variable is greater than 18, according to a normal distribution with that mean and sd.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Plot a density plot of the <code>LitterSize</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> Choose appropriate x axes
+<ul>
+<li>Why did you choose the x-axis limits you did?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?</li>
+</ul></li>
+<li><strong>ii.</strong> Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.</li>
+</ul>
+<p><span class="math inline">\(~\)</span></p>
+</div>
+<div id="section-pantheria-exercises-questions" class="section level5">
+<h5><strong>PANTHERIA: EXERCISES &amp; QUESTIONS</strong></h5>
+<p><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>Read in the data (this was covered in the workshop tasks last week)</li>
+<li>Plot a histogram of the <code>MaxLongevity</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution</li>
+<li><strong>ii.</strong> Work out the number of days there are in 60 years and specify x-axis limits of 0 and 60 years.
+<ul>
+<li>Why did you choose the number of bins you chose?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>Does the data distribution appear skewed?</li>
+<li>What is the name of a distribution that approximates the variable?<br />
+</li>
+</ul></li>
+<li><strong>iii.</strong> The histogram should be a count rather than a density</li>
+<li><strong>iv.</strong> The histogram should have bars which are the colour <code>"indianred"</code>
+<ul>
+<li>Search online: can you find any ways to choose a colour other than by specifying a colour name?
+<ul>
+<li>Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what’s called a hexademical format.</li>
+</ul></li>
+</ul></li>
+<li><strong>v.</strong> The histogram should have a ‘classic’ theme.</li>
+<li><strong>vi.</strong> Find the mean and standard deviation of the variable.</li>
+<li><strong>vii.</strong> Using the mean and standard deviation, find the probability that the variable is greater than 50 years, according to a normal distribution with that mean and sd.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Plot a density plot of the <code>LitterSize</code> variable. You should:</li>
+</ol>
+<ul>
+<li><strong>i.</strong> run this code: <code>LitterSizeRound &lt;- round(data$LitterSize, 0)</code> to create a new variable which is <code>LitterSize</code> rounded to the nearest integer. (Your data frame may be called something other than <code>data</code>)</li>
+<li><strong>ii.</strong> Choose appropriate x axes
+<ul>
+<li>Why did you choose the x-axis limits you did?</li>
+<li>Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).</li>
+<li>What is the name of the distribution that should approximate a count variable such as this?</li>
+</ul></li>
+<li><strong>iii.</strong> Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.</li>
+</ul>
 <p><span class="math inline">\(~\)</span></p>
 <hr />
+</div>
 <div id="section-end-of-chapter-2" class="section level5">
 <h5>END OF CHAPTER</h5>
 <hr />
@@ -2499,7 +2665,7 @@ knitr::opts_chunk$set(
 )
 
 # Tutorial options
-tutorial_options(exercise.cap = "", exercise.eval = FALSE)
+tutorial_options(exercise.cap = "", exercise.eval=FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -2526,7 +2692,7 @@ learnr:::store_exercise_setup_chunk("__setup__", c("# packages", "library(learnr
 "rm(numbers2, characters1, factor1, factor2, random)", "", "# games data", 
 "data <- read.csv(\"data/games_data.csv\")", "", "# knitr options", 
 "knitr::opts_chunk$set(", "  fig.align = 'center',", "  warning = FALSE", 
-")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval = FALSE)"
+")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval=FALSE)"
 ), overwrite = FALSE)
 </script>
  
@@ -2540,7 +2706,7 @@ learnr:::store_exercise_setup_chunk("__setup__", c("# packages", "library(learnr
 "rm(numbers2, characters1, factor1, factor2, random)", "", "# games data", 
 "data <- read.csv(\"data/games_data.csv\")", "", "# knitr options", 
 "knitr::opts_chunk$set(", "  fig.align = 'center',", "  warning = FALSE", 
-")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval = FALSE)"
+")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval=FALSE)"
 ), overwrite = FALSE)
 </script>
  
@@ -2554,7 +2720,7 @@ learnr:::store_exercise_setup_chunk("__setup__", c("# packages", "library(learnr
 "rm(numbers2, characters1, factor1, factor2, random)", "", "# games data", 
 "data <- read.csv(\"data/games_data.csv\")", "", "# knitr options", 
 "knitr::opts_chunk$set(", "  fig.align = 'center',", "  warning = FALSE", 
-")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval = FALSE)"
+")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval=FALSE)"
 ), overwrite = FALSE)
 </script>
  
@@ -2568,21 +2734,21 @@ learnr:::store_exercise_setup_chunk("__setup__", c("# packages", "library(learnr
 "rm(numbers2, characters1, factor1, factor2, random)", "", "# games data", 
 "data <- read.csv(\"data/games_data.csv\")", "", "# knitr options", 
 "knitr::opts_chunk$set(", "  fig.align = 'center',", "  warning = FALSE", 
-")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval = FALSE)"
+")", "", "# Tutorial options", "tutorial_options(exercise.cap = \"\", exercise.eval=FALSE)"
 ), overwrite = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz031-1", question = structure("Here&#39;s a simple multiple choice question: which of these is the best?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1acf2f5", 
+"character")), answers = list(structure(list(id = "lnr_ans_6193772", 
     option = "Cake", value = "Cake", label = structure("Cake", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_9192e80", option = "Biscuits", 
+)), structure(list(id = "lnr_ans_7828198", option = "Biscuits", 
     value = "Biscuits", label = structure("Biscuits", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Yes!!! Biscuits rule all!", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_f54453f", option = "Cheesecake", 
+)), structure(list(id = "lnr_ans_9093851", option = "Cheesecake", 
     value = "Cheesecake", label = structure("Cheesecake", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Incorrect. Biscuits rule all. Try dunking some cheesecake in tea or coffee!", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -2594,24 +2760,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz031-1-answer", question = "qz031-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHere&#39;s a simple multiple choice question: which of these is the best?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1169815215.95526, options = list()), class = c("learnr_radio", 
+    seed = 1446969638.8262, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz031-2", question = structure("Here&#39;s a multiple choice question with more than one answer: which of these are amazing?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e8cb979", 
+"character")), answers = list(structure(list(id = "lnr_ans_25d5e44", 
     option = "Tea", value = "Tea", label = structure("Tea", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Tea is amazing.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_d312139", option = "Coffee", 
+)), structure(list(id = "lnr_ans_3dde563", option = "Coffee", 
     value = "Coffee", label = structure("Coffee", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Coffee is amazing.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_6e67b24", option = "Fruit tea", 
+)), structure(list(id = "lnr_ans_a40d28a", option = "Fruit tea", 
     value = "Fruit tea", label = structure("Fruit tea", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d05638d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a1de943", 
     option = "None of these", value = "None of these", label = structure("None of these", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -2622,17 +2788,17 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz031-2-answer", question = "qz031-2"), loading = structure("<strong>Loading:<\u002fstrong> \nHere&#39;s a multiple choice question with more than one answer: which of these are amazing?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1436142068.83124, options = list()), class = c("learnr_checkbox", 
+    seed = 1017755497.52607, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz031-3", question = structure("Here&#39;s a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d19974e", 
+"character")), answers = list(structure(list(id = "lnr_ans_57aa8ec", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("...wow. Harsh. Try again.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_4c12f19", option = "Yes", value = "Yes", 
+)), structure(list(id = "lnr_ans_1578e9b", option = "Yes", value = "Yes", 
     label = structure("Yes", html = TRUE, class = c("html", "character"
     )), correct = TRUE, message = structure("Yeah you are!!!", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -2644,7 +2810,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz031-3-answer", question = "qz031-3"), loading = structure("<strong>Loading:<\u002fstrong> \nHere&#39;s a question which you can retry if you get the answer wrong. Are you excited to learn some R coding???\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1566744179.27043, options = list()), class = c("learnr_radio", 
+    seed = 457502705.786959, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -2795,17 +2961,17 @@ learnr:::store_exercise_cache("ex24_2", list(setup = NULL, chunks = list(list(la
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz24_1-1", question = structure("What do the three arguments of the seq() function mean (in order)?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b09bead", 
+"character")), answers = list(structure(list(id = "lnr_ans_c69af68", 
     option = "start of sequence, length of sequence, sequence increment", 
     value = "start of sequence, length of sequence, sequence increment", 
     label = structure("start of sequence, length of sequence, sequence increment", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7aed840", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c565663", 
     option = "start of sequence, end of sequence, length of sequence", 
     value = "start of sequence, end of sequence, length of sequence", 
     label = structure("start of sequence, end of sequence, length of sequence", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1ee03c8", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_57d439a", 
     option = "start of sequence, end of sequence, sequence increment", 
     value = "start of sequence, end of sequence, sequence increment", 
     label = structure("start of sequence, end of sequence, sequence increment", html = TRUE, class = c("html", 
@@ -2818,25 +2984,25 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz24_1-1-answer", question = "qz24_1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat do the three arguments of the seq() function mean (in order)?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 349368469.837313, options = list()), class = c("learnr_radio", 
+    seed = 1800843925.16142, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz24_1-2", 
     question = structure("how could you find the mean of the numeric vector <code>c(5, 6, 7, 8)<\u002fcode>? Choose all answers that apply.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_41f63ae", 
+    "character")), answers = list(structure(list(id = "lnr_ans_d90de60", 
         option = "`mean(c(5, 6, 7, 8))`", value = "`mean(c(5, 6, 7, 8))`", 
         label = structure("<code>mean(c(5, 6, 7, 8))<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_994f632", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e0da9a2", 
         option = "`mean(5:8)`", value = "`mean(5:8)`", label = structure("<code>mean(5:8)<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_844697d", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_de7154e", 
         option = "`summary(5:8)`", value = "`summary(5:8)`", 
         label = structure("<code>summary(5:8)<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_583bafa", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a49321e", 
         option = "`(5 + 6 + 7 + 8) / 4`", value = "`(5 + 6 + 7 + 8) / 4`", 
         label = structure("<code>(5 + 6 + 7 + 8) / 4<\u002fcode>", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -2848,7 +3014,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "qz24_1-2-answer", question = "qz24_1-2"), loading = structure("<strong>Loading:<\u002fstrong> \nhow could you find the mean of the numeric vector <code>c(5, 6, 7, 8)<\u002fcode>? Choose all answers that apply.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 320798055.350617, options = list()), class = c("learnr_checkbox", 
+    seed = 350808342.836642, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
@@ -2890,21 +3056,21 @@ learnr:::store_exercise_cache("ex252_3", list(setup = NULL, chunks = list(list(l
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz253_3-1", question = structure("What is the fundamental difference between a character vector and a factor vector?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9796907", 
+"character")), answers = list(structure(list(id = "lnr_ans_e297c63", 
     option = "A factor vector excludes quotation marks and a character vector doesn't.", 
     value = "A factor vector excludes quotation marks and a character vector doesn't.", 
     label = structure("A factor vector excludes quotation marks and a character vector doesn&#39;t.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c4edc3f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f20cc1", 
     option = "A factor vector can be used in a data frame", value = "A factor vector can be used in a data frame", 
     label = structure("A factor vector can be used in a data frame", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Both character vectors and factor vectors can be used in data frames.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_630ac03", option = "A factor vector has defined 'levels' that values can take", 
+)), structure(list(id = "lnr_ans_ecc0f74", option = "A factor vector has defined 'levels' that values can take", 
     value = "A factor vector has defined 'levels' that values can take", 
     label = structure("A factor vector has defined &#39;levels&#39; that values can take", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_61c0b05", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bd6ba52", 
     option = "A factor vector and a character vector are the same.", 
     value = "A factor vector and a character vector are the same.", 
     label = structure("A factor vector and a character vector are the same.", html = TRUE, class = c("html", 
@@ -2917,23 +3083,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz253_3-1-answer", question = "qz253_3-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat is the fundamental difference between a character vector and a factor vector?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 148406408.930893, options = list()), class = c("learnr_radio", 
+    seed = 453659439.288748, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz253_3-2", question = structure("What are character and factor vectors each best used for?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_70f8320", 
+"character")), answers = list(structure(list(id = "lnr_ans_78ff40b", 
     option = "character: unique information for each data row; factor: shared information across rows", 
     value = "character: unique information for each data row; factor: shared information across rows", 
     label = structure("character: unique information for each data row; factor: shared information across rows", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9ccb038", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ef1acb5", 
     option = "character: shared information across rows; factor: unique information for each data row", 
     value = "character: shared information across rows; factor: unique information for each data row", 
     label = structure("character: shared information across rows; factor: unique information for each data row", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1b46cd5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8fc77e6", 
     option = "It doesn't matter", value = "It doesn't matter", 
     label = structure("It doesn&#39;t matter", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -2946,16 +3112,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz253_3-2-answer", 
     question = "qz253_3-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat are character and factor vectors each best used for?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 767079559.642801, options = list()), class = c("learnr_radio", 
+    seed = 1996463243.57032, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz254_4-1", question = structure("If you ran the above code multiple times, would you get the same result each time?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_ecb823a", 
+"character")), answers = list(structure(list(id = "lnr_ans_86d9892", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1a8c60c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2e90401", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -2967,22 +3133,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz254_4-1-answer", 
     question = "qz254_4-1"), loading = structure("<strong>Loading:<\u002fstrong> \nIf you ran the above code multiple times, would you get the same result each time?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 546076270.245713, options = list()), class = c("learnr_radio", 
+    seed = 2106485605.51909, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz254_4-2", question = structure("You won&#39;t get the same result each time. Which part of the code causes that to happen?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d88ad88", 
+"character")), answers = list(structure(list(id = "lnr_ans_f27722b", 
     option = "the function rnorm()", value = "the function rnorm()", 
     label = structure("the function rnorm()", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("The function rnorm() creates random numbers.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_adec373", option = "The arguments 50, 0, 1", 
+)), structure(list(id = "lnr_ans_8d69d7a", option = "The arguments 50, 0, 1", 
     value = "The arguments 50, 0, 1", label = structure("The arguments 50, 0, 1", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("The function rnorm() creates random numbers.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_2b6a0d1", option = "The logical operator >", 
+)), structure(list(id = "lnr_ans_574abbe", option = "The logical operator >", 
     value = "The logical operator >", label = structure("The logical operator &gt;", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("The function rnorm() creates random numbers.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -2994,7 +3160,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz254_4-2-answer", question = "qz254_4-2"), loading = structure("<strong>Loading:<\u002fstrong> \nYou won&#39;t get the same result each time. Which part of the code causes that to happen?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 2064170104.0388, options = list()), class = c("learnr_radio", 
+    seed = 1850345395.13837, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -3071,7 +3237,7 @@ learnr:::store_exercise_cache("ex26_5", list(setup = NULL, chunks = list(list(la
         engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
         max.print = 1000, tutorial = TRUE, exercise.cap = "", 
         exercise.eval = FALSE, label = "ex26_5", exercise = TRUE, 
-        out.width.px = 624, out.height.px = 384, code = "", params.src = "ex26_5, exercise = TRUE, echo = FALSE", 
+        out.width.px = 624, out.height.px = 384, code = "", params.src = "ex26_5, exercise = TRUE, echo=FALSE", 
         fig.num = 0L, exercise.df_print = "paged", exercise.checker = "NULL"), 
     engine = "r"))
 </script>
@@ -3113,23 +3279,23 @@ learnr:::store_exercise_cache("ex29_6", list(setup = NULL, chunks = list(list(la
         "mydata <- data.frame(mynums, mychars, myfacs)", "# see numbers", 
         "mydata$mynum", "# first 5 rows of data frame", "mydata[1:5]", 
         "# first 2 columns of data frame", "mydata[1:2, ]", ""
-        ), params.src = "ex29_6, exercise = TRUE, eval = FALSE", 
+        ), params.src = "ex29_6, exercise = TRUE, eval=FALSE", 
         fig.num = 0, exercise.df_print = "paged", exercise.checker = "NULL"), 
     engine = "r"))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz32_1-1", question = structure("In the line of code above, what is <code>library()<\u002fcode>?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_31ff05b", 
+"character")), answers = list(structure(list(id = "lnr_ans_b747d50", 
     option = "A function", value = "A function", label = structure("A function", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_54062bf", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_24873be", 
     option = "An object", value = "An object", label = structure("An object", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dcfdf13", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_588fed9", 
     option = "An argument", value = "An argument", label = structure("An argument", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b545a6c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2ba98d8", 
     option = "An-nnoying", value = "An-nnoying", label = structure("An-nnoying", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3140,27 +3306,27 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz32_1-1-answer", question = "qz32_1-1"), loading = structure("<strong>Loading:<\u002fstrong> \nIn the line of code above, what is <code>library()<\u002fcode>?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 679543558.183563, options = list()), class = c("learnr_radio", 
+    seed = 1337694245.37709, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz32_1-2", question = structure("What is <code>ggplot2<\u002fcode>?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b61c4d1", 
+"character")), answers = list(structure(list(id = "lnr_ans_98a1c14", 
     option = "None of these", value = "None of these", label = structure("None of these", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7184c7b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_48acee7", 
     option = "A character object", value = "A character object", 
     label = structure("A character object", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e22180a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a8b4967", 
     option = "A logical object", value = "A logical object", 
     label = structure("A logical object", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9997d87", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_eed8098", 
     option = "An object", value = "An object", label = structure("An object", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f8c360f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a733bc", 
     option = "A function", value = "A function", label = structure("A function", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3172,16 +3338,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz32_1-2-answer", 
     question = "qz32_1-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat is <code>ggplot2<\u002fcode>?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1105832720.98506, options = list()), class = c("learnr_radio", 
+    seed = 1649806663.23175, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz33_2-1", question = structure("Is the &#39;countries&#39; variable numeric or non-numeric?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5fc6ab9", 
+"character")), answers = list(structure(list(id = "lnr_ans_c7e44ab", 
     option = "numeric", value = "numeric", label = structure("numeric", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ee0cfd2", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5f48568", 
     option = "non-numeric", value = "non-numeric", label = structure("non-numeric", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("It&#39;s numeric data, but it&#39;s discrete as it can only take specific values: 1, 2, 3,...", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -3193,16 +3359,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz33_2-1-answer", question = "qz33_2-1"), loading = structure("<strong>Loading:<\u002fstrong> \nIs the &#39;countries&#39; variable numeric or non-numeric?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 390941745.817954, options = list()), class = c("learnr_radio", 
+    seed = 293160984.863486, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz33_2-2", question = structure("Is the reaction time variable quantitative or qualitative?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e27912e", 
+"character")), answers = list(structure(list(id = "lnr_ans_53932bd", 
     option = "quantitative", value = "quantitative", label = structure("quantitative", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2c30668", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8b44859", 
     option = "qualitative", value = "qualitative", label = structure("qualitative", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3214,16 +3380,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz33_2-2-answer", 
     question = "qz33_2-2"), loading = structure("<strong>Loading:<\u002fstrong> \nIs the reaction time variable quantitative or qualitative?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 128809485.440018, options = list()), class = c("learnr_radio", 
+    seed = 1303485096.89302, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz33_2-3", question = structure("The countries and continents variables are both numeric data. But are they discrete or continuous?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a3160ef", 
+"character")), answers = list(structure(list(id = "lnr_ans_fef3ec8", 
     option = "discrete", value = "discrete", label = structure("discrete", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87106cd", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_30c4e73", 
     option = "continuous", value = "continuous", label = structure("continuous", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3235,16 +3401,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz33_2-3-answer", 
     question = "qz33_2-3"), loading = structure("<strong>Loading:<\u002fstrong> \nThe countries and continents variables are both numeric data. But are they discrete or continuous?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1905775956.11255, options = list()), class = c("learnr_radio", 
+    seed = 1089516425.49265, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz33_2-4", question = structure("Tutor Group is non-numeric data. Is it categorical or ordinal?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b8aabdf", 
+"character")), answers = list(structure(list(id = "lnr_ans_c37a0db", 
     option = "categorical", value = "categorical", label = structure("categorical", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_16e8423", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_77e355b", 
     option = "ordinal", value = "ordinal", label = structure("ordinal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3255,23 +3421,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz33_2-4-answer", question = "qz33_2-4"), loading = structure("<strong>Loading:<\u002fstrong> \nTutor Group is non-numeric data. Is it categorical or ordinal?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1911298604.10998, options = list()), class = c("learnr_radio", 
+    seed = 1976740136.07951, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz33_2-5", question = structure("What common distribution do you think the glasses prescription follows?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_afa0866", 
+"character")), answers = list(structure(list(id = "lnr_ans_56fd533", 
     option = "Gaussian (the 'normal' distribtion)", value = "Gaussian (the 'normal' distribtion)", 
     label = structure("Gaussian (the &#39;normal&#39; distribtion)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3c66112", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a592b8d", 
     option = "poisson", value = "poisson", label = structure("poisson", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4319653", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_57c3e74", 
     option = "beta", value = "beta", label = structure("beta", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_75af3b5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8d8d52d", 
     option = "ordinal", value = "ordinal", label = structure("ordinal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3282,7 +3448,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz33_2-5-answer", question = "qz33_2-5"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat common distribution do you think the glasses prescription follows?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1791288756.16587, options = list()), class = c("learnr_radio", 
+    seed = 448988281.290924, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -3324,10 +3490,10 @@ learnr:::store_exercise_cache("ex34_1", list(setup = NULL, chunks = list(list(la
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "fun1", question = structure("Would you say they&#39;re roughly the same distribution?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9c9e116", 
+"character")), answers = list(structure(list(id = "lnr_ans_fba8c4d", 
     option = "Yeah, for sure!", value = "Yeah, for sure!", label = structure("Yeah, for sure!", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c84689b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d049412", 
     option = "I feel like this question is here to catch me out, so I'm gonna say no.", 
     value = "I feel like this question is here to catch me out, so I'm gonna say no.", 
     label = structure("I feel like this question is here to catch me out, so I&#39;m gonna say no.", html = TRUE, class = c("html", 
@@ -3340,24 +3506,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "fun1-answer", question = "fun1"), loading = structure("<strong>Loading:<\u002fstrong> \nWould you say they&#39;re roughly the same distribution?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 250037472.883567, options = list()), class = c("learnr_radio", 
+    seed = 502332248.766083, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_3-1", question = structure("Does the eyesight variable have any bounds?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_81b555d", 
+"character")), answers = list(structure(list(id = "lnr_ans_2cea736", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c0aa88a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c991bf5", 
     option = "Yes: -7 and 14", value = "Yes: -7 and 14", label = structure("Yes: -7 and 14", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_cfe4949", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e560a90", 
     option = "Yes: the maximum short- and long-sighted prescriptions ever given", 
     value = "Yes: the maximum short- and long-sighted prescriptions ever given", 
     label = structure("Yes: the maximum short- and long-sighted prescriptions ever given", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_283c545", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8099bdf", 
     option = "Yes: -10 and 16", value = "Yes: -10 and 16", label = structure("Yes: -10 and 16", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3368,16 +3534,16 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_3-1-answer", question = "qz351_3-1"), loading = structure("<strong>Loading:<\u002fstrong> \nDoes the eyesight variable have any bounds?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1512907139.2955, options = list()), class = c("learnr_radio", 
+    seed = 1848947253.13902, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_3-2", question = structure("Is the eyesight variable continuous or discrete?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_11d920e", 
+"character")), answers = list(structure(list(id = "lnr_ans_b4a79a0", 
     option = "continuous", value = "continuous", label = structure("continuous", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b0d25b9", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_16eeeff", 
     option = "discrete", value = "discrete", label = structure("discrete", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3388,20 +3554,20 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_3-2-answer", question = "qz351_3-2"), loading = structure("<strong>Loading:<\u002fstrong> \nIs the eyesight variable continuous or discrete?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1791044631.16598, options = list()), class = c("learnr_radio", 
+    seed = 772547305.640255, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_3-3", question = structure("Is the data skewed?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5381e89", 
+"character")), answers = list(structure(list(id = "lnr_ans_f9ef992", 
     option = "Yes: a positive skew", value = "Yes: a positive skew", 
     label = structure("Yes: a positive skew", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e7aa56b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f0fbd2b", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f4fbca7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fc498c9", 
     option = "Yes: a negative skew", value = "Yes: a negative skew", 
     label = structure("Yes: a negative skew", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3413,21 +3579,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_3-3-answer", question = "qz351_3-3"), loading = structure("<strong>Loading:<\u002fstrong> \nIs the data skewed?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1056444119.50805, options = list()), class = c("learnr_radio", 
+    seed = 813918400.12099, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_3-4", question = structure("Are there any potential outliers?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_837017d", 
+"character")), answers = list(structure(list(id = "lnr_ans_67115e2", 
     option = "Yes: at the upper end of the distribution", value = "Yes: at the upper end of the distribution", 
     label = structure("Yes: at the upper end of the distribution", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_58b72e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8e85476", 
     option = "Yes: at the lower end of the distribution", value = "Yes: at the lower end of the distribution", 
     label = structure("Yes: at the lower end of the distribution", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_de9bef9", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c5785e8", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3438,22 +3604,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_3-4-answer", question = "qz351_3-4"), loading = structure("<strong>Loading:<\u002fstrong> \nAre there any potential outliers?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1064723870.0042, options = list()), class = c("learnr_radio", 
+    seed = 1924997384.6036, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_4-1", question = structure("What makes for better visualisation of the data distribution?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a177439", 
+"character")), answers = list(structure(list(id = "lnr_ans_3ea0887", 
     option = "Both more bins and fewer bins", value = "Both more bins and fewer bins", 
     label = structure("Both more bins and fewer bins", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("It&#39;s important to view the data using a variety of bin numbers, to get a good overview of the whole distribution.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_c62c8d9", option = "More bins", 
+)), structure(list(id = "lnr_ans_8cf8f21", option = "More bins", 
     value = "More bins", label = structure("More bins", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("It&#39;s important to view the data using a variety of bin numbers, to get a good overview of the whole distribution.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_4166c82", option = "Fewer bins", 
+)), structure(list(id = "lnr_ans_9d0a0a7", option = "Fewer bins", 
     value = "Fewer bins", label = structure("Fewer bins", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("It&#39;s important to view the data using a variety of bin numbers, to get a good overview of the whole distribution.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -3465,33 +3631,33 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_4-1-answer", question = "qz351_4-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat makes for better visualisation of the data distribution?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 2131150298.50761, options = list()), class = c("learnr_radio", 
+    seed = 209323813.402526, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_4-2", question = structure("What is the perfect number of bins to use?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9b51f38", 
+"character")), answers = list(structure(list(id = "lnr_ans_2ad98b4", 
     option = "There isn't one", value = "There isn't one", label = structure("There isn&#39;t one", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_630eb06", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_485ae44", 
     option = "10", value = "10", label = structure("10", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c496a7a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6cdde14", 
     option = "14", value = "14", label = structure("14", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ce731a5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5b8f05b", 
     option = "20", value = "20", label = structure("20", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c7af431", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_13b97f0", 
     option = "7", value = "7", label = structure("7", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f5c16b7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ddfad47", 
     option = "However many bins show one bar per data point", 
     value = "However many bins show one bar per data point", 
     label = structure("However many bins show one bar per data point", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_aa9d189", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b4c2ab2", 
     option = "However many bins show ten bars", value = "However many bins show ten bars", 
     label = structure("However many bins show ten bars", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3503,30 +3669,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_4-2-answer", question = "qz351_4-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat is the perfect number of bins to use?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 787909777.633101, options = list()), class = c("learnr_radio", 
+    seed = 535316674.750724, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz351_4-3", question = structure("When the number of bins is changed, what changes in the code?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_40f2f27", 
+"character")), answers = list(structure(list(id = "lnr_ans_5aa116a", 
     option = "the argument 'bins' in the function geom_histogram", 
     value = "the argument 'bins' in the function geom_histogram", 
     label = structure("the argument &#39;bins&#39; in the function geom_histogram", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_efbe351", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6589d7d", 
     option = "the function 'bins' in the argument geom_histogram", 
     value = "the function 'bins' in the argument geom_histogram", 
     label = structure("the function &#39;bins&#39; in the argument geom_histogram", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fc3fd17", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_729c3f1", 
     option = "the data in 'ggplot'", value = "the data in 'ggplot'", 
     label = structure("the data in &#39;ggplot&#39;", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_847f247", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_857f63", 
     option = "the y value", value = "the y value", label = structure("the y value", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8e8969d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ace9b7b", 
     option = "the option 'bins'", value = "the option 'bins'", 
     label = structure("the option &#39;bins&#39;", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3538,7 +3704,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz351_4-3-answer", question = "qz351_4-3"), loading = structure("<strong>Loading:<\u002fstrong> \nWhen the number of bins is changed, what changes in the code?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1565591304.27096, options = list()), class = c("learnr_radio", 
+    seed = 390744273.818045, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -3623,22 +3789,22 @@ learnr:::store_exercise_cache("ex352_3", list(setup = NULL, chunks = list(list(l
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz352_5-1", question = structure("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b5d06c0", 
+"character")), answers = list(structure(list(id = "lnr_ans_7efd943", 
     option = "Zero and one are the outer bounds of the data", 
     value = "Zero and one are the outer bounds of the data", 
     label = structure("Zero and one are the outer bounds of the data", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bb4e67a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f354a47", 
     option = "Zero and 1 are the right distances outside the range to be able to view all the data", 
     value = "Zero and 1 are the right distances outside the range to be able to view all the data", 
     label = structure("Zero and 1 are the right distances outside the range to be able to view all the data", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6bc0d5f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ab3eca2", 
     option = "Zero and one are aesthetically pleasing choices", 
     value = "Zero and one are aesthetically pleasing choices", 
     label = structure("Zero and one are aesthetically pleasing choices", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_13bf871", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4b332e0", 
     option = "Zero and one are a clear unit integer width", value = "Zero and one are a clear unit integer width", 
     label = structure("Zero and one are a clear unit integer width", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3650,22 +3816,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz352_5-1-answer", question = "qz352_5-1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhy does it make sense to choose 0 and 1 for the x axis limits of this plot?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 365226644.829928, options = list()), class = c("learnr_radio", 
+    seed = 455399162.787938, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz352_5-2", question = structure("The <code>geom_density()<\u002fcode> function provides a &#39;smoothed&#39; curve tracking the density of the variable rather than using bins and bars. What graphics layer do you think this is?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a534a59", 
+"character")), answers = list(structure(list(id = "lnr_ans_75ced4", 
     option = "Geometry", value = "Geometry", label = structure("Geometry", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5bb56c8", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a40a20", 
     option = "Theme", value = "Theme", label = structure("Theme", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c47d756", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ad8ca92", 
     option = "Coordinates", value = "Coordinates", label = structure("Coordinates", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9737f5f", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3ba022b", 
     option = "Aesthetics", value = "Aesthetics", label = structure("Aesthetics", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3677,59 +3843,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz352_5-2-answer", 
     question = "qz352_5-2"), loading = structure("<strong>Loading:<\u002fstrong> \nThe <code>geom_density()<\u002fcode> function provides a &#39;smoothed&#39; curve tracking the density of the variable rather than using bins and bars. What graphics layer do you think this is?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1211125451.43603, options = list()), class = c("learnr_radio", 
+    seed = 895109976.583182, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-ex-help-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex-help-code-editor`)), session)
-output$`tutorial-exercise-ex-help-output` <- renderUI({
-  `tutorial-exercise-ex-help-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("ex-help", list(setup = NULL, chunks = list(list(label = "ex-help", code = "?geom_histogram", 
-    opts = list(label = "\"ex-help\"", exercise = "TRUE", exercise.caption = "\"Function help\""), 
-    engine = "r")), code_check = NULL, error_check = NULL, check = NULL, 
-    solution = NULL, options = list(eval = FALSE, echo = TRUE, 
-        results = "markup", tidy = FALSE, tidy.opts = NULL, collapse = FALSE, 
-        prompt = FALSE, comment = NA, highlight = FALSE, strip.white = TRUE, 
-        size = "normalsize", background = "#F7F7F7", cache = 0, 
-        cache.path = "DataSkills_cache/html/", cache.vars = NULL, 
-        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
-        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "center", fig.path = "DataSkills_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 6.5, fig.height = 4, fig.env = "figure", 
-        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 624, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = FALSE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        max.print = 1000, tutorial = TRUE, exercise.cap = "", 
-        exercise.eval = FALSE, label = "ex-help", exercise = TRUE, 
-        exercise.caption = "Function help", out.width.px = 624, 
-        out.height.px = 384, code = "?geom_histogram", params.src = "ex-help, exercise = TRUE, exercise.caption = \"Function help\"", 
-        fig.num = 0, exercise.df_print = "paged", exercise.checker = "NULL"), 
-    engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz353_6-1", question = structure("The plot can be converted to counts using:", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_dbe8406", 
+"character")), answers = list(structure(list(id = "lnr_ans_53ecd6d", 
     option = "`aes(y = ..count..)`", value = "`aes(y = ..count..)`", 
     label = structure("<code>aes(y = ..count..)<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Nicely done! This is probably the most logical - the most simple - change to the code to get a count.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_e36a401", option = "`orientation = 'count'`", 
+)), structure(list(id = "lnr_ans_e4172bd", option = "`orientation = 'count'`", 
     value = "`orientation = 'count'`", label = structure("<code>orientation = &#39;count&#39;<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9294309", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fcacb88", 
     option = "`count = TRUE`", value = "`count = TRUE`", label = structure("<code>count = TRUE<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_14c917", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7445f67", 
     option = "`aes(y = 'count')`", value = "`aes(y = 'count')`", 
     label = structure("<code>aes(y = &#39;count&#39;)<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3741,23 +3872,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "qz353_6-1-answer", question = "qz353_6-1"), loading = structure("<strong>Loading:<\u002fstrong> \nThe plot can be converted to counts using:\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1249677632.41807, options = list()), class = c("learnr_radio", 
+    seed = 1743659829.68805, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "qz353_6-2", question = structure("The help page for the <code>geom_histogram()<\u002fcode> function tells you a few means of specifying the bins by using various arguments in the function. How might you achieve a bin width of 1?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d7f09e2", 
+"character")), answers = list(structure(list(id = "lnr_ans_3eb0e6c", 
     option = "`binwidth = 1`", value = "`binwidth = 1`", label = structure("<code>binwidth = 1<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_939569a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_20b31b", 
     option = "`bins = 1`", value = "`bins = 1`", label = structure("<code>bins = 1<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4a4a5d3", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7e614f7", 
     option = "`bins(width = 1)`", value = "`bins(width = 1)`", 
     label = structure("<code>bins(width = 1)<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_14c89d7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_68adf6b", 
     option = "`aes(binwidth = 1)`", value = "`aes(binwidth = 1)`", 
     label = structure("<code>aes(binwidth = 1)<\u002fcode>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3770,24 +3901,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), post_message = NULL), ids = list(answer = "qz353_6-2-answer", 
     question = "qz353_6-2"), loading = structure("<strong>Loading:<\u002fstrong> \nThe help page for the <code>geom_histogram()<\u002fcode> function tells you a few means of specifying the bins by using various arguments in the function. How might you achieve a bin width of 1?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = FALSE, 
-    seed = 1162775955.45854, options = list()), class = c("learnr_radio", 
+    seed = 387463076.319573, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz354_7-1", 
     question = structure("Which of the chunks has a mistake in the <em>data<\u002fem>? Choose one or more answers.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_affe5f5", 
+    "character")), answers = list(structure(list(id = "lnr_ans_a721312", 
         option = "Chunk 1", value = "Chunk 1", label = structure("Chunk 1", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ca8092f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9f435bc", 
         option = "Chunk 2", value = "Chunk 2", label = structure("Chunk 2", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4c9ec84", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d10092d", 
         option = "Chunk 3", value = "Chunk 3", label = structure("Chunk 3", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>games_data<\u002fcode> should be <code>data<\u002fcode>.", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_be0f32f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4ff5720", 
         option = "Chunk 4", value = "Chunk 4", label = structure("Chunk 4", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3799,24 +3930,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "qz354_7-1-answer", question = "qz354_7-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the chunks has a mistake in the <em>data<\u002fem>? Choose one or more answers.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 2058153060.0416, options = list()), class = c("learnr_checkbox", 
+    seed = 129992014.939468, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz354_7-2", 
     question = structure("Which of the chunks has a mistake in the <em>aesthetics<\u002fem>? Choose one or more answers.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_676019c", 
+    "character")), answers = list(structure(list(id = "lnr_ans_3677006", 
         option = "Chunk 1", value = "Chunk 1", label = structure("Chunk 1", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a8169", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5b4e5dc", 
         option = "Chunk 2", value = "Chunk 2", label = structure("Chunk 2", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>aes(x = Countries)<\u002fcode> should be <code>aes(x = countries)<\u002fcode>... the uppercase C should be lowercase.", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2a775cd", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b0195e4", 
         option = "Chunk 3", value = "Chunk 3", label = structure("Chunk 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ac3b38f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_66e71c4", 
         option = "Chunk 4", value = "Chunk 4", label = structure("Chunk 4", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>aes(y = &#39;count&#39;)<\u002fcode> should be <code>aes(y = ..count..)<\u002fcode>", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
@@ -3829,24 +3960,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character")), post_message = NULL), ids = list(answer = "qz354_7-2-answer", 
         question = "qz354_7-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the chunks has a mistake in the <em>aesthetics<\u002fem>? Choose one or more answers.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1371173063.3615, options = list()), class = c("learnr_checkbox", 
+    seed = 336730402.343198, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz354_7-3", 
     question = structure("Which of the chunks has a mistake in the <em>geometries<\u002fem>? Choose one or more answers.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_5b56763", 
+    "character")), answers = list(structure(list(id = "lnr_ans_e092632", 
         option = "Chunk 1", value = "Chunk 1", label = structure("Chunk 1", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5c37fa3", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_eba043b", 
         option = "Chunk 2", value = "Chunk 2", label = structure("Chunk 2", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>geom_hist<\u002fcode> should be <code>geom_histogram<\u002fcode>.", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e9c1e77", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_fe63e20", 
         option = "Chunk 3", value = "Chunk 3", label = structure("Chunk 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f1fe97e", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_27bbb39", 
         option = "Chunk 4", value = "Chunk 4", label = structure("Chunk 4", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>bins = 1<\u002fcode> should be <code>binwidth = 1<\u002fcode>.", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
@@ -3859,24 +3990,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character")), post_message = NULL), ids = list(answer = "qz354_7-3-answer", 
         question = "qz354_7-3"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the chunks has a mistake in the <em>geometries<\u002fem>? Choose one or more answers.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 2092141764.02577, options = list()), class = c("learnr_checkbox", 
+    seed = 1521375451.79155, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz354_7-4", 
     question = structure("Which of the chunks has a mistake in the <em>theme<\u002fem>? Choose one or more answers.", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_df205f3", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fff0b4a", 
         option = "Chunk 1", value = "Chunk 1", label = structure("Chunk 1", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2fe4148", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_bd2b758", 
         option = "Chunk 2", value = "Chunk 2", label = structure("Chunk 2", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5802bfc", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a51b62c", 
         option = "Chunk 3", value = "Chunk 3", label = structure("Chunk 3", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("Correct: <code>minimal_theme<\u002fcode> should be <code>theme_minimal<\u002fcode>.", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_94ec564", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_45d4592", 
         option = "Chunk 4", value = "Chunk 4", label = structure("Chunk 4", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -3888,26 +4019,26 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "qz354_7-4-answer", question = "qz354_7-4"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the chunks has a mistake in the <em>theme<\u002fem>? Choose one or more answers.\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 687369377.179919, options = list()), class = c("learnr_checkbox", 
+    seed = 514294622.260513, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "qz354_7-5", 
     question = structure("Which of the chunks has no mistakes?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_b88949e", 
+    "character")), answers = list(structure(list(id = "lnr_ans_4240916", 
         option = "Chunk 1", value = "Chunk 1", label = structure("Chunk 1", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8bc1e2e", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4cb7f00", 
         option = "Chunk 2", value = "Chunk 2", label = structure("Chunk 2", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_54f3539", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8797e63", 
         option = "Chunk 3", value = "Chunk 3", label = structure("Chunk 3", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a21cedd", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7311a3d", 
         option = "Chunk 4", value = "Chunk 4", label = structure("Chunk 4", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_261757", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9d5b467", 
         option = "None of the chunks", value = "None of the chunks", 
         label = structure("None of the chunks", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -3920,12 +4051,12 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "qz354_7-5-answer", question = "qz354_7-5"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the chunks has no mistakes?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1394775478.35051, options = list()), class = c("learnr_checkbox", 
+    seed = 1556191305.27534, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
-{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]}]}
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.3"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1.9006"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1.9006"]}]}]}
 </script>
 <!--/html_preserve-->
 <!--html_preserve-->
@@ -3946,7 +4077,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 <div id="doc-metadata">
 <h2 class="title toc-ignore" style="display:none;">Data Skills for the Life Sciences</h2>
 <h4 class="author"><em>Module lead: IAIN STOTT / email <a href="mailto:istott@lincoln.ac.uk" class="email">istott@lincoln.ac.uk</a></em></h4>
-<h4 class="date"><em>Last updated 2020-10-23</em></h4>
+<h4 class="date"><em>Last updated 2020-10-25</em></h4>
 </div>
 <!-- end doc-metadata -->
 

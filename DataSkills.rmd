@@ -46,15 +46,15 @@ knitr::opts_chunk$set(
 )
 
 # Tutorial options
-tutorial_options(exercise.cap = "", exercise.eval = FALSE)
+tutorial_options(exercise.cap = "", exercise.eval=FALSE)
 ```
 
-```{r, scripts, echo = FALSE}
+```{r, scripts, echo=FALSE}
 source("scripts/themeSelectorHack.r")
 themeSelectorHack()
 ```
 
-```{css, styles, echo = FALSE}
+```{css, styles, echo=FALSE}
 body{
   padding-top: 90px;
 }
@@ -611,7 +611,7 @@ in understanding, visualising and analysing data. They may have single answers
 or multiple possible correct answers, as seen below.  
 \
 
-```{r qz031, echo = FALSE}
+```{r qz031, echo=FALSE}
 quiz(caption = " **< QUIZ 1 >** (Interactive Elements - quizzes)",
     question("Here's a simple multiple choice question: which of these is the best?",
         answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
@@ -692,7 +692,7 @@ mean(random)
 sd()
 
 ```
-```{r ex113_2-solution, echo = FALSE}
+```{r ex113_2-solution, echo=FALSE}
 # draw random numbers
 # 42 is the mean and it is the second argument in rnorm().
 random <- rnorm(1000, 42, 12)
@@ -1259,7 +1259,7 @@ etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter
 vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
 \  
 
-```{r qz24_1, echo = FALSE}
+```{r qz24_1, echo=FALSE}
 quiz(caption = "**< QUIZ 1 >** (Objects)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
@@ -1410,7 +1410,7 @@ We can see from the summary that R recognises the five different factor levels,
 A through E.  
 \
 
-```{r qz253_3, echo = FALSE}
+```{r qz253_3, echo=FALSE}
 quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
     question("What is the fundamental difference between a character vector and a factor vector?",
         answer("A factor vector excludes quotation marks and a character vector doesn't."),
@@ -1448,7 +1448,7 @@ over0
 The result is information on which of your random data are greater than than 0.  
 \
 
-```{r qz254_4, echo = FALSE}
+```{r qz254_4, echo=FALSE}
 quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
     question("If you ran the above code multiple times, would you get the same result each time?",
         answer("Yes", correct = TRUE),
@@ -1718,10 +1718,10 @@ plot(toydata$numbers2, toydata$random)
 
 ##### **< EXERCISE 5 >** Simple Plots
 _Create a boxplot of `random` and a histogram of `numbers2`_.
-```{r ex26_5, exercise = TRUE, echo = FALSE}
+```{r ex26_5, exercise = TRUE, echo=FALSE}
 
 ```
-```{r ex26_5-hint, eval = FALSE}
+```{r ex26_5-hint, eval=FALSE}
 Copy the code from the example boxplot and histogram, and replace the variable names.
 ```
 
@@ -1791,7 +1791,7 @@ time it's because you've made a mistake. R is very literal. Be careful!
 _Correct the mistakes ('bugs') in the lines of code below, bearing in_
 _mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
 _right outputs!_
-```{r ex29_6, exercise = TRUE, eval = FALSE}
+```{r ex29_6, exercise = TRUE, eval=FALSE}
 # a sequence from 4 to 40 in steps of 4
 mynums <- seq(4, 40, 4,)
 mynums
@@ -2106,7 +2106,15 @@ In this session we'll be covering...
 * **< WORKSHOP >**
 \
 
-Continue to Resources...  
+The Chapter mostly deals with the first **PLOTTING** part of the analytical process:  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
 
 $~$
 
@@ -2157,7 +2165,7 @@ need to use an R package developed by the RStudio team.
 
 If you are working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 install.packages("ggplot2")
  ```
 \
@@ -2169,12 +2177,12 @@ every time you switched the phone on on...!  _Nightmare_.
 
 The way we load up these packages is using `library()`. You usually need to do this every time you start a new `R` session (i.e. every time you open RStudio).
 
- ```{r eval = FALSE}
+ ```{r eval=FALSE}
 library(ggplot2)
  ```
 \
 
-```{r qz32_1, echo = FALSE}
+```{r qz32_1, echo=FALSE}
 quiz(caption = "**< QUIZ 1 >** R Packages",
     question("In the line of code above, what is `library()`?",
         answer("A function", correct = TRUE),
@@ -2226,7 +2234,7 @@ Let's remind ourselves of the different distributions found in the _**games**_
 data, and how they map onto these data qualities.
 \
 
-```{r qz33_2, echo = FALSE}
+```{r qz33_2, echo=FALSE}
 quiz(caption = "**< QUIZ 2 >** Data Distributions",
 #    question("What distribution does the 'countries' variable follow?",
 #       answer("poisson", correct = TRUE),
@@ -2349,7 +2357,7 @@ nums1 <- c(2, 3, 4, 4, 4, 5, 6, 7, 9, 12)
 nums2 <- c(2, 3, 4, 4, 4, 5, 10, 1534, 7532010)
 
 ```
-```{r ex34_1-hint, echo = FALSE}
+```{r ex34_1-hint, echo=FALSE}
 The summary() function will give you many, but not all, of the values!
 ```
 \
@@ -2370,7 +2378,7 @@ What if I told you that you have two variables with:
 * roughly the same interquartile range
 * roughly the same standard deviation
 
-```{r fun1, echo = FALSE}
+```{r fun1, echo=FALSE}
 question("Would you say they're roughly the same distribution?",
   answer("Yeah, for sure!"),
   answer("I feel like this question is here to catch me out, so I'm gonna say no.", correct = TRUE)
@@ -2381,7 +2389,7 @@ question("Would you say they're roughly the same distribution?",
 Here are two distributions and their summary statistics.  
 
 **Variable 1:**
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 v1 <- c(rnorm(500 , 2 , 2), rnorm(500 , 8 , 2))
 v2 <- rnorm(1000, 5, 4)
 vard <- data.frame(v1, v2)
@@ -2391,21 +2399,21 @@ hist <- ggplot(vard, aes(x = v1)) +
 hist + geom_density(lwd = 1.5)
 ```
 Summary stats and standard deviation:
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 summary(vard$v1)
 sd(vard$v1)
 ```
 \
 
 **Variable 2:**
-```{r echo = FALSE}
+```{r echo=FALSE}
 hist <- ggplot(vard, aes(x = v2)) +
     geom_histogram(aes(y = ..density..), bins = 31, fill = 'grey50') +
     theme_minimal()
 hist + geom_density(lwd = 1.5)
 ```
 Summary stats and standard deviation:
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 summary(vard$v2)
 sd(vard$v2)
 ```
@@ -2439,7 +2447,7 @@ it must have been thrilling reading. Go to the DATA DISTRIBUTIONS page. Choose t
 
 Your histogram should look like this:  
 
-```{r, echo = FALSE, warning = FALSE}
+```{r, echo=FALSE, warning = FALSE}
 hist <- ggplot(data = data, aes(x = eyesight)) +
     geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
     xlim(-10, 16) +
@@ -2459,7 +2467,7 @@ If you were working on your own machine, to plot this histogram you would:
 Like this:  
 \
 
-```{r, echo = FALSE, eval = FALSE, warning = FALSE}
+```{r, echo=FALSE, eval=FALSE, warning = FALSE}
 # Read in the data
 data <- read.csv('games_data.csv')
 
@@ -2476,7 +2484,7 @@ hist
 Using this histogram, answer the questions below.  
 \
 
-```{r qz351_3, echo = FALSE}
+```{r qz351_3, echo=FALSE}
 quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
     question("Does the eyesight variable have any bounds?",
         answer("No", correct = TRUE),
@@ -2546,7 +2554,7 @@ In the ShinyGLM app, try adjusting the number of bins that you're plotting.
 * As you adjust the number of bins, look at the CODE tab on the DATA DISTRIBUTIONS page to see what changes.  
 \
 
-```{r qz351_4, echo = FALSE}
+```{r qz351_4, echo=FALSE}
 quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
     question("What makes for better visualisation of the data distribution?",
         answer("Both more bins and fewer bins", correct = TRUE, 
@@ -2643,7 +2651,7 @@ I've mentioned a couple of times that the variable "approximates" the distributi
 
 Essentially, just that the distribution of the variable might be roughly the same but not equal. We can calculate the mean and standard deviation of the `eyesight` variable and compare that to a "perfect" normal distribution generated using that that mean and standard deviation, to see that there is a close match but by no means a perfect one: 
 
-```{r echo = FALSE}
+```{r echo=FALSE}
 eyem <- mean(data$eyesight, na.rm = TRUE)
 eyesd <- sd(data$eyesight, na.rm = TRUE)
 norm <- rnorm(100000, eyem, eyesd)
@@ -2692,7 +2700,7 @@ You've now coded a histogram for the `eyesight`variable, and you'll code another
 
 You won't find all the answers to this exercise in the ShinyGLM app. Yes, there's going to be a little bit of googling* involved! A key skill for any programmer is to be able to find out the answers to any coding problems you encounter. Next Step:
 
-* Option 3: Google/Bing/Yahoo/DuckDuckGo/Ask Jeeves to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
+* Option 3: Search online to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
 * Option 4: look at the hints if you're stuck.  
 \
 
@@ -2711,12 +2719,12 @@ _REMEMBER: coding is so often about copying, pasting, and editing. So although y
 ```{r ex352_3, exercise=TRUE, echo=FALSE}
 
 ```
-```{r ex352_3-hint, eval = FALSE}
+```{r ex352_3-hint, eval=FALSE}
 Points 1-4 can be done using options in ShinyGLM and copying the code.
 
 Solutions to adding points 5 and 6 can be found on the ggplot cheat sheet, which is linked to at the top of the page.
 ```
-```{r ex352_3-solution, eval = FALSE}
+```{r ex352_3-solution, eval=FALSE}
 hist <- ggplot(data = data, aes(x = reaction)) +
     geom_histogram(aes(y = ..density..), bins = 11, fill = 'goldenrod') +
     xlim(0, 1) +
@@ -2724,10 +2732,10 @@ hist <- ggplot(data = data, aes(x = reaction)) +
     theme_bw()
 hist + geom_density() # could also include colours here
 ```
-* other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let's be honest, Google is its own verb now.  
+*other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let's be honest, Google is its own verb now.  
 \  
 
-```{r qz352_5, echo = FALSE}
+```{r qz352_5, echo=FALSE}
 quiz(caption = "**< QUIZ 5 >** Visualising Data Distributions - beta",
     question("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?",
         answer("Zero and one are the outer bounds of the data", correct = TRUE),
@@ -2773,7 +2781,7 @@ want to make sure there's one bar per number of continents visited.
 
 Here is a histogram that shows the continents in this manner:
 
-```{r echo = FALSE}
+```{r echo=FALSE}
 hist <- ggplot(data = data, aes(x = continents)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'grey75') +
     xlim(0, 7) +
@@ -2783,16 +2791,12 @@ hist <- ggplot(data = data, aes(x = continents)) +
 
 There are two arguments in the `geom_histogram()` function that we can change to get the right bin width and a count on the y axis rather than a density.  
 
-Remember that to access help pages for functions, you use `?function_name`. Run the code below to bring up the help page for the `geom_histogram()` function, which may help you answer the questions below.
-
-```{r ex-help, exercise = TRUE, exercise.caption = "Function help"}
-?geom_histogram
-```
+Remember that to access help pages for functions, you use `?function_name`. Running the code `?geom_histogram` will bring up a help page for the `geom_histogram` function, which you can also find [HERE](http://search.r-project.org/library/ggplot2/html/geom_histogram.html), and which may help you answer the questions below.
 \
 
 Looking at this page, as well as applying `R`'s kind of logical thinking in how things are specified, how do you think the arguments might be changed to get bars representing counts?
 
-```{r qz353_6, echo = FALSE}
+```{r qz353_6, echo=FALSE}
 quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - Counts",
     question("The plot can be converted to counts using:",
         answer("`aes(y = ..count..)`", correct = TRUE, message = "Nicely done! This is probably the most logical - the most simple - change to the code to get a count."),
@@ -2814,7 +2818,7 @@ quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - Counts",
 )
 ```
 
-$~$  
+$~$
 
 ### 3.5.4 COUNTRIES: MORE COUNT DATA (POISSON DISTRIBUTION)
 \
@@ -2823,7 +2827,7 @@ Consider the three code chunks below. There are mistakes in the code.
 \
 
 _Countries: chunk 1_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2833,7 +2837,7 @@ hist
 ```
 
 _Countries: chunk 2_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = Countries)) +
     geom_hist(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlims(0, 30) +
@@ -2843,7 +2847,7 @@ hist
 ```
 
 _Countries: chunk 3_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(games_data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2853,7 +2857,7 @@ hist
 ```
 
 _Countries: chunk 4_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = 'count'), bins = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2863,7 +2867,7 @@ hist
 ```
 \
 
-```{r qz354_7, echo = FALSE}
+```{r qz354_7, echo=FALSE}
 quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
     question("Which of the chunks has a mistake in the _data_? Choose one or more answers.",
         type = "checkbox",
@@ -2913,7 +2917,7 @@ quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
 
 This is the histogram that Code Chunk 1 produces. Feel free to edit the code to do things like change the colour of the bars or change the axis limits, to get used to using `ggplot`.
 
-```{r ex354_8, echo = FALSE, exercise.eval = TRUE}
+```{r ex354_4, echo=FALSE, exercise.eval = TRUE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2938,7 +2942,126 @@ $~$
 ***  
 \
 
-Nothing to see here yet...
+During this week's workshop, we're going to start exploring the biological data:
+
+* loading `.csv` files into `R` (reminder from Ch2)
+* plotting variable distributions using `ggplot`
+  + histograms
+  + density plots
+  + grammar of graphics
+* understanding types of variable distributions
+  + data types
+  + data bounds
+  + skewness
+  + outliers
+* using data distributions to calculate probabilities
+
+Chapter 0 Data will be useful to re-read quickly, so you can be familiar with the data you're plotting. Remember:
+
+* **Monday group:** Pantheria data
+* **Tuesday and Wednesday groups:** Cell age data
+* **Friday group:** Urban dogs data
+
+In the workshop tasks, you won't have encountered absolutely everything you need to do during the at-home study. Finding answers to question and solutions to probelms yourselves, using whatever resources you have to hand, is a useful skill to have.  
+\
+
+You should be able to get through at least Tasks 1 and 2 in the workshop: task 3 is very useful to complete if you have extra time left, and/or for practise in between online sessions.  
+\
+
+Remember there's the [ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLM) app to help you out.  
+
+$~$
+
+##### **CELL AGEING: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `DNAmAge` variable. You should:
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Specify x-axis limits of 5 and 85.  
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"mistyrose4"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 80, according to a normal distribution with that mean and sd.  
+\
+
+3. Plot a density plot of the `Age` variable. You should:
+
+  * **i.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?
+  * **ii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
+$~$
+
+##### **URBAN DOGS: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `TotalScore` variable. You should:
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Specify x-axis limits of 8 and 21.  
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"orangered"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 18, according to a normal distribution with that mean and sd.  
+
+3. Plot a density plot of the `LitterSize` variable. You should:
+
+  * **i.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?
+  * **ii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
+$~$
+
+##### **PANTHERIA: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `MaxLongevity` variable. You should: 
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Work out the number of days there are in 60 years and specify x-axis limits of 0 and 60 years.
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"indianred"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 50 years, according to a normal distribution with that mean and sd.  
+
+3. Plot a density plot of the `LitterSize` variable. You should:
+
+  * **i.**  run this code: `LitterSizeRound <- round(data$LitterSize, 0)` to create a new variable which is `LitterSize` rounded to the nearest integer. (Your data frame may be called something other than `data`)
+  * **ii.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this?
+  * **iii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
 
 $~$
 
