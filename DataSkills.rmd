@@ -46,15 +46,15 @@ knitr::opts_chunk$set(
 )
 
 # Tutorial options
-tutorial_options(exercise.cap = "", exercise.eval = FALSE)
+tutorial_options(exercise.cap = "", exercise.eval=FALSE)
 ```
 
-```{r, scripts, echo = FALSE}
+```{r, scripts, echo=FALSE}
 source("scripts/themeSelectorHack.r")
 themeSelectorHack()
 ```
 
-```{css, styles, echo = FALSE}
+```{css, styles, echo=FALSE}
 body{
   padding-top: 90px;
 }
@@ -611,7 +611,7 @@ in understanding, visualising and analysing data. They may have single answers
 or multiple possible correct answers, as seen below.  
 \
 
-```{r qz031, echo = FALSE}
+```{r qz031, echo=FALSE}
 quiz(caption = " **< QUIZ 1 >** (Interactive Elements - quizzes)",
     question("Here's a simple multiple choice question: which of these is the best?",
         answer("Cake", message = "Incorrect. Biscuits rule all. Try dunking some cake in tea or coffee!"),
@@ -692,7 +692,7 @@ mean(random)
 sd()
 
 ```
-```{r ex113_2-solution, echo = FALSE}
+```{r ex113_2-solution, echo=FALSE}
 # draw random numbers
 # 42 is the mean and it is the second argument in rnorm().
 random <- rnorm(1000, 42, 12)
@@ -834,7 +834,7 @@ between them first. For that reason, much of the course will be dedicated to
 understanding data, and how to plot data.  
 \ 
 
-#### **1.5.1 FIRST half of the course (weeks 1-6)**
+#### **1.4.1 FIRST half of the course (weeks 1-6)**
 \ 
 
 ##### **TIDY DATA**
@@ -855,7 +855,7 @@ code: data handling and plots are harder to code but easier to interpret,
 whereas statistical analyses are easier to code but harder to interpret.  
 \ 
 
-#### **1.5.2 SECOND half of the course (weeks 8-16)**
+#### **1.4.2 SECOND half of the course (weeks 8-16)**
 \ 
 
 ##### **MODEL**
@@ -873,7 +873,7 @@ whereas statistical analyses are easier to code but harder to interpret.
 * Understanding and interpreting the results of a statistical model  
 \  
 
-#### **1.5.3 General Linear Model (GLM)**
+#### **1.4.3 General Linear Model (GLM)**
 
 The "statistical model" we will be working with (mostly) is the 
 _general linear model (glm)_. This is a framework which brings together 
@@ -986,7 +986,7 @@ This tutorial includes:
   + outputs
 * 2.4 objects
    + assignment to objects
-   + object classes
+   2.5 object classes
      - 2.5.1 `numeric`
      - 2.5.2 `character`
      - 2.5.3 `factor`
@@ -1259,7 +1259,7 @@ etc. If we provide `R` with fewer than 10 elements, then it recycles the shorter
 vector: so if we add `1` to `numbers1` then it adds 1 to every element.  
 \  
 
-```{r qz24_1, echo = FALSE}
+```{r qz24_1, echo=FALSE}
 quiz(caption = "**< QUIZ 1 >** (Objects)",
     question("What do the three arguments of the seq() function mean (in order)?",
         answer("start of sequence, length of sequence, sequence increment"),
@@ -1410,7 +1410,7 @@ We can see from the summary that R recognises the five different factor levels,
 A through E.  
 \
 
-```{r qz253_3, echo = FALSE}
+```{r qz253_3, echo=FALSE}
 quiz(caption = " **< QUIZ 3 >** (Classes - `factor`)",
     question("What is the fundamental difference between a character vector and a factor vector?",
         answer("A factor vector excludes quotation marks and a character vector doesn't."),
@@ -1448,11 +1448,11 @@ over0
 The result is information on which of your random data are greater than than 0.  
 \
 
-```{r qz254_4, echo = FALSE}
+```{r qz254_4, echo=FALSE}
 quiz(caption = "**< QUIZ 4 >** (Classes - `logical`)",
     question("If you ran the above code multiple times, would you get the same result each time?",
-        answer("Yes", correct = TRUE),
-        answer("No"),
+        answer("Yes"),
+        answer("No", correct = TRUE),
         message = "Each time you run the code, a new set of random numbers is generated so you'll get a different result each time.",
         random_answer_order = TRUE
     ),
@@ -1718,10 +1718,10 @@ plot(toydata$numbers2, toydata$random)
 
 ##### **< EXERCISE 5 >** Simple Plots
 _Create a boxplot of `random` and a histogram of `numbers2`_.
-```{r ex26_5, exercise = TRUE, echo = FALSE}
+```{r ex26_5, exercise = TRUE, echo=FALSE}
 
 ```
-```{r ex26_5-hint, eval = FALSE}
+```{r ex26_5-hint, eval=FALSE}
 Copy the code from the example boxplot and histogram, and replace the variable names.
 ```
 
@@ -1791,7 +1791,7 @@ time it's because you've made a mistake. R is very literal. Be careful!
 _Correct the mistakes ('bugs') in the lines of code below, bearing in_
 _mind the common, small mistakes mentioned in this Chapter. Keep going until you get the_
 _right outputs!_
-```{r ex29_6, exercise = TRUE, eval = FALSE}
+```{r ex29_6, exercise = TRUE, eval=FALSE}
 # a sequence from 4 to 40 in steps of 4
 mynums <- seq(4, 40, 4,)
 mynums
@@ -2097,16 +2097,24 @@ In this session we'll be covering...
 * 3.1 Resources
 * 3.2 R packages needed for visualising data distributions
 * 3.3 What are data distributions
-* 3.4 Visualising data distributions
-  + 3.4.1 Normal (Gaussian) distribution
-  + 3.4.2 Proportions (beta distribution)
-  + 3.4.3 &3.4.4 Counts (Poisson distribution)
-* 3.5 Other resources
-* 3.6 Final tips
+* 3.4 Summary Statistics
+* 3.5 Visualising data distributions
+  + 3.5.1 Normal (Gaussian) distribution
+  + 3.5.2 Proportions (beta distribution)
+  + 3.5.3 & 3.5.4 Counts (Poisson distribution)
+* 3.6 Other resources
 * **< WORKSHOP >**
 \
 
-Continue to Resources...  
+The Chapter mostly deals with the first **PLOTTING** part of the analytical process:  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
 
 $~$
 
@@ -2157,7 +2165,7 @@ need to use an R package developed by the RStudio team.
 
 If you are working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 install.packages("ggplot2")
  ```
 \
@@ -2169,12 +2177,12 @@ every time you switched the phone on on...!  _Nightmare_.
 
 The way we load up these packages is using `library()`. You usually need to do this every time you start a new `R` session (i.e. every time you open RStudio).
 
- ```{r eval = FALSE}
+ ```{r eval=FALSE}
 library(ggplot2)
  ```
 \
 
-```{r qz32_1, echo = FALSE}
+```{r qz32_1, echo=FALSE}
 quiz(caption = "**< QUIZ 1 >** R Packages",
     question("In the line of code above, what is `library()`?",
         answer("A function", correct = TRUE),
@@ -2226,7 +2234,7 @@ Let's remind ourselves of the different distributions found in the _**games**_
 data, and how they map onto these data qualities.
 \
 
-```{r qz33_2, echo = FALSE}
+```{r qz33_2, echo=FALSE}
 quiz(caption = "**< QUIZ 2 >** Data Distributions",
 #    question("What distribution does the 'countries' variable follow?",
 #       answer("poisson", correct = TRUE),
@@ -2349,7 +2357,7 @@ nums1 <- c(2, 3, 4, 4, 4, 5, 6, 7, 9, 12)
 nums2 <- c(2, 3, 4, 4, 4, 5, 10, 1534, 7532010)
 
 ```
-```{r ex34_1-hint, echo = FALSE}
+```{r ex34_1-hint, echo=FALSE}
 The summary() function will give you many, but not all, of the values!
 ```
 \
@@ -2370,7 +2378,7 @@ What if I told you that you have two variables with:
 * roughly the same interquartile range
 * roughly the same standard deviation
 
-```{r fun1, echo = FALSE}
+```{r fun1, echo=FALSE}
 question("Would you say they're roughly the same distribution?",
   answer("Yeah, for sure!"),
   answer("I feel like this question is here to catch me out, so I'm gonna say no.", correct = TRUE)
@@ -2381,7 +2389,7 @@ question("Would you say they're roughly the same distribution?",
 Here are two distributions and their summary statistics.  
 
 **Variable 1:**
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 v1 <- c(rnorm(500 , 2 , 2), rnorm(500 , 8 , 2))
 v2 <- rnorm(1000, 5, 4)
 vard <- data.frame(v1, v2)
@@ -2391,21 +2399,21 @@ hist <- ggplot(vard, aes(x = v1)) +
 hist + geom_density(lwd = 1.5)
 ```
 Summary stats and standard deviation:
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 summary(vard$v1)
 sd(vard$v1)
 ```
 \
 
 **Variable 2:**
-```{r echo = FALSE}
+```{r echo=FALSE}
 hist <- ggplot(vard, aes(x = v2)) +
     geom_histogram(aes(y = ..density..), bins = 31, fill = 'grey50') +
     theme_minimal()
 hist + geom_density(lwd = 1.5)
 ```
 Summary stats and standard deviation:
-```{r, echo = FALSE}
+```{r, echo=FALSE}
 summary(vard$v2)
 sd(vard$v2)
 ```
@@ -2435,11 +2443,17 @@ We're going to begin by working with the `eyesight` variable. This approximates 
 
 Head on over to [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM). 
 I assume you've read all of the user guide now, as suggested in Chapter 2½... I know 
-it must have been thrilling reading. Go to the DATA DISTRIBUTIONS page. Choose the `eyesight` variable. Keep all of the other options at their defaults, for now.  
+it must have been thrilling reading.  
+
+USING THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/ShinyGLiM):
+
+* Go to the DATA DISTRIBUTIONS page.
+* Choose the `eyesight` variable.
+* Keep all of the other options at their defaults, for now.  
 
 Your histogram should look like this:  
 
-```{r, echo = FALSE, warning = FALSE}
+```{r, echo=FALSE, warning = FALSE}
 hist <- ggplot(data = data, aes(x = eyesight)) +
     geom_histogram(aes(y = ..density..), bins = 10, fill = 'steelblue4') +
     xlim(-10, 16) +
@@ -2459,7 +2473,7 @@ If you were working on your own machine, to plot this histogram you would:
 Like this:  
 \
 
-```{r, echo = FALSE, eval = FALSE, warning = FALSE}
+```{r, echo=FALSE, eval=FALSE, warning = FALSE}
 # Read in the data
 data <- read.csv('games_data.csv')
 
@@ -2476,7 +2490,7 @@ hist
 Using this histogram, answer the questions below.  
 \
 
-```{r qz351_3, echo = FALSE}
+```{r qz351_3, echo=FALSE}
 quiz(caption = "**< QUIZ 3 >** Visualising Data Distributions - Gaussian",
     question("Does the eyesight variable have any bounds?",
         answer("No", correct = TRUE),
@@ -2539,14 +2553,15 @@ $~$
 
 ##### **We digress. Back to histograms.**  
 
-In the ShinyGLM app, try adjusting the number of bins that you're plotting. 
+IN THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/ShinyGLiM): 
 
-* Try higher numbers
-* Try lower numbers
+* try adjusting the number of bins that you're plotting. 
+  + Try higher numbers
+  + Try lower numbers
 * As you adjust the number of bins, look at the CODE tab on the DATA DISTRIBUTIONS page to see what changes.  
 \
 
-```{r qz351_4, echo = FALSE}
+```{r qz351_4, echo=FALSE}
 quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
     question("What makes for better visualisation of the data distribution?",
         answer("Both more bins and fewer bins", correct = TRUE, 
@@ -2586,8 +2601,11 @@ quiz(caption = "**< QUIZ 4 >** Visualising Data Distributions - Gaussian",
 \
 
 On the left of the ShinyGLM page you can see lots of different options for the plot.  
-You can probably guess, by looking at the code, how elements of the code match up to the rest of the options in the app (e.g. colour, theme,...)  
+
+You can probably guess, by looking at the CODE tab, how elements of the code match up to the rest of the options in the side bar* (e.g. colour, theme,...). If you change the options, you'll see the code change, and you'll see the figure in the PLOT tab also change.  
 \
+
+*If you're viewing in a narrow browser window, or on a mobile device, the side bar options may be at the top of the page, with the PLOT and CODE tabs below.
 
 #### **< EXERCISE 2 >** Visualising Data Distributions - Gaussian
 _Use the options in the ShinyGLM app to make a histogram that has:_
@@ -2643,7 +2661,7 @@ I've mentioned a couple of times that the variable "approximates" the distributi
 
 Essentially, just that the distribution of the variable might be roughly the same but not equal. We can calculate the mean and standard deviation of the `eyesight` variable and compare that to a "perfect" normal distribution generated using that that mean and standard deviation, to see that there is a close match but by no means a perfect one: 
 
-```{r echo = FALSE}
+```{r echo=FALSE}
 eyem <- mean(data$eyesight, na.rm = TRUE)
 eyesd <- sd(data$eyesight, na.rm = TRUE)
 norm <- rnorm(100000, eyem, eyesd)
@@ -2656,7 +2674,7 @@ hist + geom_density(data = norm, aes(x = norm), lwd = 1.5)
 ```
 \
 
-Distributions allow us to do some neat tricks. If we know the mean and the standard deviation of a distribution, then we can work out probabilities of making certain observations, according to the 'perfect' normal distribution that a variable approximates. Here, we can use `pnorm` to calculate the probability that someone is shortsighted (i.e. has a prescription less than zero). This is equal to the area under the density curve in the plot above which is less than zero:
+Distributions allow us to do some neat tricks. If we know the mean and the standard deviation of a distribution, then we can work out probabilities of making certain observations, according to the 'perfect' normal distribution that a variable approximates. Here, we can use `pnorm()` to calculate the probability that someone is shortsighted (i.e. has a prescription less than zero). This is equal to the area under the density curve in the plot above which is less than zero:
 
 ```{r}
 # eyesight mean
@@ -2692,7 +2710,7 @@ You've now coded a histogram for the `eyesight`variable, and you'll code another
 
 You won't find all the answers to this exercise in the ShinyGLM app. Yes, there's going to be a little bit of googling* involved! A key skill for any programmer is to be able to find out the answers to any coding problems you encounter. Next Step:
 
-* Option 3: Google/Bing/Yahoo/DuckDuckGo/Ask Jeeves to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
+* Option 3: Search online to see if you can find ways to change the options which aren't in the ShinyGLM app. Really, really try before moving to step 4.
 * Option 4: look at the hints if you're stuck.  
 \
 
@@ -2711,12 +2729,12 @@ _REMEMBER: coding is so often about copying, pasting, and editing. So although y
 ```{r ex352_3, exercise=TRUE, echo=FALSE}
 
 ```
-```{r ex352_3-hint, eval = FALSE}
+```{r ex352_3-hint, eval=FALSE}
 Points 1-4 can be done using options in ShinyGLM and copying the code.
 
 Solutions to adding points 5 and 6 can be found on the ggplot cheat sheet, which is linked to at the top of the page.
 ```
-```{r ex352_3-solution, eval = FALSE}
+```{r ex352_3-solution, eval=FALSE}
 hist <- ggplot(data = data, aes(x = reaction)) +
     geom_histogram(aes(y = ..density..), bins = 11, fill = 'goldenrod') +
     xlim(0, 1) +
@@ -2724,10 +2742,10 @@ hist <- ggplot(data = data, aes(x = reaction)) +
     theme_bw()
 hist + geom_density() # could also include colours here
 ```
-* other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let's be honest, Google is its own verb now.  
+*other search engines are available, including Bing, Yahoo, Baidu, DuckDuckGo, and (remarkably) Ask Jeeves, but let's be honest, Google is its own verb now.  
 \  
 
-```{r qz352_5, echo = FALSE}
+```{r qz352_5, echo=FALSE}
 quiz(caption = "**< QUIZ 5 >** Visualising Data Distributions - beta",
     question("Why does it make sense to choose 0 and 1 for the x axis limits of this plot?",
         answer("Zero and one are the outer bounds of the data", correct = TRUE),
@@ -2773,7 +2791,7 @@ want to make sure there's one bar per number of continents visited.
 
 Here is a histogram that shows the continents in this manner:
 
-```{r echo = FALSE}
+```{r echo=FALSE}
 hist <- ggplot(data = data, aes(x = continents)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'grey75') +
     xlim(0, 7) +
@@ -2783,16 +2801,12 @@ hist <- ggplot(data = data, aes(x = continents)) +
 
 There are two arguments in the `geom_histogram()` function that we can change to get the right bin width and a count on the y axis rather than a density.  
 
-Remember that to access help pages for functions, you use `?function_name`. Run the code below to bring up the help page for the `geom_histogram()` function, which may help you answer the questions below.
-
-```{r ex-help, exercise = TRUE, exercise.caption = "Function help"}
-?geom_histogram
-```
+Remember that to access help pages for functions, you use `?function_name`. Running the code `?geom_histogram` will bring up a help page for the `geom_histogram` function, which you can also find [HERE](http://search.r-project.org/library/ggplot2/html/geom_histogram.html), and which may help you answer the questions below.
 \
 
 Looking at this page, as well as applying `R`'s kind of logical thinking in how things are specified, how do you think the arguments might be changed to get bars representing counts?
 
-```{r qz353_6, echo = FALSE}
+```{r qz353_6, echo=FALSE}
 quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - Counts",
     question("The plot can be converted to counts using:",
         answer("`aes(y = ..count..)`", correct = TRUE, message = "Nicely done! This is probably the most logical - the most simple - change to the code to get a count."),
@@ -2814,7 +2828,7 @@ quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - Counts",
 )
 ```
 
-$~$  
+$~$
 
 ### 3.5.4 COUNTRIES: MORE COUNT DATA (POISSON DISTRIBUTION)
 \
@@ -2823,7 +2837,7 @@ Consider the three code chunks below. There are mistakes in the code.
 \
 
 _Countries: chunk 1_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2833,7 +2847,7 @@ hist
 ```
 
 _Countries: chunk 2_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = Countries)) +
     geom_hist(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlims(0, 30) +
@@ -2843,7 +2857,7 @@ hist
 ```
 
 _Countries: chunk 3_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(games_data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2853,7 +2867,7 @@ hist
 ```
 
 _Countries: chunk 4_
-```{r eval = FALSE}
+```{r eval=FALSE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = 'count'), bins = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2863,7 +2877,9 @@ hist
 ```
 \
 
-```{r qz354_7, echo = FALSE}
+Answer the questions below about where the mistakes are found. If you're not sure, then you can always edit the options in the [**ShinyGLM app**](https://iainmstott.shinyapps.io/ShinyGLiM) and compare the code above with the code in the app to spot the differences.  
+
+```{r qz354_7, echo=FALSE}
 quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
     question("Which of the chunks has a mistake in the _data_? Choose one or more answers.",
         type = "checkbox",
@@ -2911,9 +2927,9 @@ quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
 ```
 \
 
-This is the histogram that Code Chunk 1 produces. Feel free to edit the code to do things like change the colour of the bars or change the axis limits, to get used to using `ggplot`.
+This is the histogram that Code Chunk 1 produces. Feel free to copy the code into RStudio (remember you'll need to read in the data first!) and edit it to do things like change the colour of the bars or change the axis limits. This may help you to get used to using `ggplot`.
 
-```{r ex354_8, echo = FALSE, exercise.eval = TRUE}
+```{r ex354_4, echo=FALSE, exercise.eval = TRUE}
 hist <- ggplot(data, aes(x = countries)) +
     geom_histogram(aes(y = ..count..), binwidth = 1, fill = 'chocolate4') +
     xlim(0, 30) +
@@ -2926,7 +2942,7 @@ $~$
 
 
 ***
-### **3.5 OTHER RESOURCES**
+### **3.6 OTHER RESOURCES**
 \
 
 The [R Graph Gallery](https://www.r-graph-gallery.com) is an amazing place to learn about graphing in different ways using `R`, and especially `ggplot`. Check out this page where they cover [histograms](https://www.r-graph-gallery.com/histogram.html) in detail.  
@@ -2938,7 +2954,126 @@ $~$
 ***  
 \
 
-Nothing to see here yet...
+During this week's workshop, we're going to start exploring the biological data:
+
+* loading `.csv` files into `R` (reminder from Ch2)
+* plotting variable distributions using `ggplot`
+  + histograms
+  + density plots
+  + grammar of graphics
+* understanding types of variable distributions
+  + data types
+  + data bounds
+  + skewness
+  + outliers
+* using data distributions to calculate probabilities
+
+Chapter 0 Data will be useful to re-read quickly, so you can be familiar with the data you're plotting. Remember:
+
+* **Monday group:** Pantheria data
+* **Tuesday and Wednesday groups:** Cell age data
+* **Friday group:** Urban dogs data
+
+In the workshop tasks, you won't have encountered absolutely everything you need to do during the at-home study. Finding answers to question and solutions to probelms yourselves, using whatever resources you have to hand, is a useful skill to have.  
+\
+
+You should be able to get through at least Tasks 1 and 2 in the workshop: task 3 is very useful to complete if you have extra time left, and/or for practise in between online sessions.  
+\
+
+Remember there's the [ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLM) app to help you out.  
+
+$~$
+
+##### **CELL AGEING: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `DNAmAge` variable. You should:
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Specify x-axis limits of 5 and 85.  
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"mistyrose4"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 80, according to a normal distribution with that mean and sd.  
+\
+
+3. Plot a density plot of the `Age` variable. You should:
+
+  * **i.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?
+  * **ii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
+$~$
+
+##### **URBAN DOGS: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `TotalScore` variable. You should:
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Specify x-axis limits of 8 and 21.  
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"orangered"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 18, according to a normal distribution with that mean and sd.  
+
+3. Plot a density plot of the `LitterSize` variable. You should:
+
+  * **i.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?
+  * **ii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
+$~$
+
+##### **PANTHERIA: EXERCISES & QUESTIONS**
+\
+
+1. Read in the data (this was covered in the workshop tasks last week)
+2. Plot a histogram of the `MaxLongevity` variable. You should: 
+
+  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
+  * **ii.** Work out the number of days there are in 60 years and specify x-axis limits of 0 and 60 years.
+    - Why did you choose the number of bins you chose?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - Does the data distribution appear skewed?
+    - What is the name of a distribution that approximates the variable?  
+  * **iii.** The histogram should be a count rather than a density
+  * **iv.** The histogram should have bars which are the colour `"indianred"`
+    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
+      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
+  * **v.** The histogram should have a 'classic' theme.
+  * **vi.** Find the mean and standard deviation of the variable.
+  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 50 years, according to a normal distribution with that mean and sd.  
+
+3. Plot a density plot of the `LitterSize` variable. You should:
+
+  * **i.**  run this code: `LitterSizeRound <- round(data$LitterSize, 0)` to create a new variable which is `LitterSize` rounded to the nearest integer. (Your data frame may be called something other than `data`)
+  * **ii.** Choose appropriate x axes
+    - Why did you choose the x-axis limits you did?
+    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
+    - What is the name of the distribution that should approximate a count variable such as this?
+  * **iii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+
 
 $~$
 
@@ -2995,24 +3130,34 @@ arguments, outputs, comments. Importantly we've learned of a few common classes
 of object that we'll often encounter during our R adventures: numeric, 
 character, factor, logical, data.frame.  
 
-We've also learned about __Tidy Data__. Tidy data allows you, as analyst padawans, 
+We've also touched on the concept of __Tidy Data__. Tidy data allows you, as analyst padawans, 
 to easily subset and manipulate data, so you're working with the data that you 
-need to be working with.  
+need to be working with. REMEMBER:
+
+* One **variable** per **column**.
+* One **observation** (also sometimes called replicate / data point) per **row**.  
+\
 
 In this session, we're going to learn common means of manipulating data. 
 We're going to acquaint ourselves with the 
 [`dplyr`](https://dplyr.tidyverse.org/) package. `dplyr` is an expert 
 data-wrangler which you can use to organise and manipulate data ready for 
-plotting and analysis. We'll be learning:
+plotting and analysis. We'll be covering:
 
-* how to read data into R
-* how to subset data
-   + `slice()` and `filter()` to choose certain rows of the `data.frame`
-   + `select()` to choose certain columns of the `data.frame`
-* how to manipulate data
-   + how to add a variable to the `data.frame` using `mutate()`
-   + how to arrange the `data.frame` by variable values using `arrange()`
-* how to use **pipes** `%>%` to make coding neater and cleaner.  
+* 4.1 Resources
+* 4.2 `R` packages
+* 4.3 Tidy data
+* 4.4 Subsetting data
+  + 4.4.1 `slice()`: choosing rows by their number
+  + 4.4.2 Pipes `%>%` to chain commands
+  + 4.4.3 `select()` to choose columns by number and name
+  + 4.4.4 `filter()` to choose rows by logical values
+* 4.5 Adding variables
+  + 4.5.1 `mutate()` to add variables to a data frame
+* 4.6 Chaining commands
+* 4.7 Other Resources
+* 4.8 Final Tips
+* **< WORKSHOP >**
 \
 
 $~$
@@ -3024,7 +3169,7 @@ $~$
 ##### **BOOKS**
  
 <!-- ### *** Pages etc. -->
-* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham. 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, chapter 5 "Data transformation".
 * [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
 by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 35 - 78, Chapter 2, "Getting your 
 data into R" and Chapter 3, "Data management, manipulation and exploration".
@@ -3073,59 +3218,137 @@ library(dplyr)
 $~$
 
 ***
-### **4.3 SUBSETTING DATA**
+### **4.3 TIDY DATA**
 \  
 
+It's really important to store data properly. There is a very standard format when it comes to saving data, and we've come across it before: the **data frame**. To remind ourselves, a data frame has:
+
+* One **variable** per **column**.
+* One **observation** (also sometimes called replicate / data point) per **row**.  
+\
+
+Let's think back to the example data frame that was created in Chapter 2:
+
+```{r}
+numbers2 <- seq(2, 20, 2)
+factor1 <- rep(LETTERS[1:5], 2)
+factor1 <- as.factor(factor1)
+factor2 <- rep(LETTERS[1:2], 5)
+random <- rnorm(10, 0, 1)
+toydata <- data.frame(numbers2, factor1, factor2, random)
+toydata
+```
+\
+
+Each column is a variable. Each row represents a single _observation_. That is, one number of a numeric variable, or one category of a factor variable.
+\
+
+Now let's consider the _games_ data. As it's a large-ish data frame, we use `head(data)` to look just as the first few rows.
+
+```{r eval = FALSE}
+data <- read.csv("games_data.csv")
+head(data)
+```
+```{r echo = FALSE}
+head(data)
+```
+\
+
+The rows represent the level at which the variables are replicated, and so is also often called (especially in experimental biology), a _replicate_. In this case, this is a single person: one data point is measured for each variable, for each person.  
+\
+
+$~$
+
+***
+### **4.4 SUBSETTING DATA**
+\  
+
+Once again, we'll use the [SHINYGLM APP](https://iainmstott.shinyapps.io/ShinyGLM) to help us learn how to subset data in an interactive way
+
+* select options within the app to get the output you want
+* the CODE tab shows you how you would use `R` code to subset the data with your chosen options. 
+* You can use this code as a starting point to practice subsetting data in RStudio.  
+\
+
 On the DATA tab of the ShinyGLM app, you can see the games data.  
+\
 
-There are two panels on the right 
-(although if your browser window is narrow or you're 
-using a smartphone or a tablet then these might be at the bottom of the 
-page): **DATA FRAME** and **CODE**. On the CODE tab, you'll see a couple of lines of code which, if you cast your mind back to _Chapter 1 R Basics_, will be familiar. These two lines of 
-code are what you would need to use in R Studio to read in the games data and 
-get R to show it.  
+##### **`dplyr` 'VERBS'**
 
-On the left (or at the top of the page if you're using a small screen or 
-small browser window) are some options.  
+<center>
+![subsetting rows](www/verbs.png){width="80%"}
+</center>  
+\  
 
-These options allow you to subset the data:
+The options (on the left of large screens or at the top of small screens) allow you to subset the data using several functions from the `dplyr` package:
 
-* Subset rows either by...
+* **Subset rows** either by...
   + row numbers using the `slice()` function, or
   + selecting variable values using the `filter()` function
-* Subset columns either by...
+* **Subset columns** either by...
   + column numbers using the `select()` function, or
   + variable names, also using the `select()` function.  
 \
 
-One HUGE advantage of `R` and other coding languages is how quickly and easily it is to manage your data in these ways. With a single line of code you can apply one or more criteria which strip out what you don't want and keep in what you do. When working with data, you usually find this shuffling and re-shuffling of the data is absolutely necessary.  
+##### **`R` IS GREAT FOR DATA MANIPULATION**
+
+It's quick and easy to strip out whichever data you want to work with, which is very often necessary for:
+
+* **creating subsets of data** to visualise and analyse (e.g. only students, or only near-sighted people, in the _games_ data)
+* **removing outliers and improbable values** (e.g. an eye prescription of 14)
+* **removing irrelevant groups** of values (e.g. babies that are supposed to have completed the games data)
+* **removing variables** which aren't relevant to your analysis
+* **transposing or transforming variables** where necessary (e.g. as we'll see later, `countries` is a count variable, and we might need to analyse `log(countries)`)
+\
+
+For small data sets, this might seem trivial. But as soon as your data sets get even a little bit large, this skill is very important.
 
 $~$
 
-### 4.3.1 `slice()`
+### 4.4.1 `slice()`
 \
+
+<center>
+![subsetting rows](www/filter.png){width="60%"}
+</center>  
+\  
 
 ##### **CHOOSING ROWS BY NUMBER**
 
 First we'll pick some rows by their number using `slice`. Imagine that we want to view only the data for group 2, which are rows 7-10 of the data.  
+
+_**IN THE [SHINYGLM APP](https://iainmstott.shinyapps.io/ShinyGLM)**_:  
 
 * Change the row numbers slider to values of **7** and **10**.
 * Check that the DATA FRAME is displaying persons 7 to 10.
 * Look at the CODE panel to see how it's changed.  
 \
 
-```{r qz431_3, echo = FALSE}
+The whole code (including reading in the data) should look like this:
+```{r eval = FALSE}
+data <- read.csv('games_data.csv')
+
+rows <- c(7, 10)
+
+dataSubset <- data %>%
+    slice( seq(rows[1], rows[2], 1) )
+
+dataSubset
+```
+\
+
+```{r qz441_1, echo = FALSE}
 quiz(caption = "**< QUIZ 1 >** Subsetting Data - slice",
     question("How many objects are assigned in this code?",
-        answer("1", correct = TRUE),
+        answer("1"),
         answer("2"),
-        answer("3"),
+        answer("3", correct = TRUE),
         answer("4"),
         message = "There are 3 objects: `data`, `rows` and `dataSubset`. Objects are assigned using the backwards arrow `<-`",
         random_answer_order = FALSE
     ),
 
-    question("How could you specify the rows to subset without assigning the desired range to the object `rows`? Select one or more options.",
+    question("The code creates the object `rows` and uses that with `slice()` to subset the data. Based on what we learned in Chapter 2 about specifying numeric vectors, which of the following options would achieve the same result? Select one or more options.",
         answer("using `slice(seq(7, 10, 1))`", correct = TRUE),
         answer("using `slice(7:10)`", correct = TRUE),
         answer("using `slice(c(7, 8, 9, 10))`", correct = TRUE),
@@ -3133,7 +3356,7 @@ quiz(caption = "**< QUIZ 1 >** Subsetting Data - slice",
         random_answer_order = TRUE
     ),
 
-    question("Even though the above options require fewer lines of code, why might we want to use the `rows` object anyway?`",
+    question("Even though the options in the above question require fewer lines of code, why might we want to use the `rows` object anyway?`",
         answer("`rows` can be re-used in later code", correct = TRUE),
         answer("We can change `rows` once, and the row values will change every time it's used in the code", correct = TRUE),
         answer("Using the `rows` object requires less computer RAM"),
@@ -3146,15 +3369,20 @@ quiz(caption = "**< QUIZ 1 >** Subsetting Data - slice",
 
 $~$
 
-### 4.3.2 PIPE `%>%`
+### 4.4.2 PIPE `%>%`
 \
 
-You'll notice that we use a **pipe** `%>%` in the code.
+<center>
+![subsetting rows](www/pipe2.png){width=200px}
+</center>  
+\  
+
+You'll notice that we use a **pipe** `%>%` in the code, like this:
 
 ```{r eval = FALSE}
 rows <- c(7, 10)
 
-dataSubset <-games %>%
+dataSubset <- data %>%
     slice( seq(rows[1], rows[2], 1) )
 ```
 \
@@ -3162,104 +3390,105 @@ dataSubset <-games %>%
 Whatever comes before the pipe is passed to whatever comes after the pipe. So, 
 the chunk of code above could be interpreted as  
 
-_"Take the `games` object (which is the games data frame), and use the `slice()` function to subset rows 7 to 10 from it._  
+_"Take the `data` object (which is the games data frame), and use the `slice()` function to subset rows 7 to 10 from it._  
+
+<center>
+![subsetting rows](www/pipe1.png){width="60%"}
+</center>  
+\  
 
 This is assigned to an object called `dataSubset`.  
 \
 
-There's another way we can write this code:
-
-```{r eval = FALSE}
-rows <- c(7, 10)
-
-dataSubset <- slice(games, seq(rows[1], rows[2], 1) )
-```
-\
-
-For something short like we're doing here, this might be OK. But as you 
-need to do more and more things with your data, this gets more complicated:
-you end up with functions inside functions, parentheses within parentheses.  
-\
-
 #### **< EXERCISE 1 >** Subsetting Data - pipe `%>%`
-_Edit the code below so you condense the first three lines of code into one line. Hint: combine answers from "Subsetting Data: Quiz 1" and the information you just learned about pipes._
-```{r ex432_1, exercise=TRUE, exercise.eval= TRUE, echo=FALSE}
-rows <- c(7, 10)
-dataSubset <- games %>%
-    slice( seq(rows[1], rows[2], 1) )
+_There are several objects and functions listed below (in the wrong order). Put them together using assignment arrows `<-` and pipes `%>%` so the code will work to slice out the rows for staff from `data`._
+```{r ex442_1, exercise=TRUE, echo=FALSE}
 dataSubset
+c(5, 6, 11, 15, 19) # these are the rows for staff
+data
+rows
+slice()
 ```
-```{r ex432_1-solution}
-dataSubset <- slice(games, seq(7, 10, 1))
-OR
-dataSubset <- slice(games, 7:10)
+```{r ex442_1-solution}
+rows <- c(5, 6, 11, 15, 19)
 
-Step 1: use slice(games, ...) instead of the pipe
-Step 2: use seq(7, 10, 1) or 7:10 instead of rows object
-Step 3: combine!
+dataSubset <- data %>%
+    slice(rows)
 ```
 \
 
 $~$
 
-### 4.3.3 `select()`
+### 4.4.3 `select()`
 \
 
 The pipe `%>%` is particularly useful when you want to perform multiple operations
-on an object: we'll see this now as we want to select not just rows, but columns 
-from the data.
+on an object: we'll see this now as we want to select rows AND columns 
+from the data. The `select()` function allows us to do this either using the numbers of the columns, or the names of the columns.  
+\
+
+<center>
+![subsetting rows](www/select.png){width="60%"}
+</center>  
+\  
 
 ##### **CHOOSING COLUMNS BY NUMBER**
 
-First, we'll choose by column number. Imagine that we don't want the data related to the online games: this is the columns `pballs`, `reaction` and `hardware` (columns 7, 8 and 9).
-Back in the ShinyGLM app, with the rows 
-still set to 7 and 10, pick _"Choose by... Column numbers"_ and 
-change the slider to 1 and 6. Check the _DATA FRAME_ tab to check 
-you have the right rows and columns, then check the _CODE_ tab. Notice that
-there's a further step in the data subsetting, which uses `select()` to choose columns. The data should now show the lines for group 2 and the columns for everything except variables related to the online games.  
+First, we'll choose by column number. Imagine that we don't want the data related to the online games: this is the columns `reaction` and `hearing` (columns 7 and 8).  
+\
+
+_IN THE [SHINYGLM APP](https://iainmstott.shinyapps.io/ShinyGLM)_:
+
+* leave your selected row range as 7 and 10.
+* pick _"Choose by... Column numbers"_ 
+  + change the slider to 1 and 6 (this chooses only columns 1 to 6, therefore removes columns 7 and 8) 
+* check the _DATA FRAME_ tab to check you have the right rows and columns
+* check the _CODE_ tab to see what's changed. 
+\
+
+Your code (excluding reading data) should look like this:
+```{r eval = FALSE}
+rows <- c(7, 10)
+cols <- c(1, 6)
+
+dataSubset <- data %>%
+    slice( seq(rows[1], rows[2], 1) ) %>%
+        select( seq(cols[1], cols[2], 1) ) 
+dataSubset
+```
+\
+
+An extra line of code has appeared. This uses `select()` to choose columns. The data should now show the lines for group 2 and the columns for everything except `reaction` and `hearing`.  
 \
 
 The pipes have become important here. The chunk of code above could be interpreted as:  
 
-_"Take the `games` object [which is the games data frame], and use the `slice()` function to first, subset rows 7 to 10 and second, use the `select()` function to subset columns 1 to 6, from it."_  
-
-Let's take a moment to imagine what that would look like without pipes:
+_"Take the `data` object [which is the games data frame], and first, use the `slice()` function to subset rows 7 to 10 and second, use the `select()` function to subset columns 1 to 6."_  
 \
 
-```{r eval = FALSE}
+#### **< EXERCISE 2 >** Subsetting Data - `select()`
+_The code as it appears in the ShinyGLM app is found below. Try out:_  
+
+* _Swapping the `slice()` and `select()` lines_
+* _Deleting the white space at the start of the `slice()` and `select()` lines_
+* _Removing the new line after each pipe `%>%` so that the three subsetting lines are on the same line_
+
+```{r ex443_2, exercise=TRUE, echo= FALSE}
 rows <- c(7, 10)
+
 cols <- c(1, 6)
-dataSubset <- select(slice(games, seq(rows[1], rows[2], 1) ), seq(cols[1], cols[2], 1))
-``` 
-\
 
-We also saw in _Chapter 1: R Basics_ that there is a way to use base `R` to 
-select rows and columns from a data frame using square brackets `[]` (check back if you've forgotten). That 
-would look like this:
-\
+dataSubset <- data %>%
+    slice( seq(rows[1], rows[2], 1) ) %>%
+        select( seq(cols[1], cols[2], 1) ) 
 
-```{r eval = FALSE}
-rows <- c(7, 10)
-cols <- c(1, 6)
-dataSubset <- games[seq(rows[1], rows[2], 1), seq(cols[1], cols[2], 1)]
-``` 
-\
-
-I hope you agree with me that the pipes make everything neater and easier to understand.  
-\
-
-#### **< EXERCISE 2 >** Subsetting Data - `select`
-_Type in the code you get from the ShinyGLM app (from `# define row range` onwards). Try the following:_
-
-1. _Swapping the `slice()` and `select()` lines_
-2. _Deleting the white space at the start of the `slice()` and `select()` lines_
-3. _Removing the new line after each pipe `%>%` so that the three lines are on the same line_
-```{r ex433_2, exercise=TRUE, echo= FALSE}
-
+dataSubset
 ```
 \
 
-```{r qz433_1, echo = FALSE}
+Based on what you just tried with that code, answer the following questions:
+
+```{r qz443_2, echo = FALSE}
 quiz(caption = "**< QUIZ 2 >** Subsetting Data - `select()`",
     question("In this case, does it make a difference to the result whether the subsetting functions `slice()` or `select()` functions come first?",
         answer("Yes"),
@@ -3300,138 +3529,190 @@ quiz(caption = "**< QUIZ 2 >** Subsetting Data - `select()`",
 \
 
 **It's important to note: pipes don't work with every function in `R`**. They work for these functions from the `dplyr` package that we encounter in this Chapter, but don't necessarily expect them to work otherwise.  
-\
-
-**It is bad practice to use row and column numbers to select data from a data frame.**
-
-* If you add or remove rows or columns from your data file, then you have to change your code to match those changes.
-* If you change the order of the rows or columns in your data file, then you have to change your code to match those changes.
-\
-
-##### **CHOOSING COLUMNS BY NAME**
-
-`select()` can therefore also be used to subset according to column _**name**_. 
-We're much less likely to make a mistake if we use those names rather 
-than picking the wrong column number.  
-
-In ShinyGLM, choose _COLUMNS | Choose by... Variable names_, and take out `pballs`, `reaction` and `hardware`. Note how the code then changes, 
-and you're selecting variables by name instead of by number.  
-\
-
-#### **< EXERCISE 3 >** Subsetting Data - `select()`
-_Edit the code below to give a data frame which has all columns except `group`. Hint: the result ShinyGLM gives you works fine, but is not the quickest way to do it; try googling something like "remove column dplyr select" and see if you can find a simpler solution._  
-
-```{r ex433_3, exercise=TRUE, echo= FALSE}
-dataSubset <- games %>%
-    select()
-dataSubset
-```
-```{r ex433_3-solution, echo= FALSE}
-dataSubset <- games %>%
-    select(-group)
-dataSubset
-```
-\
 
 $~$
 
-### 4.3.4 `filter()`
+<center>
+![subsetting columns](www/select.png){width="60%"}
+</center>  
+\  
+
+##### **CHOOSING COLUMNS BY NAME**
+
+It's useful to sometimes view certain columns according to their number. Generally, it is better to code by referring to column and row names or values. This is because you might want to:
+
+* Add columns or rows
+* Remove columns or rows
+* Change the order of columns or rows
+
+And if you refer to column or row numbers, then you would have to change all your code to match the new data frame.  
 \
 
-Selecting rows using numbers is also not the best way to go about things. `filter()` is a function that can select rows according to variable values.  
+`select()` can also be used to subset according to column _**name**_: _IN THE [SHINYGLM APP](https://iainmstott.shinyapps.io/ShinyGLM)_:
+
+* reset the rows to the highest and lowest values (which selects all rows)
+* choose _COLUMNS | Choose by... Variable names_
+* delete `reaction` and `hearing`. 
+* Note how the code tab changes to select variables by name instead of by number.  
 \
+
+The subset part of your code should look like this:
+```{}
+cols <- c('person', 'role', 'group', 'eyesight', 'continents', 'countries')
+
+dataSubset <- data %>%
+        select(cols) 
+```
+\
+
+#### **< EXERCISE 3 >** Subsetting Data - `select()`
+_Edit the code below to give a data frame which has all columns except `group`. Check the hint if you want a tip on how to do this quickly!_
+```{r ex443_3, exercise=TRUE, echo= FALSE}
+dataSubset <- data 
+select()
+dataSubset
+```
+```{r ex443_3-hint, echo= FALSE}
+If you want to choose variables to remove rather than variables to keep, use a minus sign, e.g. select(-variable)
+```
+```{r ex443_3-solution, echo= FALSE}
+dataSubset <- data %>%
+    select(-group)
+dataSubset
+```
+
+$~$
+
+### 4.4.4 `filter()`
+\
+
+<center>
+![subsetting rows](www/filter.png){width="60%"}
+</center>  
+\  
 
 ##### **SELECTING ROWS USING VARIABLE VALUES**
 
-In ShinyGLM, make sure that all columns are selected, and choose 
-the option to select rows using variable values.  
+We encountered **logical** vectors in the R Basics Chapter, and they become really important here. Remember, these are variables which give you `TRUE` or `FALSE` values for a "question" you ask. For example:
+
+* which of these values are greater than 7?
+```{r}
+1:10 > 7
+```
+
+* which of these 20 random binary values is equal to zero?
+```{r}
+# this generates random values of 0 and 1 with 
+# equal probability, like tossing a coin. 
+binary <- rbinom(20, 1, 0.5)
+binary
+
+binary == 0
+```
+
+* which of these colours are in the rainbow?
+```{r}
+colours <- c("red", "green", "blue", "brown", "pink")
+rainbow <- c("red", "orange", "yellow", "green", "blue", "purple")
+colours %in% rainbow
+```
 \
 
-**Logical** commands come into their own here. When we were selecting rows 7 through 10, we were effectively selecting only Group 2. If the number or order of the rows were to change, then rows 7 through 10 would no longer represent Group 2. Instead, we can use a logical command `group == G2` and the `filter()` function:
+ Logical vectors are great for selecting rows of data. When we were selecting rows 7 through 10, we were effectively selecting only people in Group 2.  
+ 
+ If the number of rows or the order of the rows were to change, then row numbers 7 through 10 may no longer represent Group 2. A better option is to use a logical command `group == G2` and the `filter()` function:
 
 ```{r}
-dataSubset <- games %>%
+dataSubset <- data %>%
     filter( group == 'G2' )
+
 dataSubset
 ```
 \
-Try it yourself in ShinyGLM: with all columns selected, choose _ROWS | Choose by... Variable values_ and type `group == "G2"` in the box, and click REFRESH. You should have a data frame that includes only Group 2.  
-\
 
-Using `filter()` can be very useful for removing data outliers. There is an outlier in the `eyesight` variable, which is evident from the histogram for `eyesight`. We can remove this by excluding any values below this value.  
+Try it yourself: _IN THE [SHINYGLM APP](https://iainmstott.shinyapps.io/ShinyGLM)_:
+
+* Select all columns by resetting the Select Columns by number / name options
+* choose _ROWS | Choose by... Variable values_ 
+* type `group == "G2"` in the box
+* click REFRESH. 
+
+You should have a data frame that includes only Group 2. You could try the same for any variable in the data, like `role == 'student'` or `continents == 1`.
+
+ There is an outlier in the `eyesight` variable, which is evident from the histogram for `eyesight`. We can remove this by excluding any values below this value.  
 \
 
 #### **< EXERCISE 4 >** Subsetting Data - `filter()`
-_The `eyesight` variable has an outlier of 14. Edit the code below to remove the outlier value by using `filter()` to select values below this outlier, then plot a histogram for the `eyesight` variable using the new data frame (use the ShinyGLM app or look back on Chapter 2: Data Distributions if you're not sure)._
-```{r ex434_4, exercise=TRUE, echo= FALSE}
+_Using `filter()` can be very useful for removing data outliers. The `eyesight` variable has an outlier of 14. Edit the code below to remove the outlier value using `filter()` and an appropriate logical._  
+
+_Then, plot a histogram for the `eyesight` variable using the new data frame (refer to ShinyGLM or Chapter 3 to help out if need be)._
+```{r ex444_4, exercise=TRUE, echo= FALSE}
 # subset the data
-dataSubset <- games %>%
-    filter()
+dataSubset <- data %>%
+
 dataSubset
 
 # plot the data
 
 ```
-```{r ex434_4-solution, echo= FALSE}
+```{r ex444_4-solution, echo= FALSE}
 # subset the data
-dataSubset <- games %>%
+dataSubset <- data %>%
     filter(eyesight < 14) # look at the data frame: the outlier is 14
 dataSubset
 
 # plot the data
 hist <- ggplot(dataSubset, aes(x = eyesight)) +
     geom_histogram()
-# This is the simplest histogram possible: you could choose to plot
+# This is the simplest histogram possible: you might want to plot
 # y as density, change the number of bins or bin width, fill colour,
 # x axis limits, theme, etc., but you don't have to. The important 
-# Thing is to use dataSubset as the data layer.
+# thing is to use dataSubset as the data layer and eyesight as the 
+# x variable.
 
 ```
 \
 
-More questions on logicals below. If you're not sure of the answers then try them out in ShinyGLM. If you put in an invalid logical then the app will stop working and the screen will fade out. Don't worry: all you need to do is refresh it and try again.
+There are more questions on logicals below, as they come in many different forms. These questions are based on the `>`, `>=`, `<`, `<=`, `==`, `!=` and `%in%` logical commands introduced in Chapter 2. 
 \
 
-```{r qz434_2, echo = FALSE}
+```{r qz444_3, echo = FALSE}
 quiz(caption = "**< QUIZ 3 >** Subsetting Data - `filter`",
-    question("How would you choose everything _except_ group 2?",
+    question("How would you choose rows for every group _except_ group 2?",
         answer("`group != 'G2'`", correct = TRUE),
         answer("`group !%in% 'G2'`"),
         answer("`group =! 'G2'`"),
         answer("`group - 'G2'`"),
         message = "`!=` means 'not equal to'.",
-        random_answer_order = TRUE
+        random_answer_order = TRUE,
+        allow_retry = TRUE
     ),
-    question("How would you choose only short-sighted people (with negative values for `eyesight`?) Select all that apply.",
+    question("How would you choose rows only for short-sighted people (with negative values for `eyesight`?) Select all that apply.",
         answer("`eyesight < 0`", correct = TRUE),
         answer("`0 > eyesight`", correct = TRUE),
         answer("`eyesight <= 0`"),
         answer("`eyesight != 0`"),
-        message = "logicals often work both ways. In this case `eyesight < 0` and `0 > eyesight` are equivalent.",
-        random_answer_order = TRUE
+        message = "logicals often work both ways round. In this case there are two correct answers.",
+        random_answer_order = TRUE,
+        allow_retry = TRUE
     ),
-    question("How would you choose only people that have been abroad in their lifetimes? Select all that apply.",
+    question("How would you choose rows only for people that have been abroad at some point in their lifetimes? Select all that apply.",
         answer("`countries >= 2`", correct = TRUE),
         answer("`countries > 1`", correct = TRUE),
-        answer("`1 > countries`", correct = TRUE),
-        answer("`countries <= 2`"),
+        answer("`1 < countries`", correct = TRUE),
+        answer("`countries <= 2`", message = "careful whether you need to use 'greater than' or 'greater than and equal to'."),
         answer("`1 < Countries`", message = "careful of uppercase letters where they shouldn't be!"),
         message = "There are often several ways in which you can specify what you want using logicals!",
-        random_answer_order = TRUE
+        random_answer_order = TRUE,
+        allow_retry = TRUE
     ),
     question("How would you choose only people who aren't adults?",
         answer("`role %in% c('child', 'baby')`", correct = TRUE),
-        answer("`role = c('child', 'baby')`"),
-        answer("`role == 'child', 'baby'`"),
-        answer("`role == 'child' & 'baby'`"),
-        random_answer_order = TRUE
-    ),
-    question("How would you choose every hardware except touchscreens?",
-        answer("`hardware != 'touchscreen'`", correct = TRUE),
-        answer("`hardware %in% c('mouse', 'keyboard', 'touchpad')`", correct = TRUE),
-        answer("`hardware %not% 'touchscreen'`"),
-        answer("`hardware == !'touchscreen'`"),
-        random_answer_order = TRUE
+        answer("`role = c('child', 'baby')`", message = "remember the `c()` function 'glues' bits of information together"),
+        answer("`role == 'child', 'baby'`", message = "Clue: we might read this code as 'the role is found IN one of: child, or baby'."), 
+        answer("`role == 'child' & 'baby'`", message = "Clue: we might read this code as 'the role is found IN one of: child, or baby'."),
+        random_answer_order = TRUE,
+        allow_retry = TRUE
     )
 )
 ```
@@ -3440,57 +3721,82 @@ quiz(caption = "**< QUIZ 3 >** Subsetting Data - `filter`",
 $~$
 
 ***
-### **4.4 ADDING VARIABLES**
+### **4.5 ADDING VARIABLES**
 
 Sometimes we might want to add a variable to the data frame that's some kind of
 function of one or more other variables.  
 
 $~$
 
-### 4.4.1 `mutate()`
+### 4.5.1 `mutate()`
 \
+
+<center>
+![subsetting rows](www/mutate.png){width="60%"}
+</center>  
+\  
 
 `mutate()` is the function we'll use to add variables. If we wanted to know how many _extra_ continents someone had been to (i.e. how many continents they have been to, not including their home continent), then we need a variable which is continents minus 1.  
 
-Select _ADD A VARIABLE..._ in ShinyGLM. This allows you to add a variable to the data. You need to give your new variable a name (e.g. `extra_continents`), and then tell `R` how to calculate it: `continents - 1`. If you click _ADD VARIABLE_ it'll add it to the data frame.  
+_IN THE SHINYGLM APP:_
+
+* Reset rows and columns to include all rows and columns.
+* Select _ADD A VARIABLE..._: this allows you to add a variable to the data. 
+* Choose a variable name for the variable you will create (e.g. `extra_continents`)
+* tell `R` how to calculate it, i.e. `continents - 1`. 
+* Click _ADD VARIABLE_. 
+\
+
+Your code should look like this:
+
+```{r eval = FALSE}
+dataAddVar <- mutate(data, extra_continents = continents-1)
+```
+
+You should now see that the variable has been added to the data frame!  
+
+`mutate()` is particularly useful for transforming variables for analysis: often we need to log-transform using `log()`, square root transform using `sqrt()`, or something similar, and `mutate()` lets us easily add that data to the data frame.  
 \
 
 #### **< EXERCISE 5 >** Adding Variables - `mutate()`
 *Often when we analyse counts, we need to log-transform them. Add a variable called log_countries which is the natural log of `countries`. You'll have to look up how to calculate the natural log in `R`.*
-```{r ex441_5, exercise=TRUE, echo= FALSE}
-dataSubset <- games %>%
-    mutate()
+
+```{r ex451_5, exercise=TRUE, echo= FALSE}
+dataSubset <- data %>%
+
 dataSubset
 ```
-```{r ex411_5-solution, echo= FALSE}
-dataSubset <- games %>%
+```{r ex451_5-solution, echo= FALSE}
+dataSubset <- data %>%
     mutate(log_countries = log(countries))
 dataSubset
 ```
 \
 
-You can use `mutate` as many times as you like to add as many variables as you like.  
+You can use `mutate()` as many times as you like to add as many variables as you like (though it only works once in the ShinyGLM app).  
 
 $~$
 
 ***
-### **4.5 CHAINING COMMANDS**
+### **4.6 CHAINING COMMANDS**
 \
 
 You can use the pipe to chain together as many commands as you like.  
 \
 
 #### **< EXERCISE 6 >** Chaining Commands
-_Subset the data frame to include only data for students, add a variable with a name of your choice which represents `reaction` as a percentage rather than a proportion, remove all columns except `person`, `role`, `reaction` and your new percentage reaction variable._
-```{r ex45_6, exercise=TRUE, echo= FALSE, exercise.cap="3.6 Chaining Commands: Quiz 1"}
+_Subset the data frame to include only data for students, remove all columns except `person`, `role`, and `reaction`, and add a variable (with a name of your choice) which represents `reaction` as a percentage rather than a proportion._
+```{r ex46_6, exercise=TRUE, echo= FALSE}
 
 ```
-```{r ex45_6-solution, echo= FALSE}
-dataSubset <- games %>%
+```{r ex46_6-solution, echo= FALSE}
+dataSubset <- data %>%
     filter(role == 'student') # could also use role %in% 'student'
         mutate(reaction_pc = reaction * 100)
             select(c('person', 'role', 'reaction', 'reaction_pc'))
-# the order of the filter, mutate and select lines doesn't matter
+# the order of the mutate and select lines matter, as we have to create
+# reaction_pc before we select it.
+
 dataSubset
 ```
 \
@@ -3498,18 +3804,14 @@ dataSubset
 $~$
 
 ***
-### **4.X OTHER RESOURCES**
+### **4.7 OTHER RESOURCES**
 \
 
-...
+There are many tutorials and worked examples out there for the `dplyr` package. Here are a few I recommend:
 
-$~$
-
-***
-### **4.X FINAL TIPS**
-\
-
-...
+* [Introduction to `dplyr`](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) by the package authors themselves. Works with an example _Star Wars_ data set which is included with `R`, which has information on 87 of the main Star Wars characters (e.g. body mass, height, hair colour, sex, gender...)
+* [Datacarpentry's `dplyr` tutorial](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html), which works with a data set of animal diversity and anatomy at a field study site
+* The _Data manipulation with `dplyr`_ chapter of this ["Data Carpentry"](https://datacarpentry.org/2015-07-22-JamesMadison/etc/r-datacarpentry.html) tutorial. This also goes over some basic things we covered in Chapter 1 and 2, which may be useful.
 
 $~$
 
@@ -3517,92 +3819,11 @@ $~$
 ### **< WORKSHOP >** Data Management
 ***  
 \
-...
+
+Nothing to see here yet...
 
 $~$
 
 ***
 ##### END OF CHAPTER
 ***
--->
-
-
-<!--
-
-***
-### PART 2
-
-We'll now put some of that learning into practise with a few tasks with the 
-data. Try and complete these on your own, without consulting the app, and
-I'm sure you copied the code over from the app as was suggested, so you can
-edit that as you need to. First, pretty simple, but pretty important...  
-\
-
-_Task: read in the games data_  
-\
-
-You're interested in whether luck truly is a real thing in life, as you think
-men are unluckier than any other gender. Drawing a picture card is unlucky, as 
-picture cards look at you funny and you're pretty sure they're up to no good.
-Drawing a black card is luckier than drawing a red card, as red is the colour 
-of the devil. There are several steps to preparing your data...  
-
-_Task: prepare your lucky, lucky data..._
-
-* _You don't want to use any data from people who drew 4 cards, as 4 represents 
-the 4 horsemen of the apocalypse. Remove any data where someone chose 4 cards._
-* _You don't care about any variable that isn't associated with the cards, except
-for the identity of the person: their gender and their group. Get rid of the 
-variables you don't care about._
-* _You need to know how many non-picture cards there were for each person, so
-calculate that and add it to your data._
-\
-
-_Questions:_
-
-* _How many rows of data do you have left?_
-* _What function would you use to arrange the rows of the data frame by the number of 
-picture cards drawn? (Hint: see the Getting Started with R book)... can you 
-write the code that would do that?_
-* _What's the mean total number of black cards drawn?_
-* _What are the mean numbers of picture cards drawn, separately for each gender? 
-Hint: you can look at p. 71 of Getting Started With R for this one, and we'll
-encounter it later in the course as well._
-\
-
-
-***
-### FINAL TIPS
-
-That's a whistle-stop tour in data tidying. I'd encourage you to also look at 
-p.75 of _Getting Started With R_ which shows how this information maps on to
-the _base-R_ methods for working with `data.frame`s. Most people will use these, 
-and they can sometimes be quicker and easier when you just have something 
-very simple to do (this is a general rule with the `tidyverse` packages: 
-often if you have something quick to do, then the base-R approach is better). 
-Either approach is equally as valid.  
-\
-
-Note how I write R code: where there are spaces, what the indentation looks like,
-etc. This is code _formatting_ and there's an accepted standard for what it 
-should look like. Confusingly, it does matter in some instances where you do or 
-do not put a space, but most of the time you can put a space (in fact as many spaces 
-as you like), wherever you want. It's not the end of the world if you don't keep 
-to the proper standards, but it does make code way easier to read.
-
-
--->
-
-$~$
-
-## 5 --- Data Visualisation I
-\
-
-Nothing to see here... yet
-
-$~$
-
-## 6 --- Data Visualisation II
-\
-
-Nothing to see here... yet
