@@ -986,7 +986,7 @@ This tutorial includes:
   + outputs
 * 2.4 objects
    + assignment to objects
-   + 2.5 object classes
+   2.5 object classes
      - 2.5.1 `numeric`
      - 2.5.2 `character`
      - 2.5.3 `factor`
@@ -3206,31 +3206,31 @@ see Resources section on blackboard or download
 * [**ShinyGLiM**](https://iainmstott.shinyapps.io/shinyglm)  
 \
 
-1. Read in the data (this was covered in the workshop tasks last week)
-2. Plot a histogram of the `DNAmAge` variable. You should:
+##### **ShinyGLM**
 
-  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
-  * **ii.** Specify x-axis limits of 5 and 85.  
-    - Why did you choose the number of bins you chose?
-    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
-    - Does the data distribution appear skewed?
-    - What is the name of a distribution that approximates the variable?  
-  * **iii.** The histogram should be a count rather than a density
-  * **iv.** The histogram should have bars which are the colour `"mistyrose4"`
-    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
-      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
-  * **v.** The histogram should have a 'classic' theme.
-  * **vi.** Find the mean and standard deviation of the variable.
-  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 80, according to a normal distribution with that mean and sd.  
+In this Chapter, we'll mainly be working with the _DATA_ tab.  
 \
 
-3. Plot a density plot of the `Age` variable. You should:
+***
+### **4.2 R PACKAGES**  
+\
 
-  * **i.** Choose appropriate x axes
-    - Why did you choose the x-axis limits you did?
-    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
-    - What is the name of the distribution that should approximate a count variable such as this? Based on what you saw of count data in the workbook, does it seem that the variable follows this distribution as it should?
-  * **ii.** Specify that the line should be black, increase the line thickness and have a grey area under the line which is a any light blue of your choice.
+In this Chapter we will 
+need to use another R package developed by the RStudio team.
+
+ * `dplyr`, is an `R` package which helps work with data: subsetting, transforming, manipulating... etc.
+
+Remember that if you're working alongside this in RStudio, the package first needs to be installed onto your computer, and unless you update `R`, this only needs to be done _once_. 
+
+```{r eval = FALSE}
+install.packages("dplyr")
+ ```
+\
+
+Then in order for `R` to know to use it in your session, it needs to also be loaded:
+ ```{r eval = FALSE}
+library(dplyr)
+ ```
 
 $~$
 
@@ -3408,19 +3408,8 @@ $~$
 
 You'll notice that we use a **pipe** `%>%` in the code, like this:
 
-  * **i.** Try viewing many different numbers of bins, and choose one which appropriately displays the data distribution
-  * **ii.** Work out the number of days there are in 60 years and specify x-axis limits of 0 and 60 years.
-    - Why did you choose the number of bins you chose?
-    - Is the variable: quantitative / qualitative, continuous / discrete, categorical / ordinal? (Check the spider diagram from the first lecture if you need some help).
-    - Does the data distribution appear skewed?
-    - What is the name of a distribution that approximates the variable?  
-  * **iii.** The histogram should be a count rather than a density
-  * **iv.** The histogram should have bars which are the colour `"indianred"`
-    - Search online: can you find any ways to choose a colour other than by specifying a colour name?
-      + Hint: in graphic design, colours are commonly specified using amounts of Red, Blue and Green in the colour. This is sometimes coded as what's called a hexademical format.
-  * **v.** The histogram should have a 'classic' theme.
-  * **vi.** Find the mean and standard deviation of the variable.
-  * **vii.** Using the mean and standard deviation, find the probability that the variable is greater than 50 years, according to a normal distribution with that mean and sd.  
+```{r eval = FALSE}
+rows <- c(7, 10)
 
 dataSubset <- data %>%
     slice( seq(rows[1], rows[2], 1) )
@@ -3763,7 +3752,10 @@ $~$
 ***
 ### **4.5 ADDING VARIABLES**
 
+Sometimes we might want to add a variable to the data frame that's some kind of
+function of one or more other variables.  
 
+$~$
 
 ### 4.5.1 `mutate()`
 \
@@ -3812,6 +3804,7 @@ dataSubset
 
 You can use `mutate()` as many times as you like to add as many variables as you like (though it only works once in the ShinyGLM app).  
 
+$~$
 
 ***
 ### **4.6 CHAINING COMMANDS**
@@ -3849,6 +3842,7 @@ There are many tutorials and worked examples out there for the `dplyr` package. 
 * [Datacarpentry's `dplyr` tutorial](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html), which works with a data set of animal diversity and anatomy at a field study site
 * The _Data manipulation with `dplyr`_ chapter of this ["Data Carpentry"](https://datacarpentry.org/2015-07-22-JamesMadison/etc/r-datacarpentry.html) tutorial. This also goes over some basic things we covered in Chapter 1 and 2, which may be useful.
 
+$~$
 
 ***
 ### **< WORKSHOP >** Data Management
@@ -3879,6 +3873,7 @@ You should be able to get through at least Tasks 1-3 in the workshop: task 4 is 
 
 Remember there's the [ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLM) app to help you out.  
 
+$~$
 
 ##### **CELL AGEING: EXERCISES & QUESTIONS**
 
@@ -3958,6 +3953,7 @@ dataNew <- data %>%
     + which function do you use to filter the rows in this way?
 4. If you have time, plot 2 separate histograms for `MaxLongevity_yrs` separately for aquatic and terrestrial species.
 
+$~$
 
 ***
 ##### END OF CHAPTER
