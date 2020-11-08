@@ -773,7 +773,7 @@ At the top of each chapter will be links to relevant cheatsheets for that chapte
 
 ##### **ShinyGLM**
 I've developed an interactive web app called 
-[ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLiM/)
+[ShinyGLM](https://iainmstott.shinyapps.io/shinyglm/)
 which helps to understand how code and its 
 outputs are related to one another. You'll probably use it a fair bit, starting 
 from Chapter 2 "Data distributions".  
@@ -2038,6 +2038,18 @@ axis limits using `xlim()` and `ylim()`
 
 $~$
 
+#### Quick walkthrough
+\
+
+Below is a video I made to clarify how the `ggplot2` coding and layers work in practice, in RStudio.
+\
+
+<center>
+![](https://youtu.be/9zfva5vqq4g){width="80%"}
+</center>  
+
+$~$
+
 #### [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLM)
 \
 
@@ -2140,13 +2152,13 @@ download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheat
 ##### **WEB LINKS**
 
 * [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
-* [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
 \
 
 
 ##### **ShinyGLM**
 
-We'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM) webapp 
+We'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp 
 in this and subsequent chapters. It's designed to make learning data skills in `R`
 an interactive experience. It's worth getting to know how to use it, so make sure 
 to read the **USER GUIDE** now.  
@@ -2441,11 +2453,11 @@ $~$
 We're going to begin by working with the `eyesight` variable. This approximates a normal distribution, which is the most common data distribution you'll analyse and certainly most relevant to this module, so the most time will be spent on it.  
 \
 
-Head on over to [**ShinyGLM**](https://iainmstott.shinyapps.io/ShinyGLiM). 
+Head on over to [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm). 
 I assume you've read all of the user guide now, as suggested in Chapter 2½... I know 
 it must have been thrilling reading.  
 
-USING THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/ShinyGLiM):
+USING THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/shinyglm):
 
 * Go to the DATA DISTRIBUTIONS page.
 * Choose the `eyesight` variable.
@@ -2553,7 +2565,7 @@ $~$
 
 ##### **We digress. Back to histograms.**  
 
-IN THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/ShinyGLiM): 
+IN THE [**SHINYGLM APP**](https://iainmstott.shinyapps.io/shinyglm): 
 
 * try adjusting the number of bins that you're plotting. 
   + Try higher numbers
@@ -2877,7 +2889,7 @@ hist
 ```
 \
 
-Answer the questions below about where the mistakes are found. If you're not sure, then you can always edit the options in the [**ShinyGLM app**](https://iainmstott.shinyapps.io/ShinyGLiM) and compare the code above with the code in the app to spot the differences.  
+Answer the questions below about where the mistakes are found. If you're not sure, then you can always edit the options in the [**ShinyGLM app**](https://iainmstott.shinyapps.io/shinyglm) and compare the code above with the code in the app to spot the differences.  
 
 ```{r qz354_7, echo=FALSE}
 quiz(caption = "**< QUIZ 6 >** Visualising Data Distributions - poisson",
@@ -3160,6 +3172,11 @@ plotting and analysis. We'll be covering:
 * **< WORKSHOP >**
 \
 
+<center>
+![The analytical process and its feedbacks](www/Process4.png){width="80%"}
+</center>  
+\  
+
 $~$
 
 ***
@@ -3186,7 +3203,7 @@ see Resources section on blackboard or download
 
 * [**dplyr package**](https://dplyr.tidyverse.org/)
 * [**R for beginners**](https://education.rstudio.com/learn/beginner") by RStudio
-* [**ShinyGLiM**](https://iainmstott.shinyapps.io/ShinyGLiM)  
+* [**ShinyGLiM**](https://iainmstott.shinyapps.io/shinyglm)  
 \
 
 ##### **ShinyGLM**
@@ -3289,6 +3306,18 @@ The options (on the left of large screens or at the top of small screens) allow 
   + column numbers using the `select()` function, or
   + variable names, also using the `select()` function.  
 \
+
+##### **VIDEO WALKTHROUGH**
+\
+
+Below is a video walkthrough of how to use `dplyr`. This includes information on how a function called a _pipe_ `%>%` is used to chain subsetting commands. The next few sections contain more detail, including quizzes and exercises to practice using the package.  
+\
+
+<center>
+![](https://youtu.be/GFY33Jt2Od8){width="80%"}
+</center>  
+
+$~$
 
 ##### **`R` IS GREAT FOR DATA MANIPULATION**
 
@@ -3820,10 +3849,1015 @@ $~$
 ***  
 \
 
-Nothing to see here yet...
+During this week's workshop, we're going to work with the biological data frames and select the data we want to work with:
+
+* loading `.csv` files into `R` (reminder from Ch2)
+* selecting data frame rows
+  + using numbers
+  + using variable values
+* selecting data frame columns
+  + using columnnumbers
+  + using variable names
+* adding new variables
+
+You may want to remind yourself of `logical` vectors from Chapter 2. These are probably the most useful and important means of subsetting data.
+
+* **Monday group:** Pantheria data
+* **Tuesday and Wednesday groups:** Cell age data
+* **Friday group:** Urban dogs data
+
+In the workshop tasks, you won't have encountered absolutely everything you need to do during the at-home study. Finding answers to question and solutions to probelms yourselves, using whatever resources you have to hand, is a useful skill to have.  
+
+You should be able to get through at least Tasks 1-3 in the workshop: task 4 is very useful to complete if you have extra time left, and/or for practise in between online sessions.  
+
+
+Remember there's the [ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLM) app to help you out.  
+
+$~$
+
+##### **CELL AGEING: EXERCISES & QUESTIONS**
+
+
+1. Load in the `dplyr` and `ggplot2` packages.
+2. Set the working directory to the folder your the data is stored in, and read in the data. Ideally you should be continuing in the same `.R` file you created for the Data Distributions Workshop, in which case you will already have code to read in the data anyway.  
+
+The cell ageing data collected data from both men and women. Sex and gender dimensions are incredibly important in any human-based research and clinical trials. In terms of sex (i.e. biological differences arising from chromosomal differences), disease and pharmacology can function differently in men and women. There is a historical bias towards including primarily cisgender, white men in clinical trials and underrepresenting women, trans and nonbinary people, and ethnic minorities. There are many examples of this underrepresentation in [Liu & Mager (2016)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4800017/), and a general discussion of historical sex and gender biases, and the importance of sex and gender, in [Pinn (2011)](http://biblioteca.asmn.re.it/allegati/sexandgenderfactorsinmedicalstudies_120615110056.pdf).
+
+3. We'd like to know how many men and how many women were included in the cell ageing study.
+  * **i.** `Gender` is the variable representing male / female. This variable should be a factor, if it isn't already. Find out the class of the variable `Gender`. 
+    + What is the variable's class?
+  * **ii.** Spoiler alert: it isn't a factor. Using the functions we've learned in Chapter 4, make a new data frame with: 
+    + a new variable added called `Sex` which is the `Gender` variable converted to a factor
+    + what `dplyr` function do you use to add this variable?
+    + remove old variable `Gender`.
+    + what `dplyr` function do you use to remove this variable?
+  * **iii.** Find out how many of each male/female there are. Don't overthink this: it's a simple function you encountered in Chapter 2 which summarieses the variable.
+    + How many male, and how many female?
+    + Are women over- or under-represented?
+
+It is not fair to make general conclusions about biological phenomena when there isn't fair representation of both sexes. I would personally suggest it is more transparent in this case to remove female data and be honest that the data can only be used to make conclusions relating to men. (This doesn't change the fact that the data collected is inexcusably biased in the first place!!)
+
+  * **iv.** Create a subset of the data frame, using `dplyr` functions and a correct logical query, which only includes the male data.
+    + which `dplyr` function do you use to filter the rows of data in this way?
+    + how many rows and columns does your new data frame have? Find out one or more `R` function(s) that would tell you the numbers of rows and columns of your data frame.
+
+4. If you have time, it is worth re-plotting the histogram from last week for `DNAmAge` now that you have your data subset.
+
+$~$
+
+##### **URBAN DOGS: EXERCISES & QUESTIONS**
+
+
+1. Load in the `dplyr` and `ggplot2` packages.
+2. Set the working directory to the folder your the data is stored in, and read in the data. Ideally you should be continuing in the same `.R` file you created for the Data Distributions Workshop, in which case you will already have code to read in the data anyway.  
+3. The `TotalScore` variable is the one we're interested in, and it's a composite of the `StructureScore`, `ResourceScore`, `QualityScore`, and `DisturbanceScore` variables. 
+  * **i.** create a data subset with these four redundant variables removed.
+    + which of the `dplyr` functions do you use to select the correct columns?
+  * **ii.** `LitterSizeCategory` and `Habitat` should be factor variables. Find out the class of these two variables. 
+    + What are the variables' class?
+  * **ii.** Spoiler alert: they aren't a factors. Using the functions we've learned in Chapter 4, make a new data frame with: 
+    + new variables added called `LitterSizeCategory_fac` and `Habitat_fac` which are the variables converted to factors.
+    + which `dplyr` variables did you use to add these variables?
+    + remove the old non-factor variables.
+    + which `dplyr` function did you use to remove these variables?
+  * **iii.** Find out how many rows of data for each Habitat there are. Don't overthink this: it's a simple function you encountered way back in Chapter 2 that summarises the variable.
+    + How many of each Urban, Semi and Rural? Are numbers balanced?
+  * **iv.** We're interested in how the habitat affects the den score. But there are other, possibly confounding, variables that we should be aware of. In particular, we want to know in which years the different data were collected. Using the `dplyr` functions encountered in this chapter, create 3 separate data subsets for each of the `Rural`, `Semi` and `Urban` rows, using correct logical queries.
+    + which function do you use to filter the rows in this way?
+    + which years were data for each of the 3 habitats collected in?
+    + are the data balanced between the three habitats, in terms of number of data points and when the data were collected?
+
+4. If you have time, plot 3 separate histograms for `TotalScore` separately for rural, semi and urban habitats.
+
+$~$
+
+##### **PANTHERIA: EXERCISES & QUESTIONS**
+
+
+1. Load in the `dplyr` and `ggplot2` packages.
+2. Set the working directory to the folder your the data is stored in, and read in the data. Ideally you should be continuing in the same `.R` file you created for the Data Distributions Workshop, in which case you will already have code to read in the data anyway.  
+3. We're interested in the `MaxLongevity` variable. As we encountered in the last workshop, it's expressed in days. 
+  * **i.** Some of the carnivore families are aquatic, and some are terrestrial. Run the code below to create a new variable that tells you whether the species is aquatic or not. 
+
+```{r, eval = FALSE}
+Aquatic_Fam <- c("Odobenidae", "Otariidae", "Phocidae")
+dataNew <- data %>%
+    mutate(Aquatic = Family %in% Aquatic_Fam)
+```
+\
+
+  * **ii.** add a new variable called `MaxLongevity_yrs` which is the Max Longevity converted to years. Remove the original variable `MaxLongevity` from the data frame.
+  * **iii.** Find out how many rows of data (i.e. how many species) there are for aquatic, and for terrestrial species. Don't overthink this: it's a simple function we encountered in the R Basics chapter that summarises the variable.
+    + How many aquatic versus terrestrial are there? Are the numbers balanced?
+  * **iv.** It's possible that, depending on how we think maximum longevity is related to other life history variables, we might want to analyse terrestrial and aquatic variables separately. Using the `dplyr` functions encountered in this chapter, create 2 separate data subsets for each of the aquatic and terrestrial data rows, using correct logical queries.
+    + which function do you use to filter the rows in this way?
+4. If you have time, plot 2 separate histograms for `MaxLongevity_yrs` separately for aquatic and terrestrial species.
 
 $~$
 
 ***
 ##### END OF CHAPTER
 ***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 5 --- Data Visualisation I
+\
+
+
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 5.1 Resources
+* 5.2 R packages
+* 5.3 Variables: it's all in a name
+  + The x / independent / explanatory variable
+  + The y / dependent / response variable
+* 5.4 Plotting y against a continuous x variable
+  + 5.4.1 scatter plots using `geom_point()`
+* 5.5 Plotting y against a categorical x variable
+  + 5.5.1 box plots using the function `geom_boxplot()`
+  + 5.5.2 mean and standard deviation using the function `geom_linerange()`
+  + 5.5.3 violin plots using the function `geom_violin()`
+* 5.6 An introduction to layering plots
+* 5.7 Predicted values and residuals
+* 5.8 Other resources
+* **< WORKSHOP >**  
+\
+
+The hard part of these plots is past already, which is being introduced to `ggplot`. All we're doing now is swapping out graphics layers (specifically _geometries_): everything else pretty much stays the same. You can copy-paste your code from Chapter 3, swap out a couple of things, and BOOM... awesome new plot.  
+\
+
+This Chapter re-visits the **PLOTTING** part of the analytical process, once we've visualised data distributions and done any data tidying we need to.  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
+
+$~$
+
+***
+### **5.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* For the final section on predicted values and residuals, [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan. Chapters 3 and 4 and sections 6.1, 7.1, 7.3 and 7.5. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 82, Chapter 4, “Visualizing your data”, Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
+\
+
+
+##### **ShinyGLM**
+
+As in previous chapters, we'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp. In this Chapter, we'll mainly be working with the _DATA VISUALISATION_ tab.  
+
+$~$
+
+***
+### **5.2 R PACKAGES**  
+
+In this Chapter we will need to use an R package we already encountered when visualising data distributions.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+Remember that when working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Remember that once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. Therefore you need to tell `R` to use the package each time you restart RStudio. You do this using the `library()` function.
+
+ ```{r eval=FALSE}
+library(ggplot2)
+ ```
+
+$~$
+
+***
+### **5.3 VARIABLES: IT'S ALL IN A NAME** 
+\
+
+As scientists, what we really want to know is:
+  
+  * how a variable we're interested in is affected by one or more other variables.
+  * Whether the relationships between the variables are large or small
+  * Whether the relationships between the variables are significant or insignificant
+  * Whether the relationships between the variables capture lots or little of the data variation. 
+  
+We have an expectation of what those relationships look like, which depends on our hypothesis.  
+\
+
+We're now at the point where we're plotting such relationships between variables, and linking those plots to hypotheses. There are lots of different ways of phrasing "which variable is which" when it comes to these plots and the statistical analyses we'll encounter later on. Let's quickly demystify a few of these terms.  
+\
+
+##### **X / INDEPENDENT / EXPLANATORY**
+
+This variable is the one that, when it comes to our data visualisation and analysis, is doing the influencing. It is generally somehow under our control, whether because we manipulate it experimentally, or because we design our data collection around it: 
+
+* In a lab experiment it is the variable we would choose to manipulate
+* In a field experiment we might design our sampling regime to cover the whole range of this variable
+* When designing surveys we may choose try and get a representative sample of respondents to cover the whole range of this variable
+* When working with open data we would try and make sure we include data which cover the whole range of this variable.  
+\
+
+_It's referred to as the **x variable** because it's commonly put on the x axis_. That may be the case for a scatterplot, but is not _always_ the case: e.g. boxplots can be horizontal as well as vertical.  
+
+_It's referred to as the *independent variable** because it is the one that we somehow control_. This however is easily confused with a different concept of _nonindependent data_.  
+
+**We will generally call it the _EXPLANATORY VARIABLE_** in this workbook, as according to the hypothesis it "explains" the y-variable.  
+\
+
+We will generally plot the explanatory variable on the x axis.  
+\
+
+##### **Y / DEPENDENT / RESPONSE**
+
+This variable is generally not under our control, and is the one we measure or observe, are it's the one in which we're interested to see change.  
+\
+
+* _It's referred to as the **y variable** because it's commonly put on the y axis_, but as we've discussed already, that's not always the case.  
+* _It's referred to as the **dependent variable** because according to the hypothesis its value is dependent on the explanatory variable._  
+* **We will generally call it the _RESPONSE VARIABLE_**, as its value depends on how it responds to the explanatory variable.  
+\
+
+We will generally plot the response variable on the y-axis.  
+\
+
+Two important points about the response (y) variable:
+
+* The response (y) variable, for the purposes of this module, will always be **numeric**. Categorical response variables do exist, but their analysis is difficult. 
+* There will only ever be one response (y) variable in this module. Analysing mutliple response variables in a single analysis is possible, but again, difficult.  
+
+$~$
+
+##### **LINKING HYPOTHESES AND EXPLANATORY / RESPONSE VARIABLES**
+
+It's important to be able to define your explanatory and response variables from your hypothesis. Based on what's said above, here are some practice questions relating hypotheses and variable types.  
+
+```{r qz53_1, echo=FALSE}
+quiz(caption = "**< QUIZ 1 >** Linking variables and hypotheses",
+    question("Your hypothesis is that people in coronavirus lockdown who have more green space around them are happier because they have more opportunity to get outside and to exercise. What is the explanatory variable?",
+        answer("Amount of green space", correct = TRUE),
+        answer("Happiness"),
+        answer("Amount of time in lockdown"),
+        answer("Amount of exercise"),
+        answer("Amount of time spent outside"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is green space, and the response variable is happiness. Exercise or time outdoors might be the mechanism by which happiness is achieved, but if they were our explanatory variable(s) then suddenly the question becomes different: it's about how exercise and time outdoors affect happiness."
+    ),
+    question("Your hypothesis is that horses kept in herds show fewer signs of stress because they feel safer than if they're kept alone. What is the explanatory variable?",
+        answer("Whether or not the horse is kept in a herd", correct = TRUE),
+        answer("The number of other horses a horse is kept with"),
+        answer("The number of signs of stress a horse shows"),
+        answer("The amount of time the horse is kept alone"),
+        answer("The number of stressful situations a horse is subjected to"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is whether or not a horse is kept in a herd. The hypothesis mentions nothing about the number of horses, and if this were the explanatory variable the the hypothesis becomes a little different: stress would be presumed to depend specifically on the number of horses a horse is kept with."
+    ),
+    question("Your hypothesis is that the frequency of a gene coding for breast cancer susceptibility is linked to the average age of mothers in a population, because mutation rates are higher in older ova in older mothers. What is the response variable?",
+        answer("Frequency of the gene", correct = TRUE),
+        answer("Average age of mothers in each population"),
+        answer("Age of ova"),
+        answer("Mutation rates in the population"),
+        answer("Breast cancer rates in the population"),
+        random_answer_order = TRUE,
+        message = "Gene frequency is the response variable as that's what you're measuring. Frequency of breast cancer is not necessarily the same as gene frequency. The explanatory variable is the average age of mothers."
+    )
+)
+```
+
+
+$~$
+
+***
+### **5.4 PLOTTING RESPONSE (Y) VARIABLES AGAINST NUMERIC EXPLANATORY (X) VARIABLES**
+\
+
+We used `ggplot` to plot histograms. Histograms only show one variable from the data, on the x axis. That's why we only specify only an x variable using the _aesthetics_ function `aes()` when creating the histogram ggplot. The y variable is simply a count or a density. Take a look to remind yourself of how a histogram is plotted:  
+\
+
+```{r}
+# Histogram for eyesight
+hist <- ggplot(data, aes(x = eyesight)) +
+    geom_histogram()
+hist
+```
+\
+
+To create a plot with **_both an explanatory and response variable_**, we minimally need to change two things from the histogram code.
+
+1. You need to specify two variables in the _**aesthetics**_: both x and y. In histograms, we only specified x.
+2. You need to specify a different _**geometry**_: we're not plotting a histogram any more.
+\
+
+For comparison to the above histogram code, here's code which would plot a very simple scatter plot with `eyesight` as the explanatory (x) variable and `reaction` as the response (y) variable. Spot where those two changes are made to the aesthetic layers and the geometry layers compared to the histogram:  
+
+```{r}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point()
+```
+\
+
+**REMEMBER** that you can use the [ShinyGLM app](https://iainmstott.shinyapps.io/ShinyGLM) to help find out some (but not all) answers if you need to. On the DATA DISTRIBUTIONS page, choose the options you need, and then look at the CODE tab to see how to code the options you've chosen. As a reminder, we have already encountered these options during Chapter 3, which are:
+
+* changing DATA when setting up `ggplot()`
+* changing aesthetics using the `aes()` function when setting up `ggplot()`
+* changing fill colours of bars using the `fill` argument in `geom_histogram()`
+* changing axis limits using `xlim()` and `ylim()`
+* changing axis labels using `xlab()` and `ylab()`
+* changing the theme using e.g. `theme_minimal()`
+
+$~$
+
+### **5.4.1 `geom_point()`: SCATTER PLOTS**
+\
+
+We might hypothesise that people who have been to more continents have also been to more countries, because they have had the opportunity to visit more countries across the world. First step to seeing if this is true is to plot the variables. Think in these steps:
+
+* Which is the explanatory variable, and which is the response? Put these in the right places in the aesthetics.
+* The code just above shows you how to plot a basic scatter plot. Pick the right geometry function from that code (remember: these begin with `geom()`)
+* Add in the rest of the requirements listed below in almost the same way as you would for all the plots you've made before this
+* If you're stuck or something isn't working then you can find most solutions by trying to recreate the plot in ShinyGLM and seeing how the CODE tab has changed.
+\
+
+#### **< EXERCISE 1 >** Scatter plots
+_Edit the code below to plot a scatter plot which:_
+
+1. _has point colour to `slategrey4`_
+2. _has larger point size (you may have to search how to do this; if not there's a hint)_
+3. _has point shape `+` instead of circles._
+4. _Has x label "Continents" and y label "Countries"_
+5. _has a minimal theme_
+
+```{r ex541_1, exercise=TRUE, echo=FALSE}
+scatter <- ggplot(data = data, aes(x = , y = )) +
+    geom_()
+
+scatter
+```
+```{r ex541_1-hint}
+You can increase the point size using the 'size' argument in the geom_histogram() function.
+You can change point shape by using the 'shape' argument in the geom_histogram() function.
+```
+```{r ex541_1-solution}
+scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
+    geom_point(colour = "slategrey4", size = 3, shape = "+") +
+    xlab("Continents") + ylab("Countries") +
+    theme_minimal()
+
+scatter
+```
+
+$~$
+
+***
+### **5.5 PLOTTING Y AGAINST A CATEGORICAL X VARIABLE**
+\
+
+There are many different ways of showing how response variables are related to categorical explanatory variables. These are effectively just different ways of illustrating the variable's distribution - just like we did in Chapter 3 with histograms - but for several groups of data rows representing individual categories of your x variable. There are three main ways of illustrating distributions:
+
+* Using _**summary statistics**_
+  + _Boxplots_ do this with _nonparametric statistics_ (median, IQR), and in `ggplot2` they are specified using the function `geom_boxplot()`
+  + _Mean and standard deviation_ are very useful for reporting results from analyses and are the main way you should present categorical data. We use `geom_pointrange()` to plot these.
+* Using _**density distributions**_
+  + _Violin plots_ do this, showing the continuous density distribution (like we encountered in Chapter 3), but with a twist. They are specified in `ggplot2` using the function `geom_violin()`.
+
+ most commonly using summary statistics, but also certain forms of density plots.
+
+$~$
+
+### 5.5.1 BOX PLOTS USING `geom_boxplot()`
+\
+
+It might be reasonable to hypothesise that people with different `role`s have been to different numbers of countries, on average. 
+
+* Children and babies are young, and haven't had time to travel.
+* Students are also relatively young on average (and may not have the money to travel),
+* Staff and external people are old, wise, and ever so very experienced and worldly (of course). 
+
+Therefore the number of countries visited would be in the order:  
+
+baby < child < student < staff and person.  
+\
+
+The geometry function we use for box plots is `geom_boxplot()`. Just like for a simple scatter plot, we can swap out the aesthetics and the geometry to get the plot we need.  
+\
+
+Try the same steps as for the previous exercise:
+
+* Which is the explanatory variable, and which is the response? Put these in the right places in the aesthetics.
+* Pick the right geometry function from that code (remember: these begin with `geom()`)
+* Add in the rest of the requirements listed below in almost the same way as you would for all the plots you've made before this
+* If you're stuck or something isn't working then you can find most solutions by trying to recreate the plot in ShinyGLM and seeing how the CODE tab has changed.  
+\
+
+#### **< EXERCISE 2 >** Box plots
+_Your boxplot should have:_
+
+* _A thinner width of boxes than before_
+* _Black lines around the boxes_
+* _Transparent fill in the boxes_
+
+_You won't have encountered these options before. I suggest looking on the `ggplot` cheat sheet (linked to in the RESOURCES section), find the scatter plot section, and look underneath for the arguments you can change in the `geom_histogram()` function. There's also a pointer in the Hints for the exercise if you need a little more help!_
+\
+
+```{r ex551_2, exercise=TRUE}
+box <- ggplot(data, aes(x = , y = )) +
+    geom_() +
+    theme_grey()
+box
+```
+```{r ex551_2-hint}
+You can change the line colour using colour = black
+The transparent fill is achieved using alpha = 0
+```
+```{r ex551_2-solution}
+box <- ggplot(data, aes(x = role, y = countries)) +
+    geom_boxplot(colour = black, alpha = 0) +
+    theme_grey()
+box
+```
+\
+
+In fact, the `alpha` argument can be any value between 0 and 1, and it controls the transparency of the colour. We'll see later that this is really useful when layering plots.
+
+$~$
+
+### 5.5.2 MEAN AND STANDARD ERROR USING `geom_linerange`
+\
+
+Showing means and standard errors is THE way to present your data, especially when you're reporting results of most statistical analyses (as these usually rely on means and standard errors to calulate p-values).  
+
+To do this with `ggplot`, we have to modify a function we've already encountered. What we do is:
+
+1. Use `geom_point()` to show the mean values for each category
+  + We use a couple of extra arguments to do this: `stat = "summary"` to tell `R` that we don't want to plot _all_ points but only a _summary_ of the points, and `fun.y = "mean"` to tell `R` to that the summary we want is a mean of the y values.
+2. Use `geom_linerange()` to add error bars
+  + use those same extra arguments: `stat = "summary"` to tell `R` that we want a _summary_ of the points and `fun.y = "mean_se"` to tell `R` to that the summary we want is the standard error around the mean values.
+  \
+
+Let's see it in action:
+\
+
+```{r}
+meanSE_plot <- ggplot(data, aes(x = role, y = countries)) + 
+    geom_point(stat = "summary", fun.y = "mean", size=3) + 
+    geom_linerange(stat = "summary", fun.data = "mean_se") +
+    theme_minimal()
+meanSE_plot
+```
+\
+
+I can tell you that this is MUCH more complicated to so in base `R`. Knowing the `ggplot` technique will save you a lot of pain in the future.  
+\
+
+##### _WHY ARE WE NOT USING BAR PLOTS?_
+\
+
+**Bar plots are bad.** They're constrained to have a y-axis limit of 0 (either the lower limit, if the bars are positive, or the upper limit, if the bars are negative). This means that if your response (y) axis values are large and have a small range, you just can't see the differences between them. There's no reason not to use points with standard error bars, as we've seen here, and a sensible y-axis range. In my opinion, even if the bars have a large range and the differences are clearly visible, there's no reason not to use points anyway.  
+
+That's not to say bar plots don't have their place. They're very good for illustrating proportions. Incidentally, don't ever use pie charts to illustrate proportions. They're terrible. First, they have no axis. Second, research shows that people are very bad at interpreting proportions from pie charts. Circles are for biscuits and cake. Preferably biscuits because they're better than cakes.
+
+$~$
+
+### 5.5.3 VIOLIN PLOTS USING `geom_violin()`
+\
+
+Violin plots are essentially like mini-density plots (which we encountered when plotting histograms). They show a nice overall shape to the distribution of the response (y) variable, which isn't clear from a boxplot. Many of the same customisations are available, and to use it you just swap `geom_boxplot()` for `geom_violin()`:  
+
+```{r}
+viol <- ggplot(data, aes(x = role, y = countries)) +
+    geom_violin(fill = "grey", colour = "black")
+viol
+```
+
+$~$
+
+***
+### **5.6 LAYERING PLOTS**
+\
+
+Combining plots is where `ggplot` comes into its own. The first means of combination is _**layering**_. Basically, putting one plot on top of another so you benefit from twice the data viz deliciousness...  
+
+We have actually encountered this before, when we overlaid density plots on histograms.  
+
+For example, we might want to show the whole distribution using a violin plot, but also overlay a boxplot so it's a bit more statistical.  
+\
+
+_All we have to do is add another geometry function!_ Trust me, in base `R` something like this is a NIGHTMARE to do.  
+\
+
+```{r}
+combo_plot <- ggplot(data, aes(x = role, y = countries)) +
+    geom_violin(fill = "thistle2", colour = "white", alpha = 0.7) +
+    geom_boxplot(colour = "black", alpha = 0.7) +
+    theme_minimal()
+combo_plot
+```
+
+$~$
+
+***
+### **5.7 PREDICTED VALUES AND RESIDUALS**
+\
+
+These plots of explanatory (x) and response (y) variables are a good point to start understanding the statistics you'll use in later Chapters. Plots are a great way to understand what makes for significant relationships between variables. 
+\
+
+### PREDICTED VALUES
+\
+
+Most statistical analyses will give you a value predicted value for the response (y) variable for each value of the explanatory (x) variable.  
+
+For a **continuous** explanatory (x) variable, this is the line of best fit. This is the classi form of a simple line graph, $y=intercept+slope\times x$:
+\
+
+$y = \beta_0 + \beta_1 x$  
+\
+
+$\beta_0$ represents the intercept. $\beta_1$ represents the slope.  
+\
+
+```{r echo = FALSE}
+jitter <- ggplot(data = data, aes(x = continents, y = countries)) +
+    geom_point(position = position_jitter(width = 0.1, height = 0, seed = 123),
+               colour = "slategrey", size = 6, shape = "+") +
+    xlab("Continents") + ylab("Countries") +
+    theme_minimal() +
+    stat_smooth(method = "lm", colour = "black", se = FALSE)
+jitter
+```
+\
+
+For a **categorical** explanatory (x) variable, this will be close to (or the same as) some summary statistic of the variable. Commonly this is the mean of the data for each category:  
+\
+
+```{r echo = FALSE}
+meanSE_jitter <- ggplot(data, aes(x = role, y = countries)) + 
+    geom_point(position = position_jitter(width = 0.1, height = 0, seed = 123),
+               colour = "slategrey", size = 6, shape = "+") +
+    geom_point(stat = "summary", fun.y = "mean", size=3) + 
+    geom_linerange(stat = "summary", fun.data = "mean_se") +
+    theme_minimal()
+meanSE_jitter
+```
+\
+
+### RESIDUALS (MODEL "ERROR")
+\
+
+The actual value of the data point is the predicted value plus the *residual*:  
+
+DATA = PREDICTED VALUE + RESIDUAL  
+\
+
+Therefore the residual is the difference between the data point and the predicted value:  
+
+RESIDUALS = DATA - PREDICTED VALUE  
+\
+
+These residuals - the spread of the response variable data around the predicted values - characterise the **ERROR** of the model. This is what determines whether a relationship between two variables is _STATISTICALLY SIGNIFICANT_ or not.  
+\
+
+**RESIDUALS ARE THEREFORE VERY IMPORTANT!**  
+\
+
+A negative residual is linked to a data point that's below the predicted value. A positive residual is a data point that's above the predicted value.  
+
+Let's look at what they look like:  
+\
+
+```{r echo = FALSE}
+lm_coef <- lm(data$countries ~ data$continents)$coef
+data_predict <- data 
+data_predict$predict <- data$continents * lm_coef[2] + lm_coef[1]
+cont_resid_plot <- ggplot(data = data_predict, aes(x = continents, y = countries)) +
+    geom_linerange(aes(ymin = countries, ymax = predict), 
+                   position = position_jitter(width = 0.1, height = 0, seed = 123),
+                   colour = "grey50", lty = 3) +
+    geom_linerange(aes(ymax = countries, ymin = predict), 
+                   position = position_jitter(width = 0.1, height = 0, seed = 123),
+                   colour = "grey50", lty = 3) +
+    geom_point(position = position_jitter(width = 0.1, height = 0, seed = 123),
+               colour = "slategrey", size = 6, shape = "+") +
+    xlab("Continents") + ylab("Countries") +
+    theme_minimal() +
+    stat_smooth(method = "lm", colour = "black", se = FALSE)
+cont_resid_plot
+```
+\
+
+```{r echo = FALSE}
+data_predict <- data %>% group_by(role) %>% mutate(mean_countries = mean(countries))
+meanSE_jitter2 <- ggplot(data_predict, aes(x = role, y = countries)) + 
+    geom_point(position = position_jitter(width = 0.1, height = 0, seed = 123),
+               colour = "slategrey", size = 6, shape = "+") +
+    geom_linerange(aes(ymin = countries, ymax = mean_countries), 
+                   position = position_jitter(width = 0.1, height = 0, seed = 123),
+                   colour = "grey50", lty = 3) +
+    geom_linerange(aes(ymax = countries, ymin = mean_countries), 
+                   position = position_jitter(width = 0.1, height = 0, seed = 123),
+                   colour = "grey50", lty = 3) +
+    geom_point(stat = "summary", fun.y = "mean", size=20, shape = "-") +
+    geom_linerange(stat = "summary", fun.data = "mean_se") +
+    theme_minimal()
+meanSE_jitter2
+```
+\
+
+The residuals determine the error variance, which is the variation in the data that the predicted values can't explain. This is the sum of the squared residuals, divided by the number of data points:  
+
+$\sigma^2=\sum_{n=1}^{N}\frac{(y_i-\mu_i)^2}{N}$  
+
+$\sigma^2$ is the error variance, N is the number of data points, $y_i$ are the response (y) variable data points, $\mu_i$ are the predicted values. This is the same as calculation of the overall variance in the response (y) variable, which you should be familiar with, except that we use the predicted values rather than the mean of the response (y) variable.  
+\
+
+Take a little time to go over residuals and error variance, because an understanding of these things will help a lot when it comes to understanding and interpreting statistical models.  
+
+$~$
+
+```{r qz552_2, echo=FALSE}
+quiz(caption = "**< QUIZ 3 >** Predicted values and residuals",
+    question("You are investigating leaf length of different species of plant. If the length of a plant's leaf is 10cm and the mean leaf length for that species is 12.5cm, what is the residual value for that leaf?",
+        answer("-2.5cm", correct = TRUE),
+        answer("2.5cm"),
+        answer("22.5cm"),
+        answer("1.25cm"),
+        random_answer_order = TRUE,
+        message = "The residual is the data point minus the predicted value. The predicted value is the species' mean, so the residual is 10 - 12.5 = -2.5"
+    ),
+    question("You're investigating the relationship between how much time dogs spend barking per hour, and number of times people walk past their houses. The predicted relationship has an intercept of 2mins, and a slope of 1.4. What is the predicted time barking for time barking when 12 people walk past on average in an hour?",
+        answer("18.8mins", correct = TRUE),
+        answer("25.4mins"),
+        answer("14.8mins"),
+        answer("40.8mins"),
+        answer("2.5 hours", message = "It's definitely not possible to bark for 2.5 hours per hour!"),
+        random_answer_order = TRUE,
+        message = "The predicted value is the intercept (2) plus the slope(1.4) multiplied by the x value (12). Therefore the answer is 2 + (1.4 x 12) = 18.8 minutes."
+    ),
+    question("You're measuring how many times people in the 10 University of Lincoln Biomedical Science tutor groups get ill. In one tutor group, with 8 students, you find that the number of times the students get ill are 1, 3, 4, 2, 2, 0, 2, and 2. What is the residual variance for this group? Hint: find the mean, then calculate the residual values, square each residual value, add them up, and divide by the number of students in the tutor group.",
+        answer("1.5 times", correct = TRUE),
+        answer("2 times"),
+        answer("0.776 times"),
+        answer("-1.5 times"),
+        answer("1 times", message = "It's definitely not possible to bark for 2.5 hours per hour!"),
+        random_answer_order = TRUE,
+        message = "mean is 2; residuals are -1, 1, 2, 0, 0, -2, 0, 0; squared residuals are 1, 1, 4, 0, 0, 4, 0, 0; residual variance is 1.25."
+    )
+)
+```
+
+$~$
+
+### **OTHER RESOURCES**
+\
+
+The [_**R Graph Gallery**_]() has advice on how to plot gazillions of different plot types, and links to courses in programming plots.  
+\
+
+[_**Data to Viz**_](https://www.data-to-viz.com/) is BRILLIANT. It helps learn learning data visualisation, with clear decision trees for choosing the best plots to use. It helps with information on when and why to use different types of plots. It includes a bunch of caveats and pitfalls for data visualisation as well. It doesn't contain any `R` code itself, but it links to `R` code for plotting different graphs.
+
+$~$
+
+### **< WORKSHOP >** Data Visualistion I
+\
+
+When creating plots, remember the layers you need, one at a time. 
+
+1. What's the data later (this is the first thing you put in the `ggplot()` function)
+2. What's the aesthetics (i.e. the x and y variables)
+3. What geometries are you using (e.g. scatter plots, boxplots, etc.)
+4. What other ways are we tweaking the plots (colours, axis limits, etc)
+5. What theme are you adding?  
+\
+
+During this week's workshop, we're going to work with the biological data frames and select the data we want to work with:
+
+* loading `.csv` files into `R` (reminder from Ch2)
+* plotting response variables against continuous explanatory variables
+  + scatterplots
+* plotting response variables against categorical explanatory variables
+  + box plots
+  + means and standard errors
+  + violin plots
+* layering plots  
+\
+
+We will also practice some things we encountered during previous sessions:
+
+* data subsets
+* basic R  
+\
+
+Remember which data you're working with:
+
+* **Monday group:** Pantheria data
+* **Tuesday and Wednesday groups:** Cell age data
+* **Friday group:** Urban dogs data
+
+In the workshop tasks, you won't have encountered absolutely everything you need to do during the at-home study. Finding answers to question and solutions to probelms yourselves, using whatever resources you have to hand, is a useful skill to have.  
+
+You should be able to get through at least Tasks 1-3 in the workshop: task 4 is very useful to complete if you have extra time left, and/or for practise in between online sessions.  
+\
+
+Remember there's the [ShinyGLM](https://iainmstott.shinyapps.io/ShinyGLM) app to help you out.  
+
+$~$
+
+##### **CELL AGEING: EXERCISES & QUESTIONS**
+
+You should already have done points 1-3 in the last Chapter. If you don't have the workspace or the code already saved, whip through them as fast as possible using the answers for the last Chapter, which are given to you below in steps 1-3.  
+\
+
+1. Load in the `dplyr` and `ggplot2` packages.
+
+```{r eval = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+2. Load your data (if you are saving your `R` workspace at the end of each session then this will be loaded already).  
+
+```{r eval = FALSE}
+setwd("/path/to/your/file") # Mac
+setwd("C:/path/to/your/file")
+data <- read.csv("cell_age_data.csv")
+```
+\
+
+As we saw last week, the data contain only 2 data points for females.  
+
+3. In the last session, we used `dplyr` functions to do the following. If you don't still have this saved in your workspace, quickly complete these tasks (if you haven't done it yet / don't have the code saved, look back at the worksheet answers so you can get this done as fast as possible):
+
+* **i.** Add a new variable to the data frame called `Sex` which is `Gender` converted to a factor, and remove your original `Gender` variable.
+
+```{r eval = FALSE}
+dataSubset <- data %>%
+    mutate(Sex = as.factor(Gender)) %>%
+        select(-Gender)
+```
+
+* **ii.** Remove females from the data as they only comprise two data points (for one individual).
+
+```{r eval = FALSE}
+dataMale <- dataSubset %>%
+    filter(Sex == "male") # could also use Sex %in% "male"
+```
+\
+
+There is one `Donor` who had multiple fibroblast samples taken (`Donor92A`). This is called data _pseudoreplication_ or _nonindependent data._ 
+
+4. To remove the extra sample for `Donor92A`:
+
+* **i.** Create a new data frame which has the row containing `SampleNo19` removed from your data.
+
+5. Plot an appropriate plot to show that there is a close relationship between `Age` and `DNAmAge`.
+
+* **i.** Concerning the two variables...
+  + Which is the explanatory, and which is the response?
+  + Which variable goes on which axis?
+* **ii.** Change the plot's theme from the default
+  + What is the default plot theme?
+* **iii.** It's not always easy to read the exact values of poins on their axes. A "rug" plot can make this a lot easier: it indicates, on each axis, the values that match each data point. 
+Find out the `ggplot` function to plot a rug plot, and add it as an extra layer to your plot.  
+* **iv.** imagine where the line of best fit would go. Do you think the residuals would be approximately equal across the range of `DNAmAge`? 
+  + If not, at what values of `DNAmAge` are the residuals smaller, or larger?
+\
+
+**If you have time...**  
+\
+
+One of the things we're interested in is whether the age of the fibroblasts matches the age of the converted neuron cells. A first step to finding this out is to plot a boxplot comparing the two cell types.  
+
+6. Overlay a boxplot on a violin plot, with `Tissue` on the x axis and `DNAmAge` on the y axis. 
+
+* **i.** Choose an appropriate colour so that the two are easily visible. Often it's best to: 
+  + choose a pale colour for the background (violin plot) and 
+  + make the box plot transparent
+
+$~$
+
+##### **URBAN DOGS: EXERCISES & QUESTIONS**
+
+You should already have done points 1-2 in the last Chapters. If you don't have the workspace or the code already saved, whip through them as fast as possible using the answers for the last Chapter, which are given to you below in steps 1-2.  
+\
+
+1. Load in the `dplyr` and `ggplot2` packages.
+
+```{r eval = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+2. Load your data (if you are saving your `R` workspace at the end of each session then this will be loaded already).  
+
+```{r eval = FALSE}
+setwd("/path/to/your/file") # Mac
+setwd("C:/path/to/your/file")
+data <- read.csv("urban_dogs.csv")
+```
+\
+
+For now, let's say we're only interested in the difference between `Urban` and `Rural` habitats: we don't care about `Semi`-urban habitats. 
+
+3. Create a new data frame which has all the rows that are for `Semi`-urban `Habitat`s removed.
+4. Plot a figure to show that there is a difference bete `Habitat` and `TotalScore`. You will plot a boxplot overlaid on a violin plot to illustrate the difference between the two.
+
+* **i.** Concerning the variables:
+  + Which is the explanatory, and which is the response?
+  + Which variable goes on which axis?
+* **ii.** Change the plot's theme from the default
+  + What is the default plot theme?
+* **iii.** Make sure the plot is easy to read. This may include:
+  + a pale colour for the violin plot and its outline
+  + a transparent fill for the box plot
+  + a narrower width for the box plot
+* **iv.** imagine where the means of the two groups might lie: these are the two fitted values for the two groups. Do you think the residuals would be approximately equal across the range of `TotalScore`? 
+
+If you're stuck, check the "Layering Plots" section of Chapter 5: it shows you how to do this.
+\
+
+**If you have time...**  
+\
+
+We're also interested in whether there is a relationship between `LitterSize` and `TotalScore`. We can explore this using a scatter plot.   
+
+* **i.** Change the point size, shape, and colour.
+  + Do you use arguments, functions or objects to do this?
+  + There's an issue with plots like this, in that it's difficult to see the data. What is it about the plot that makes the data difficult to see?
+
+$~$
+
+##### **PANTHERIA: EXERCISES & QUESTIONS**
+
+You should already have done points 1-3 in the last Chapter. If you don't have the workspace or the code already saved, whip through them as fast as possible using the answers for the last Chapter, which are given to you below in steps 1-3.  
+\
+
+1. Load in the `dplyr` and `ggplot2` packages.
+
+```{r eval = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+2. Load your data (if you are saving your `R` workspace at the end of each session then this will be loaded already).  
+
+```{r eval = FALSE}
+setwd("/path/to/your/file") # Mac
+setwd("C:/path/to/your/file")
+data <- read.csv("pantheria_data.csv")
+```
+\
+
+Last week, we created a variable that told you whether a species is aquatic or not, based on its family.  
+
+3. If you don't still have this saved in your workspace, quickly complete these tasks (if you haven't done it yet / don't have the code saved, run the code you're given below so you can get started on the new stuff as quickly as possible):
+
+* **i.** Add a new variable to the data frame called `Aquatic` which is a logial variable which is `TRUE` if the animal is aquatic, and `FALSE` if not.
+* Add a variable `MaxLongevity_yrs` which is the maximum longevity in years, and remove `MaxLongevity`.
+* Create two data subsets: one for aquatic and another for terrestrial.
+
+```{r eval = FALSE}
+Aquatic_Fam <- c("Odobenidae", "Otariidae", "Phocidae")
+dataNew <- data %>%
+    mutate(Aquatic = Family %in% Aquatic_Fam)
+
+dataNew2 <- dataNew %>%
+    mutate(MaxLongevity_yrs = MaxLongevity / 365) %>%
+        select(-"MaxLongevity")
+
+data_Aqu <- dataNew2 %>%
+    filter(Aquatic == TRUE) # could also be Aquatic %in% TRUE
+data_Ter <- dataNew2 %>%
+    filter(Aquatic == FALSE) # could also be Aquatic %in% FALSE
+```
+4. Create two plots, one for terrestrial carnivores and one for aquatic carnivores, to show the relationship between `MaxLongevity_yrs` and `GestationLength`.
+
+* **i.** Concerning the two variables...
+  + Which is the explanatory, and which is the response?
+  + Which variable goes on which axis?
+* **ii.** Change the plot themes from the default
+  + What is the default plot theme?
+* **iii.** It's not always easy to read the exact values of poins on their axes. A "rug" plot can make this a lot easier: it indicates, on each axis, the values that match each data point. 
+Find out the `ggplot` function to plot a rug plot, and add it as an extra layer to your plot.  
+* **iv.** Does it appear that the relationships between these two variables are different for aquatic versus terrestrial carnivores? If so, what do you see?
+* **v.** imagine where the line of best fit would go for each of the plots. Do you think the residuals would be approximately equal across the range of `GestationLength`, in both aquatic and terrestrial species?
+\
+
+**If you have time...**  
+\
+
+There might be a difference in gestation time for aquatic and terrestrial carnivores. It could be useful to plot a box plot to see the scale of this.  
+
+6. Overlay a boxplot on a violin plot, with `Aquatic` on the x axis and `GestationLength` on the y axis. Think about which data set you'll need: it should have both aquatic and terrestrial carnivores. 
+
+* **i.** Choose an appropriate colour so that the two are easily visible. Often it's best to: 
+  + choose a pale colour for the background (violin plot) and 
+  + make the box plot transparent
+
+$~$
+
+***
+##### END OF CHAPTER
+***
+
+
+
