@@ -2740,13 +2740,6 @@ _REMEMBER: coding is so often about copying, pasting, and editing. So although y
 
 ```{r ex352_3, exercise=TRUE, echo=FALSE}
 
-```{r ex352_3, exercise=TRUE, echo=FALSE}
-
-```
-```{r ex352_3-hint, eval=FALSE}
-Points 1-4 can be done using options in ShinyGLM and copying the code.
-
-Solutions to adding points 5 and 6 can be found on the ggplot cheat sheet, which is linked to at the top of the page.
 ```
 ```{r ex352_3-hint, eval=FALSE}
 Points 1-4 can be done using options in ShinyGLM and copying the code.
