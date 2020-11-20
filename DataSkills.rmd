@@ -5036,11 +5036,27 @@ Below there are three hypotheses for biological data sets. Read each hypothesis 
   + vaccine type (categorical): RNA or inactivated virus vaccine  
 \
 
+<center>
+![Vaccine hypothesis](www/vaccine.png){width="50%"}
+</center>  
+\  
+
+The two age groups respond differently to the two vaccines. It's not like one vaccine is better than the other across the board; it depends on your age. This is illustrated by the lines linking the two groups showing different 'slopes'.  
+\
+
 2. Parasite load is always higher in barn chickens compared to free-range chickens, and increases with chicken age.
 * response (y) variable: parasite load
 * explanatory (x) variables
   + barn vs free-range (categorical)
   + chicken age (numeric)  
+\
+
+<center>
+![Chickens hypothesis](www/chicks.png){width="50%"}
+</center>  
+\  
+
+The increase in parasite load with age is the same wherever the chickens are raised. But, parasite load is higher at all ages in barns compared to free range. This is indicated by the fact that the lines have the same slope.  
 \
 
 3. When different species of plant are subjected to increasing durations of direct sunlight, the growth of shade-loving plants decreases whilst the growth of light-loving plants increases.
@@ -5049,6 +5065,24 @@ Below there are three hypotheses for biological data sets. Read each hypothesis 
   + plant type (categorical): shade- or light-loving
   + duration of direct sunlight (numeric)  
 \
+
+<center>
+![Plants hypothesis](www/plants.png){width="50%"}
+</center>  
+\  
+
+The different types of plant respond differently to light: for some, more light is good. For some, more light is bad. Therefore the slopes of the lines are different.  
+\
+
+Whether or not the slopes are different is a really important for understanding hypotheses...
+
+##### **ADDITIVE RELATIONSHIPS**
+
+the chickens are an example of an **ADDITIVE** relationship. The effect of rearing space adds to the effect of age but the two effects don't modify each other.
+
+##### **INTERACTIVE RELATIONSHIPS**
+
+Both the vaccine and the plants are examples of **INTERACTIVE** relationships. This means that the effect of one variable depends on the effect of the other. How effective one vaccine is compared to the other depends on what your age is. How plant growth responds to light depends on what type of plant it is. Wherever you can say that the effect of one explanatory variable will depend on another one, we call that an **INTERACTION**.
 
 $~$
 
@@ -5062,8 +5096,13 @@ We used `ggplot` with `geom_point()` to visualise a numeric explanatory (x) vari
 As we are introducing a new variable, we need to introduce a new _aesthetic_ with the function `aes()`. The flexibility of `ggplot` means this can be done in several different places in the code, but I like to put it in the `geom_point()` function. You may note differences between some code here and compared to the ShinyGLM app, which reflect certain flexibilities like this.   
 \
 
-##### **6.4.1 GROUPING POINTS BY COLOUR**
+##### **6.4.1 GROUPING SCATTER PLOT POINTS BY COLOUR**
 \
+
+<center>
+![Points](www/pointplot_icon.png){width="50%"}
+</center>  
+\  
 
 You may recall code for the simple scatter plot of reaction against eyesight from section 5.4. In order to colour the points by role, all that is needed is to put `aes(colour = role)` inside the `geom_point()` function:  
 \
@@ -5124,7 +5163,7 @@ scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
     theme_minimal()
 
 ```
-```{r ex541_1-solution}
+```{r ex641_1-solution}
 scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
     geom_point(aes(colour = role), size = 3, shape = "+") +
     xlab("Continents") + ylab("Countries") +
@@ -5158,7 +5197,7 @@ In Section 5.6 we saw that it's possible to layer different types of plot togeth
 
 ```{r message = FALSE}
 scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
-    geom_point(aes(colour = role, size = hearing)) +
+    geom_point(aes(colour = role, size = hearing))
 scatter + stat_smooth(method = "lm", se = FALSE, aes(colour = role))
 ```
 
@@ -5171,6 +5210,12 @@ $~$
 Whilst we tend to _group_ points, we need to _split_ boxplots, violin plots and mean, standard error plots, as introducing a new categorical variable creates further subgroups. We use a further `ggplot` layer to do this: facets, which split a plot into subplots.  
  
 ##### **6.5.1 USING FACETS TO SPLIT PLOTS**
+\
+
+<center>
+![Facet](www/facet_icon.png){width="50%"}
+</center>  
+\  
 
 `facet_grid()` specifies rows and columns of subplots to create. The example below adds a line using `facet_grid()` to split the plot into subplots according to `role`. 
 
@@ -5215,10 +5260,17 @@ meanSE_plot
 
 $~$
 
-##### **BOXPLOTS AND VIOLIN PLOTS**
+##### **MEAN AND STANDARD ERROR, BOXPLOTS, AND VIOLIN PLOTS**
 \
 
-The same approaches for faceting and colouring apply to boxplots and violin plots. The same approach applies: 
+<center>
+![Points](www/pointrange_icon.png){width="20%"}
+![Box](www/boxplot_icon.png){width="20%"}
+![Violin](www/violinplot_icon.png){width="20%"}
+</center>  
+\  
+
+Mean and standard error bars are used in the example above, but the same approaches for faceting and colouring apply to boxplots and violin plots. The same approach applies: 
 
 * `facet_grid()` creates facets
   + use the `cols` (or `rows`) argument to create subplots in columns or rows
@@ -5241,14 +5293,14 @@ _Edit the code in the exercise below to:_
   * _has the y axis label "Number of continents"_
 \
 
-```{r ex551_2, exercise=TRUE}
+```{r ex651_2, exercise=TRUE}
 box <- ggplot(data, aes(x = , y = )) +
     geom_boxplot() +
     theme_minimal() + 
     facet_grid()
 box
 ```
-```{r ex551_2-solution}
+```{r ex651_2-solution}
 data <- data %>% mutate(continents_fac = as.factor(continents))
 
 box <- ggplot(data, aes(x = continents_fac, y = countries)) +
@@ -5262,6 +5314,22 @@ box
 
 $~$
 
+***
+### **6.6 VISUALISING TWO NUMERIC EXPLANATORY VARIABLES**
+\
+
+<center>
+![Points](www/heatmap_icon.png){width="20%"}
+![Box](www/contour_icon.png){width="20%"}
+![Violin](www/hexmap_icon.png){width="20%"}
+</center>  
+\  
+
+We won't worry about this now. It's quite a complicated process to plot two continuous explanatory variables (heatmaps, contour plots, or even 3D plots). It's do-able, but for later on in your data journey!  
+
+$~$
+
+***
 ### **6.7 OTHER RESOURCES**
 \
 
