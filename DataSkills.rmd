@@ -3820,8 +3820,8 @@ _Subset the data frame to include only data for students, remove all columns exc
 ```
 ```{r ex46_6-solution, echo= FALSE}
 dataSubset <- data %>%
-    filter(role == 'student') # could also use role %in% 'student'
-        mutate(reaction_pc = reaction * 100)
+    filter(role == 'student') %>% # could also use role %in% 'student'
+        mutate(reaction_pc = reaction * 100) %>% 
             select(c('person', 'role', 'reaction', 'reaction_pc'))
 # the order of the mutate and select lines matter, as we have to create
 # reaction_pc before we select it.
@@ -4298,6 +4298,813 @@ You can increase the point size using the 'size' argument in the geom_histogram(
 You can change point shape by using the 'shape' argument in the geom_histogram() function.
 ```
 ```{r ex541_1-solution}
+## 5 --- Data Visualisation I
+\
+
+
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 5.1 Resources
+* 5.2 R packages
+* 5.3 Variables: it's all in a name
+  + The x / independent / explanatory variable
+  + The y / dependent / response variable
+* 5.4 Plotting y against a continuous x variable
+  + 5.4.1 scatter plots using `geom_point()`
+* 5.5 Plotting y against a categorical x variable
+  + 5.5.1 box plots using the function `geom_boxplot()`
+  + 5.5.2 mean and standard deviation using the function `geom_linerange()`
+  + 5.5.3 violin plots using the function `geom_violin()`
+* 5.6 An introduction to layering plots
+* 5.7 Predicted values and residuals
+* 5.8 Other resources
+* **< WORKSHOP >**  
+\
+
+The hard part of these plots is past already, which is being introduced to `ggplot`. All we're doing now is swapping out graphics layers (specifically _geometries_): everything else pretty much stays the same. You can copy-paste your code from Chapter 3, swap out a couple of things, and BOOM... awesome new plot.  
+\
+
+This Chapter re-visits the **PLOTTING** part of the analytical process, once we've visualised data distributions and done any data tidying we need to.  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
+
+$~$
+
+***
+### **5.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* For the final section on predicted values and residuals, [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan. Chapters 3 and 4 and sections 6.1, 7.1, 7.3 and 7.5. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 82, Chapter 4, “Visualizing your data”, Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
+\
+
+
+##### **ShinyGLM**
+
+As in previous chapters, we'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp. In this Chapter, we'll mainly be working with the _DATA VISUALISATION_ tab.  
+
+$~$
+
+***
+### **5.2 R PACKAGES**  
+
+In this Chapter we will need to use an R package we already encountered when visualising data distributions.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+Remember that when working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Remember that once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. Therefore you need to tell `R` to use the package each time you restart RStudio. You do this using the `library()` function.
+
+ ```{r eval=FALSE}
+library(ggplot2)
+ ```
+
+$~$
+
+***
+### **5.3 VARIABLES: IT'S ALL IN A NAME** 
+\
+
+As scientists, what we really want to know is:
+  
+  * how a variable we're interested in is affected by one or more other variables.
+  * Whether the relationships between the variables are large or small
+  * Whether the relationships between the variables are significant or insignificant
+  * Whether the relationships between the variables capture lots or little of the data variation. 
+  
+We have an expectation of what those relationships look like, which depends on our hypothesis.  
+\
+
+We're now at the point where we're plotting such relationships between variables, and linking those plots to hypotheses. There are lots of different ways of phrasing "which variable is which" when it comes to these plots and the statistical analyses we'll encounter later on. Let's quickly demystify a few of these terms.  
+\
+
+##### **X / INDEPENDENT / EXPLANATORY**
+
+This variable is the one that, when it comes to our data visualisation and analysis, is doing the influencing. It is generally somehow under our control, whether because we manipulate it experimentally, or because we design our data collection around it: 
+
+* In a lab experiment it is the variable we would choose to manipulate
+* In a field experiment we might design our sampling regime to cover the whole range of this variable
+* When designing surveys we may choose try and get a representative sample of respondents to cover the whole range of this variable
+* When working with open data we would try and make sure we include data which cover the whole range of this variable.  
+\
+
+_It's referred to as the **x variable** because it's commonly put on the x axis_. That may be the case for a scatterplot, but is not _always_ the case: e.g. boxplots can be horizontal as well as vertical.  
+
+_It's referred to as the *independent variable** because it is the one that we somehow control_. This however is easily confused with a different concept of _nonindependent data_.  
+
+**We will generally call it the _EXPLANATORY VARIABLE_** in this workbook, as according to the hypothesis it "explains" the y-variable.  
+\
+
+We will generally plot the explanatory variable on the x axis.  
+\
+
+##### **Y / DEPENDENT / RESPONSE**
+
+This variable is generally not under our control, and is the one we measure or observe, are it's the one in which we're interested to see change.  
+\
+
+* _It's referred to as the **y variable** because it's commonly put on the y axis_, but as we've discussed already, that's not always the case.  
+* _It's referred to as the **dependent variable** because according to the hypothesis its value is dependent on the explanatory variable._  
+* **We will generally call it the _RESPONSE VARIABLE_**, as its value depends on how it responds to the explanatory variable.  
+\
+
+We will generally plot the response variable on the y-axis.  
+\
+
+Two important points about the response (y) variable:
+
+* The response (y) variable, for the purposes of this module, will always be **numeric**. Categorical response variables do exist, but their analysis is difficult. 
+* There will only ever be one response (y) variable in this module. Analysing mutliple response variables in a single analysis is possible, but again, difficult.  
+
+$~$
+
+##### **LINKING HYPOTHESES AND EXPLANATORY / RESPONSE VARIABLES**
+
+It's important to be able to define your explanatory and response variables from your hypothesis. Based on what's said above, here are some practice questions relating hypotheses and variable types.  
+
+```{r qz53_1, echo=FALSE}
+quiz(caption = "**< QUIZ 1 >** Linking variables and hypotheses",
+    question("Your hypothesis is that people in coronavirus lockdown who have more green space around them are happier because they have more opportunity to get outside and to exercise. What is the explanatory variable?",
+        answer("Amount of green space", correct = TRUE),
+        answer("Happiness"),
+        answer("Amount of time in lockdown"),
+        answer("Amount of exercise"),
+        answer("Amount of time spent outside"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is green space, and the response variable is happiness. Exercise or time outdoors might be the mechanism by which happiness is achieved, but if they were our explanatory variable(s) then suddenly the question becomes different: it's about how exercise and time outdoors affect happiness."
+    ),
+    question("Your hypothesis is that horses kept in herds show fewer signs of stress because they feel safer than if they're kept alone. What is the explanatory variable?",
+        answer("Whether or not the horse is kept in a herd", correct = TRUE),
+        answer("The number of other horses a horse is kept with"),
+        answer("The number of signs of stress a horse shows"),
+        answer("The amount of time the horse is kept alone"),
+        answer("The number of stressful situations a horse is subjected to"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is whether or not a horse is kept in a herd. The hypothesis mentions nothing about the number of horses, and if this were the explanatory variable the the hypothesis becomes a little different: stress would be presumed to depend specifically on the number of horses a horse is kept with."
+    ),
+    question("Your hypothesis is that the frequency of a gene coding for breast cancer susceptibility is linked to the average age of mothers in a population, because mutation rates are higher in older ova in older mothers. What is the response variable?",
+        answer("Frequency of the gene", correct = TRUE),
+        answer("Average age of mothers in each population"),
+        answer("Age of ova"),
+        answer("Mutation rates in the population"),
+        answer("Breast cancer rates in the population"),
+        random_answer_order = TRUE,
+        message = "Gene frequency is the response variable as that's what you're measuring. Frequency of breast cancer is not necessarily the same as gene frequency. The explanatory variable is the average age of mothers."
+    )
+)
+```
+
+
+$~$
+
+***
+### **5.4 PLOTTING RESPONSE (Y) VARIABLES AGAINST NUMERIC EXPLANATORY (X) VARIABLES**
+\
+
+We used `ggplot` to plot histograms. Histograms only show one variable from the data, on the x axis. That's why we only specify only an x variable using the _aesthetics_ function `aes()` when creating the histogram ggplot. The y variable is simply a count or a density. Take a look to remind yourself of how a histogram is plotted:  
+\
+
+```{r}
+# Histogram for eyesight
+hist <- ggplot(data, aes(x = eyesight)) +
+    geom_histogram()
+hist
+```
+\
+
+To create a plot with **_both an explanatory and response variable_**, we minimally need to change two things from the histogram code.
+
+1. You need to specify two variables in the _**aesthetics**_: both x and y. In histograms, we only specified x.
+2. You need to specify a different _**geometry**_: we're not plotting a histogram any more.
+\
+
+For comparison to the above histogram code, here's code which would plot a very simple scatter plot with `eyesight` as the explanatory (x) variable and `reaction` as the response (y) variable. Spot where those two changes are made to the aesthetic layers and the geometry layers compared to the histogram:  
+
+```{r}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point()
+```
+\
+
+**REMEMBER** that you can use the [ShinyGLM app](https://iainmstott.shinyapps.io/ShinyGLM) to help find out some (but not all) answers if you need to. On the DATA DISTRIBUTIONS page, choose the options you need, and then look at the CODE tab to see how to code the options you've chosen. As a reminder, we have already encountered these options during Chapter 3, which are:
+
+* changing DATA when setting up `ggplot()`
+* changing aesthetics using the `aes()` function when setting up `ggplot()`
+* changing fill colours of bars using the `fill` argument in `geom_histogram()`
+* changing axis limits using `xlim()` and `ylim()`
+* changing axis labels using `xlab()` and `ylab()`
+* changing the theme using e.g. `theme_minimal()`
+
+$~$
+
+### **5.4.1 `geom_point()`: SCATTER PLOTS**
+\
+
+We might hypothesise that people who have been to more continents have also been to more countries, because they have had the opportunity to visit more countries across the world. First step to seeing if this is true is to plot the variables. Think in these steps:
+
+* Which is the explanatory variable, and which is the response? Put these in the right places in the aesthetics.
+* The code just above shows you how to plot a basic scatter plot. Pick the right geometry function from that code (remember: these begin with `geom()`)
+* Add in the rest of the requirements listed below in almost the same way as you would for all the plots you've made before this
+* If you're stuck or something isn't working then you can find most solutions by trying to recreate the plot in ShinyGLM and seeing how the CODE tab has changed.
+\
+
+#### **< EXERCISE 1 >** Scatter plots
+_Edit the code below to plot a scatter plot which:_
+
+1. _has point colour to `slategrey4`_
+2. _has larger point size (you may have to search how to do this; if not there's a hint)_
+3. _has point shape `+` instead of circles._
+4. _Has x label "Continents" and y label "Countries"_
+5. _has a minimal theme_
+
+```{r ex541_1, exercise=TRUE, echo=FALSE}
+scatter <- ggplot(data = data, aes(x = , y = )) +
+    geom_()
+
+scatter
+```
+```{r ex541_1-hint}
+You can increase the point size using the 'size' argument in the geom_histogram() function.
+You can change point shape by using the 'shape' argument in the geom_histogram() function.
+```
+```{r ex541_1-solution}
+## 5 --- Data Visualisation I
+\
+
+
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 5.1 Resources
+* 5.2 R packages
+* 5.3 Variables: it's all in a name
+  + The x / independent / explanatory variable
+  + The y / dependent / response variable
+* 5.4 Plotting y against a continuous x variable
+  + 5.4.1 scatter plots using `geom_point()`
+* 5.5 Plotting y against a categorical x variable
+  + 5.5.1 box plots using the function `geom_boxplot()`
+  + 5.5.2 mean and standard deviation using the function `geom_linerange()`
+  + 5.5.3 violin plots using the function `geom_violin()`
+* 5.6 An introduction to layering plots
+* 5.7 Predicted values and residuals
+* 5.8 Other resources
+* **< WORKSHOP >**  
+\
+
+The hard part of these plots is past already, which is being introduced to `ggplot`. All we're doing now is swapping out graphics layers (specifically _geometries_): everything else pretty much stays the same. You can copy-paste your code from Chapter 3, swap out a couple of things, and BOOM... awesome new plot.  
+\
+
+This Chapter re-visits the **PLOTTING** part of the analytical process, once we've visualised data distributions and done any data tidying we need to.  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
+
+$~$
+
+***
+### **5.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* For the final section on predicted values and residuals, [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan. Chapters 3 and 4 and sections 6.1, 7.1, 7.3 and 7.5. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 82, Chapter 4, “Visualizing your data”, Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
+\
+
+
+##### **ShinyGLM**
+
+As in previous chapters, we'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp. In this Chapter, we'll mainly be working with the _DATA VISUALISATION_ tab.  
+
+$~$
+
+***
+### **5.2 R PACKAGES**  
+
+In this Chapter we will need to use an R package we already encountered when visualising data distributions.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+Remember that when working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Remember that once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. Therefore you need to tell `R` to use the package each time you restart RStudio. You do this using the `library()` function.
+
+ ```{r eval=FALSE}
+library(ggplot2)
+ ```
+
+$~$
+
+***
+### **5.3 VARIABLES: IT'S ALL IN A NAME** 
+\
+
+As scientists, what we really want to know is:
+  
+  * how a variable we're interested in is affected by one or more other variables.
+  * Whether the relationships between the variables are large or small
+  * Whether the relationships between the variables are significant or insignificant
+  * Whether the relationships between the variables capture lots or little of the data variation. 
+  
+We have an expectation of what those relationships look like, which depends on our hypothesis.  
+\
+
+We're now at the point where we're plotting such relationships between variables, and linking those plots to hypotheses. There are lots of different ways of phrasing "which variable is which" when it comes to these plots and the statistical analyses we'll encounter later on. Let's quickly demystify a few of these terms.  
+\
+
+##### **X / INDEPENDENT / EXPLANATORY**
+
+This variable is the one that, when it comes to our data visualisation and analysis, is doing the influencing. It is generally somehow under our control, whether because we manipulate it experimentally, or because we design our data collection around it: 
+
+* In a lab experiment it is the variable we would choose to manipulate
+* In a field experiment we might design our sampling regime to cover the whole range of this variable
+* When designing surveys we may choose try and get a representative sample of respondents to cover the whole range of this variable
+* When working with open data we would try and make sure we include data which cover the whole range of this variable.  
+\
+
+_It's referred to as the **x variable** because it's commonly put on the x axis_. That may be the case for a scatterplot, but is not _always_ the case: e.g. boxplots can be horizontal as well as vertical.  
+
+_It's referred to as the *independent variable** because it is the one that we somehow control_. This however is easily confused with a different concept of _nonindependent data_.  
+
+**We will generally call it the _EXPLANATORY VARIABLE_** in this workbook, as according to the hypothesis it "explains" the y-variable.  
+\
+
+We will generally plot the explanatory variable on the x axis.  
+\
+
+##### **Y / DEPENDENT / RESPONSE**
+
+This variable is generally not under our control, and is the one we measure or observe, are it's the one in which we're interested to see change.  
+\
+
+* _It's referred to as the **y variable** because it's commonly put on the y axis_, but as we've discussed already, that's not always the case.  
+* _It's referred to as the **dependent variable** because according to the hypothesis its value is dependent on the explanatory variable._  
+* **We will generally call it the _RESPONSE VARIABLE_**, as its value depends on how it responds to the explanatory variable.  
+\
+
+We will generally plot the response variable on the y-axis.  
+\
+
+Two important points about the response (y) variable:
+
+* The response (y) variable, for the purposes of this module, will always be **numeric**. Categorical response variables do exist, but their analysis is difficult. 
+* There will only ever be one response (y) variable in this module. Analysing mutliple response variables in a single analysis is possible, but again, difficult.  
+
+$~$
+
+##### **LINKING HYPOTHESES AND EXPLANATORY / RESPONSE VARIABLES**
+
+It's important to be able to define your explanatory and response variables from your hypothesis. Based on what's said above, here are some practice questions relating hypotheses and variable types.  
+
+```{r qz53_1, echo=FALSE}
+quiz(caption = "**< QUIZ 1 >** Linking variables and hypotheses",
+    question("Your hypothesis is that people in coronavirus lockdown who have more green space around them are happier because they have more opportunity to get outside and to exercise. What is the explanatory variable?",
+        answer("Amount of green space", correct = TRUE),
+        answer("Happiness"),
+        answer("Amount of time in lockdown"),
+        answer("Amount of exercise"),
+        answer("Amount of time spent outside"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is green space, and the response variable is happiness. Exercise or time outdoors might be the mechanism by which happiness is achieved, but if they were our explanatory variable(s) then suddenly the question becomes different: it's about how exercise and time outdoors affect happiness."
+    ),
+    question("Your hypothesis is that horses kept in herds show fewer signs of stress because they feel safer than if they're kept alone. What is the explanatory variable?",
+        answer("Whether or not the horse is kept in a herd", correct = TRUE),
+        answer("The number of other horses a horse is kept with"),
+        answer("The number of signs of stress a horse shows"),
+        answer("The amount of time the horse is kept alone"),
+        answer("The number of stressful situations a horse is subjected to"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is whether or not a horse is kept in a herd. The hypothesis mentions nothing about the number of horses, and if this were the explanatory variable the the hypothesis becomes a little different: stress would be presumed to depend specifically on the number of horses a horse is kept with."
+    ),
+    question("Your hypothesis is that the frequency of a gene coding for breast cancer susceptibility is linked to the average age of mothers in a population, because mutation rates are higher in older ova in older mothers. What is the response variable?",
+        answer("Frequency of the gene", correct = TRUE),
+        answer("Average age of mothers in each population"),
+        answer("Age of ova"),
+        answer("Mutation rates in the population"),
+        answer("Breast cancer rates in the population"),
+        random_answer_order = TRUE,
+        message = "Gene frequency is the response variable as that's what you're measuring. Frequency of breast cancer is not necessarily the same as gene frequency. The explanatory variable is the average age of mothers."
+    )
+)
+```
+
+
+$~$
+
+***
+### **5.4 PLOTTING RESPONSE (Y) VARIABLES AGAINST NUMERIC EXPLANATORY (X) VARIABLES**
+\
+
+We used `ggplot` to plot histograms. Histograms only show one variable from the data, on the x axis. That's why we only specify only an x variable using the _aesthetics_ function `aes()` when creating the histogram ggplot. The y variable is simply a count or a density. Take a look to remind yourself of how a histogram is plotted:  
+\
+
+```{r}
+# Histogram for eyesight
+hist <- ggplot(data, aes(x = eyesight)) +
+    geom_histogram()
+hist
+```
+\
+
+To create a plot with **_both an explanatory and response variable_**, we minimally need to change two things from the histogram code.
+
+1. You need to specify two variables in the _**aesthetics**_: both x and y. In histograms, we only specified x.
+2. You need to specify a different _**geometry**_: we're not plotting a histogram any more.
+\
+
+For comparison to the above histogram code, here's code which would plot a very simple scatter plot with `eyesight` as the explanatory (x) variable and `reaction` as the response (y) variable. Spot where those two changes are made to the aesthetic layers and the geometry layers compared to the histogram:  
+
+```{r}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point()
+```
+\
+
+**REMEMBER** that you can use the [ShinyGLM app](https://iainmstott.shinyapps.io/ShinyGLM) to help find out some (but not all) answers if you need to. On the DATA DISTRIBUTIONS page, choose the options you need, and then look at the CODE tab to see how to code the options you've chosen. As a reminder, we have already encountered these options during Chapter 3, which are:
+
+* changing DATA when setting up `ggplot()`
+* changing aesthetics using the `aes()` function when setting up `ggplot()`
+* changing fill colours of bars using the `fill` argument in `geom_histogram()`
+* changing axis limits using `xlim()` and `ylim()`
+* changing axis labels using `xlab()` and `ylab()`
+* changing the theme using e.g. `theme_minimal()`
+
+$~$
+
+### **5.4.1 `geom_point()`: SCATTER PLOTS**
+\
+
+We might hypothesise that people who have been to more continents have also been to more countries, because they have had the opportunity to visit more countries across the world. First step to seeing if this is true is to plot the variables. Think in these steps:
+
+* Which is the explanatory variable, and which is the response? Put these in the right places in the aesthetics.
+* The code just above shows you how to plot a basic scatter plot. Pick the right geometry function from that code (remember: these begin with `geom()`)
+* Add in the rest of the requirements listed below in almost the same way as you would for all the plots you've made before this
+* If you're stuck or something isn't working then you can find most solutions by trying to recreate the plot in ShinyGLM and seeing how the CODE tab has changed.
+\
+
+#### **< EXERCISE 1 >** Scatter plots
+_Edit the code below to plot a scatter plot which:_
+
+1. _has point colour to `slategrey4`_
+2. _has larger point size (you may have to search how to do this; if not there's a hint)_
+3. _has point shape `+` instead of circles._
+4. _Has x label "Continents" and y label "Countries"_
+5. _has a minimal theme_
+
+```{r ex541_1, exercise=TRUE, echo=FALSE}
+scatter <- ggplot(data = data, aes(x = , y = )) +
+    geom_()
+
+scatter
+```
+```{r ex541_1-hint}
+You can increase the point size using the 'size' argument in the geom_histogram() function.
+You can change point shape by using the 'shape' argument in the geom_histogram() function.
+```
+```{r ex541_1-solution}
+## 5 --- Data Visualisation I
+\
+
+
+_Most of this Chapter will be completed at home before this week's online workshop._
+This first part contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+_The final section titled **< WORKSHOP >** will be completed during the online workshop in your tutor groups._
+This section contains some tasks for you to complete with a real data set, on the 
+topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 5.1 Resources
+* 5.2 R packages
+* 5.3 Variables: it's all in a name
+  + The x / independent / explanatory variable
+  + The y / dependent / response variable
+* 5.4 Plotting y against a continuous x variable
+  + 5.4.1 scatter plots using `geom_point()`
+* 5.5 Plotting y against a categorical x variable
+  + 5.5.1 box plots using the function `geom_boxplot()`
+  + 5.5.2 mean and standard deviation using the function `geom_linerange()`
+  + 5.5.3 violin plots using the function `geom_violin()`
+* 5.6 An introduction to layering plots
+* 5.7 Predicted values and residuals
+* 5.8 Other resources
+* **< WORKSHOP >**  
+\
+
+The hard part of these plots is past already, which is being introduced to `ggplot`. All we're doing now is swapping out graphics layers (specifically _geometries_): everything else pretty much stays the same. You can copy-paste your code from Chapter 3, swap out a couple of things, and BOOM... awesome new plot.  
+\
+
+This Chapter re-visits the **PLOTTING** part of the analytical process, once we've visualised data distributions and done any data tidying we need to.  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
+
+$~$
+
+***
+### **5.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* For the final section on predicted values and residuals, [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan. Chapters 3 and 4 and sections 6.1, 7.1, 7.3 and 7.5. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 82, Chapter 4, “Visualizing your data”, Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc.".  
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
+\
+
+
+##### **ShinyGLM**
+
+As in previous chapters, we'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp. In this Chapter, we'll mainly be working with the _DATA VISUALISATION_ tab.  
+
+$~$
+
+***
+### **5.2 R PACKAGES**  
+
+In this Chapter we will need to use an R package we already encountered when visualising data distributions.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+Remember that when working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Remember that once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. Therefore you need to tell `R` to use the package each time you restart RStudio. You do this using the `library()` function.
+
+ ```{r eval=FALSE}
+library(ggplot2)
+ ```
+
+$~$
+
+***
+### **5.3 VARIABLES: IT'S ALL IN A NAME** 
+\
+
+As scientists, what we really want to know is:
+  
+  * how a variable we're interested in is affected by one or more other variables.
+  * Whether the relationships between the variables are large or small
+  * Whether the relationships between the variables are significant or insignificant
+  * Whether the relationships between the variables capture lots or little of the data variation. 
+  
+We have an expectation of what those relationships look like, which depends on our hypothesis.  
+\
+
+We're now at the point where we're plotting such relationships between variables, and linking those plots to hypotheses. There are lots of different ways of phrasing "which variable is which" when it comes to these plots and the statistical analyses we'll encounter later on. Let's quickly demystify a few of these terms.  
+\
+
+##### **X / INDEPENDENT / EXPLANATORY**
+
+This variable is the one that, when it comes to our data visualisation and analysis, is doing the influencing. It is generally somehow under our control, whether because we manipulate it experimentally, or because we design our data collection around it: 
+
+* In a lab experiment it is the variable we would choose to manipulate
+* In a field experiment we might design our sampling regime to cover the whole range of this variable
+* When designing surveys we may choose try and get a representative sample of respondents to cover the whole range of this variable
+* When working with open data we would try and make sure we include data which cover the whole range of this variable.  
+\
+
+_It's referred to as the **x variable** because it's commonly put on the x axis_. That may be the case for a scatterplot, but is not _always_ the case: e.g. boxplots can be horizontal as well as vertical.  
+
+_It's referred to as the *independent variable** because it is the one that we somehow control_. This however is easily confused with a different concept of _nonindependent data_.  
+
+**We will generally call it the _EXPLANATORY VARIABLE_** in this workbook, as according to the hypothesis it "explains" the y-variable.  
+\
+
+We will generally plot the explanatory variable on the x axis.  
+\
+
+##### **Y / DEPENDENT / RESPONSE**
+
+This variable is generally not under our control, and is the one we measure or observe, are it's the one in which we're interested to see change.  
+\
+
+* _It's referred to as the **y variable** because it's commonly put on the y axis_, but as we've discussed already, that's not always the case.  
+* _It's referred to as the **dependent variable** because according to the hypothesis its value is dependent on the explanatory variable._  
+* **We will generally call it the _RESPONSE VARIABLE_**, as its value depends on how it responds to the explanatory variable.  
+\
+
+We will generally plot the response variable on the y-axis.  
+\
+
+Two important points about the response (y) variable:
+
+* The response (y) variable, for the purposes of this module, will always be **numeric**. Categorical response variables do exist, but their analysis is difficult. 
+* There will only ever be one response (y) variable in this module. Analysing mutliple response variables in a single analysis is possible, but again, difficult.  
+
+$~$
+
+##### **LINKING HYPOTHESES AND EXPLANATORY / RESPONSE VARIABLES**
+
+It's important to be able to define your explanatory and response variables from your hypothesis. Based on what's said above, here are some practice questions relating hypotheses and variable types.  
+
+```{r qz53_1, echo=FALSE}
+quiz(caption = "**< QUIZ 1 >** Linking variables and hypotheses",
+    question("Your hypothesis is that people in coronavirus lockdown who have more green space around them are happier because they have more opportunity to get outside and to exercise. What is the explanatory variable?",
+        answer("Amount of green space", correct = TRUE),
+        answer("Happiness"),
+        answer("Amount of time in lockdown"),
+        answer("Amount of exercise"),
+        answer("Amount of time spent outside"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is green space, and the response variable is happiness. Exercise or time outdoors might be the mechanism by which happiness is achieved, but if they were our explanatory variable(s) then suddenly the question becomes different: it's about how exercise and time outdoors affect happiness."
+    ),
+    question("Your hypothesis is that horses kept in herds show fewer signs of stress because they feel safer than if they're kept alone. What is the explanatory variable?",
+        answer("Whether or not the horse is kept in a herd", correct = TRUE),
+        answer("The number of other horses a horse is kept with"),
+        answer("The number of signs of stress a horse shows"),
+        answer("The amount of time the horse is kept alone"),
+        answer("The number of stressful situations a horse is subjected to"),
+        random_answer_order = TRUE,
+        message = "The explanatory variable is whether or not a horse is kept in a herd. The hypothesis mentions nothing about the number of horses, and if this were the explanatory variable the the hypothesis becomes a little different: stress would be presumed to depend specifically on the number of horses a horse is kept with."
+    ),
+    question("Your hypothesis is that the frequency of a gene coding for breast cancer susceptibility is linked to the average age of mothers in a population, because mutation rates are higher in older ova in older mothers. What is the response variable?",
+        answer("Frequency of the gene", correct = TRUE),
+        answer("Average age of mothers in each population"),
+        answer("Age of ova"),
+        answer("Mutation rates in the population"),
+        answer("Breast cancer rates in the population"),
+        random_answer_order = TRUE,
+        message = "Gene frequency is the response variable as that's what you're measuring. Frequency of breast cancer is not necessarily the same as gene frequency. The explanatory variable is the average age of mothers."
+    )
+)
+```
+
+
+$~$
+
+***
+### **5.4 PLOTTING RESPONSE (Y) VARIABLES AGAINST NUMERIC EXPLANATORY (X) VARIABLES**
+\
+
+We used `ggplot` to plot histograms. Histograms only show one variable from the data, on the x axis. That's why we only specify only an x variable using the _aesthetics_ function `aes()` when creating the histogram ggplot. The y variable is simply a count or a density. Take a look to remind yourself of how a histogram is plotted:  
+\
+
+```{r}
+# Histogram for eyesight
+hist <- ggplot(data, aes(x = eyesight)) +
+    geom_histogram()
+hist
+```
+\
+
+To create a plot with **_both an explanatory and response variable_**, we minimally need to change two things from the histogram code.
+
+1. You need to specify two variables in the _**aesthetics**_: both x and y. In histograms, we only specified x.
+2. You need to specify a different _**geometry**_: we're not plotting a histogram any more.
+\
+
+For comparison to the above histogram code, here's code which would plot a very simple scatter plot with `eyesight` as the explanatory (x) variable and `reaction` as the response (y) variable. Spot where those two changes are made to the aesthetic layers and the geometry layers compared to the histogram:  
+
+```{r}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point()
+```
+\
+
+**REMEMBER** that you can use the [ShinyGLM app](https://iainmstott.shinyapps.io/ShinyGLM) to help find out some (but not all) answers if you need to. On the DATA DISTRIBUTIONS page, choose the options you need, and then look at the CODE tab to see how to code the options you've chosen. As a reminder, we have already encountered these options during Chapter 3, which are:
+
+* changing DATA when setting up `ggplot()`
+* changing aesthetics using the `aes()` function when setting up `ggplot()`
+* changing fill colours of bars using the `fill` argument in `geom_histogram()`
+* changing axis limits using `xlim()` and `ylim()`
+* changing axis labels using `xlab()` and `ylab()`
+* changing the theme using e.g. `theme_minimal()`
+
+$~$
+
+### **5.4.1 `geom_point()`: SCATTER PLOTS**
+\
+
+We might hypothesise that people who have been to more continents have also been to more countries, because they have had the opportunity to visit more countries across the world. First step to seeing if this is true is to plot the variables. Think in these steps:
+
+* Which is the explanatory variable, and which is the response? Put these in the right places in the aesthetics.
+* The code just above shows you how to plot a basic scatter plot. Pick the right geometry function from that code (remember: these begin with `geom()`)
+* Add in the rest of the requirements listed below in almost the same way as you would for all the plots you've made before this
+* If you're stuck or something isn't working then you can find most solutions by trying to recreate the plot in ShinyGLM and seeing how the CODE tab has changed.
+\
+
+#### **< EXERCISE 1 >** Scatter plots
+_Edit the code below to plot a scatter plot which:_
+
+1. _has point colour to `slategrey4`_
+2. _has larger point size (you may have to search how to do this; if not there's a hint)_
+3. _has point shape `+` instead of circles._
+4. _Has x label "Continents" and y label "Countries"_
+5. _has a minimal theme_
+
+```{r ex541_1, exercise=TRUE, echo=FALSE}
+scatter <- ggplot(data = data, aes(x = , y = )) +
+    geom_()
+
+scatter
+```
+```{r ex541_1-hint}
+You can increase the point size using the 'size' argument in the geom_histogram() function.
+You can change point shape by using the 'shape' argument in the geom_histogram() function.
+```
+```{r ex541_1-solution}
 scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
     geom_point(colour = "slategrey4", size = 3, shape = "+") +
     xlab("Continents") + ylab("Countries") +
@@ -4366,12 +5173,12 @@ box <- ggplot(data, aes(x = , y = )) +
 box
 ```
 ```{r ex551_2-hint}
-You can change the line colour using colour = black
+You can change the line colour using colour = "black"
 The transparent fill is achieved using alpha = 0
 ```
 ```{r ex551_2-solution}
 box <- ggplot(data, aes(x = role, y = countries)) +
-    geom_boxplot(colour = black, alpha = 0) +
+    geom_boxplot(colour = "black", alpha = 0) +
     theme_grey()
 box
 ```
@@ -4594,7 +5401,7 @@ quiz(caption = "**< QUIZ 3 >** Predicted values and residuals",
         message = "The predicted value is the intercept (2) plus the slope(1.4) multiplied by the x value (12). Therefore the answer is 2 + (1.4 x 12) = 18.8 minutes."
     ),
     question("You're measuring how many times people in the 10 University of Lincoln Biomedical Science tutor groups get ill. In one tutor group, with 8 students, you find that the number of times the students get ill are 1, 3, 4, 2, 2, 0, 2, and 2. What is the residual variance for this group? Hint: find the mean, then calculate the residual values, square each residual value, add them up, and divide by the number of students in the tutor group.",
-        answer("1.5 times", correct = TRUE),
+        answer("1.25 times", correct = TRUE),
         answer("2 times"),
         answer("0.776 times"),
         answer("-1.5 times"),
@@ -4861,3 +5668,419 @@ $~$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 6 --- Data Visualisation II
+\
+
+
+This first part of this chapter contains _Quizzes_ and _Exercises_. These multi-
+choice questions and `R` coding exercises will test your learning on this chapter's
+topic.
+
+The final section of the Chapter contains some tasks for you to complete with a real data set, on the topic of this Chapter. You'll be coding this yourselves in `R` using RStudio.  
+\
+
+In this session we'll be covering...
+
+* 6.1 Resources
+* 6.2 R packages
+* 6.3 Multiple explanatory variables
+* 6.4 Visualising one numeric and one categorical explanatory variable (scatter plots using with grouped points)
+  + 6.4.1 Grouping points by colour
+  + 6.4.2 Grouping points by shape
+  + 6.4.3 Combining grouping methods
+* 6.5 Visualising two categorical explanatory variables: (split box plots, violin plots, means and standard errors)
+  + 6.5.1 Using facets to split plots
+* 6.6 Two numeric explanatory variables: let's not think about that just yet.
+* 6.7 Other resources
+* **< WORKSHOP >**  
+\
+
+In this chapter we're simply expanding on what we learned in Chapter 5. Although as we encountered in Chapter 5, most hypotheses involve only one response variable, hypotheses may include more than one explanatory variable. To visualise these, we often simply have to add a small piece of code to the existing, familiar `ggplot` structure. This chapter shows what extra pieces of code are needed, and where you put them.  
+
+**This is where `ggplot` really comes into its own compared to base `R` graphics: it's far more complicated to reproduce the plots you'll see in this Chapter using base `R` methods!**  
+\
+
+This Chapter re-visits the **PLOTTING** part of the analytical process, once we've visualised data distributions and done any data tidying we need to.  
+\
+
+<center>
+![The analytical process and its feedbacks](www/Process_2_Plot.png){width="80%"}
+</center>  
+\  
+
+Continue to Resources...
+
+$~$
+
+***
+### **6.1 RESOURCES**
+\
+
+##### **BOOKS**
+ 
+* [_**R for Data Science**_](https://r4ds.had.co.nz/) by Garrett Grolemund and Hadley Wickham, Chapter 3, "Data visualisation".
+* For the final section on predicted values and residuals, [_Statistical Modeling: A Fresh Approach (2nd ed)_](https://dtkaplan.github.io/SM2-bookdown/) by Daniel Kaplan. Chapters 3 and 4 and sections 6.1, 7.1, 7.3 and 7.5. 
+* [_**Getting Started with R: An Introduction for Biologists (2nd ed)**_](http://r4all.org/books/gswr2/) 
+by Andrew Beckerman, Dylan Childs, and Owen Petchey, pp 79 - 82, Chapter 4, “Visualizing your data”, Chapter 4.5, "Saving your graphs for 
+presenatation, documentation, etc." and Chapter 8, "Pimping your plots: scales and themes in ggplot2". 
+\ 
+
+##### **CHEATSHEETS**
+
+* ggplot2 cheatsheet - see Resources section on blackboard or 
+download [**here**](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)  
+\ 
+
+##### **WEB LINKS**
+
+* [**ggplot2 package**](https://ggplot2.tidyverse.org/) by RStudio  
+* [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm)  
+\
+
+
+##### **ShinyGLM**
+
+As in previous chapters, we'll be using the [**ShinyGLM**](https://iainmstott.shinyapps.io/shinyglm) webapp. In this Chapter, we'll mainly be working with the _DATA VISUALISATION_ tab.  
+
+$~$
+
+***
+### **6.2 R PACKAGES**  
+
+In this Chapter we will need to use an R package we already encountered when visualising data distributions.
+
+ * `ggplot2`, is an `R` package which makes pretty pretty data visualisations.
+
+Remember that when working in RStudio, the package first needs to be installed onto your computer. Until you update `R` for the first time, this only needs to be done _once_. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+ ```
+\
+
+Remember that once a package is installed, it is available for `R` to use. But unless you tell `R` to actually _use_ the package then it won't know it needs to. Therefore you need to tell `R` to use the package each time you restart RStudio. You do this using the `library()` function.
+
+ ```{r eval=FALSE}
+library(ggplot2)
+ ```
+
+$~$
+
+***
+### **6.3 MULTIPLE EXPLANATORY VARIABLES** 
+\
+
+Hypotheses often (in fact I would say usually) involve more than one explanatory variable. It's important therefore to be able to visualise these when exploring data and evaluating results.  
+\
+
+**We will only consider a maximum of two explanatory variables in this course, but it is possible to visualise, and analyse, more than two.**
+\
+
+There are three different possible combinations of explanatory variables:
+
+* One categorical, one numeric
+* Two categorical
+* Two numeric  
+\
+
+##### **6.3.1 UNDERSTANDING HYPOTHESES WITH MULTIPLE EXPLANATORY VARIABLES**
+\
+
+Below there are three hypotheses for biological data sets. Read each hypothesis carefully and consider how the description is visualised.  
+\
+
+1. Different types of coronavirus vaccine will have different efficacies in the over-65s: RNA vaccines will have a higher efficacy in the over-65s than the under-65s whilst inactivated virus vaccines will have higher efficacy in the under-65s than the over-65s.
+* response (y) variable: vaccine efficacy
+* explanatory (x) variables
+  + age (categorical): over- or under-65
+  + vaccine type (categorical): RNA or inactivated virus vaccine  
+\
+
+2. Parasite load is always higher in barn chickens compared to free-range chickens, and increases with chicken age.
+* response (y) variable: parasite load
+* explanatory (x) variables
+  + barn vs free-range (categorical)
+  + chicken age (numeric)  
+\
+
+3. When different species of plant are subjected to increasing durations of direct sunlight, the growth of shade-loving plants decreases whilst the growth of light-loving plants increases.
+* response (y) variable: plant growth
+* explanatory (x) variables 
+  + plant type (categorical): shade- or light-loving
+  + duration of direct sunlight (numeric)  
+\
+
+$~$
+
+***
+### **6.4 VISUALISING ONE NUMERIC AND ONE CATEGORICAL EXPLANATORY VARIABLE**
+\
+
+We used `ggplot` with `geom_point()` to visualise a numeric explanatory (x) variable against a numeric response (y) variable. The best way to introduce a further categorical variable into the mix is to change the appearance of each point according to the group it belongs to.  
+\
+
+As we are introducing a new variable, we need to introduce a new _aesthetic_ with the function `aes()`. The flexibility of `ggplot` means this can be done in several different places in the code, but I like to put it in the `geom_point()` function. You may note differences between some code here and compared to the ShinyGLM app, which reflect certain flexibilities like this.   
+\
+
+##### **6.4.1 GROUPING POINTS BY COLOUR**
+\
+
+You may recall code for the simple scatter plot of reaction against eyesight from section 5.4. In order to colour the points by role, all that is needed is to put `aes(colour = role)` inside the `geom_point()` function:  
+\
+
+```{r}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point(aes(colour = role))
+scatter
+```
+\
+
+This makes it possible to see which points match which role. Only students have been to 5, 6 or 7 continents. With just the points, it's difficult to understand what this means for the relationship between eyesight and reaction. Adding a fitted line makes this clearer. This means a _**statistics**_ layer to the plot using `stat_smooth()`.  
+\
+
+A couple of notes on the code below: 
+
+* `method = "lm"` means a _straight line_ is plotted. `"lm"` stands for "linear model", which is the type of statistical model we'll be using later in the course.
+* `se = FALSE` instructs not to plot standard error margins; just the fitted line.
+* There are differences between the above code and ShinyGLM, which just reflect the flexibility of `ggplot`. They both give the same output!  
+\
+
+```{r message = FALSE}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point(aes(colour = role)) +
+    stat_smooth(method = "lm", se = FALSE)
+scatter
+```
+\
+
+The fitted line shows a shallow declining relationship overall. Therefore, short-sighted people take longer to react. But is that also the case for each individual group? By specifying the fitted lines to also be coloured by `role`, we can see this:  
+\
+
+```{r message = FALSE}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point(aes(colour = role))
+
+scatter + stat_smooth(method = "lm", se = FALSE, aes(colour = role))
+```
+\
+
+It seems `staff` and `student` are decreasing, but `person` is increasing. This is something we couldn't have known unless we visualised the data with _both_ explanatory variables.  
+
+$~$
+
+#### **< EXERCISE 1 >** Scatter plots
+_Recall the code you used to create a scatter plot with a response variable of countries and an explanatory variable of continents (Section 5.4.1, exercise 1)._
+
+* _Add to this code so that points are coloured by `role`_
+* _As with the above eyesight/reaction example, create two plots with fitted lines:_
+  + _one with an overall fitted line_
+  + _one with a different fitted line to each group_
+
+```{r ex641_1, exercise=TRUE, echo=FALSE}
+# solution from 5.4.1 exercise 1
+scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
+    geom_point(colour = "slategrey4", size = 3, shape = "+") +
+    xlab("Continents") + ylab("Countries") +
+    theme_minimal()
+
+```
+```{r ex541_1-solution}
+scatter <- ggplot(data = data, aes(x = continents, y = countries)) +
+    geom_point(aes(colour = role), size = 3, shape = "+") +
+    xlab("Continents") + ylab("Countries") +
+    theme_minimal()
+
+scatter + stat_smooth(method = "lm", se = FALSE)
+scatter + stat_smooth(method = "lm", se = FALSE, aes(colour = role))
+```
+
+$~$
+
+##### **6.4.2 GROUPING POINTS BY SHAPE**
+\
+
+To get points with a different shape, simply change the `shape` aesthetic, rather than the `colour` aesthetic:  
+\
+
+```{r message = FALSE}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point(aes(shape = role))
+
+scatter
+```
+\
+
+##### **6.4.3 COMBINING GROUPING METHODS**
+\
+
+In Section 5.6 we saw that it's possible to layer different types of plot together. Similarly, it's possible to combine different ways of defining points. We could, for example, augment our eyesight-reaction plot so that point size reflects the hearing score, just by adding `size = hearing` into the `aes` of `geom_point()`.  
+\
+
+```{r message = FALSE}
+scatter <- ggplot(data, aes(x = eyesight, y = reaction)) +
+    geom_point(aes(colour = role, size = hearing)) +
+scatter + stat_smooth(method = "lm", se = FALSE, aes(colour = role))
+```
+
+$~$
+
+***
+### **6.5 VISUALISING TWO CATEGORICAL EXPLANATORY VARIABLES**
+\
+
+Whilst we tend to _group_ points, we need to _split_ boxplots, violin plots and mean, standard error plots, as introducing a new categorical variable creates further subgroups. We use a further `ggplot` layer to do this: facets, which split a plot into subplots.  
+ 
+##### **6.5.1 USING FACETS TO SPLIT PLOTS**
+
+`facet_grid()` specifies rows and columns of subplots to create. The example below adds a line using `facet_grid()` to split the plot into subplots according to `role`. 
+
+1. Create a new data frame which omits NAs and adds a logical variable `shortsighted` which details whether the person is shortsighted or not
+2. Create a plot which shows the means and standard errors of `reaction` for each group of `shortsighted`
+\
+
+```{r message = FALSE}
+# subset data
+data2 <- data %>% 
+  na.omit() %>%
+    mutate(shortsighted = eyesight < 0)
+
+# create plot
+meanSE_plot <- ggplot(data2, aes(x = shortsighted, y = reaction)) + 
+    stat_summary(fun.data = "mean_se") +
+    theme_minimal()
+meanSE_plot
+```
+\
+
+3. Create another plot which uses `facet_grid()` to split the means and standard errors out by `role`. With the way that `ggplot` layering works, it's not necessary to create a whole new plot. We can just add the facet layer to the plot we just created!  
+\
+
+```{r}
+# plot with facet split
+meanSE_plot + facet_grid(cols = vars(role))
+```
+(I'm unsure why it's necessary to use the `vars()` function with `facet_grid()`... but it is necessary!)  
+\
+
+If we want to colour the points differently, we use the exact same appraoch as for scatter plots. We supply the plotting function (in this case `stat_summary()`) with a colour _aesthetic_. Remember it's an aesthetic because it is linked to a variable.
+\
+
+```{r}
+meanSE_plot <- ggplot(data2, aes(x = shortsighted, y = reaction)) + 
+    stat_summary(fun.data = "mean_se", aes(colour = shortsighted)) +
+    theme_minimal() +
+    facet_grid(cols = vars(role))
+meanSE_plot
+```
+
+$~$
+
+##### **BOXPLOTS AND VIOLIN PLOTS**
+\
+
+The same approaches for faceting and colouring apply to boxplots and violin plots. The same approach applies: 
+
+* `facet_grid()` creates facets
+  + use the `cols` (or `rows`) argument to create subplots in columns or rows
+  + specify the variable in the `vars()` function
+* colours are added in the `geom` functions
+  + as you're colouring according to a variable, you specify this as an _aesthetic_.  
+\
+
+Use the code above and change the aesthetics, geometry and facets to get the following plot:
+
+#### **< EXERCISE 2 >** Box plots
+_Edit the code in the exercise below to:_
+
+1. _Add a variable to `data` called `continents_fac` which is `continents` converted to a factor_
+2. _Create a box plot which..._
+  * _has `continents_fac` as its x aesthetic_
+  * _is faceted by `role`_
+  * _is coloured by `continents_fac`_
+  * _has the x axis label "Number of continents"_
+  * _has the y axis label "Number of continents"_
+\
+
+```{r ex551_2, exercise=TRUE}
+box <- ggplot(data, aes(x = , y = )) +
+    geom_boxplot() +
+    theme_minimal() + 
+    facet_grid()
+box
+```
+```{r ex551_2-solution}
+data <- data %>% mutate(continents_fac = as.factor(continents))
+
+box <- ggplot(data, aes(x = continents_fac, y = countries)) +
+    geom_boxplot(aes(colour = continents_fac)) +
+    theme_minimal() +
+    facet_grid(cols = vars(role)) +
+    xlab("Number of continents") + ylab("Number of countries")
+box
+```
+\
+
+$~$
+
+### **6.7 OTHER RESOURCES**
+\
+
+The [_**R Graph Gallery**_](https://www.r-graph-gallery.com/) has advice on how to plot gazillions of different plot types, and links to courses in programming plots.  
+\
+
+[_**Data to Viz**_](https://www.data-to-viz.com/) is BRILLIANT. It helps learn learning data visualisation, with clear decision trees for choosing the best plots to use. It helps with information on when and why to use different types of plots. It includes a bunch of caveats and pitfalls for data visualisation as well. It doesn't contain any `R` code itself, but it links to `R` code for plotting different graphs.
+
+$~$
+
+***
+##### END OF CHAPTER
+***
+
+\
